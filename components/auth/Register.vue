@@ -13,65 +13,58 @@
     <!-- image -->
 
     <div
+      class="flex w-full items-center justify-center"
       v-if="userRegister.profile_image"
-      class="flex items-center justify-center w-full h-52 mt-4 relative"
     >
-      <img
-        :src="userRegister.profile_image"
-        alt="Uploaded Image"
-        class="max-w-full 6 rounded-lg"
-      />
-      <button
-        @click="deleteImage"
-        class="absolute top-6 right-2 bg-white rounded-lg p-1"
-      >
-        <svg
-          class="w-6 h-6 text-gray-800 dark:text-red-500"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18 17.94 6M18 18 6.06 6"
-          />
-        </svg>
-      </button>
-    </div>
-
-    <div v-else class="flex items-center justify-center w-full">
-      <label
-        for="dropzone-file"
-        class="flex flex-col items-center justify-center w-full h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500"
-      >
-        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+      <div class="flex items-center justify-center w-1/3 mt-4 relative">
+        <img
+          :src="userRegister.profile_image"
+          alt="Uploaded Image"
+          class="max-w-full 6 rounded-lg"
+        />
+        <button @click="deleteImage" class="trasg_btn">
           <svg
-            class="w-8 h-8 mb-4 text-gray-500"
+            class="w-6 h-6 text-gray-800 dark:text-red-500"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
             fill="none"
-            viewBox="0 0 20 16"
+            viewBox="0 0 24 24"
           >
             <path
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+              d="M6 18 17.94 6M18 18 6.06 6"
             />
           </svg>
-          <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-            <span class="font-semibold">Click to upload</span> or drag and drop
-          </p>
-          <p class="text-xs text-gray-500 dark:text-gray-400">
-            SVG, PNG, JPG or GIF (MAX. 800x400px)
-          </p>
+        </button>
+      </div>
+    </div>
+
+    <div v-else class="flex items-center justify-center w-full">
+      <label
+        for="dropzone-file"
+        class="flex flex-col items-center justify-center w-1/5 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-5000 dark:hover:bg-bray-800 dark:border-gray-600 dark:hover:border-white 0 dark:bg-slate-600"
+      >
+        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.5 4.586A2 2 0 0 1 8.914 4h6.172a2 2 0 0 1 1.414.586L17.914 6H19a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1.086L7.5 4.586ZM10 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"
+              clip-rule="evenodd"
+            />
+          </svg>
         </div>
         <input
           id="dropzone-file"
