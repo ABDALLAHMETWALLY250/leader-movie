@@ -1,0 +1,18 @@
+@import url("./authStyles/_register.scss");
+@import url("./responsiveStyle/_mobile.scss");
+@import url("./responsiveStyle/_tablets.scss");
+@import url("./responsiveStyle/_labTobs.scss");
+@import url("./responsiveStyle/_deskTop.scss");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}/*# sourceMappingURL=style.css.map */

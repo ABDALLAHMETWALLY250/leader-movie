@@ -1,0 +1,16 @@
+@media screen and (max-width: 767px) {
+    .sm-none {
+        display: none;
+    }
+    .sm-flex-col {
+        display: flex;
+        flex-direction: column;
+    }
+    .register {
+        height: 100vh;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-direction: column;
+    }
+}

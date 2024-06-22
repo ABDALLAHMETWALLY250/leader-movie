@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+// auth styles
+@import url("./authStyles/_register.scss");
+// auth styles
+
+// responsive
+
+// mobile
+@import url("./responsiveStyle/_mobile.scss");
+// mobile
+
+// tablets
+@import url("./responsiveStyle/_tablets.scss");
+// tablets
+
+// labTobs
+@import url("./responsiveStyle/_labTobs.scss");
+// labTobs
+// desktop
+
+@import url("./responsiveStyle/_deskTop.scss");
+// desktop
+
+// responsive
