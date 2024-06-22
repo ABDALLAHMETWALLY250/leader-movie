@@ -47,6 +47,8 @@ export const useRegisterStore = defineStore("register", {
         if (data.value) {
           console.log("Register done", data.value);
           alert("Register done");
+          localStorage.setItem("user", data?.value?.user);
+          // useCookies().set("user", data?.value?.user);
         } else {
           alert("Register failed");
         }
