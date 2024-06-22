@@ -14,16 +14,16 @@
 
     <div
       v-if="userRegister.profile_image"
-      class="flex items-center justify-center w-full mt-4 relative"
+      class="flex items-center justify-center w-full h-52 mt-4 relative"
     >
       <img
         :src="userRegister.profile_image"
         alt="Uploaded Image"
-        class="max-w-full h-2/6 rounded-lg"
+        class="max-w-full 6 rounded-lg"
       />
       <button
         @click="deleteImage"
-        class="absolute top-2 right-2 bg-white rounded-lg p-1"
+        class="absolute top-6 right-2 bg-white rounded-lg p-1"
       >
         <svg
           class="w-6 h-6 text-gray-800 dark:text-red-500"
