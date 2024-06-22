@@ -12,17 +12,17 @@
 
     <!-- image -->
 
-    <div class="relative" v-if="userRegister.profile_image">
+    <div
+      class="relative flex items-center justify-center"
+      v-if="userRegister.profile_image"
+    >
       <img
         :src="userRegister.profile_image"
         alt="Uploaded Image"
-        class="max-w-full 6 rounded-lg"
+        class="w-20 h-20 rounded-full"
       />
 
-      <button
-        @click="deleteImage"
-        class="top-0 right-7 absolute w-3.5 h-3.5 rounded-full"
-      >
+      <button @click="deleteImage" class="rounded-full trasg_btn">
         <svg
           class="w-6 h-6 text-gray-800 dark:text-red-500"
           aria-hidden="true"

@@ -30,6 +30,7 @@
             text-transform: capitalize;
         }
     }
+
     .trasg_btn {
         border: none;
         background-color: white;
@@ -37,5 +38,9 @@
         outline: none;
         padding: 0.1rem;
         border-radius: 50%;
+        position: absolute;
+        top: 0;
+        right: 45%;
+        border: 1px solid #000;
     }
 }
