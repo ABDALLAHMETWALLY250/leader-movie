@@ -12,16 +12,15 @@
 
     <!-- image -->
 
-    <div
-      class="flex w-full items-center justify-center"
-      v-if="userRegister.profile_image"
-    >
-      <div class="flex items-center justify-center w-1/3 mt-4 relative">
-        <img
-          :src="userRegister.profile_image"
-          alt="Uploaded Image"
-          class="max-w-full 6 rounded-lg"
-        />
+    <div class="relative" v-if="userRegister.profile_image">
+      <img
+        :src="userRegister.profile_image"
+        alt="Uploaded Image"
+        class="max-w-full 6 rounded-lg"
+      />
+      <span
+        class="top-0 right-7 absolute w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"
+      >
         <button @click="deleteImage" class="trasg_btn">
           <svg
             class="w-6 h-6 text-gray-800 dark:text-red-500"
@@ -39,9 +38,8 @@
               stroke-width="2"
               d="M6 18 17.94 6M18 18 6.06 6"
             />
-          </svg>
-        </button>
-      </div>
+          </svg></button
+      ></span>
     </div>
 
     <div v-else class="flex items-center justify-center w-full">
