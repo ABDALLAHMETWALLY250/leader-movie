@@ -1,5 +1,10 @@
 <template>
   <form class="container mx-auto px-11">
+    <div class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none">
+      <h4 class="text-2xl font-bold text-gray-800 capitalize">
+        Welcome in Leader movie
+      </h4>
+    </div>
     <div
       v-if="userRegister.profile_image"
       class="flex items-center justify-center w-full mt-4"
@@ -150,11 +155,11 @@
 <script lang="ts"setup>
 import { useRegisterStore } from "../../stores/auth/register";
 const userRegister = ref({
-  name: "",
-  email: "",
-  password: "",
   username: "",
+  password: "",
+  email: "",
   phone: "",
+  name: "",
   profile_image: "",
 });
 

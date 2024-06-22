@@ -1,16 +1,17 @@
-interface Register {
-  (
-    name: string,
-    email: string,
-    password: string,
-    usename: string,
-    phone: string,
-    profile_image: string
-  ): Promise<void>;
+// Define the Register interface correctly
+interface RegisterParams {
+  username: string;
+  password: string;
+  email: string;
+  phone: string;
+  name: string;
+  profile_image: string;
 }
 
 export const useRegisterStore = defineStore("register", {
-  state: () => ({}),
+  state: () => ({
+    loading: false,
+  }),
   actions: {
     async authenticateUserRegister({
       username,
@@ -19,33 +20,41 @@ export const useRegisterStore = defineStore("register", {
       phone,
       name,
       profile_image,
-    }: Register) {
-      // useFetch from nuxt 3
-      const { data, pending }: any = await useFetch(
-        "https://tarmeezacademy.com/api/v1/register",
-        {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: {
-            username,
-            password,
-            email,
-            phone,
-            name,
-            profile_image,
-          },
-        }
-      );
-      this.loading = pending;
+    }: RegisterParams) {
+      try {
+        const { data, pending, error } = await useFetch(
+          "https://tarmeezacademy.com/api/v1/register",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              username,
+              password,
+              email,
+              phone,
+              name,
+              profile_image,
+            }),
+          }
+        );
 
-      if (data.value) {
-        // const token = useCookie("token"); // useCookie new hook in nuxt 3
-        // token.value = data?.value?.token; // set token to cookie
-        // this.authenticated = true; // set authenticated  state value to true
-        console.log("register done", data.value);
-        alert("register done");
-      } else {
-        alert("register failed");
+        this.loading = pending.value;
+
+        if (error.value) {
+          throw new Error(error.value.message);
+        }
+
+        if (data.value) {
+          console.log("Register done", data.value);
+          alert("Register done");
+        } else {
+          alert("Register failed");
+        }
+      } catch (err) {
+        console.error("Registration error:", err);
+        alert("Register failed");
+      } finally {
+        this.loading = false;
       }
     },
   },
