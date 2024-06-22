@@ -1,25 +1,54 @@
 <template>
-  <form class="container mx-auto px-11">
-    <div class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none">
+  <form class="container mx-auto px-8 py-3">
+    <!-- header -->
+    <div
+      class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none"
+    >
       <h4 class="text-2xl font-bold text-gray-800 capitalize">
         Welcome in Leader movie
       </h4>
     </div>
+    <!-- header -->
+
+    <!-- image -->
+
     <div
       v-if="userRegister.profile_image"
-      class="flex items-center justify-center w-full mt-4"
+      class="flex items-center justify-center w-full mt-4 relative"
     >
       <img
         :src="userRegister.profile_image"
         alt="Uploaded Image"
-        class="max-w-full h-auto rounded-lg"
+        class="max-w-full h-2/6 rounded-lg"
       />
+      <button
+        @click="deleteImage"
+        class="absolute top-2 right-2 bg-white rounded-lg p-1"
+      >
+        <svg
+          class="w-6 h-6 text-gray-800 dark:text-red-500"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18 17.94 6M18 18 6.06 6"
+          />
+        </svg>
+      </button>
     </div>
 
     <div v-else class="flex items-center justify-center w-full">
       <label
         for="dropzone-file"
-        class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500"
+        class="flex flex-col items-center justify-center w-full h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500"
       >
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
           <svg
@@ -54,7 +83,9 @@
         />
       </label>
     </div>
+    <!-- image -->
 
+    <!-- email & password -->
     <div class="flex w-full gap-5 mt-4 sm-flex-col">
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -89,7 +120,9 @@
         >
       </div>
     </div>
+    <!-- email & password -->
 
+    <!-- username & name -->
     <div class="grid md:grid-cols-2 md:gap-6">
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -124,6 +157,9 @@
         >
       </div>
     </div>
+    <!-- username & name -->
+
+    <!-- phone -->
     <div class="grid">
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -142,10 +178,12 @@
         >
       </div>
     </div>
+    <!-- phone -->
+
     <button
       type="submit"
       @click.prevent="rewgister"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:border-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     >
       Submit
     </button>
@@ -170,12 +208,17 @@ const onFileChange = (event?: any) => {
   if (file) {
     const reader = new FileReader();
     reader.onload = (e) => {
-      userRegister.value.profile_image = e.target?.result;
+      if (typeof e.target?.result === "string") {
+        userRegister.value.profile_image = e.target.result;
+      }
     };
     reader.readAsDataURL(file);
   }
 };
 
+const deleteImage = () => {
+  userRegister.value.profile_image = "";
+};
 const rewgister = () => {
   registerStore.authenticateUserRegister(userRegister.value);
 };
