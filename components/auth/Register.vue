@@ -13,37 +13,6 @@
     <!-- image -->
 
     <div
-      class="relative flex items-center justify-center lb-none dk-none md-none tb-none"
-      v-if="userRegister.profile_image"
-    >
-      <img
-        :src="userRegister.profile_image"
-        alt="Uploaded Image"
-        class="w-20 h-20 rounded-full"
-      />
-
-      <button @click="deleteImage" class="rounded-full trasg_btn">
-        <svg
-          class="w-6 h-6 text-gray-800 dark:text-red-500"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18 17.94 6M18 18 6.06 6"
-          />
-        </svg>
-      </button>
-    </div>
-
-    <div
       class="relative flex items-center justify-center"
       v-if="userRegister.profile_image"
     >
@@ -73,7 +42,7 @@
         </svg>
       </button>
     </div>
-    
+
     <div v-else class="flex items-center justify-center w-full">
       <label
         for="dropzone-file"
