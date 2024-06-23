@@ -192,6 +192,7 @@
 
 <script lang="ts"setup>
 import { useRegisterStore } from "../../stores/auth/register";
+
 const userRegister = ref({
   username: "",
   password: "",
