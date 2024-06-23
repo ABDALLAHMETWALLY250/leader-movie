@@ -1,25 +1,33 @@
 <template>
   <form class="container mx-auto px-8 py-3">
-    <!-- header -->
     <div
-      class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none"
+      class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none sm-none"
     >
-      <h4 class="text-2xl font-bold text-gray-800 capitalize">
+      <h4 class="text-2xl font-bold capitalize mb-5 text-center">
         Welcome in Leader movie
       </h4>
     </div>
+
+    <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-2xl font-bold mb-3">
+      Register
+    </h5>
+    <span class="text-gray-500 capitalize">
+      please enter your information
+    </span>
+    <!-- header -->
+
     <!-- header -->
 
     <!-- image -->
 
     <div
-      class="relative flex items-center justify-center"
+      class="relative flex items-center justify-center my-5"
       v-if="userRegister.profile_image"
     >
       <img
         :src="userRegister.profile_image"
         alt="Uploaded Image"
-        class="w-20 h-20 rounded-full"
+        class="w-32 h-32 rounded-full"
       />
 
       <button @click="deleteImage" class="rounded-full trasg_btn">
@@ -43,10 +51,10 @@
       </button>
     </div>
 
-    <div v-else class="flex items-center justify-center w-full">
+    <div v-else class="flex items-center justify-center w-full my-5">
       <label
         for="dropzone-file"
-        class="flex flex-col items-center justify-center w-1/5 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-5000 dark:hover:bg-bray-800 dark:border-gray-600 dark:hover:border-white 0 dark:bg-slate-600"
+        class="flex flex-col items-center justify-center px-12 py-6 border-2 border-gray-300 border-dashed rounded-full cursor-pointer bg-gray-5000 dark:hover:bg-bray-800 dark:border-gray-600 dark:hover:border-white 0 dark:bg-slate-600"
       >
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
           <svg
@@ -78,7 +86,7 @@
     <!-- image -->
 
     <!-- email & password -->
-    <div class="flex w-full gap-5 mt-4 sm-flex-col">
+    <div class="flex w-full mt-4 sm-flex-col flex-col">
       <div class="relative z-0 w-full mb-5 group">
         <input
           type="email"
@@ -115,7 +123,7 @@
     <!-- email & password -->
 
     <!-- username & name -->
-    <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="grid md:grid-cols-1">
       <div class="relative z-0 w-full mb-5 group">
         <input
           type="text"
@@ -166,8 +174,8 @@
         <label
           for="floating_phone"
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >Phone number (123-456-7890)</label
-        >
+          >Phone number
+        </label>
       </div>
     </div>
     <!-- phone -->
@@ -175,7 +183,7 @@
     <button
       type="submit"
       @click.prevent="rewgister"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:border-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:border-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
     >
       Submit
     </button>
@@ -184,6 +192,7 @@
 
 <script lang="ts"setup>
 import { useRegisterStore } from "../../stores/auth/register";
+
 const userRegister = ref({
   username: "",
   password: "",
