@@ -1,5 +1,11 @@
 <template>
   <form class="container mx-auto px-11">
+    <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
+      Login
+    </h5>
+    <span class="text-gray-500 capitalize">
+      please enter your information to login
+    </span>
     <div class="relative z-0 w-full mb-5 group">
       <input
         type="email"
@@ -15,7 +21,7 @@
         >Email address</label
       >
     </div>
-    
+
     <div class="relative z-0 w-full mb-5 group">
       <input
         type="password"
@@ -34,7 +40,7 @@
 
     <button
       type="submit"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     >
       Submit
     </button>
