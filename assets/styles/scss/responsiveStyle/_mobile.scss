@@ -8,11 +8,33 @@
         gap: unset;
     }
     .register {
-        // height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        // margin: 3rem 0;
+        .image {
+            height: 8rem;
+        }
+        .description {
+            margin-block: -2.5rem;
+            position: absolute;
+            padding: 0 1.2rem;
+            h4 {
+                color: black;
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-transform: capitalize;
+            }
+            span {
+                color: rgb(160, 154, 154);
+                font-size: 0.9rem;
+            }
+        }
+        form {
+            margin-block: 7rem;
+        }
+        .circle {
+            border-radius: 50%;
+            background-color: white;
+            filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
+            padding: 1.8rem;
+            width: 10%;
+        }
     }
 }

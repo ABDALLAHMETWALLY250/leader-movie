@@ -1,18 +1,18 @@
 <template>
   <form class="container mx-auto px-8 py-3">
-    <div class="flex w-full items-center justify-center py-3">
-      <div class="logo">
-        <img src="~/assets/images/46131050.jpg" />
-      </div>
-    </div>
+      <!-- <div class="flex w-full items-center justify-center py-3">
+        <div class="logo">
+          <img src="~/assets/images/46131050.jpg" />
+        </div>
+      </div> -->
 
-    <div
-      class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none sm-none"
+    <!-- <div
+      class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none "
     >
       <h4 class="text-2xl font-bold capitalize mb-5 text-center">
         Welcome in Leader movie
       </h4>
-    </div>
+    </div> -->
 
     <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
       Register
@@ -30,7 +30,7 @@
       <img
         :src="userRegister.profile_image"
         alt="Uploaded Image"
-        class="w-32 h-32 rounded-full"
+        class="w-32 h-32 rounded-full object-cover"
       />
 
       <button @click="deleteImage" class="rounded-full trasg_btn">
