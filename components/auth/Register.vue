@@ -190,6 +190,15 @@
     >
       Submit
     </button>
+
+    <p class="text-sm font-light text-gray-500 dark:text-gray-400 mt-4 text-center">
+      Already have an account?
+      <NuxtLink
+        to="/auth/login"
+        class="font-medium text-blue-600 hover:underline dark:text-blue-500"
+        >Login here</NuxtLink
+      >
+    </p>
   </form>
 </template>
 
