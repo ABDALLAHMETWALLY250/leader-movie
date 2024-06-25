@@ -1,19 +1,5 @@
 <template>
   <form class="container mx-auto px-8 py-3">
-      <!-- <div class="flex w-full items-center justify-center py-3">
-        <div class="logo">
-          <img src="~/assets/images/46131050.jpg" />
-        </div>
-      </div> -->
-
-    <!-- <div
-      class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none "
-    >
-      <h4 class="text-2xl font-bold capitalize mb-5 text-center">
-        Welcome in Leader movie
-      </h4>
-    </div> -->
-
     <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
       Register
     </h5>
@@ -22,7 +8,6 @@
     </span>
 
     <!-- image -->
-
     <div
       class="relative flex items-center justify-center my-5"
       v-if="userRegister.profile_image"

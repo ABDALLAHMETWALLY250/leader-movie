@@ -37,25 +37,12 @@
             .circle {
                 border-radius: 50%;
                 background-color: white;
-                padding: 1.8rem;
+                padding: 2rem;
                 width: 10%;
             }
         }
     }
-    // .logo {
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     height: 25vh;
-    //     width: 30%;
-    //     margin: 4rem 0 0 0;
-    //     img {
-    //         clip-path: circle(50.5% at 56% 43%);
-    //         width: 100%;
-    //         object-fit: cover;
-    //         height: 100%;
-    //     }
-    // }
+
     .trasg_btn {
         border: none;
         background-color: white;
@@ -68,5 +55,4 @@
         right: 45%;
         border: 1px solid #000;
     }
-   
 }
