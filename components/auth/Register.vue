@@ -1,19 +1,5 @@
 <template>
   <form class="container mx-auto px-8 py-3">
-    <div class="flex w-full items-center justify-center py-3">
-      <div class="logo">
-        <img src="~/assets/images/46131050.jpg" />
-      </div>
-    </div>
-
-    <div
-      class="header-register w-full text-center my-5 dk-none md-none lb-none tb-none sm-none"
-    >
-      <h4 class="text-2xl font-bold capitalize mb-5 text-center">
-        Welcome in Leader movie
-      </h4>
-    </div>
-
     <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
       Register
     </h5>
@@ -22,7 +8,6 @@
     </span>
 
     <!-- image -->
-
     <div
       class="relative flex items-center justify-center my-5"
       v-if="userRegister.profile_image"
@@ -30,7 +15,7 @@
       <img
         :src="userRegister.profile_image"
         alt="Uploaded Image"
-        class="w-32 h-32 rounded-full"
+        class="w-32 h-32 rounded-full object-cover"
       />
 
       <button @click="deleteImage" class="rounded-full trasg_btn">
@@ -105,6 +90,9 @@
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Email address</label
         >
+        <span v-if="errors.email" class="text-red-500 text-sm">{{
+          errors.email
+        }}</span>
       </div>
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -118,9 +106,12 @@
         />
         <label
           for="floating_password"
-          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Password</label
         >
+        <span v-if="errors.password" class="text-red-500 text-sm">{{
+          errors.password
+        }}</span>
       </div>
     </div>
     <!-- email & password -->
@@ -142,6 +133,9 @@
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >User Name</label
         >
+        <span v-if="errors.username" class="text-red-500 text-sm">{{
+          errors.username
+        }}</span>
       </div>
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -158,6 +152,9 @@
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Name</label
         >
+        <span v-if="errors.name" class="text-red-500 text-sm">{{
+          errors.name
+        }}</span>
       </div>
     </div>
     <!-- username & name -->
@@ -176,9 +173,12 @@
         />
         <label
           for="floating_phone"
-          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Phone number
         </label>
+        <span v-if="errors.phone" class="text-red-500 text-sm">{{
+          errors.phone
+        }}</span>
       </div>
     </div>
     <!-- phone -->
@@ -193,7 +193,7 @@
   </form>
 </template>
 
-<script lang="ts"setup>
+<script lang="ts" setup>
 import { useRegisterStore } from "../../stores/auth/register";
 
 const userRegister = ref({
@@ -205,7 +205,29 @@ const userRegister = ref({
   profile_image: "",
 });
 
+const errors = reactive({
+  username: "",
+  password: "",
+  email: "",
+  phone: "",
+  name: "",
+});
+
 const registerStore = useRegisterStore();
+
+const validateInputs = () => {
+  errors.username = userRegister.value.username ? "" : "Username is required.";
+  errors.password = userRegister.value.password ? "" : "Password is required.";
+  errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userRegister.value.email)
+    ? ""
+    : "Valid email is required.";
+  errors.phone = /^\d+$/.test(userRegister.value.phone)
+    ? ""
+    : "Valid phone number is required.";
+  errors.name = userRegister.value.name ? "" : "Name is required.";
+
+  return !Object.values(errors).some((error) => error !== "");
+};
 
 const onFileChange = (event?: any) => {
   const file = event.target.files[0];
@@ -223,9 +245,10 @@ const onFileChange = (event?: any) => {
 const deleteImage = () => {
   userRegister.value.profile_image = "";
 };
+
 const rewgister = () => {
-  registerStore.authenticateUserRegister(userRegister.value);
+  if (validateInputs()) {
+    registerStore.authenticateUserRegister(userRegister.value);
+  }
 };
 </script>
-
-
