@@ -55,6 +55,18 @@
     >
       Submit
     </button>
+
+    <!-- if you not have account -->
+    <p
+      class="text-sm font-light text-gray-500 dark:text-gray-400 mt-4 text-center"
+    >
+      not have account
+      <NuxtLink
+        to="/auth/register"
+        class="font-medium text-blue-600 hover:underline dark:text-blue-500"
+        >Reguster here</NuxtLink
+      >
+    </p>
   </form>
 </template>
 
