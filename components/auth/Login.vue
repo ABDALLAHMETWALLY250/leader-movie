@@ -10,7 +10,7 @@
     <!-- username Input -->
     <div class="relative z-0 w-full mb-5 xl:mt-20 lg:mt-20 md:mt-20 group">
       <input
-        type="username"
+        type="text"
         name="floating_username"
         id="floating_username"
         v-model="userLogin.username"
@@ -86,9 +86,7 @@ const errors = reactive({
 });
 
 const validateInputs = () => {
-  errors.username = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userLogin.username)
-    ? ""
-    : "Valid username is required.";
+  errors.username = userLogin.username ? "" : "Valid username is required.";
   errors.password = userLogin.password ? "" : "Password is required.";
   return !Object.values(errors).some((error) => error !== "");
 };
