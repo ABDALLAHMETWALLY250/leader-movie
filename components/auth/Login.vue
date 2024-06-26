@@ -7,24 +7,24 @@
       Please enter your information to login
     </span>
 
-    <!-- Email Input -->
+    <!-- username Input -->
     <div class="relative z-0 w-full mb-5 xl:mt-20 lg:mt-20 md:mt-20 group">
       <input
-        type="email"
-        name="floating_email"
-        id="floating_email"
-        v-model="userLogin.email"
+        type="username"
+        name="floating_username"
+        id="floating_username"
+        v-model="userLogin.username"
         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         placeholder=" "
         required
       />
       <label
-        for="floating_email"
+        for="floating_username"
         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Email address</label
+        >username address</label
       >
-      <span v-if="errors.email" class="text-red-500 text-sm">{{
-        errors.email
+      <span v-if="errors.username" class="text-red-500 text-sm">{{
+        errors.username
       }}</span>
     </div>
 
@@ -76,19 +76,19 @@ import { useAuthStore } from "../../stores/auth/login";
 const loginStore = useAuthStore();
 
 const userLogin = reactive({
-  email: "",
+  username: "",
   password: "",
 });
 
 const errors = reactive({
-  email: "",
+  username: "",
   password: "",
 });
 
 const validateInputs = () => {
-  errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userLogin.email)
+  errors.username = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userLogin.username)
     ? ""
-    : "Valid email is required.";
+    : "Valid username is required.";
   errors.password = userLogin.password ? "" : "Password is required.";
   return !Object.values(errors).some((error) => error !== "");
 };
