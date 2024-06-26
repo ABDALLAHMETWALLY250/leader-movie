@@ -1,6 +1,7 @@
 interface UserPayloadInterface {
   username: string;
   password: string;
+  email: string;
 }
 
 export const useAuthStore = defineStore("auth", {
@@ -9,12 +10,13 @@ export const useAuthStore = defineStore("auth", {
     loading: false,
   }),
   actions: {
-    async authenticateUser({ username, password }: UserPayloadInterface) {
+    async authenticateUser({
+      username,
+      password,
+      email,
+    }: UserPayloadInterface) {
       // useFetch from nuxt 3
-      const formData = new FormData();
 
-      formData.append("username", username);
-      formData.append("password", password);
       const { data, pending }: any = await useFetch(
         "https://tarmeezacademy.com/api/v1/login",
         {
@@ -23,6 +25,7 @@ export const useAuthStore = defineStore("auth", {
           body: {
             username,
             password,
+            email,
           },
         }
       );

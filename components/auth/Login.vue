@@ -48,6 +48,25 @@
         errors.password
       }}</span>
     </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="email"
+        name="email"
+        id="email"
+        v-model="userLogin.email"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="email"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Email</label
+      >
+      <span v-if="errors.email" class="text-red-500 text-sm">{{
+        errors.email
+      }}</span>
+    </div>
 
     <button
       type="submit"
@@ -78,15 +97,20 @@ const loginStore = useAuthStore();
 const userLogin = reactive({
   username: "",
   password: "",
+  email: "",
 });
 
 const errors = reactive({
   username: "",
   password: "",
+  email: "",
 });
 
 const validateInputs = () => {
   errors.username = userLogin.username ? "" : "Valid username is required.";
+  errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userLogin.email)
+    ? ""
+    : "Valid email is required.";
   errors.password = userLogin.password ? "" : "Password is required.";
   return !Object.values(errors).some((error) => error !== "");
 };
