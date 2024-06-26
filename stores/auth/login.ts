@@ -36,6 +36,7 @@ export const useAuthStore = defineStore("auth", {
         token.value = data?.value?.token; // set token to cookie
         this.authenticated = true; // set authenticated  state value to true
         alert("Login done");
+        navigateTo('/')
       }
     },
     logUserOut() {
