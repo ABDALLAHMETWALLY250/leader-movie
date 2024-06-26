@@ -14,7 +14,9 @@
 </template>
 <script setup>
 import { useCountStore } from "../stores/count";
-
+definePageMeta({
+  middleware: "auth", // this should match the name of the file inside the middleware directory
+});
 const countStore = useCountStore();
 </script>
 <style lang="">
