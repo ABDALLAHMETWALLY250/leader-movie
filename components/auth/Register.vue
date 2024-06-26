@@ -1,19 +1,19 @@
 <template>
-  <form class="container mx-auto px-8 py-3">
+  <form @submit.prevent="register" class="container mx-auto px-8 py-3">
     <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
       Register
     </h5>
     <span class="text-gray-500 capitalize">
-      please enter your information
+      Please enter your information
     </span>
 
     <!-- image -->
     <div
       class="relative flex items-center justify-center my-5"
-      v-if="userRegister.profile_image"
+      v-if="userRegister.profile_image_url"
     >
       <img
-        :src="userRegister.profile_image"
+        :src="userRegister.profile_image_url"
         alt="Uploaded Image"
         class="w-32 h-32 rounded-full object-cover"
       />
@@ -87,7 +87,7 @@
         />
         <label
           for="floating_email"
-          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Email address</label
         >
         <span v-if="errors.email" class="text-red-500 text-sm">{{
@@ -174,8 +174,8 @@
         <label
           for="floating_phone"
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >Phone number
-        </label>
+          >Phone number</label
+        >
         <span v-if="errors.phone" class="text-red-500 text-sm">{{
           errors.phone
         }}</span>
@@ -185,13 +185,14 @@
 
     <button
       type="submit"
-      @click.prevent="rewgister"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:border-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
     >
       Submit
     </button>
 
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400 mt-4 text-center">
+    <p
+      class="text-sm font-light text-gray-500 dark:text-gray-400 mt-4 text-center"
+    >
       Already have an account?
       <NuxtLink
         to="/auth/login"
@@ -211,7 +212,8 @@ const userRegister = ref({
   email: "",
   phone: "",
   name: "",
-  profile_image: "",
+  profile_image: null as File | null,
+  profile_image_url: "",
 });
 
 const errors = reactive({
@@ -241,10 +243,11 @@ const validateInputs = () => {
 const onFileChange = (event?: any) => {
   const file = event.target.files[0];
   if (file) {
+    userRegister.value.profile_image = file;
     const reader = new FileReader();
     reader.onload = (e) => {
       if (typeof e.target?.result === "string") {
-        userRegister.value.profile_image = e.target.result;
+        userRegister.value.profile_image_url = e.target.result;
       }
     };
     reader.readAsDataURL(file);
@@ -252,12 +255,20 @@ const onFileChange = (event?: any) => {
 };
 
 const deleteImage = () => {
-  userRegister.value.profile_image = "";
+  userRegister.value.profile_image = null;
+  userRegister.value.profile_image_url = "";
 };
 
-const rewgister = () => {
+const register = async () => {
   if (validateInputs()) {
-    registerStore.authenticateUserRegister(userRegister.value);
+    await registerStore.authenticateUserRegister({
+      username: userRegister.value.username,
+      password: userRegister.value.password,
+      email: userRegister.value.email,
+      phone: userRegister.value.phone,
+      name: userRegister.value.name,
+      profile_image: userRegister.value.profile_image,
+    });
   }
 };
 </script>

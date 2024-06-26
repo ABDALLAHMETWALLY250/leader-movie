@@ -7,10 +7,12 @@
       <div class="image">
         <img
           src="https://tse1.mm.bing.net/th?id=OIG1.6yegaAA1pehQF3sDAPs1&pid=ImgGn"
-          alt=""
+          alt="image register"
         />
         <div class="description sm-none">
-          <div class="circle"></div>
+          <div class="circle">
+            <img src="~/assets/images/logo.png" alt="Logo" />
+          </div>
           <h4>Welcome in Leader movie</h4>
           <span class="text-gray-500"
             >Discover the latest reviews, news, and exclusive content on
@@ -19,7 +21,9 @@
         </div>
       </div>
       <div class="description lb-none dk-none tb-none">
-        <div class="circle"></div>
+        <div class="circle">
+          <img src="~/assets/images/logo.png" alt="Logo" />
+        </div>
         <h4>Welcome in Leader movie</h4>
         <span class="text-gray-500"
           >Discover the latest reviews, news, and exclusive content on

@@ -1,11 +1,10 @@
-// Define the Register interface correctly
 interface RegisterParams {
   username: string;
   password: string;
   email: string;
   phone: string;
   name: string;
-  profile_image: string;
+  profile_image: File | null;
 }
 
 export const useRegisterStore = defineStore("register", {
@@ -22,19 +21,23 @@ export const useRegisterStore = defineStore("register", {
       profile_image,
     }: RegisterParams) {
       try {
+        this.loading = true;
+
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
+        formData.append("email", email);
+        formData.append("phone", phone);
+        formData.append("name", name);
+        if (profile_image) {
+          formData.append("profile_image", profile_image);
+        }
+
         const { data, pending, error } = await useFetch(
           "https://tarmeezacademy.com/api/v1/register",
           {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              username,
-              password,
-              email,
-              phone,
-              name,
-              profile_image,
-            }),
+            body: formData,
           }
         );
 
@@ -48,7 +51,6 @@ export const useRegisterStore = defineStore("register", {
           console.log("Register done", data.value);
           alert("Register done");
           localStorage.setItem("user", JSON.stringify(data.value?.user));
-          // useCookies().set("user", data?.value?.user);
         } else {
           alert("Register failed");
         }
