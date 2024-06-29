@@ -1,11 +1,9 @@
 <template>
-  <form @submit.prevent="register" class="container mx-auto px-8 py-3">
+  <form @submit.prevent="register" class="container mx-auto px-8 py-3 relative">
     <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
       Register
     </h5>
-    <span class="text-gray-500 capitalize">
-      Please enter your information
-    </span>
+    <span class="text-gray-500 capitalize">Please enter your information</span>
 
     <!-- image -->
     <div
@@ -18,7 +16,11 @@
         class="w-32 h-32 rounded-full object-cover"
       />
 
-      <button @click="deleteImage" class="rounded-full trasg_btn">
+      <button
+        @click="deleteImage"
+        class="rounded-full trasg_btn"
+        title="Delete Image"
+      >
         <svg
           class="w-6 h-6 text-gray-800 dark:text-red-500"
           aria-hidden="true"
@@ -81,18 +83,23 @@
           name="floating_email"
           id="floating_email"
           v-model="userRegister.email"
+          @blur="validateEmail"
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           placeholder=" "
           required
+          aria-label="Email address"
         />
         <label
           for="floating_email"
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Email address</label
         >
-        <span v-if="errors.email" class="text-red-500 text-sm">{{
-          errors.email
-        }}</span>
+        <span
+          v-if="errors.email"
+          class="text-red-500 text-sm"
+          aria-live="polite"
+          >{{ errors.email }}</span
+        >
       </div>
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -100,18 +107,23 @@
           name="floating_password"
           id="floating_password"
           v-model="userRegister.password"
+          @blur="validatePassword"
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           placeholder=" "
           required
+          aria-label="Password"
         />
         <label
           for="floating_password"
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Password</label
         >
-        <span v-if="errors.password" class="text-red-500 text-sm">{{
-          errors.password
-        }}</span>
+        <span
+          v-if="errors.password"
+          class="text-red-500 text-sm"
+          aria-live="polite"
+          >{{ errors.password }}</span
+        >
       </div>
     </div>
     <!-- email & password -->
@@ -124,18 +136,23 @@
           name="floating_username"
           id="floating_username"
           v-model="userRegister.username"
+          @blur="validateUsername"
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           placeholder=" "
           required
+          aria-label="User Name"
         />
         <label
           for="floating_username"
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >User Name</label
         >
-        <span v-if="errors.username" class="text-red-500 text-sm">{{
-          errors.username
-        }}</span>
+        <span
+          v-if="errors.username"
+          class="text-red-500 text-sm"
+          aria-live="polite"
+          >{{ errors.username }}</span
+        >
       </div>
       <div class="relative z-0 w-full mb-5 group">
         <input
@@ -143,18 +160,23 @@
           name="floating_name"
           id="floating_name"
           v-model="userRegister.name"
+          @blur="validateName"
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           placeholder=" "
           required
+          aria-label="Name"
         />
         <label
           for="floating_name"
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Name</label
         >
-        <span v-if="errors.name" class="text-red-500 text-sm">{{
-          errors.name
-        }}</span>
+        <span
+          v-if="errors.name"
+          class="text-red-500 text-sm"
+          aria-live="polite"
+          >{{ errors.name }}</span
+        >
       </div>
     </div>
     <!-- username & name -->
@@ -167,18 +189,23 @@
           name="floating_phone"
           id="floating_phone"
           v-model="userRegister.phone"
+          @blur="validatePhone"
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           placeholder=" "
           required
+          aria-label="Phone number"
         />
         <label
           for="floating_phone"
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >Phone number</label
         >
-        <span v-if="errors.phone" class="text-red-500 text-sm">{{
-          errors.phone
-        }}</span>
+        <span
+          v-if="errors.phone"
+          class="text-red-500 text-sm"
+          aria-live="polite"
+          >{{ errors.phone }}</span
+        >
       </div>
     </div>
     <!-- phone -->
@@ -201,6 +228,7 @@
       >
     </p>
   </form>
+  <Toast v-if="toast"> Register Success </Toast>
 </template>
 
 <script lang="ts" setup>
@@ -224,20 +252,47 @@ const errors = reactive({
   name: "",
 });
 
+const toast = ref(false);
+
 const registerStore = useRegisterStore();
 
 const validateInputs = () => {
+  return (
+    validateUsername() &&
+    validatePassword() &&
+    validateEmail() &&
+    validatePhone() &&
+    validateName()
+  );
+};
+
+const validateUsername = () => {
   errors.username = userRegister.value.username ? "" : "Username is required.";
+  return !errors.username;
+};
+
+const validatePassword = () => {
   errors.password = userRegister.value.password ? "" : "Password is required.";
+  return !errors.password;
+};
+
+const validateEmail = () => {
   errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userRegister.value.email)
     ? ""
     : "Valid email is required.";
+  return !errors.email;
+};
+
+const validatePhone = () => {
   errors.phone = /^\d+$/.test(userRegister.value.phone)
     ? ""
     : "Valid phone number is required.";
-  errors.name = userRegister.value.name ? "" : "Name is required.";
+  return !errors.phone;
+};
 
-  return !Object.values(errors).some((error) => error !== "");
+const validateName = () => {
+  errors.name = userRegister.value.name ? "" : "Name is required.";
+  return !errors.name;
 };
 
 const onFileChange = (event?: any) => {
@@ -248,6 +303,7 @@ const onFileChange = (event?: any) => {
     reader.onload = (e) => {
       if (typeof e.target?.result === "string") {
         userRegister.value.profile_image_url = e.target.result;
+        localStorage.setItem("profile_image_url", e.target.result);
       }
     };
     reader.readAsDataURL(file);
@@ -261,14 +317,22 @@ const deleteImage = () => {
 
 const register = async () => {
   if (validateInputs()) {
-    await registerStore.authenticateUserRegister({
-      username: userRegister.value.username,
-      password: userRegister.value.password,
-      email: userRegister.value.email,
-      phone: userRegister.value.phone,
-      name: userRegister.value.name,
-      profile_image: userRegister.value.profile_image,
-    });
+    await registerStore
+      .authenticateUserRegister({
+        username: userRegister.value.username,
+        password: userRegister.value.password,
+        email: userRegister.value.email,
+        phone: userRegister.value.phone,
+        name: userRegister.value.name,
+        profile_image: userRegister.value.profile_image,
+      })
+      .then(() => {
+        toast.value = true;
+        setTimeout(() => {
+          toast.value = false;
+        }, 3000);
+      });
   }
 };
 </script>
+  

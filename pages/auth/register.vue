@@ -38,8 +38,8 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
+<script lang="ts" setup>
+definePageMeta({
+  layout: "auth",
+});
 </script>
-<style lang="">
-</style>

@@ -21,7 +21,9 @@ export const useAuthStore = defineStore("auth", {
         "https://tarmeezacademy.com/api/v1/login",
         {
           method: "post",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: {
             username,
             password,
@@ -34,13 +36,15 @@ export const useAuthStore = defineStore("auth", {
       if (data.value) {
         const token = useCookie("token"); // useCookie new hook in nuxt 3
         token.value = data?.value?.token; // set token to cookie
+        localStorage.setItem("token", data?.value?.token);
+        localStorage.setItem("user", JSON.stringify(data.value?.user));
         this.authenticated = true; // set authenticated  state value to true
-        alert("Login done");
-        navigateTo('/')
+        navigateTo("/");
       }
     },
     logUserOut() {
       const token = useCookie("token"); // useCookie new hook in nuxt 3
+      localStorage.clear();
       this.authenticated = false; // set authenticated  state value to false
       token.value = null; // clear the token cookie
     },

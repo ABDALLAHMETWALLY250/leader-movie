@@ -4,6 +4,7 @@
 @import url("./responsiveStyle/_tablets.scss");
 @import url("./responsiveStyle/_labTobs.scss");
 @import url("./responsiveStyle/_deskTop.scss");
+@import url("./sideBar/_sideBar.scss");
 * {
   margin: 0;
   padding: 0;

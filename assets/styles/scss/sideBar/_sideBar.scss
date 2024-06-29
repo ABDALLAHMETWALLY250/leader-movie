@@ -1,0 +1,18 @@
+.sidebar {
+    aside {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        width: 40%;
+        padding-inline: 1.9rem;
+    }
+    svg {
+        fill: rgba($color: #000000, $alpha: 60%);
+        transition: all 0.5s;
+        &:hover {
+            fill: #000000;
+            transition: all 0.5s;
+        }
+    }
+}
