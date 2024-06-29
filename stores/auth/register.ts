@@ -47,13 +47,10 @@ export const useRegisterStore = defineStore("register", {
           throw new Error(error.value.message);
         }
 
-        if (data.value) {
-          console.log("Register done", data.value);
-          alert("Register done");
-          localStorage.setItem("user", JSON.stringify(data.value?.user));
-        } else {
-          alert("Register failed");
-        }
+        // if (data.value) {
+        //   console.log("Register done", data.value);
+        //   // alert("Register done");
+        // }
       } catch (err) {
         console.error("Registration error:", err);
         alert("Register failed");

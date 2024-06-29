@@ -2,7 +2,8 @@
 import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
-      'AuthLogin': typeof import("../components/auth/Login.vue")['default']
+      'Toast': typeof import("../components/Toast/toast.vue")['default']
+    'AuthLogin': typeof import("../components/auth/Login.vue")['default']
     'AuthRegister': typeof import("../components/auth/Register.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -27,7 +28,8 @@ interface _GlobalComponents {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyAuthLogin': typeof import("../components/auth/Login.vue")['default']
+      'LazyToast': typeof import("../components/Toast/toast.vue")['default']
+    'LazyAuthLogin': typeof import("../components/auth/Login.vue")['default']
     'LazyAuthRegister': typeof import("../components/auth/Register.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome")['default']
     'LazyNuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -66,6 +68,7 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const Toast: typeof import("../components/Toast/toast.vue")['default']
 export const AuthLogin: typeof import("../components/auth/Login.vue")['default']
 export const AuthRegister: typeof import("../components/auth/Register.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome")['default']
@@ -91,6 +94,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyToast: typeof import("../components/Toast/toast.vue")['default']
 export const LazyAuthLogin: typeof import("../components/auth/Login.vue")['default']
 export const LazyAuthRegister: typeof import("../components/auth/Register.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome")['default']

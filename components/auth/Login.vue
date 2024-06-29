@@ -1,12 +1,16 @@
 <template>
-  <form @submit.prevent="login" class="container mx-auto px-11 sm:mt-32">
-    <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
-      Login
-    </h5>
-    <span class="text-gray-500 capitalize">
-      Please enter your information to login
-    </span>
-
+  <form
+    @submit.prevent="login"
+    class="container mx-auto px-11 sm:mt-32 relative"
+  >
+    <div class="mb-6">
+      <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
+        Login
+      </h5>
+      <span class="text-gray-500 capitalize">
+        Please enter your information to login
+      </span>
+    </div>
     <!-- username Input -->
     <div class="relative z-0 w-full mb-5 xl:mt-20 lg:mt-20 md:mt-20 group">
       <input
@@ -87,6 +91,7 @@
       >
     </p>
   </form>
+  <Toast v-if="toast"> Login Success </Toast>
 </template>
 
 <script lang="ts" setup>
@@ -106,6 +111,7 @@ const errors = reactive({
   email: "",
 });
 
+const toast = ref(false);
 const validateInputs = () => {
   errors.username = userLogin.username ? "" : "Valid username is required.";
   errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userLogin.email)
@@ -117,7 +123,12 @@ const validateInputs = () => {
 
 const login = () => {
   if (validateInputs()) {
-    loginStore.authenticateUser(userLogin);
+    loginStore.authenticateUser(userLogin).then(() => {
+      toast.value = true;
+      setTimeout(() => {
+        toast.value = false;
+      }, 3000);
+    });
   }
 };
 </script>
