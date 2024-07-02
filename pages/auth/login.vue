@@ -13,22 +13,24 @@
           <div class="circle">
             <img src="~/assets/images/logo.png" alt="Logo" />
           </div>
-          <h4>Welcome in Leader movie</h4>
-          <span class="text-gray-500"
-            >Discover the latest reviews, news, and exclusive content on
-            Leader-Movie, your go-to source for all things cinema.</span
-          >
+          <h4>{{ $t("Welcome_in_Leader_movie") }}</h4>
+          <span class="text-gray-500">{{
+            $t(
+              "Discover_the_latest_reviews_news_and_exclusive_content_on_Leader_Movie_your_go_to_source_for_all_things_cinema"
+            )
+          }}</span>
         </div>
       </div>
       <div class="description lb-none dk-none tb-none">
         <div class="circle">
           <img src="~/assets/images/logo.png" alt="Logo" />
         </div>
-        <h4>Welcome in Leader movie</h4>
-        <span class="text-gray-500"
-          >Discover the latest reviews, news, and exclusive content on
-          Leader-Movie, your go-to source for all things cinema.</span
-        >
+        <h4>{{ $t("Welcome_in_Leader_movie") }}</h4>
+        <span class="text-gray-500">{{
+          $t(
+            "Discover_the_latest_reviews_news_and_exclusive_content_on_Leader_Movie_your_go_to_source_for_all_things_cinema"
+          )
+        }}</span>
       </div>
       <!-- image -->
 
@@ -41,6 +43,6 @@
 
 <script lang="ts" setup>
 definePageMeta({
-  layout: "",
+  layout: "auth",
 });
 </script>

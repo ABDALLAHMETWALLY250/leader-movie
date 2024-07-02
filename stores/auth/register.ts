@@ -2,7 +2,7 @@ interface RegisterParams {
   username: string;
   password: string;
   email: string;
-  phone: string;
+  // phone: string;
   name: string;
   profile_image: File | null;
 }
@@ -16,7 +16,7 @@ export const useRegisterStore = defineStore("register", {
       username,
       password,
       email,
-      phone,
+      // phone,
       name,
       profile_image,
     }: RegisterParams) {
@@ -27,7 +27,7 @@ export const useRegisterStore = defineStore("register", {
         formData.append("username", username);
         formData.append("password", password);
         formData.append("email", email);
-        formData.append("phone", phone);
+        // formData.append("phone", phone);
         formData.append("name", name);
         if (profile_image) {
           formData.append("profile_image", profile_image);

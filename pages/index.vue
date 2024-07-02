@@ -1,7 +1,11 @@
 <template >
   <div class="container mx-auto">
-    <h1>adasd</h1>
+    <h1>{{ $t("hello") }}</h1>
+    <h1>{{ $t("title") }}</h1>
   </div>
+  <!--  -->
+  <LangDropDown />
+  <!--  -->
 </template>
 <script setup>
 definePageMeta({
