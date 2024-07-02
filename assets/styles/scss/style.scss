@@ -10,6 +10,13 @@ html {
 
 body {
     overflow-x: hidden;
+
+    &:lang(ar) {
+        direction: rtl;
+    }
+    &:lang(en) {
+        direction: ltr;
+    }
 }
 
 // auth styles

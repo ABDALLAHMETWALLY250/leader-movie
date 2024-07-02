@@ -17,4 +17,10 @@ html {
 
 body {
   overflow-x: hidden;
+}
+body:lang(ar) {
+  direction: rtl;
+}
+body:lang(en) {
+  direction: ltr;
 }/*# sourceMappingURL=style.css.map */
