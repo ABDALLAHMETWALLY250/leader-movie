@@ -21,4 +21,5 @@ export default {
     "Please Enter your information to register",
   Name: "Name",
   already_have_account: "Already have an account?",
+  Password_or_email_is_incorrect: "Password or email is incorrect",
 };

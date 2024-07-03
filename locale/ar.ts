@@ -17,4 +17,5 @@ export default {
   Please_enter_your_information_to_registe: "الرجاء ادخال معلوماتك لتسجيل حساب",
   Name: "الاسم",
   already_have_account: "لديك حساب بالفعل؟",
+  Password_or_email_is_incorrect:"كلمه المرور او البريد الالكتروني غير صحيح",
 };
