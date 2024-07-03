@@ -41,6 +41,9 @@ export const useAuthStore = defineStore("auth", {
           localStorage.setItem("user", JSON.stringify(data.value?.user));
           this.authenticated = true; // set authenticated  state value to true
           navigateTo("/");
+        } else {
+          alert(data.value?.message);
+          console.log(data.value?.message, "a7a and a7oooooooo");
         }
       } catch (e) {
         console.log(e, "a7ooooooooooooooo");
