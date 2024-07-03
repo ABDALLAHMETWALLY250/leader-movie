@@ -17,29 +17,35 @@ export const useAuthStore = defineStore("auth", {
     }: UserPayloadInterface) {
       // useFetch from nuxt 3
 
-      const { data, pending }: any = await useFetch(
-        "https://tarmeezacademy.com/api/v1/login",
-        {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: {
-            username,
-            password,
-            email,
-          },
-        }
-      );
-      this.loading = pending;
+      try {
+        const { data, pending }: any = await useFetch(
+          "https://tarmeezacademy.com/api/v1/login",
+          {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: {
+              username,
+              password,
+              email,
+            },
+          }
+        );
+        this.loading = pending;
 
-      if (data.value) {
-        const token = useCookie("token"); // useCookie new hook in nuxt 3
-        token.value = data?.value?.token; // set token to cookie
-        localStorage.setItem("token", data?.value?.token);
-        localStorage.setItem("user", JSON.stringify(data.value?.user));
-        this.authenticated = true; // set authenticated  state value to true
-        navigateTo("/");
+        if (data.value) {
+          const token = useCookie("token"); // useCookie new hook in nuxt 3
+          token.value = data?.value?.token; // set token to cookie
+          localStorage.setItem("token", data?.value?.token);
+          localStorage.setItem("user", JSON.stringify(data.value?.user));
+          this.authenticated = true; // set authenticated  state value to true
+          navigateTo("/");
+        }
+      } catch (e) {
+        console.log(e, "a7ooooooooooooooo");
+        alert(e);
+        this.loading = false;
       }
     },
     logUserOut() {
