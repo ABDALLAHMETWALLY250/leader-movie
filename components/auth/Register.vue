@@ -201,7 +201,12 @@
       >
     </p>
   </form>
-  <Toast v-if="toast"> Register Success </Toast>
+  <ToastSuccess v-if="registerStore.err == 'Success'">
+    {{ $t("Login_Success") }}
+  </ToastSuccess>
+  <ToastFaield v-else-if="registerStore.err == 'failure'">
+    {{ $t("Login_Success") }}
+  </ToastFaield>
 </template>
 
 <script lang="ts" setup>

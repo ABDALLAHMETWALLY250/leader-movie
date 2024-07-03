@@ -10,6 +10,7 @@ interface RegisterParams {
 export const useRegisterStore = defineStore("register", {
   state: () => ({
     loading: false,
+    err: "",
   }),
   actions: {
     async authenticateUserRegister({
@@ -47,10 +48,14 @@ export const useRegisterStore = defineStore("register", {
           throw new Error(error.value.message);
         }
 
-        // if (data.value) {
-        //   console.log("Register done", data.value);
-        //   // alert("Register done");
-        // }
+        if (data.value) {
+          console.log("Register done", data.value);
+          // alert("Register done");
+          this.err = "Success";
+          navigateTo("/auth/login");
+        } else {
+          this.err = "failure";
+        }
       } catch (err) {
         console.error("Registration error:", err);
         alert("Register failed");

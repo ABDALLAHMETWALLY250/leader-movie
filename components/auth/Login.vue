@@ -4,7 +4,7 @@
     class="container mx-auto px-11 sm:mt-32 relative"
   >
     <div class="mb-6">
-      {{ loginStore.err }}
+      <!-- {{ loginStore.err }} -->
       <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
         {{ $t("login") }}
       </h5>
@@ -92,7 +92,12 @@
       >
     </p>
   </form>
-  <Toast v-if="toast"> {{ $t("Login_Success") }} </Toast>
+  <ToastSuccess v-if="loginStore.err == 'Success'">
+    {{ $t("Login_Success") }}
+  </ToastSuccess>
+  <ToastFaield v-else-if="loginStore.err == 'failure'">
+    {{ $t("Login_Success") }}
+  </ToastFaield>
 </template>
 
 <script lang="ts" setup>
@@ -123,12 +128,7 @@ const validateInputs = () => {
 };
 const login = () => {
   if (validateInputs()) {
-    try {
-      loginStore.authenticateUser(userLogin);
-    } catch (error) {
-      console.log(error, "a7a");
-      alert(error);
-    }
+    loginStore.authenticateUser(userLogin);
   }
 };
 </script>

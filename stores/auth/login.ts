@@ -8,7 +8,7 @@ export const useAuthStore = defineStore("auth", {
   state: () => ({
     authenticated: false,
     loading: false,
-    err: false,
+    err: "",
   }),
   actions: {
     async authenticateUser({
@@ -18,41 +18,32 @@ export const useAuthStore = defineStore("auth", {
     }: UserPayloadInterface) {
       // useFetch from nuxt 3
 
-      try {
-        const { data, pending }: any = await useFetch(
-          "https://tarmeezacademy.com/api/v1/login",
-          {
-            method: "post",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: {
-              username,
-              password,
-              email,
-            },
-          }
-        );
-        this.loading = pending;
-
-        if (data.value) {
-          const token = useCookie("token"); // useCookie new hook in nuxt 3
-          token.value = data?.value?.token; // set token to cookie
-          localStorage.setItem("token", data?.value?.token);
-          localStorage.setItem("user", JSON.stringify(data.value?.user));
-          this.authenticated = true; // set authenticated  state value to true
-          this.err = false;
-          navigateTo("/");
-        } else {
-          console.log(data.messages, "a7a and a7oooooooo");
-          this.err = true;
-          alert(this.err);
+      const { data, pending }: any = await useFetch(
+        "https://tarmeezacademy.com/api/v1/login",
+        {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: {
+            username,
+            password,
+            email,
+          },
         }
-      } catch (e) {
-        console.log(e, "a7ooooooooooooooo");
+      );
+      this.loading = pending;
 
-        alert(e);
-        this.loading = false;
+      if (data.value) {
+        const token = useCookie("token"); // useCookie new hook in nuxt 3
+        token.value = data?.value?.token; // set token to cookie
+        localStorage.setItem("token", data?.value?.token);
+        localStorage.setItem("user", JSON.stringify(data.value?.user));
+        this.authenticated = true; // set authenticated  state value to true
+        this.err = "Success";
+        navigateTo("/");
+      } else {
+        this.err = "failure";
       }
     },
     logUserOut() {

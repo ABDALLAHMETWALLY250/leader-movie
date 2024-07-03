@@ -2,7 +2,8 @@
 import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
-      'Toast': typeof import("../components/Toast/toast.vue")['default']
+      'ToastFaield': typeof import("../components/Toast/toastFaield.vue")['default']
+    'ToastSuccess': typeof import("../components/Toast/toastSuccess.vue")['default']
     'AuthLogin': typeof import("../components/auth/Login.vue")['default']
     'AuthRegister': typeof import("../components/auth/Register.vue")['default']
     'LangDropDown': typeof import("../components/lang/DropDown.vue")['default']
@@ -34,7 +35,8 @@ interface _GlobalComponents {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyToast': typeof import("../components/Toast/toast.vue")['default']
+      'LazyToastFaield': typeof import("../components/Toast/toastFaield.vue")['default']
+    'LazyToastSuccess': typeof import("../components/Toast/toastSuccess.vue")['default']
     'LazyAuthLogin': typeof import("../components/auth/Login.vue")['default']
     'LazyAuthRegister': typeof import("../components/auth/Register.vue")['default']
     'LazyLangDropDown': typeof import("../components/lang/DropDown.vue")['default']
@@ -80,7 +82,8 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
-export const Toast: typeof import("../components/Toast/toast.vue")['default']
+export const ToastFaield: typeof import("../components/Toast/toastFaield.vue")['default']
+export const ToastSuccess: typeof import("../components/Toast/toastSuccess.vue")['default']
 export const AuthLogin: typeof import("../components/auth/Login.vue")['default']
 export const AuthRegister: typeof import("../components/auth/Register.vue")['default']
 export const LangDropDown: typeof import("../components/lang/DropDown.vue")['default']
@@ -112,7 +115,8 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-export const LazyToast: typeof import("../components/Toast/toast.vue")['default']
+export const LazyToastFaield: typeof import("../components/Toast/toastFaield.vue")['default']
+export const LazyToastSuccess: typeof import("../components/Toast/toastSuccess.vue")['default']
 export const LazyAuthLogin: typeof import("../components/auth/Login.vue")['default']
 export const LazyAuthRegister: typeof import("../components/auth/Register.vue")['default']
 export const LazyLangDropDown: typeof import("../components/lang/DropDown.vue")['default']
