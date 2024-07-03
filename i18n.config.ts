@@ -3,7 +3,7 @@ import arTranslations from "./locale/ar";
 
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: "ar",
+  locale: "en",
   messages: {
     en: enTranslations,
     ar: arTranslations,
