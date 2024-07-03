@@ -126,6 +126,7 @@ const login = () => {
       loginStore.authenticateUser(userLogin);
     } catch (error) {
       console.log(error, "a7a");
+      alert(error);
     }
   }
 };
