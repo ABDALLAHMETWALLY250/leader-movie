@@ -4,6 +4,7 @@
     class="container mx-auto px-11 sm:mt-32 relative"
   >
     <div class="mb-6">
+      {{ loginStore.err }}
       <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
         {{ $t("login") }}
       </h5>
