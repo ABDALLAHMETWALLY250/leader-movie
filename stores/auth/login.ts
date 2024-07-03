@@ -43,7 +43,7 @@ export const useAuthStore = defineStore("auth", {
           this.authenticated = true; // set authenticated  state value to true
           navigateTo("/");
         } else {
-          console.log(data.value?.message, "a7a and a7oooooooo");
+          console.log(data.value, "a7a and a7oooooooo");
           this.err = "Blabla";
           alert(this.err);
         }
