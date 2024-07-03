@@ -8,7 +8,7 @@ export const useAuthStore = defineStore("auth", {
   state: () => ({
     authenticated: false,
     loading: false,
-    err: "",
+    err: false,
   }),
   actions: {
     async authenticateUser({
@@ -41,10 +41,11 @@ export const useAuthStore = defineStore("auth", {
           localStorage.setItem("token", data?.value?.token);
           localStorage.setItem("user", JSON.stringify(data.value?.user));
           this.authenticated = true; // set authenticated  state value to true
+          this.err = false;
           navigateTo("/");
         } else {
-          console.log(data.value, "a7a and a7oooooooo");
-          this.err = "Blabla";
+          console.log(data.messages, "a7a and a7oooooooo");
+          this.err = true;
           alert(this.err);
         }
       } catch (e) {
