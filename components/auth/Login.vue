@@ -120,15 +120,13 @@ const validateInputs = () => {
   errors.password = userLogin.password ? "" : "Password is required.";
   return !Object.values(errors).some((error) => error !== "");
 };
-
 const login = () => {
   if (validateInputs()) {
-    loginStore.authenticateUser(userLogin).then(() => {
-      toast.value = true;
-      setTimeout(() => {
-        toast.value = false;
-      }, 3000);
-    });
+    try {
+      loginStore.authenticateUser(userLogin);
+    } catch (error) {
+      console.log(error, "a7a");
+    }
   }
 };
 </script>
