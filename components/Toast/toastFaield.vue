@@ -20,7 +20,7 @@
       </svg>
       <span class="sr-only">Error icon</span>
     </div>
-    <div class="ms-3 text-sm font-normal">Item has been deleted.</div>
+    <div class="ms-3 text-sm font-normal">{{ $t("Password_or_email_is_incorrect") }}</div>
     <button
       type="button"
       class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 rounded-lg focus:ring-2 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500"
