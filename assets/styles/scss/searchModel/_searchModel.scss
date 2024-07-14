@@ -1,0 +1,14 @@
+.search_modal {
+    * {
+        transition: all 0.5s;
+        // background-color: aqua;
+    }
+    .modal-enter-active,
+    .modal-leave-active {
+        transition: opacity 0.5s;
+    }
+    .modal-enter,
+    .modal-leave-to {
+        opacity: 0;
+    }
+}

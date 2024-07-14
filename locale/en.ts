@@ -1,5 +1,4 @@
 export default {
-  hello: "Hello",
   home: "Home",
   login: "Login",
   register: "Register",
@@ -21,5 +20,10 @@ export default {
     "Please Enter your information to register",
   Name: "Name",
   already_have_account: "Already have an account?",
-  Password_or_email_is_incorrect: "Password or email is incorrect",
+  Password_or_userName_are_exist_before:
+    "Password or username are exist before",
+  tv_shows: "TV Shows",
+  search: "Search",
+  close: "Close",
+  No_search_result:"No search result",
 };

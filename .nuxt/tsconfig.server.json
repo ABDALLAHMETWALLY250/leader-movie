@@ -123,6 +123,12 @@
       ],
       "#i18n": [
         "../node_modules/@nuxtjs/i18n/dist/runtime/composables/index"
+      ],
+      "#tailwind-config": [
+        "./tailwind.config"
+      ],
+      "#tailwind-config/*": [
+        "./tailwind.config/*"
       ]
     }
   },

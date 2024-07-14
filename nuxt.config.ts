@@ -2,8 +2,20 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/i18n"],
+
   css: ["@/assets/styles/scss/style.css"],
+
+  tailwindcss: {
+    cssPath: ["~/assets/styles/scss/tailwind.css", { injectPosition: "first" }],
+    configPath: "tailwind.config",
+    exposeConfig: {
+      level: 2,
+    },
+    config: {},
+    viewer: true,
+  },
 
   app: {
     head: {
@@ -44,6 +56,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   i18n: {
     vueI18n: "./i18n.config.ts",
   },

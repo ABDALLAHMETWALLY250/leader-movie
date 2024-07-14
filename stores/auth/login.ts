@@ -1,7 +1,6 @@
 interface UserPayloadInterface {
   username: string;
   password: string;
-  email: string;
 }
 
 export const useAuthStore = defineStore("auth", {
@@ -11,11 +10,7 @@ export const useAuthStore = defineStore("auth", {
     err: "",
   }),
   actions: {
-    async authenticateUser({
-      username,
-      password,
-      email,
-    }: UserPayloadInterface) {
+    async authenticateUser({ username, password }: UserPayloadInterface) {
       // useFetch from nuxt 3
 
       const { data, pending }: any = await useFetch(
@@ -28,7 +23,6 @@ export const useAuthStore = defineStore("auth", {
           body: {
             username,
             password,
-            email,
           },
         }
       );
@@ -51,6 +45,7 @@ export const useAuthStore = defineStore("auth", {
       localStorage.clear();
       this.authenticated = false; // set authenticated  state value to false
       token.value = null; // clear the token cookie
+      navigateTo("/auth/login");
     },
   },
 });
