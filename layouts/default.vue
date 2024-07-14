@@ -1,11 +1,15 @@
 <template>
-  <div class="grid grid-cols-12">
-    <div class="col-span-1">
-      <LayoutSideBar class="sm-none" />
-      <LayoutNavBar class="lb-none tb-none dk-none" />
+  <div
+    class="xl:grid xl:grid-cols-12 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12"
+  >
+    <div class="col-span-1 sm-none">
+      <LayoutSideBar  />
     </div>
+
+    <LayoutNavBar class="lb-none tb-none dk-none" />
+
     <div class="col-span-11">
-      <div class="content">
+      <div class="content w-full">
         <slot />
       </div>
     </div>
