@@ -10,7 +10,7 @@
     <img
       src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
       alt="Bordered avatar"
-      class="w-12 h-12 border-2 border-gray-200 rounded-full object-cover"
+      class="w-10 h-10 border-2 border-gray-200 rounded-full object-cover"
     />
   </button>
 </template>

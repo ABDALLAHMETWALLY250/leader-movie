@@ -1,0 +1,30 @@
+.mySwiper {
+    span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background-color: #706b6b;
+        width: 2%;
+        border-radius: 4px;
+    }
+    img.image_film {
+        height: 600px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .slide_text {
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: calc(var(--line-height) * 3em);
+        line-height: var(--line-height);
+        --line-height: 1.5;
+    }
+}

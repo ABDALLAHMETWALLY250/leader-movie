@@ -6,7 +6,7 @@
         >{{ $t("search") }}</span
       >
       <svg
-        class="w-6 h-6 text-sky-800 search"
+        class="w-6 h-6 search"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -26,7 +26,7 @@
     <transition name="modal">
       <div
         v-if="showModal"
-        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-filter backdrop-blur-sm"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-filter backdrop-blur-sm z-10"
       >
         <div class="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-lg">
           <h2 class="text-2xl mb-4">{{ $t("search") }}</h2>

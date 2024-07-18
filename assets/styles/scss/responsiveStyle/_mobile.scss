@@ -71,6 +71,13 @@
         }
     }
     .content {
-        margin-top: 6rem;
+        margin-top: 3.5rem;
+    }
+    .mySwiper {
+        span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+            background-color: #706b6b;
+            width: 8% !important;
+            border-radius: 4px;
+        }
     }
 }
