@@ -2,6 +2,8 @@ export default {
   home: "الرئيسية",
   login: "تسجيل الدخول",
   register: "تسجيل حساب",
+  Register_Success: "تم التسجيل بنجاح",
+  username_or_password_are_incorrect: "اسم المستخدم او كلمة المرور غير صحيحة",
   logout: "تسجيل خروج",
   Welcome_in_Leader_movie: "مرحبا في  Leader movie",
   Discover_the_latest_reviews_news_and_exclusive_content_on_Leader_Movie_your_go_to_source_for_all_things_cinema:
@@ -20,6 +22,6 @@ export default {
     "الرقم السري او اسم المستخدم موجود من قبل",
   tv_shows: "البرامج التلفزيونية",
   search: "بحث",
-  close:"اغلاق",
-  No_search_result:"لا توجد نتائج بحث",
+  close: "اغلاق",
+  No_search_result: "لا توجد نتائج بحث",
 };

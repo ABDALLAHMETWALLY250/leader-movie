@@ -2,6 +2,9 @@ export default {
   home: "Accueil",
   login: "Connexion",
   register: "S'inscrire",
+  Register_Success: "Inscription reussie",
+  username_or_password_are_incorrect:
+    "Nom d'utilisateur ou mot de passe incorrect",
   logout: "Déconnexion",
   profile: "Profil",
   title: "Leader-Film",

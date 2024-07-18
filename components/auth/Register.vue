@@ -202,16 +202,17 @@
     </p>
   </form>
   <ToastSuccess v-if="registerStore.err == 'Success'">
-    {{ $t("Login_Success") }}
+    {{ $t("Register_Success") }}
   </ToastSuccess>
+
   <ToastFaield v-else-if="registerStore.err == 'failure'">
-    {{ $t("Login_Success") }}
+    {{ $t("Password_or_userName_are_exist_before") }}
   </ToastFaield>
 </template>
 
 <script lang="ts" setup>
 import { useRegisterStore } from "../../stores/auth/register";
-
+const registerStore = useRegisterStore();
 const userRegister = ref({
   username: "",
   password: "",
@@ -231,8 +232,6 @@ const errors = reactive({
 });
 
 const toast = ref(false);
-
-const registerStore = useRegisterStore();
 
 const validateInputs = () => {
   return (

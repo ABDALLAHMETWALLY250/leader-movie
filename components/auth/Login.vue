@@ -77,7 +77,7 @@
     {{ $t("Login_Success") }}
   </ToastSuccess>
   <ToastFaield v-else-if="loginStore.err == 'failure'">
-    {{ $t("Login_Success") }}
+    {{ $t("username_or_password_are_incorrect") }}
   </ToastFaield>
 </template>
 

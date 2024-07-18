@@ -2,6 +2,8 @@ export default {
   home: "Home",
   login: "Login",
   register: "Register",
+  Register_Success: "Register Success",
+  username_or_password_are_incorrect: "Username or password are incorrect",
   logout: "Logout",
   profile: "Profile",
   title: "Leader-Movie",
@@ -25,5 +27,5 @@ export default {
   tv_shows: "TV Shows",
   search: "Search",
   close: "Close",
-  No_search_result:"No search result",
+  No_search_result: "No search result",
 };
