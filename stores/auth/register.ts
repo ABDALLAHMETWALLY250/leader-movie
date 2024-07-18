@@ -58,7 +58,7 @@ export const useRegisterStore = defineStore("register", {
         }
       } catch (err) {
         console.error("Registration error:", err);
-        alert("Register failed");
+        // alert("Register failed");
       } finally {
         this.loading = false;
       }

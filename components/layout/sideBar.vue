@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <aside class="h-screen border-r-2 px-3 bg-gray-100" id="sidebar">
+    <aside class="h-screen border-2 px-3 bg-gray-100" id="sidebar">
       <nuxt-link class="has-tooltip" to="/" active-class="active">
         <span
           class="tooltip rounded shadow-lg p-1 bg-gray-100 text-sky-500 ms-10 w-max"
