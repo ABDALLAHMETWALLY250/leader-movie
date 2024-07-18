@@ -137,6 +137,7 @@
     "../node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/@pinia/nuxt/runtime/server",
     "../node_modules/@nuxtjs/i18n/runtime/server",
+    "../node_modules/nuxt-swiper/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",

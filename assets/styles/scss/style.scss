@@ -19,6 +19,22 @@ body {
     }
 }
 
+.dark {
+    background-color: #111;
+    color: #ffffffff;
+    svg {
+        fill: #fff !important;
+    }
+}
+
+.dark {
+    select {
+        background-color: transparent;
+        option {
+            color: #000;
+        }
+    }
+}
 // auth styles
 @import url("./authStyles/_register.scss");
 @import url("./authStyles/_login.scss");
@@ -51,3 +67,7 @@ body {
 // search Modal
 @import url("./searchModel/_searchModel.scss");
 // search Modal
+
+// mySwiper
+@import url("./imagesSwiper/_imageSwiper.scss");
+// mySwiper

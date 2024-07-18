@@ -6,6 +6,7 @@
 @import url("./responsiveStyle/_deskTop.scss");
 @import url("./sideBar/_sideBar.scss");
 @import url("./searchModel/_searchModel.scss");
+@import url("./imagesSwiper/_imageSwiper.scss");
 * {
   margin: 0;
   padding: 0;
@@ -24,4 +25,19 @@ body:lang(ar) {
 }
 body:lang(en) {
   direction: ltr;
+}
+
+.dark {
+  background-color: #111;
+  color: white;
+}
+.dark svg {
+  fill: #fff !important;
+}
+
+.dark select {
+  background-color: transparent;
+}
+.dark select option {
+  color: #000;
 }/*# sourceMappingURL=style.css.map */

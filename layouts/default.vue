@@ -3,7 +3,7 @@
     class="xl:grid xl:grid-cols-12 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12"
   >
     <div class="col-span-1 sm-none">
-      <LayoutSideBar  />
+      <LayoutSideBar />
     </div>
 
     <LayoutNavBar class="lb-none tb-none dk-none" />
@@ -17,10 +17,6 @@
 </template>
     
     <script lang="ts" setup>
-const isMenuOpen = ref(false);
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
 </script>
     
     <style scoped lang="scss">

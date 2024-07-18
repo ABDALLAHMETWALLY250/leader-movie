@@ -1,5 +1,5 @@
 <template>
-  <nav class="border-black border-b-2 fixed top-0 w-full z-10 bg-white">
+  <nav class="fixed top-0 w-full z-10 bg-white" id="navbar">
     <div
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-2"
     >
@@ -40,25 +40,86 @@
         id="navbar-default"
       >
         <ul
-          class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
+          class="font-medium flex flex-col px-1 py-3 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
         >
           <li>
             <nuxt-link
-              to="/auth/login"
-              activeClass="text-blue-700"
+              to="/"
+              activeClass="active"
               class="block py-2 px-3 md:p-0"
               aria-current="page"
-              >Login</nuxt-link
             >
-          </li>
-          <li>
-            <nuxt-link
-              activeClass="text-blue-700"
-              to="/auth/register"
-              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Register
+              {{ $t("home") }}
             </nuxt-link>
+          </li>
+          <li class="my-3">
+            <nuxt-link
+              activeClass="active"
+              to="/tv-show"
+              class="block py-2 px-3 md:p-0"
+            >
+              {{ $t("tv_shows") }}
+            </nuxt-link>
+          </li>
+
+          <li class="my-3">
+            <LangDropDown />
+          </li>
+
+          <li class="my-3">
+            <ModalSearchNav />
+          </li>
+
+          <li class="my-3">
+            <Avatar />
+          </li>
+
+          <li class="my-3">
+            <div class="flex items-center">
+              <button @click="changeTheme('dark')" v-if="theme == 'light'">
+                <svg
+                  class="w-6 h-6 text-gray-800"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 5V3m0 18v-2M7.05 7.05 5.636 5.636m12.728 12.728L16.95 16.95M5 12H3m18 0h-2M7.05 16.95l-1.414 1.414M18.364 5.636 16.95 7.05M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                  />
+                </svg>
+              </button>
+
+              <button
+                @click="changeTheme('light')"
+                v-else
+                class="flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-gray-800"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 21a9 9 0 0 1-.5-17.986V3c-.354.966-.5 1.911-.5 3a9 9 0 0 0 9 9c.239 0 .254.018.488 0A9.004 9.004 0 0 1 12 21Z"
+                  />
+                </svg>
+              </button>
+            </div>
           </li>
         </ul>
       </div>
@@ -67,10 +128,30 @@
 </template>
     
     <script lang="ts" setup>
+const theme = ref("");
+
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+const changeTheme = (newTheme: string) => {
+  theme.value = newTheme;
+  localStorage.setItem("theme", newTheme);
+  // console.log(newTheme);
+  // console.log(theme.value);
+
+  if (newTheme == "dark") {
+    document.body.classList.add("dark");
+    document.getElementById("navbar")?.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+    document.getElementById("navbar")?.classList.remove("dark");
+  }
+};
+
+onMounted(() => {
+  theme.value = localStorage.getItem("theme") || "light";
+});
 </script>
     
 <style scoped lang="scss">

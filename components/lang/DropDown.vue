@@ -24,7 +24,7 @@ const changeLanguage = (event) => {
 };
 onMounted(() => {
   locale.value = localStorage.getItem("locale");
-  console.log(locale.value);
+  // console.log(locale.value);
 });
 </script>
 
