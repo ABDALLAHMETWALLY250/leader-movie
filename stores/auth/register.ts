@@ -4,7 +4,7 @@ interface RegisterParams {
   email: string;
   // phone: string;
   name: string;
-  profile_image: File | null;
+  image: File | null;
 }
 
 export const useRegisterStore = defineStore("register", {
@@ -19,7 +19,7 @@ export const useRegisterStore = defineStore("register", {
       email,
       // phone,
       name,
-      profile_image,
+      image,
     }: RegisterParams) {
       try {
         this.loading = true;
@@ -30,8 +30,8 @@ export const useRegisterStore = defineStore("register", {
         formData.append("email", email);
         // formData.append("phone", phone);
         formData.append("name", name);
-        if (profile_image) {
-          formData.append("profile_image", profile_image);
+        if (image) {
+          formData.append("image", image);
         }
 
         const { data, pending, error } = await useFetch(
