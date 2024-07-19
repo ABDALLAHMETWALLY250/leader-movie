@@ -5,6 +5,7 @@
 @import url("./responsiveStyle/_labTobs.scss");
 @import url("./responsiveStyle/_deskTop.scss");
 @import url("./sideBar/_sideBar.scss");
+@import url("./navBar/_navBar.scss");
 @import url("./searchModel/_searchModel.scss");
 @import url("./Search/_search.scss");
 @import url("./imagesSwiper/_imageSwiper.scss");
@@ -32,6 +33,9 @@ body:lang(en) {
   background-color: #111;
   color: white;
 }
+.dark svg {
+  fill: #fff !important;
+}
 
 .dark select {
   background-color: transparent;
@@ -48,4 +52,4 @@ body:lang(en) {
   height: calc(var(--line-height) * 3em);
   line-height: var(--line-height);
   --line-height: 1.5;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
