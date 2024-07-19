@@ -24,4 +24,6 @@ export default {
   search: "بحث",
   close: "اغلاق",
   No_search_result: "لا توجد نتائج بحث",
+  Movies: "الافلام",
+  Actors: "الممثلين",
 };

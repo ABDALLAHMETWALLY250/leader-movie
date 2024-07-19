@@ -2,7 +2,10 @@
 import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
-      'ToastFaield': typeof import("../components/Toast/toastFaield.vue")['default']
+      'SearchAllActors': typeof import("../components/Search/allActors.vue")['default']
+    'SearchAllMovie': typeof import("../components/Search/allMovie.vue")['default']
+    'SearchAllTvs': typeof import("../components/Search/allTvs.vue")['default']
+    'ToastFaield': typeof import("../components/Toast/toastFaield.vue")['default']
     'ToastSuccess': typeof import("../components/Toast/toastSuccess.vue")['default']
     'AuthLogin': typeof import("../components/auth/Login.vue")['default']
     'AuthRegister': typeof import("../components/auth/Register.vue")['default']
@@ -42,7 +45,10 @@ interface _GlobalComponents {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyToastFaield': typeof import("../components/Toast/toastFaield.vue")['default']
+      'LazySearchAllActors': typeof import("../components/Search/allActors.vue")['default']
+    'LazySearchAllMovie': typeof import("../components/Search/allMovie.vue")['default']
+    'LazySearchAllTvs': typeof import("../components/Search/allTvs.vue")['default']
+    'LazyToastFaield': typeof import("../components/Toast/toastFaield.vue")['default']
     'LazyToastSuccess': typeof import("../components/Toast/toastSuccess.vue")['default']
     'LazyAuthLogin': typeof import("../components/auth/Login.vue")['default']
     'LazyAuthRegister': typeof import("../components/auth/Register.vue")['default']
@@ -96,6 +102,9 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const SearchAllActors: typeof import("../components/Search/allActors.vue")['default']
+export const SearchAllMovie: typeof import("../components/Search/allMovie.vue")['default']
+export const SearchAllTvs: typeof import("../components/Search/allTvs.vue")['default']
 export const ToastFaield: typeof import("../components/Toast/toastFaield.vue")['default']
 export const ToastSuccess: typeof import("../components/Toast/toastSuccess.vue")['default']
 export const AuthLogin: typeof import("../components/auth/Login.vue")['default']
@@ -136,6 +145,9 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazySearchAllActors: typeof import("../components/Search/allActors.vue")['default']
+export const LazySearchAllMovie: typeof import("../components/Search/allMovie.vue")['default']
+export const LazySearchAllTvs: typeof import("../components/Search/allTvs.vue")['default']
 export const LazyToastFaield: typeof import("../components/Toast/toastFaield.vue")['default']
 export const LazyToastSuccess: typeof import("../components/Toast/toastSuccess.vue")['default']
 export const LazyAuthLogin: typeof import("../components/auth/Login.vue")['default']

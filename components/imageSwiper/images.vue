@@ -33,7 +33,7 @@
           <div class="overlay"></div>
         </nuxt-link>
 
-        <videoModal class="absolute bottom-2/4 left-1/2" />
+        <videoModal class="absolute bottom-2/4 left-1/2 text-white" />
 
         <figcaption class="absolute px-4 text-white bottom-10">
           <h3 class="text-2xl font-bold">{{ slide?.title }}</h3>
@@ -41,7 +41,7 @@
           <div class="flex items-center gap-3">
             <p class="flex items-center mt-3">
               <svg
-                class="w-6 h-6 text-gray-800 dark:text-white"
+                class="w-6 h-6"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -90,7 +90,7 @@ import { useMovieSwiper } from "../../stores/MovieSwiper/MovieSwiper";
 
 const allMoviesStore = useMovieSwiper();
 const { locale } = useI18n();
-console.log(allMoviesStore.movieSwiper);
+// console.log(allMoviesStore.movieSwiper);
 
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";

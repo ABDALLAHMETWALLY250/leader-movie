@@ -2,7 +2,7 @@
   <div class="search_modal">
     <button class="has-tooltip" @click="showModal = true">
       <svg
-        class="w-12 h-12 text-gray-800 dark:text-white"
+        class="w-12 h-12 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"

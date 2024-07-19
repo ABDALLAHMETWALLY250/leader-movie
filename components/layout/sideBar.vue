@@ -51,7 +51,7 @@
       <div class="flex items-center">
         <button @click="changeTheme('dark')" v-if="theme == 'light'">
           <svg
-            class="w-6 h-6 text-gray-800"
+            class="w-6 h-6"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -109,9 +109,9 @@ const changeTheme = (newTheme: string) => {
   // console.log(newTheme);
   // console.log(theme.value);
 
-  if (newTheme == "dark") {
-    document.body.classList.add("dark");
-    document.getElementById("sidebar")?.classList.add("dark");
+  if (theme.value == "dark") {
+    document.body.classList.add(theme.value);
+    document.getElementById("sidebar")?.classList.add(theme.value);
   } else {
     document.body.classList.remove("dark");
     document.getElementById("sidebar")?.classList.remove("dark");

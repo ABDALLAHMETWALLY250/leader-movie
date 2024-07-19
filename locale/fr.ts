@@ -29,4 +29,6 @@ export default {
   search: "Recherche",
   close: "Fermer",
   No_search_result: "Aucun résultat de recherche",
+  Movies: "Films",
+  Actors: "Acteurs",
 };

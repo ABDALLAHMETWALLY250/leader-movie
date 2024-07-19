@@ -1,6 +1,9 @@
 .sidebar {
     // width: 5%;
-
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    // width: 6%;
     .dark {
         aside {
             border-color: #fff;
@@ -12,7 +15,8 @@
         align-items: center;
         justify-content: space-evenly;
         flex-direction: column;
-        padding-inline: 2rem;
+
+        padding-inline: 1.8rem;
         .icon {
             opacity: 0.6;
             fill: #0d6efd;

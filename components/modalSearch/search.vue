@@ -1,6 +1,6 @@
 <template>
   <div class="search_modal">
-    <button class="has-tooltip" @click="showModal = true">
+    <nuxt-link to="/search" class="has-tooltip">
       <span
         class="tooltip rounded shadow-lg p-1 bg-gray-100 text-sky-500 ms-7"
         >{{ $t("search") }}</span
@@ -21,7 +21,7 @@
           d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
         />
       </svg>
-    </button>
+    </nuxt-link>
 
     <transition name="modal">
       <div
@@ -38,18 +38,24 @@
             @keyup="searchForAll.fetchSearchForAll(locale, searchText)"
           />
 
-          <ul v-if="searchForAll.searchForAll.length > 0">
-            <li v-for="item in searchForAll.searchForAll" :key="item">
-              <div class="flex items-center gap-3 my-3">
-                <img
-                  :src="`https://image.tmdb.org/t/p/w500//${item.backdrop_path}`"
-                  class="w-16 h-24 rounded-md object-cover"
-                />
+          <div class="" v-if="searchForAll.searchForAll.length > 0">
+            <ul v-if="movies.length > 0">
+              <p>{{ $tc("Movies") }}</p>
 
-                {{ item?.title ? item?.title : item?.original_title }}
-              </div>
-            </li>
-          </ul>
+              <li v-for="movie in movies" :key="movie">{{ movie }}-m</li>
+            </ul>
+
+            <ul v-if="Tvs.length > 0">
+              <p>{{ $tc("tv_shows") }}</p>
+
+              <li v-for="tv in Tvs" :key="tv">{{ tv }}-ff</li>
+            </ul>
+            <ul v-if="Actors.length > 0">
+              <p>{{ $tc("Actors") }}</p>
+
+              <li v-for="Actor in Actors" :key="Actor">{{ Actor }}-p</li>
+            </ul>
+          </div>
           <h5 v-else class="my-40 text-center font-medium capitalize text-base">
             {{ $t("No_search_result") }}
           </h5>
@@ -76,19 +82,56 @@ const searchForAll = searchForAllStore();
 
 const searchText = ref("");
 
-const handleEscapeKey = (event: KeyboardEvent) => {
-  if (event.key === "Escape") {
-    showModal.value = false;
-  }
+const movies = ref([]);
+
+const Tvs = ref([]);
+
+const Actors = ref([]);
+
+const searchForAllMovies = () => {
+  searchForAll.searchForAll.filter((movie: any | null) => {
+    if (movie?.media_type === "movie") {
+      movies.value.push(movie);
+      // console.log(movie, "movie");
+    }
+  });
 };
 
+const searchForallTvs = () => {
+  searchForAll.searchForAll.filter((tv: any | null) => {
+    if (tv?.media_type === "tv") {
+      Tvs.value.push(tv);
+      // console.log(tv, "tv");
+    }
+  });
+};
+
+const searchForPerson = () => {
+  searchForAll.searchForAll.filter((person: any | null) => {
+    if (person?.media_type === "person") {
+      Actors.value.push(person);
+      // console.log(person, "person");
+    }
+  });
+};
+
+
+
+watch(searchText, () => {
+  if (searchText.value) {
+    searchForAllMovies();
+    searchForallTvs();
+    searchForPerson();
+    // console.log(movies.value);
+    // console.log(Persons.value);
+  }
+});
+
 onMounted(() => {
-  window.addEventListener("keydown", handleEscapeKey);
   locale.value = localStorage.getItem("locale") || "en";
+
   // searchForAll.fetchSearchForAll(locale.value, searchText.value);
 });
 
-onUnmounted(() => {
-  window.removeEventListener("keydown", handleEscapeKey);
-});
+
 </script>

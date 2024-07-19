@@ -10,7 +10,7 @@ export const useAllMoviesStore = defineStore("allMovies", {
         `https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=true&language=${language}&page=1&sort_by=popularity.desc&api_key=${api_key}`
       ).then((res) =>
         res.json().then((data) => {
-          console.log(data.results, "movies");
+          // console.log(data.results, "movies");
 
           this.allMovies = data.results;
         })

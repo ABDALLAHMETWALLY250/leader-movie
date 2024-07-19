@@ -28,4 +28,6 @@ export default {
   search: "Search",
   close: "Close",
   No_search_result: "No search result",
+  Movies: "Movies",
+  Actors: "Actors",
 };
