@@ -227,7 +227,6 @@ const errors = reactive({
   username: "",
   password: "",
   email: "",
-
   name: "",
 });
 
