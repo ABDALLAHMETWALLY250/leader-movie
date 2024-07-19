@@ -64,6 +64,16 @@
             >
               {{ Tv.media_type }}
             </span>
+            <div class="flex items-center gap-3 mt-3">
+              <button class="bg-red-700 py-2 px-5 rounded-lg">
+                {{ $t("Add_to_watchlist") }}
+              </button>
+              <button
+                class="border border-red-700 hover:bg-red-700 py-2 px-5 rounded-lg transition-all duration-300"
+              >
+                {{ $t("Add_to_watch_Later") }}
+              </button>
+            </div>
           </div>
         </nuxt-link>
       </li>

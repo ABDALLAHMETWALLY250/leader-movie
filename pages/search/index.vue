@@ -87,8 +87,7 @@ const filterResults = () => {
 };
 
 watch(searchText, () => {
-  if (searchText.value.length > 4) {
-    searchForAll.fetchSearchForAll(locale.value, searchText.value);
+  if (searchText.value.length > 2) {
     filterResults();
   }
 });
