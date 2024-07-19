@@ -219,7 +219,7 @@ const userRegister = ref({
   email: "",
 
   name: "",
-  profile_image: null as File | null,
+  image: null as File | null,
   profile_image_url: "",
 });
 
@@ -267,7 +267,7 @@ const validateName = () => {
 const onFileChange = (event?: any) => {
   const file = event.target.files[0];
   if (file) {
-    userRegister.value.profile_image = file;
+    userRegister.value.image = file;
     const reader = new FileReader();
     reader.onload = (e) => {
       if (typeof e.target?.result === "string") {
@@ -280,7 +280,7 @@ const onFileChange = (event?: any) => {
 };
 
 const deleteImage = () => {
-  userRegister.value.profile_image = null;
+  userRegister.value.image = null;
   userRegister.value.profile_image_url = "";
 };
 
@@ -292,7 +292,7 @@ const register = async () => {
         password: userRegister.value.password,
         email: userRegister.value.email,
         name: userRegister.value.name,
-        profile_image: userRegister.value.profile_image,
+        image: userRegister.value.image,
       })
       .then(() => {
         toast.value = true;
