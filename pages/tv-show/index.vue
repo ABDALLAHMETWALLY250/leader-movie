@@ -3,8 +3,7 @@
     <h1>tv-show</h1>
   </div>
 </template>
-<script>
-export default {};
+<script setup >
 </script>
 <style lang="">
 </style>

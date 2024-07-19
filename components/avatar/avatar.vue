@@ -21,7 +21,7 @@ import { useAuthStore } from "../../stores/auth/login";
 const userAvatar = ref("");
 
 onMounted(() => {
-  userAvatar.value = localStorage.getItem("avatar");
+  userAvatar.value = localStorage.getItem("profile_image_url");
 });
 
 const logoutStore = useAuthStore();
