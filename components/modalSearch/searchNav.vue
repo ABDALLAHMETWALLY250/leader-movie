@@ -89,7 +89,7 @@ const { locale } = useI18n();
 
 const searchForAll = searchForAllStore();
 
-const searchText = ref("");
+const searchText = ref<string>("");
 
 const handleEscapeKey = (event: KeyboardEvent) => {
   if (event.key === "Escape") {

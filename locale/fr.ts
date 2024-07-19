@@ -31,4 +31,6 @@ export default {
   No_search_result: "Aucun résultat de recherche",
   Movies: "Films",
   Actors: "Acteurs",
+  Add_to_watchlist: "Ajouter à la liste de lecture",
+  Add_to_watch_Later: "Ajouter à la liste de lecture",
 };

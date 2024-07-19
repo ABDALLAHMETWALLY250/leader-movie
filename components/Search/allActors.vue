@@ -7,7 +7,7 @@
       <li
         v-for="Actor in Actors"
         :key="Actor.id"
-        class="mb-4 flex items-center justify-center"
+        class="mb-4 flex items-center "
       >
         <nuxt-link
           :to="`/movie/${Actor.id}`"

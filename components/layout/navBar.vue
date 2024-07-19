@@ -67,7 +67,7 @@
           </li>
 
           <li class="my-3">
-            <ModalSearchNav />
+            <ModalSearch />
           </li>
 
           <li class="my-3">

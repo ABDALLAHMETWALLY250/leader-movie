@@ -30,4 +30,6 @@ export default {
   No_search_result: "No search result",
   Movies: "Movies",
   Actors: "Actors",
+  Add_to_watchlist: "Add to watchlist",
+  Add_to_watch_Later: "Add to watch Later",
 };

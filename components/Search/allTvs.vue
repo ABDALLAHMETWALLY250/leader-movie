@@ -4,11 +4,7 @@
       <p class="my-2 font-bold text-2xl text-center Movie">
         {{ $t("tv_shows") }}
       </p>
-      <li
-        v-for="Tv in Tvs"
-        :key="Tv.id"
-        class="mb-4 flex items-center justify-center"
-      >
+      <li v-for="Tv in Tvs" :key="Tv.id" class="mb-4 flex items-center">
         <nuxt-link
           :to="`/movie/${Tv.id}`"
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie"
@@ -76,7 +72,7 @@
 </template>
   <script setup lang="ts">
 defineProps({
-    Tvs: {
+  Tvs: {
     type: Object,
     required: true,
   },
