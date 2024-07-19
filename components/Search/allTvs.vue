@@ -4,11 +4,7 @@
       <p class="my-2 font-bold text-2xl text-center Movie">
         {{ $t("tv_shows") }}
       </p>
-      <li
-        v-for="Tv in Tvs"
-        :key="Tv.id"
-        class="mb-4 flex items-center justify-center"
-      >
+      <li v-for="Tv in Tvs" :key="Tv.id" class="mb-4 flex items-center">
         <nuxt-link
           :to="`/movie/${Tv.id}`"
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie"
@@ -68,6 +64,16 @@
             >
               {{ Tv.media_type }}
             </span>
+            <div class="flex items-center gap-3 mt-3">
+              <button class="bg-red-700 py-2 px-5 rounded-lg">
+                {{ $t("Add_to_watchlist") }}
+              </button>
+              <button
+                class="border border-red-700 hover:bg-red-700 py-2 px-5 rounded-lg transition-all duration-300"
+              >
+                {{ $t("Add_to_watch_Later") }}
+              </button>
+            </div>
           </div>
         </nuxt-link>
       </li>
@@ -76,7 +82,7 @@
 </template>
   <script setup lang="ts">
 defineProps({
-    Tvs: {
+  Tvs: {
     type: Object,
     required: true,
   },

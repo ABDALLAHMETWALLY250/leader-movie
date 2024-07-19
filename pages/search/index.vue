@@ -1,6 +1,9 @@
 <template>
   <div class="SearchPage">
-    <form class="xl:mt-10 xl:px-28 lg:mt-5 mt-20 w-11/12 mx-auto sticky top-0">
+    <form
+      class="xl:mt-10 xl:px-28 lg:mt-5 mt-20 w-11/12 mx-auto sticky top-0"
+      @submit.prevent
+    >
       <label
         for="default-search"
         class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -84,7 +87,7 @@ const filterResults = () => {
 };
 
 watch(searchText, () => {
-  if (searchText.value.length > 4) {
+  if (searchText.value.length > 2) {
     filterResults();
   }
 });
