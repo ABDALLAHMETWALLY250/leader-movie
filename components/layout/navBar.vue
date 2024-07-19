@@ -140,10 +140,10 @@ const changeTheme = (newTheme: string) => {
   // console.log(newTheme);
   // console.log(theme.value);
 
-  if (newTheme == "dark") {
+  if (theme.value == "dark") {
     document.body.classList.add("dark");
     document.getElementById("navbar")?.classList.add("dark");
-  } else {
+  } else if (theme.value == "light") {
     document.body.classList.remove("dark");
     document.getElementById("navbar")?.classList.remove("dark");
   }

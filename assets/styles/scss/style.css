@@ -6,6 +6,7 @@
 @import url("./responsiveStyle/_deskTop.scss");
 @import url("./sideBar/_sideBar.scss");
 @import url("./searchModel/_searchModel.scss");
+@import url("./Search/_search.scss");
 @import url("./imagesSwiper/_imageSwiper.scss");
 * {
   margin: 0;
@@ -31,13 +32,20 @@ body:lang(en) {
   background-color: #111;
   color: white;
 }
-.dark svg {
-  fill: #fff !important;
-}
 
 .dark select {
   background-color: transparent;
 }
 .dark select option {
   color: #000;
-}/*# sourceMappingURL=style.css.map */
+}
+
+.overview {
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: calc(var(--line-height) * 3em);
+  line-height: var(--line-height);
+  --line-height: 1.5;
+} /*# sourceMappingURL=style.css.map */

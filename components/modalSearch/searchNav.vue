@@ -55,11 +55,13 @@
             <li v-for="item in searchForAll.searchForAll" :key="item">
               <div class="flex items-center gap-3 my-3">
                 <img
-                  :src="`https://image.tmdb.org/t/p/w500//${item.backdrop_path}`"
+                  :src="`https://image.tmdb.org/t/p/w400//${
+                    item.backdrop_path ? item.backdrop_path : item.poster_path
+                  }`"
                   class="w-16 h-24 rounded-md object-cover"
                 />
 
-                {{ item?.title ? item?.title : item?.original_title }}
+                {{ item?.title ? item?.title : item?.name }}
               </div>
             </li>
           </ul>

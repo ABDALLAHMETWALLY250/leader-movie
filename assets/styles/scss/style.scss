@@ -35,6 +35,16 @@ body {
         }
     }
 }
+
+.overview {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: calc(var(--line-height) * 3em);
+    line-height: var(--line-height);
+    --line-height: 1.5;
+}
 // auth styles
 @import url("./authStyles/_register.scss");
 @import url("./authStyles/_login.scss");
@@ -67,6 +77,10 @@ body {
 // search Modal
 @import url("./searchModel/_searchModel.scss");
 // search Modal
+
+// search
+@import url("./Search/_search.scss");
+// search
 
 // mySwiper
 @import url("./imagesSwiper/_imageSwiper.scss");
