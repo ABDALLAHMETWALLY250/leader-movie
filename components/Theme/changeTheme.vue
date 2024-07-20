@@ -3,7 +3,7 @@
     <div class="flex items-center">
       <button @click="changeTheme('dark')" v-if="theme == 'light'">
         <svg
-          class="w-6 h-6 text-gray-800"
+          class="w-6 h-6"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -27,7 +27,7 @@
         class="flex items-center justify-center"
       >
         <svg
-          class="w-6 h-6 text-gray-800"
+          class="w-6 h-6"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="24"

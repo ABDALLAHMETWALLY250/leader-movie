@@ -28,4 +28,5 @@ export default {
   Actors: "الممثلين",
   Add_to_watch_Later: " المشاهدة لاحقا",
   Add_to_watchlist: " المفضلة",
+  view_all: "عرض الكل",
 };
