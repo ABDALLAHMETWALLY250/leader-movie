@@ -24,7 +24,7 @@
     <transition name="fade">
       <div
         v-if="isMenuOpen"
-        class="absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+        class="absolute top-0 mx-12 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
       >
         <div class="py-1">
           <a
@@ -50,13 +50,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
 import { useAuthStore } from "../../stores/auth/login";
 
 const userAvatar = ref({});
 const userName = ref({});
-const defaultUserAvatar =
-  "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+const defaultUserAvatar = ref(
+  "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+);
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {

@@ -1,7 +1,7 @@
 <template>
   <div class="SearchPage">
     <form
-      class="xl:mt-10 xl:px-28 lg:mt-5 mt-20 w-11/12 mx-auto sticky top-14 "
+      class="xl:mt-10 xl:px-28 lg:mt-5 mt-20 w-11/12 mx-auto sticky top-14"
       @submit.prevent="search"
     >
       <label
@@ -48,9 +48,9 @@
     </form>
 
     <div class="container mx-auto xl:px-40 lg:px-16 px-6">
-      <searchAllMovie :movies="movies" v-if="movies.length > 0" />
-      <SearchAllTvs :Tvs="Tvs" v-if="Tvs.length > 0" />
-      <SearchAllActors :Actors="Actors" v-if="Actors.length > 0" />
+      <searchAllMovie :movies="movies" v-if="movies.length > 0" class="all" />
+      <SearchAllTvs :Tvs="Tvs" v-if="Tvs.length > 0" class="all" />
+      <SearchAllActors :Actors="Actors" v-if="Actors.length > 0" class="all" />
     </div>
     <h2
       v-if="movies.length === 0 && Tvs.length === 0 && Actors.length === 0"
@@ -90,6 +90,8 @@ const filterResults = () => {
 
 const search = () => {
   filterResults();
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 onMounted(() => {

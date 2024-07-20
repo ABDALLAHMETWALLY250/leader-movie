@@ -1,0 +1,41 @@
+.HomeMovie {
+    margin: 2rem 0;
+    padding: 0 1.5rem;
+    .border-top {
+        border-top: 8px solid #0284c7;
+        width: 54%;
+        border-radius: 50px;
+        transition: all 0.5s;
+    }
+    .title {
+        &:hover {
+            cursor: pointer;
+            .border-top {
+                width: 100%;
+                transition: all 0.5s;
+            }
+        }
+    }
+}
+
+.dark {
+    .HomeMovie {
+        margin: 2rem 0;
+        padding: 0 1.5rem;
+        .border-top {
+            border-top: 8px solid gold;
+            width: 54%;
+            border-radius: 50px;
+            transition: all 0.5s;
+        }
+        .title {
+            &:hover {
+                cursor: pointer;
+                .border-top {
+                    width: 100%;
+                    transition: all 0.5s;
+                }
+            }
+        }
+    }
+}
