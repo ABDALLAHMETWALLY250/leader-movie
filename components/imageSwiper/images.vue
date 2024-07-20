@@ -26,8 +26,17 @@
       >
         <nuxt-link to="/">
           <img
+            v-if="slide.backdrop_path"
             class="image_film relative"
-            :src="`https://image.tmdb.org/t/p/w500/${slide.backdrop_path}`"
+            :src="`https://image.tmdb.org/t/p/w500/${
+              slide.backdrop_path ? slide.backdrop_path : slide.poster_path
+            }`"
+            :alt="`${slide.title} image`"
+          />
+          <img
+            v-else
+            class="image_film relative"
+            src="https://i.pravatar.cc/300"
             :alt="`${slide.title} image`"
           />
           <div class="overlay"></div>
@@ -62,7 +71,7 @@
 
             <p class="flex items-center mt-3">
               <svg
-                class="w-5 h-5 dark:text-yellow-500"
+                class="w-5 h-5 text-yellow-500 satr"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -75,7 +84,7 @@
                 />
               </svg>
 
-              : {{ slide?.vote_average * 10 }} %
+              : {{ (slide?.vote_average * 10).toFixed(2) }} %
             </p>
           </div>
 

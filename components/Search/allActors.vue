@@ -1,6 +1,6 @@
 <template >
-  <div>
-    <ul v-if="Actors.length > 0">
+  <div v-if="Actors.length > 0">
+    <ul>
       <p class="my-2 font-bold text-2xl text-center Movie">
         {{ $t("Actors") }}
       </p>
@@ -14,12 +14,27 @@
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie"
         >
           <img
+            v-if="
+              Actor.known_for[0].backdrop_path ||
+              Actor.known_for[1].backdrop_path ||
+              Actor.known_for[2].backdrop_path
+            "
             class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`https://image.tmdb.org/t/p/w500/${
               Actor.known_for[0].backdrop_path ||
               Actor.known_for[1].backdrop_path ||
               Actor.known_for[2].backdrop_path
             }`"
+            :alt="
+              Actor.known_for[0].name ||
+              Actor.known_for[1].name ||
+              Actor.known_for[2].name
+            "
+          />
+          <img
+            v-else
+            class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+            src="https://i.pravatar.cc/500"
             :alt="
               Actor.known_for[0].name ||
               Actor.known_for[1].name ||
@@ -68,7 +83,12 @@
                 {{
                   Actor.release_date ||
                   Actor.first_air_date ||
-                  Actor.known_for[0].release_date
+                  Actor.known_for[0].release_date ||
+                  new Date().getDate() +
+                    "-" +
+                    (new Date().getMonth() + 1) +
+                    "-" +
+                    new Date().getFullYear()
                 }}
               </p>
               <p class="flex items-center my-2">

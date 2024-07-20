@@ -1,6 +1,6 @@
 <template >
-  <div>
-    <ul v-if="movies.length > 0">
+  <div v-if="movies.length > 0">
+    <ul>
       <p class="my-2 font-bold text-2xl text-center Movie">
         {{ $t("Movies") }}
       </p>
@@ -14,15 +14,19 @@
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie"
         >
           <img
+            v-if="movie.poster_path || movie.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`
                 https://image.tmdb.org/t/p/w500/${
                   movie.poster_path || movie.backdrop_path
-                    ? movie.poster_path || movie.backdrop_path
-                    : 'https://i.pravatar.cc/300'
                 }
-                    
               `"
+            :alt="movie.title || movie.name || movie.original_name"
+          />
+          <img
+            v-else
+            class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+            src="https://i.pravatar.cc/500"
             :alt="movie.title || movie.name || movie.original_name"
           />
           <div class="flex flex-col justify-between px-4 leading-normal">
@@ -51,7 +55,16 @@
                     d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
                   />
                 </svg>
-                : {{ movie.release_date || movie.first_air_date }}
+                :
+                {{
+                  movie.release_date
+                    ? movie.release_date
+                    : new Date().getDate() +
+                      "-" +
+                      (new Date().getMonth() + 1) +
+                      "-" +
+                      new Date().getFullYear()
+                }}
               </p>
               <p class="flex items-center my-2">
                 <svg

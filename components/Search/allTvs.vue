@@ -1,6 +1,6 @@
 <template >
-  <div>
-    <ul v-if="Tvs.length > 0">
+  <div v-if="Tvs.length > 0">
+    <ul>
       <p class="my-2 font-bold text-2xl text-center Movie">
         {{ $t("tv_shows") }}
       </p>
@@ -10,12 +10,21 @@
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie"
         >
           <img
+            v-if="Tv.poster_path || Tv.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`https://image.tmdb.org/t/p/w500/${
               Tv.poster_path || Tv.backdrop_path
             }`"
             :alt="Tv.title || Tv.name || Tv.original_name"
           />
+
+          <img
+            v-else
+            class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+            src="https://i.pravatar.cc/500"
+            :alt="Tv.title || Tv.name || Tv.original_name"
+          />
+
           <div class="flex flex-col justify-between px-4 leading-normal">
             <div class="">
               <h5 class="mb-2 text-2xl font-bold tracking-tight">
@@ -42,7 +51,16 @@
                     d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
                   />
                 </svg>
-                : {{ Tv.release_date || Tv.first_air_date }}
+                :
+                {{
+                  Tv.release_date ||
+                  Tv.first_air_date ||
+                  new Date().getDate() +
+                    "-" +
+                    (new Date().getMonth() + 1) +
+                    "-" +
+                    new Date().getFullYear()
+                }}
               </p>
               <p class="flex items-center my-2">
                 <svg

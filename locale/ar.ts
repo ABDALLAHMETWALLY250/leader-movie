@@ -26,6 +26,6 @@ export default {
   No_search_result: "لا توجد نتائج بحث",
   Movies: "الافلام",
   Actors: "الممثلين",
-  Add_to_watch_Later:"اضافة للمشاهدة في المرة لاحقا",
-  Add_to_watchlist:"اضافة للمفضلة",
+  Add_to_watch_Later: " المشاهدة لاحقا",
+  Add_to_watchlist: " المفضلة",
 };

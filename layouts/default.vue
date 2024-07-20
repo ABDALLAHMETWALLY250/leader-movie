@@ -20,9 +20,5 @@
 </script>
     
     <style scoped lang="scss">
-/* Add any additional styles here if needed */
-.text-blue-700 {
-  color: #1d4ed8;
-}
 </style>
     

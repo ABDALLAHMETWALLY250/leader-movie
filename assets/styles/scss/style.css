@@ -9,6 +9,7 @@
 @import url("./searchModel/_searchModel.scss");
 @import url("./Search/_search.scss");
 @import url("./imagesSwiper/_imageSwiper.scss");
+@import url("./HomeMovie/_HomeMovie.scss");
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +29,17 @@ body:lang(ar) {
 body:lang(en) {
   direction: ltr;
 }
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 5px;
+}
 
 .dark {
   background-color: #111;
@@ -45,11 +57,11 @@ body:lang(en) {
 }
 
 .overview {
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: calc(var(--line-height) * 3em);
+  height: calc(var(--line-height) * 2em);
   line-height: var(--line-height);
   --line-height: 1.5;
 }/*# sourceMappingURL=style.css.map */
