@@ -72,7 +72,7 @@ onMounted(() => {
 const logoutStore = useAuthStore();
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
