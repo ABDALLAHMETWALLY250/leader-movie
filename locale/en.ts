@@ -32,4 +32,5 @@ export default {
   Actors: "Actors",
   Add_to_watchlist: " watchlist",
   Add_to_watch_Later: "watch Later",
+  view_all: "View All",
 };

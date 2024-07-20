@@ -1,7 +1,7 @@
 <template>
   <div class="SearchPage">
     <form
-      class="xl:mt-10 xl:px-28 lg:mt-5 mt-20 w-11/12 mx-auto sticky top-14"
+      class="xl:mt-10 xl:px-28 lg:mt-5 mt-20 w-11/12 mx-auto sticky top-14 z-10"
       @submit.prevent="search"
     >
       <label

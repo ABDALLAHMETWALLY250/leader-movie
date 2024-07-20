@@ -11,54 +11,54 @@
       >
         <nuxt-link
           :to="`/movie/${Actor.id}`"
-          class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie"
+          class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie relative"
         >
           <img
             v-if="
-              Actor.known_for[0].backdrop_path ||
-              Actor.known_for[1].backdrop_path ||
-              Actor.known_for[2].backdrop_path
+              Actor.known_for[0]?.backdrop_path ||
+              Actor.known_for[1]?.backdrop_path ||
+              Actor.known_for[2]?.backdrop_path
             "
-            class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`https://image.tmdb.org/t/p/w500/${
-              Actor.known_for[0].backdrop_path ||
-              Actor.known_for[1].backdrop_path ||
-              Actor.known_for[2].backdrop_path
+              Actor.known_for[0]?.backdrop_path ||
+              Actor.known_for[1]?.backdrop_path ||
+              Actor.known_for[2]?.backdrop_path
             }`"
             :alt="
-              Actor.known_for[0].name ||
-              Actor.known_for[1].name ||
-              Actor.known_for[2].name
+              Actor.known_for[0]?.name ||
+              Actor.known_for[1]?.name ||
+              Actor.known_for[2]?.name
             "
           />
           <img
             v-else
-            class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"
             :alt="
-              Actor.known_for[0].name ||
-              Actor.known_for[1].name ||
-              Actor.known_for[2].name
+              Actor.known_for[0]?.name ||
+              Actor.known_for[1]?.name ||
+              Actor.known_for[2]?.name
             "
           />
           <div class="flex flex-col justify-between px-4 leading-normal">
             <div class="">
               <h5 class="mb-2 text-2xl font-bold tracking-tight">
                 {{
-                  Actor.title ||
-                  Actor.name ||
-                  Actor.original_name ||
-                  Actor.known_for[0].name ||
-                  Actor.known_for[1].name ||
-                  Actor.known_for[2].name
+                  Actor?.title ||
+                  Actor?.name ||
+                  Actor?.original_name ||
+                  Actor.known_for[0]?.name ||
+                  Actor.known_for[1]?.name ||
+                  Actor.known_for[2]?.name
                 }}
               </h5>
               <p class="mb-3 font-normal overview">
                 {{
-                  Actor.overview ||
-                  Actor.known_for[0].overview ||
-                  Actor.known_for[1].overview ||
-                  Actor.known_for[2].overview
+                  Actor?.overview ||
+                  Actor.known_for[0]?.overview ||
+                  Actor.known_for[1]?.overview ||
+                  Actor.known_for[2]?.overview
                 }}
               </p>
               <p class="flex items-center my-2">
@@ -81,9 +81,9 @@
                 </svg>
                 :
                 {{
-                  Actor.release_date ||
-                  Actor.first_air_date ||
-                  Actor.known_for[0].release_date ||
+                  Actor?.release_date ||
+                  Actor?.first_air_date ||
+                  Actor?.known_for[0]?.release_date ||
                   new Date().getDate() +
                     "-" +
                     (new Date().getMonth() + 1) +
@@ -106,7 +106,13 @@
                   />
                 </svg>
                 :
-                {{ (Actor.known_for[0].vote_average * 10).toFixed(1) }}
+                {{
+                  (
+                    Actor.known_for[0]?.vote_average ||
+                    Actor.vote_average ||
+                    0 * 10
+                  ).toFixed(1)
+                }}
                 %
               </p>
               <span
@@ -114,18 +120,23 @@
               >
                 {{ Actor.media_type }}
               </span>
-              <div class="flex items-center gap-3 mt-3">
-                <button class="bg-red-700 py-2 px-5 rounded-lg">
-                  {{ $t("Add_to_watchlist") }}
-                </button>
-                <button
-                  class="border border-red-700 hover:bg-red-700 py-2 px-5 rounded-lg transition-all duration-300"
-                >
-                  {{ $t("Add_to_watch_Later") }}
-                </button>
-              </div>
             </div>
           </div>
+          <button class="absolute top-2 mx-2 p-1 bg-gray-700 rounded-lg">
+            <svg
+              class="w-6 h-6 hover:text-red-500 text-white hover:fill-red-500 cursor-pointer tranbsition-all duration-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"
+              />
+            </svg>
+          </button>
         </nuxt-link>
       </li>
     </ul>

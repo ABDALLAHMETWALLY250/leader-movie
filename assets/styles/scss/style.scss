@@ -10,7 +10,9 @@ html {
 
 body {
     overflow-x: hidden;
-
+    select {
+        background-color: transparent;
+    }
     &:lang(ar) {
         direction: rtl;
     }
@@ -35,12 +37,6 @@ body {
 .dark {
     background-color: #111;
     color: #ffffffff;
-    svg {
-        fill: #fff !important;
-    }
-}
-
-.dark {
     select {
         background-color: transparent;
         option {
@@ -57,6 +53,27 @@ body {
     height: calc(var(--line-height) * 2em);
     line-height: var(--line-height);
     --line-height: 1.5;
+}
+
+.cards {
+    .overview {
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: calc(var(--line-height) * 2em);
+        line-height: var(--line-height);
+        --line-height: 1.5;
+    }
+    .title {
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: calc(var(--line-height) * 1em);
+        line-height: var(--line-height);
+        --line-height: 1.5;
+    }
 }
 // auth styles
 @import url("./authStyles/_register.scss");
@@ -106,3 +123,16 @@ body {
 // HomeMovie
 @import url("./HomeMovie/_HomeMovie.scss");
 // HomeMovie
+
+.card_border {
+    border: 1px solid rgb(134, 134, 134);
+    padding: 0.4rem;
+    border-radius: 10px;
+}
+.dark {
+    .card_border {
+        border: 1px solid rgb(255, 255, 255);
+        padding: 0.4rem;
+        border-radius: 10px;
+    }
+}

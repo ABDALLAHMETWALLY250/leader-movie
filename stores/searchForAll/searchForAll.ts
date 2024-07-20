@@ -9,9 +9,10 @@ export const searchForAllStore = defineStore("searchForAll", {
       const { data } = await useFetch(
         `https://api.themoviedb.org/3/search/multi?query=${searchText}&include_adult=false&language=${lang}&page=1&api_key=${api_key}`
       );
-      // console.log(data.value.results, "weqw");
 
       this.searchForAll = data.value.results;
+
+      // console.log(data, "weqw");
     },
   },
 });

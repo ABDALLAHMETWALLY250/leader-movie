@@ -2,7 +2,9 @@
 import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
-      'HomeMovie': typeof import("../components/HomeMovie/movie.vue")['default']
+      'HomeMovieCardsDetails': typeof import("../components/HomeMovie/CardsDetails.vue")['default']
+    'HomeMovieTopHeader': typeof import("../components/HomeMovie/TopHeader.vue")['default']
+    'HomeMovie': typeof import("../components/HomeMovie/movie.vue")['default']
     'SearchAllActors': typeof import("../components/Search/allActors.vue")['default']
     'SearchAllMovie': typeof import("../components/Search/allMovie.vue")['default']
     'SearchAllTvs': typeof import("../components/Search/allTvs.vue")['default']
@@ -47,7 +49,9 @@ interface _GlobalComponents {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyHomeMovie': typeof import("../components/HomeMovie/movie.vue")['default']
+      'LazyHomeMovieCardsDetails': typeof import("../components/HomeMovie/CardsDetails.vue")['default']
+    'LazyHomeMovieTopHeader': typeof import("../components/HomeMovie/TopHeader.vue")['default']
+    'LazyHomeMovie': typeof import("../components/HomeMovie/movie.vue")['default']
     'LazySearchAllActors': typeof import("../components/Search/allActors.vue")['default']
     'LazySearchAllMovie': typeof import("../components/Search/allMovie.vue")['default']
     'LazySearchAllTvs': typeof import("../components/Search/allTvs.vue")['default']
@@ -106,6 +110,8 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const HomeMovieCardsDetails: typeof import("../components/HomeMovie/CardsDetails.vue")['default']
+export const HomeMovieTopHeader: typeof import("../components/HomeMovie/TopHeader.vue")['default']
 export const HomeMovie: typeof import("../components/HomeMovie/movie.vue")['default']
 export const SearchAllActors: typeof import("../components/Search/allActors.vue")['default']
 export const SearchAllMovie: typeof import("../components/Search/allMovie.vue")['default']
@@ -151,6 +157,8 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyHomeMovieCardsDetails: typeof import("../components/HomeMovie/CardsDetails.vue")['default']
+export const LazyHomeMovieTopHeader: typeof import("../components/HomeMovie/TopHeader.vue")['default']
 export const LazyHomeMovie: typeof import("../components/HomeMovie/movie.vue")['default']
 export const LazySearchAllActors: typeof import("../components/Search/allActors.vue")['default']
 export const LazySearchAllMovie: typeof import("../components/Search/allMovie.vue")['default']
