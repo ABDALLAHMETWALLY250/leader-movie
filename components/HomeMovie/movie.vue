@@ -13,10 +13,12 @@
         </p>
       </nuxt-link>
     </div>
-    <div class="w-full my-3">
+    <div
+      class="my-3 xl:flex xl:items-center xl:justify-between lg:flex lg:items-center lg:justify-between md:flex md:items-center md:justify-between flex items-center justify-between gap-3 flex-col"
+    >
       <div
-        class="max-w-sm border border-gray-200 rounded-lg shadow"
-        v-for="movie in 10"
+        class="border border-gray-200 rounded-lg shadow"
+        v-for="movie in 5"
         :key="movie"
       >
         <a href="#">
