@@ -62,19 +62,19 @@
             </nuxt-link>
           </li>
 
-          <li class="my-3">
+          <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
             <LangDropDown />
           </li>
 
-          <li class="my-3">
+          <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
             <ModalSearch />
           </li>
 
-          <li class="my-3">
+          <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
             <Avatar />
           </li>
 
-          <li class="my-3">
+          <li class="px-3">
             <div class="flex items-center">
               <button @click="changeTheme('dark')" v-if="theme == 'light'">
                 <svg

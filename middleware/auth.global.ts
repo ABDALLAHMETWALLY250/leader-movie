@@ -1,6 +1,6 @@
 export default defineNuxtRouteMiddleware((to) => {
   const token = useCookie("token");
-  if (!token.value) {
+  if (!token.value && to.path != "/auth/login" && to.path != "/auth/register") {
     return navigateTo("/auth/login");
   }
 

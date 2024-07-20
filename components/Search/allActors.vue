@@ -26,82 +26,84 @@
               Actor.known_for[2].name
             "
           />
-          <div class="flex flex-col justify-between p-4 leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight">
-              {{
-                Actor.title ||
-                Actor.name ||
-                Actor.original_name ||
-                Actor.known_for[0].name ||
-                Actor.known_for[1].name ||
-                Actor.known_for[2].name
-              }}
-            </h5>
-            <p class="mb-3 font-normal overview">
-              {{
-                Actor.overview ||
-                Actor.known_for[0].overview ||
-                Actor.known_for[1].overview ||
-                Actor.known_for[2].overview
-              }}
-            </p>
-            <p class="flex items-center my-2">
-              <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
+          <div class="flex flex-col justify-between px-4 leading-normal">
+            <div class="">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight">
+                {{
+                  Actor.title ||
+                  Actor.name ||
+                  Actor.original_name ||
+                  Actor.known_for[0].name ||
+                  Actor.known_for[1].name ||
+                  Actor.known_for[2].name
+                }}
+              </h5>
+              <p class="mb-3 font-normal overview">
+                {{
+                  Actor.overview ||
+                  Actor.known_for[0].overview ||
+                  Actor.known_for[1].overview ||
+                  Actor.known_for[2].overview
+                }}
+              </p>
+              <p class="flex items-center my-2">
+                <svg
+                  class="w-6 h-6"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
+                  />
+                </svg>
+                :
+                {{
+                  Actor.release_date ||
+                  Actor.first_air_date ||
+                  Actor.known_for[0].release_date
+                }}
+              </p>
+              <p class="flex items-center my-2">
+                <svg
+                  class="w-5 h-5 dark:text-yellow-500"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                :
+                {{ (Actor.known_for[0].vote_average * 10).toFixed(1) }}
+                %
+              </p>
+              <span
+                class="px-2 py-1 ms-2 text-md text-center bg-gray-400 rounded-lg w-14"
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
-                />
-              </svg>
-              :
-              {{
-                Actor.release_date ||
-                Actor.first_air_date ||
-                Actor.known_for[0].release_date
-              }}
-            </p>
-            <p class="flex items-center my-2">
-              <svg
-                class="w-5 h-5 dark:text-yellow-500"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
-                />
-              </svg>
-              :
-              {{ (Actor.known_for[0].vote_average * 10).toFixed(1) }}
-              %
-            </p>
-            <span
-              class="px-2 py-1 ms-2 text-md text-center bg-gray-400 rounded-lg w-14"
-            >
-              {{ Actor.media_type }}
-            </span>
-            <div class="flex items-center gap-3 mt-3">
-              <button class="bg-red-700 py-2 px-5 rounded-lg">
-                {{ $t("Add_to_watchlist") }}
-              </button>
-              <button
-                class="border border-red-700 hover:bg-red-700 py-2 px-5 rounded-lg transition-all duration-300"
-              >
-                {{ $t("Add_to_watch_Later") }}
-              </button>
+                {{ Actor.media_type }}
+              </span>
+              <div class="flex items-center gap-3 mt-3">
+                <button class="bg-red-700 py-2 px-5 rounded-lg">
+                  {{ $t("Add_to_watchlist") }}
+                </button>
+                <button
+                  class="border border-red-700 hover:bg-red-700 py-2 px-5 rounded-lg transition-all duration-300"
+                >
+                  {{ $t("Add_to_watch_Later") }}
+                </button>
+              </div>
             </div>
           </div>
         </nuxt-link>

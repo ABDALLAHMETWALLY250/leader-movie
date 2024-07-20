@@ -271,7 +271,6 @@ const onFileChange = (event?: any) => {
     reader.onload = (e) => {
       if (typeof e.target?.result === "string") {
         userRegister.value.profile_image_url = e.target.result;
-        localStorage.setItem("profile_image_url", e.target.result);
       }
     };
     reader.readAsDataURL(file);
