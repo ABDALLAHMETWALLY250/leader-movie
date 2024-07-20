@@ -14,7 +14,7 @@
       </nuxt-link>
     </div>
     <div
-      class="my-3 xl:flex xl:items-center xl:justify-between lg:flex lg:items-center lg:justify-between md:flex md:items-center md:justify-between flex items-center justify-between gap-3 flex-col"
+      class="my-3 xl:flex xl:items-center xl:justify-between xl:gap-3 lg:flex lg:items-center lg:justify-between lg:gap-3 md:flex md:items-center md:justify-between md:gap-3"
     >
       <div
         class="border border-gray-200 rounded-lg shadow"
