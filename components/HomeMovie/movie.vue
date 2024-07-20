@@ -14,7 +14,7 @@
       </nuxt-link>
     </div>
     <div
-      class="overflow-x-auto-auto my-3 flex items-center justify-between gap-3"
+      class="my-3 xl:flex xl:items-center xl:justify-between lg:flex lg:items-center lg:justify-between md:flex md:items-center md:justify-between flex items-center justify-between gap-3 flex-col"
     >
       <div
         class="border border-gray-200 rounded-lg shadow"
