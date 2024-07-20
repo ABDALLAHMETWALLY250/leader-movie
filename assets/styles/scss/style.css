@@ -5,7 +5,7 @@
 @import url("./responsiveStyle/_labTobs.scss");
 @import url("./responsiveStyle/_deskTop.scss");
 @import url("./sideBar/_sideBar.scss");
-@import url("./navBar/_navBar.scss");
+@import url("./NavBar/_navBar.scss");
 @import url("./searchModel/_searchModel.scss");
 @import url("./Search/_search.scss");
 @import url("./imagesSwiper/_imageSwiper.scss");
