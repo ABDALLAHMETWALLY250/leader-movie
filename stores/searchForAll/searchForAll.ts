@@ -1,6 +1,7 @@
 export const searchForAllStore = defineStore("searchForAll", {
   state: () => ({
     searchForAll: [],
+    loading: false,
   }),
   actions: {
     async fetchSearchForAll(lang: any, searchText: any) {
@@ -8,9 +9,10 @@ export const searchForAllStore = defineStore("searchForAll", {
 
       const { data } = await useFetch(
         `https://api.themoviedb.org/3/search/multi?query=${searchText}&include_adult=false&language=${lang}&page=1&api_key=${api_key}`
-      );
-
-      this.searchForAll = data.value.results;
+      ).then((res) => {
+        this.searchForAll = res.data.value.results;
+        // console.log(this.searchForAll, "searchForAll");
+      });
 
       // console.log(data, "weqw");
     },

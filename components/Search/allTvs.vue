@@ -13,25 +13,25 @@
             v-if="Tv.poster_path || Tv.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`https://image.tmdb.org/t/p/w500/${
-              Tv.poster_path || Tv.backdrop_path
+              Tv?.poster_path || Tv?.backdrop_path
             }`"
-            :alt="Tv.title || Tv.name || Tv.original_name"
+            :alt="Tv?.title || Tv?.name || Tv?.original_name"
           />
 
           <img
             v-else
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"
-            :alt="Tv.title || Tv.name || Tv.original_name"
+            :alt="Tv?.title || Tv?.name || Tv?.original_name"
           />
 
           <div class="flex flex-col justify-between px-4 leading-normal">
             <div class="">
               <h5 class="mb-2 text-2xl font-bold tracking-tight">
-                {{ Tv.title || Tv.name || Tv.original_name }}
+                {{ Tv?.title || Tv?.name || Tv?.original_name }}
               </h5>
               <p class="mb-3 font-normal overview">
-                {{ Tv.overview }}
+                {{ Tv?.overview }}
               </p>
               <p class="flex items-center my-2">
                 <svg
@@ -53,8 +53,8 @@
                 </svg>
                 :
                 {{
-                  Tv.release_date ||
-                  Tv.first_air_date ||
+                  Tv?.release_date ||
+                  Tv?.first_air_date ||
                   new Date().getDate() +
                     "-" +
                     (new Date().getMonth() + 1) +
@@ -76,12 +76,12 @@
                     d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
                   />
                 </svg>
-                : {{ (Tv.vote_average * 10).toFixed(1) }} %
+                : {{ (Tv?.vote_average * 10).toFixed(1) }} %
               </p>
               <span
                 class="px-2 py-1 ms-2 text-md text-center bg-gray-400 rounded-lg w-14"
               >
-                {{ Tv.media_type }}
+                {{ Tv?.media_type }}
               </span>
             </div>
           </div>
