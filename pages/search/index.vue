@@ -1,7 +1,8 @@
 <template>
   <div class="SearchPage">
     <form
-      class="xl:mt-10 xl:px-28 lg:mt-5 mt-20 w-11/12 mx-auto sticky top-14 z-10"
+      class="xl:mt-10 xl:px-28 lg:mt-5 mt-20 w-11/12 mx-auto sticky top-14"
+      style="z-index: 5"
       @submit.prevent="search"
     >
       <label
@@ -38,6 +39,7 @@
           v-model="searchText"
           @input="searchForAll.fetchSearchForAll(locale, searchText)"
         />
+
         <button
           type="submit"
           class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -47,13 +49,20 @@
       </div>
     </form>
 
-    <div class="container mx-auto xl:px-40 lg:px-16 px-6">
+    <div
+      class="container mx-auto xl:px-40 lg:px-16 px-6"
+      v-if="movies.length > 0 || Tvs.length > 0 || Actors.length > 0"
+    >
       <searchAllMovie :movies="movies" v-if="movies.length > 0" class="all" />
       <SearchAllTvs :Tvs="Tvs" v-if="Tvs.length > 0" class="all" />
       <SearchAllActors :Actors="Actors" v-if="Actors.length > 0" class="all" />
     </div>
+
+    <span v-if="searchForAll.loading" class="text-3xl font-bold"
+      >Lodading...</span
+    >
     <h2
-      v-if="movies.length === 0 && Tvs.length === 0 && Actors.length === 0"
+      v-if="movies.length == 0 && Tvs.length == 0 && Actors.length == 0"
       class="my-40 text-center font-medium capitalize text-2xl flex items-center justify-center mt-60"
     >
       {{ $t("No_search_result") }}
@@ -73,6 +82,7 @@ const Tvs = ref<any[]>([]);
 const Actors = ref<any[]>([]);
 
 const filterResults = () => {
+  searchForAll.loading = true;
   movies.value = [];
   Tvs.value = [];
   Actors.value = [];
@@ -80,17 +90,19 @@ const filterResults = () => {
   searchForAll.searchForAll.forEach((item) => {
     if (item?.media_type == "movie") {
       movies.value.push(item);
+      searchForAll.loading = false;
     } else if (item?.media_type == "tv") {
       Tvs.value.push(item);
+      searchForAll.loading = false;
     } else if (item?.media_type == "person") {
       Actors.value.push(item);
+      searchForAll.loading = false;
     }
   });
 };
 
 const search = () => {
   filterResults();
-
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 

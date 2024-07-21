@@ -1,6 +1,6 @@
 <template>
   <div class="search_modal">
-    <nuxt-link to="/search" class="has-tooltip">
+    <nuxt-link to="/search" class="has-tooltip" activeClass="active">
       <span
         class="tooltip rounded shadow-lg p-1 bg-gray-100 text-sky-500 ms-7"
         >{{ $t("search") }}</span
@@ -56,6 +56,7 @@
               <li v-for="Actor in Actors" :key="Actor">{{ Actor }}-p</li>
             </ul>
           </div>
+
           <h5 v-else class="my-40 text-center font-medium capitalize text-base">
             {{ $t("No_search_result") }}
           </h5>
@@ -115,8 +116,6 @@ const searchForPerson = () => {
   });
 };
 
-
-
 watch(searchText, () => {
   if (searchText.value) {
     searchForAllMovies();
@@ -132,6 +131,4 @@ onMounted(() => {
 
   // searchForAll.fetchSearchForAll(locale.value, searchText.value);
 });
-
-
 </script>
