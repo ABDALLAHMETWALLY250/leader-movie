@@ -1,6 +1,12 @@
 .HomeMovie {
     margin: 2rem 0;
     padding: 0 1.5rem;
+    .swiper-wrapper{
+    .swiper-slide{
+        width:273px;
+        margin:0  0.7rem;
+    }
+}   
     .border-top {
         border-top: 8px solid #0284c7;
         width: 54%;
