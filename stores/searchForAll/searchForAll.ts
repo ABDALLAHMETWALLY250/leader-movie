@@ -11,7 +11,7 @@ export const searchForAllStore = defineStore("searchForAll", {
         `https://api.themoviedb.org/3/search/multi?query=${searchText}&include_adult=false&language=${lang}&page=1&api_key=${api_key}`
       ).then((res) => {
         this.searchForAll = res.data.value.results;
-        console.log(this.searchForAll, "searchForAll");
+        // console.log(this.searchForAll, "searchForAll");
       });
 
       // console.log(data, "weqw");

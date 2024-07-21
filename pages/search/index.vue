@@ -62,7 +62,12 @@
       >Lodading...</span
     >
     <h2
-      v-if="movies.length == 0 && Tvs.length == 0 && Actors.length == 0"
+      v-if="
+        movies.length == 0 &&
+        Tvs.length == 0 &&
+        Actors.length == 0 &&
+        !searchForAll.loading
+      "
       class="my-40 text-center font-medium capitalize text-2xl flex items-center justify-center mt-60"
     >
       {{ $t("No_search_result") }}

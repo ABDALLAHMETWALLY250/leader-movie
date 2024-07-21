@@ -11,7 +11,7 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
           `https://api.themoviedb.org/3/movie/popular?language=${language}&page=1&api_key=${api_key}`
         );
         const data = await response.json();
-        console.log(data.results, "popularMovie");
+        // console.log(data.results, "popularMovie");
         this.popularMovie = data.results;
       } catch (error) {
         console.error("Error fetching popular movies:", error);
