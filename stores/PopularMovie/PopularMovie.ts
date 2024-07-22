@@ -1,6 +1,7 @@
 export const usePopularMovieStore = defineStore("PopularMovie", {
   state: () => ({
     popularMovie: [],
+    loading: false,
   }),
   actions: {
     async getPopularMovie(language: string) {
@@ -12,9 +13,11 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
         );
         const data = await response.json();
         // console.log(data.results, "popularMovie");
+        this.loading = true;
         this.popularMovie = data.results;
       } catch (error) {
         console.error("Error fetching popular movies:", error);
+        this.loading = false;
       }
     },
   },

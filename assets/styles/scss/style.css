@@ -1,6 +1,7 @@
 @import url("./authStyles/_register.scss");
 @import url("./authStyles/_login.scss");
 @import url("./responsiveStyle/_mobile.scss");
+@import url("./responsiveStyle/_smallmobile.scss");
 @import url("./responsiveStyle/_tablets.scss");
 @import url("./responsiveStyle/_labTobs.scss");
 @import url("./responsiveStyle/_deskTop.scss");

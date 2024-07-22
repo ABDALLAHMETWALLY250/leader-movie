@@ -1344,7 +1344,7 @@ const unheadPlugins = true ? [CapoPlugin({ track: true })] : [];
 
 const renderSSRHeadOptions = {};
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"description","content":"Discover the latest reviews, news, and exclusive content on Leader-Movie, your go-to source for all things cinema."},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"robots","content":"index, follow"},{"name":"author","content":"Abdallah Mohamed"},{"name":"keywords","content":"Leader-Movie, movie, reviews, news, and exclusive content"}],"link":[{"rel":"icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"Leader Movie","htmlAttrs":{"lang":"en"},"charset":"utf-8","viewport":"width=device-width, initial-scale=1"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"description","content":"Discover the latest reviews, news, and exclusive content on Leader-Movie, your go-to source for all things cinema."},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"robots","content":"index, follow"},{"name":"author","content":"Abdallah Mohamed"},{"name":"keywords","content":"Leader-Movie, movie, reviews, news, and exclusive content"}],"link":[{"rel":"icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"Leader Movie","charset":"utf-8","viewport":"width=device-width, initial-scale=1"};
 
 const appRootTag = "div";
 
