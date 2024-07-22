@@ -27,16 +27,7 @@
         class="absolute top-0 mx-12 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
       >
         <div class="py-1">
-          <a
-            href="#"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Profile</a
-          >
-          <a
-            href="#"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Settings</a
-          >
+          
           <button
             @click="logoutStore.logUserOut()"
             class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
