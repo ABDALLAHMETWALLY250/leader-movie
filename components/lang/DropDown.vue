@@ -16,15 +16,28 @@
 import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
-
 const changeLanguage = (event) => {
-  locale.value = event.target.value;
   window.location.reload();
-  localStorage.setItem("locale", event.target.value);
+  const selectedLocale = event.target.value || "en";
+  locale.value = selectedLocale;
+  localStorage.setItem("locale", selectedLocale);
+  document.querySelector("html").setAttribute("lang", selectedLocale);
+
+  applyLanguageChange(selectedLocale);
 };
+
+const initializeLanguage = () => {
+  const savedLocale = localStorage.getItem("locale") || "en";
+  document.querySelector("html").setAttribute("lang", savedLocale);
+  locale.value = savedLocale;
+};
+
 onMounted(() => {
-  locale.value = localStorage.getItem("locale");
-  // console.log(locale.value);
+  initializeLanguage();
+  const languageSelector = document.getElementById("language-selector");
+  if (languageSelector) {
+    languageSelector.addEventListener("change", changeLanguage);
+  }
 });
 </script>
 

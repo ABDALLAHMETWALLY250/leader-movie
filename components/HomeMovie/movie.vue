@@ -1,46 +1,54 @@
 <template >
   <div class="HomeMovie">
-    <TopHeader :path="'movies'">
-      {{ $t("Movies") }}
-    </TopHeader>
-    <swiper
-      :slidesPerView="1"
-      :spaceBetween="10"
-      :loop="true"
-      :pagination="{
-        clickable: true,
-      }"
-      :modules="[SwiperAutoplay, SwiperEffectCreative]"
-      :autoplay="{
-        delay: 8000,
-        disableOnInteraction: true,
-      }"
-      :breakpoints="{
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-        // when window width is >= 480px
-        480: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-        // when window width is >= 640px
-        640: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 20,
-        },
-      }"
-      class="mySwiper my-3"
-    >
-      <swiper-slide v-for="movie in popularMovies.popularMovie" :key="movie">
-        <CardsDetails :movie="movie" />
-      </swiper-slide>
-    </swiper>
+    <div class="container mx-auto xl:px-5">
+      <TopHeader :path="'movies'">
+        {{ $t("Movies") }}
+      </TopHeader>
+      <h1
+        v-if="!popularMovies.loading"
+        class="text-3xl font-bold text-center mt-6"
+      >
+        Lodading...
+      </h1>
+      <swiper
+        :slidesPerView="1"
+        :spaceBetween="10"
+        :loop="true"
+        :pagination="{
+          clickable: true,
+        }"
+        :modules="[SwiperAutoplay, SwiperEffectCreative]"
+        :autoplay="{
+          delay: 8000,
+          disableOnInteraction: true,
+        }"
+        :breakpoints="{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          // when window width is >= 480px
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+        }"
+        class="mySwiper my-3"
+      >
+        <swiper-slide v-for="movie in popularMovies.popularMovie" :key="movie">
+          <CardsDetails :movie="movie" />
+        </swiper-slide>
+      </swiper>
+    </div>
   </div>
 </template>
 <script setup >

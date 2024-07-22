@@ -1,12 +1,12 @@
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
     .sm-none {
         display: none;
     }
-        .HomeMovie {
+    .HomeMovie {
         .swiper-initialized {
             .swiper-wrapper {
                 .swiper-slide {
-            
+                    // width: 199px;
                     margin-right: 20px;
                 }
             }

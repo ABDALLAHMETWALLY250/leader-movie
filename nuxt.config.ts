@@ -25,9 +25,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Leader Movie",
-      htmlAttrs: {
-        lang: "en",
-      },
+      // htmlAttrs: {
+      //   lang: "en",
+      // },
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       link: [

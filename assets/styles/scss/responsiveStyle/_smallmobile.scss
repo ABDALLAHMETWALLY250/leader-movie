@@ -1,0 +1,16 @@
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .sm-none {
+        display: none;
+    }
+    .HomeMovie {
+        .swiper-initialized {
+            .swiper-wrapper {
+                .swiper-slide {
+                    width: 194px;
+                    // max-width: 47%;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
