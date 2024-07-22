@@ -11,6 +11,8 @@
 @import url("./Search/_search.scss");
 @import url("./imagesSwiper/_imageSwiper.scss");
 @import url("./HomeMovie/_HomeMovie.scss");
+@import url("./movies/_movies.scss");
+@import url("./Tv/_tv.scss");
 * {
   margin: 0;
   padding: 0;

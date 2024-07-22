@@ -55,6 +55,16 @@
           <li class="my-3">
             <nuxt-link
               activeClass="active"
+              to="/movies"
+              class="block py-2 px-3 md:p-0"
+            >
+              {{ $t("Movies") }}
+            </nuxt-link>
+          </li>
+
+          <li class="my-3">
+            <nuxt-link
+              activeClass="active"
               to="/tv-show"
               class="block py-2 px-3 md:p-0"
             >

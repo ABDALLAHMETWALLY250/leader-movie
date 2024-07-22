@@ -33,4 +33,8 @@ export default {
   Add_to_watchlist: " watchlist",
   Add_to_watch_Later: "watch Later",
   view_all: "View All",
+  Explore_Our_Extensive_Collection_Of_Movies:
+    "Explore Our Extensive Collection Of Movies From Various Genres And Eras. Whether You’re A Fan Of Action-Packed Blockbusters, Heartwarming Dramas, Spine-Chilling Horror Flicks, Or Thought-Provoking Documentaries, We Have Something For Everyone. Dive Into Our Curated Lists, Read Reviews, And Discover Your Next Favorite Film Today. Enjoy The Magic Of Cinema At Your Fingertips!",
+  Discover_a_curated_selection_of_the_best_TV_shows:
+    "Discover a curated selection of the best TV shows across various genres. Whether you're into thrilling dramas, hilarious comedies, captivating mysteries, or heartwarming romances, our collection has something for everyone. Stay updated with the latest episodes, read reviews, and find your next binge-worthy series right here. Dive into the world of television and explore stories that will keep you entertained for hours.",
 };

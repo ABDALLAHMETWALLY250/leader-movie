@@ -59,14 +59,14 @@
     </div>
 
     <span v-if="searchForAll.loading" class="text-3xl font-bold"
-      >Lodading...</span
+      >Loading...</span
     >
     <h2
       v-if="
-        movies.length == 0 &&
-        Tvs.length == 0 &&
-        Actors.length == 0 &&
-        !searchForAll.loading
+        !searchForAll.loading &&
+        movies.length === 0 &&
+        Tvs.length === 0 &&
+        Actors.length === 0
       "
       class="my-40 text-center font-medium capitalize text-2xl flex items-center justify-center mt-60"
     >
@@ -87,23 +87,21 @@ const Tvs = ref<any[]>([]);
 const Actors = ref<any[]>([]);
 
 const filterResults = () => {
-  searchForAll.loading = true;
   movies.value = [];
   Tvs.value = [];
   Actors.value = [];
 
+  searchForAll.loading = true;
   searchForAll.searchForAll.forEach((item) => {
-    if (item?.media_type == "movie") {
+    if (item?.media_type === "movie") {
       movies.value.push(item);
-      searchForAll.loading = false;
-    } else if (item?.media_type == "tv") {
+    } else if (item?.media_type === "tv") {
       Tvs.value.push(item);
-      searchForAll.loading = false;
-    } else if (item?.media_type == "person") {
+    } else if (item?.media_type === "person") {
       Actors.value.push(item);
-      searchForAll.loading = false;
     }
   });
+  searchForAll.loading = false;
 };
 
 const search = () => {
@@ -113,8 +111,6 @@ const search = () => {
 
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";
-  // Uncomment if you want to fetch on mount
-  // searchForAll.fetchSearchForAll(locale.value, searchText.value);
 });
 </script>
 
