@@ -1,9 +1,9 @@
 <template >
   <div class="movies">
     <Banner>
-      <div class="title xl:px-96 lg:px-40 md:px-40 px-5">
+      <div class="title xl:px-80 lg:px-40 md:px-20 px-5">
         <h3>{{ $t("Movies") }}</h3>
-        <p class="description my-8">
+        <p class="description my-5">
           {{ $t("Explore_Our_Extensive_Collection_Of_Movies") }}
         </p>
       </div>
