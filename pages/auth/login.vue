@@ -21,7 +21,7 @@
           }}</span>
         </div>
       </div>
-      <div class="description lb-none dk-none tb-none">
+      <div class="description lb-none dk-none tb-none ">
         <div class="circle">
           <img src="~/assets/images/logo.png" alt="Logo" />
         </div>
