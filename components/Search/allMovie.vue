@@ -13,6 +13,7 @@
           :to="`/movie/${movie.id}`"
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie relative"
         >
+
           <img
             v-if="movie?.poster_path || movie?.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
@@ -104,6 +105,7 @@
               />
             </svg>
           </button>
+          
         </nuxt-link>
       </li>
     </ul>
