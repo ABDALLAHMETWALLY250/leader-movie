@@ -12,11 +12,7 @@
       <div class="">
         <nuxt-link :to="`/movie/${movie.id}`">
           <h5 class="mb-2 text-xl font-bold tracking-tight title">
-            {{
-              movie.title ||
-              movie.name ||
-              movie.original_name
-            }}
+            {{ movie.title || movie.name || movie.original_name }}
           </h5>
         </nuxt-link>
         <p class="mb-3 font-normal overview">

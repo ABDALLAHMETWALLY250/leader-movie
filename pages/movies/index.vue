@@ -9,7 +9,7 @@
       </div>
 
       <form
-        @submit.prevent="searchClick"
+        @submit.prevent="searchClick(curentPage)"
         class="lg:px-40 md:px-20 sm:px-14 px-6 mx-auto"
       >
         <label
@@ -29,7 +29,7 @@
             class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search Mockups, Logos..."
             required
-            v-model="searchMovietext"
+            v-model="searchMovie.searchText"
           />
           <button
             type="submit"
@@ -44,17 +44,36 @@
   <div class="p-8">
     <CardsCardShow />
   </div>
+
+  <div class="flex w-full items-center gap-4 my-2 overflow-auto container">
+    <button
+      :class="`${
+        i == curentPage ? 'bg-sky-400 text-white' : ''
+      } px-3 py-1 rounded-md`"
+      @click="fetchPageData(i)"
+      v-for="i in searchMovie.totalPages"
+      :key="i"
+    >
+      {{ i }}
+    </button>
+  </div>
 </template>
 <script setup lang="ts">
 import { useSearchMovie } from "~/stores/searchMovie/searchMovie";
 
 const { locale } = useI18n();
-const searchMovie = useSearchMovie();
-const searchMovietext = ref("");
 
-const searchClick = () => {
-  searchMovie.setSearchMovie(searchMovietext.value, locale.value);
-  searchMovietext.value = "";
+const searchMovie = useSearchMovie();
+
+const curentPage = ref(1);
+
+const searchClick = (i: number) => {
+  searchMovie.setSearchMovie(searchMovie.searchText, locale.value, i);
+  curentPage.value = i;
+};
+
+const fetchPageData = (i: number) => {
+  searchClick(i);
 };
 </script>
 <style >
