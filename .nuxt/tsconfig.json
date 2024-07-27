@@ -83,6 +83,9 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
+      "#primevue-style": [
+        "./primevue-style.mjs"
+      ],
       "pinia": [
         "../node_modules/pinia/dist/pinia"
       ],
@@ -118,12 +121,6 @@
       ],
       "#imports": [
         "./imports"
-      ],
-      "#tailwind-config": [
-        "./tailwind.config"
-      ],
-      "#tailwind-config/*": [
-        "./tailwind.config/*"
       ],
       "#app-manifest": [
         "./manifest/meta/dev"
@@ -171,6 +168,7 @@
     "./nuxt.d.ts",
     "../.config/nuxt.*",
     "../**/*",
+    "../node_modules/nuxt-primevue/runtime",
     "../node_modules/@nuxtjs/tailwindcss/runtime",
     "../node_modules/@pinia/nuxt/runtime",
     "../node_modules/@nuxtjs/i18n/runtime",
@@ -183,6 +181,7 @@
     "../dist",
     "../node_modules",
     "../node_modules/nuxt/node_modules",
+    "../node_modules/nuxt-primevue/runtime/server",
     "../node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/@pinia/nuxt/runtime/server",
     "../node_modules/@nuxtjs/i18n/runtime/server",

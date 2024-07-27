@@ -38,4 +38,5 @@ export default {
     "Explorez notre vaste collection de films de différents genres et époques. Que vous soyez fan de superproductions pleines d'action, de drames réconfortants, de films d'horreur effrayants ou de documentaires qui suscitent la réflexion, nous avons quelque chose pour tout le monde. Plongez dans nos listes organisées, lisez les critiques et découvrez votre prochain film préféré aujourd'hui. Profitez de la magie du cinéma à portée de main !",
   Discover_a_curated_selection_of_the_best_TV_shows:
     "Découvrez une sélection des meilleures émissions de télévision dans différents genres. Que vous aimiez les drames palpitants, les comédies hilarantes, les mystères captivants ou les romances réconfortantes, notre collection a quelque chose pour tout le monde. Restez à jour avec les derniers épisodes, lisez les critiques et trouvez votre prochaine série digne d'une frénésie ici. Plongez dans le monde de la télévision et explorez des histoires qui vous divertiront pendant des heures.",
+  Loading: "Chargement...",
 };
