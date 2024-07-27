@@ -3,6 +3,7 @@ import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
       'Banner': typeof import("../components/global/banner.vue")['default']
+    'CardsCardShow': typeof import("../components/Cards/cardShow.vue")['default']
     'HomeMovieCardsDetails': typeof import("../components/HomeMovie/CardsDetails.vue")['default']
     'HomeMovieTopHeader': typeof import("../components/HomeMovie/TopHeader.vue")['default']
     'HomeMovie': typeof import("../components/HomeMovie/movie.vue")['default']
@@ -148,6 +149,7 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyBanner': typeof import("../components/global/banner.vue")['default']
+    'LazyCardsCardShow': typeof import("../components/Cards/cardShow.vue")['default']
     'LazyHomeMovieCardsDetails': typeof import("../components/HomeMovie/CardsDetails.vue")['default']
     'LazyHomeMovieTopHeader': typeof import("../components/HomeMovie/TopHeader.vue")['default']
     'LazyHomeMovie': typeof import("../components/HomeMovie/movie.vue")['default']
@@ -307,6 +309,7 @@ declare module 'vue' {
 }
 
 export const Banner: typeof import("../components/global/banner.vue")['default']
+export const CardsCardShow: typeof import("../components/Cards/cardShow.vue")['default']
 export const HomeMovieCardsDetails: typeof import("../components/HomeMovie/CardsDetails.vue")['default']
 export const HomeMovieTopHeader: typeof import("../components/HomeMovie/TopHeader.vue")['default']
 export const HomeMovie: typeof import("../components/HomeMovie/movie.vue")['default']
@@ -452,6 +455,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyBanner: typeof import("../components/global/banner.vue")['default']
+export const LazyCardsCardShow: typeof import("../components/Cards/cardShow.vue")['default']
 export const LazyHomeMovieCardsDetails: typeof import("../components/HomeMovie/CardsDetails.vue")['default']
 export const LazyHomeMovieTopHeader: typeof import("../components/HomeMovie/TopHeader.vue")['default']
 export const LazyHomeMovie: typeof import("../components/HomeMovie/movie.vue")['default']
