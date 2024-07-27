@@ -94,6 +94,9 @@
       "public/*": [
         "../public/*"
       ],
+      "#primevue-style": [
+        "./primevue-style"
+      ],
       "pinia": [
         "../node_modules/pinia/dist/pinia"
       ],
@@ -123,17 +126,12 @@
       ],
       "#i18n": [
         "../node_modules/@nuxtjs/i18n/dist/runtime/composables/index"
-      ],
-      "#tailwind-config": [
-        "./tailwind.config"
-      ],
-      "#tailwind-config/*": [
-        "./tailwind.config/*"
       ]
     }
   },
   "include": [
     "./types/nitro-nuxt.d.ts",
+    "../node_modules/nuxt-primevue/runtime/server",
     "../node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/@pinia/nuxt/runtime/server",
     "../node_modules/@nuxtjs/i18n/runtime/server",
