@@ -1,23 +1,26 @@
 <template >
   <div class="cards">
     <div class="card_border relative">
-      <nuxt-link :to="`/movie/${movie.id}`">
-        <img
-          class="rounded-lg h-96 w-full object-cover"
+      <div>
+        <Image
+          class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
           :src="`
-        https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
-          :alt="movie.title || movie.name || movie.original_name"
+        https://image.tmdb.org/t/p/w400/${movie.data.poster_path}`"
+          :alt="movie.data.title || movie.data.name || movie.data.original_name"
+          preview
         />
-      </nuxt-link>
+      </div>
       <div class="">
-        <nuxt-link :to="`/movie/${movie.id}`">
+        <nuxt-link :to="`/movie/${movie.data.id}`">
           <h5 class="mb-2 text-xl font-bold tracking-tight title">
-            {{ movie.title || movie.name || movie.original_name }}
+            {{
+              movie.data.title || movie.data.name || movie.data.original_name
+            }}
           </h5>
+          <p class="mb-3 font-normal overview">
+            {{ movie.data.overview }}
+          </p>
         </nuxt-link>
-        <p class="mb-3 font-normal overview">
-          {{ movie.overview }}
-        </p>
       </div>
       <button class="absolute top-2 mx-2 p-1 bg-gray-700 rounded-lg">
         <svg
