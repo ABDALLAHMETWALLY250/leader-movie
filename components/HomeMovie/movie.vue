@@ -10,7 +10,7 @@
       >
         Lodading...
       </h1>
-      <swiper
+      <!-- <swiper
         :slidesPerView="1"
         :spaceBetween="10"
         :loop="true"
@@ -47,17 +47,52 @@
         <swiper-slide v-for="movie in popularMovies.popularMovie" :key="movie">
           <CardsDetails :movie="movie" />
         </swiper-slide>
-      </swiper>
+      </swiper> -->
+
+      <div class="card">
+        <Carousel
+          :value="popularMovies.popularMovie"
+          :numVisible="4"
+          :numScroll="1"
+          :responsiveOptions="responsiveOptions"
+        >
+          <template #item="slotProps">
+            <CardsDetails :movie="slotProps" class="mx-1 mt-4" />
+          </template>
+        </Carousel>
+      </div>
     </div>
   </div>
 </template>
-<script setup >
+
+<script setup  >
 import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
 import CardsDetails from "./CardsDetails.vue";
 import TopHeader from "./TopHeader.vue";
 
 const locale = useI18n();
-
+const responsiveOptions = ref([
+  {
+    breakpoint: "1400px",
+    numVisible: 2,
+    numScroll: 1,
+  },
+  {
+    breakpoint: "1199px",
+    numVisible: 3,
+    numScroll: 1,
+  },
+  {
+    breakpoint: "767px",
+    numVisible: 2,
+    numScroll: 1,
+  },
+  {
+    breakpoint: "575px",
+    numVisible: 1,
+    numScroll: 1,
+  },
+]);
 const popularMovies = usePopularMovieStore();
 
 onMounted(() => {

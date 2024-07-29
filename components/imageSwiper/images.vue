@@ -54,7 +54,7 @@
             </p>
 
             <p class="flex items-center mt-3">
-              <Rating v-model="value" readonly :stars="1" />
+              <Rating v-model="value" readonly :stars="1" class="mx-2" />
               : {{ (slide?.vote_average * 10).toFixed(2) }} %
             </p>
           </div>

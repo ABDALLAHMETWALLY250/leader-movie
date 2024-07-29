@@ -23,7 +23,9 @@
           class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100"
           :placeholder="$t('search')"
           v-model="searchText"
-          @input="searchForAll.fetchSearchForAll(locale, searchText)"
+          @input="
+            searchForAll.fetchSearchForAll(locale, searchText, curentPage)
+          "
         />
 
         <button
@@ -58,6 +60,22 @@
     >
       {{ $t("No_search_result") }}
     </h2>
+
+    <div
+      class="flex w-full items-center gap-4 my-2 overflow-auto container"
+      v-if="Actors.length > 0 || Tvs.length > 0 || movies.length > 0"
+    >
+      <button
+        :class="`${
+          i == curentPage ? 'bg-sky-400 text-white' : ''
+        } px-3 py-1 rounded-md`"
+        @click="fetchPageData(i)"
+        v-for="i in searchForAll.totalPages"
+        :key="i"
+      >
+        {{ i }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -71,7 +89,7 @@ const searchText = ref<string>("");
 const movies = ref<any[]>([]);
 const Tvs = ref<any[]>([]);
 const Actors = ref<any[]>([]);
-
+const curentPage = ref<number>(1);
 const filterResults = () => {
   movies.value = [];
   Tvs.value = [];
@@ -93,6 +111,14 @@ const filterResults = () => {
 const search = () => {
   filterResults();
   window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+const fetchPageData = (i: number) => {
+  searchForAll.fetchSearchForAll(locale.value, searchText.value, i);
+  curentPage.value = i;
+  setTimeout(() => {
+    filterResults();
+  }, 800);
 };
 
 onMounted(() => {

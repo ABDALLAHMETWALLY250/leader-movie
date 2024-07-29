@@ -2,19 +2,25 @@ export const searchForAllStore = defineStore("searchForAll", {
   state: () => ({
     searchForAll: [],
     loading: false,
+    totalPages: null,
   }),
   actions: {
-    async fetchSearchForAll(lang: any, searchText: any) {
-      const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
+    async fetchSearchForAll(lang: any, searchText: any, page: any) {
+      try {
+        const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
 
-      const { data } = await useFetch(
-        `https://api.themoviedb.org/3/search/multi?query=${searchText}&include_adult=false&language=${lang}&page=1&api_key=${api_key}`
-      ).then((res) => {
-        this.searchForAll = res.data.value.results;
-        // console.log(this.searchForAll, "searchForAll");
-      });
-
-      // console.log(data, "weqw");
+        await fetch(
+          `https://api.themoviedb.org/3/search/multi?query=${searchText}&include_adult=false&language=${lang}&page=${page}&api_key=${api_key}`
+        ).then((res) => {
+          res.json().then((data) => {
+            this.searchForAll = data.results;
+            this.totalPages = data.total_pages;
+            // console.log(data);
+          });
+        });
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 });

@@ -9,7 +9,7 @@
       >
         <nuxt-link
           :to="`/movie/${movie.id}`"
-          class="relative flex flex-col items-center my-3 bg-white border border-gray-200 rounded-lg shadow md:flex-row cards hover:bg-gray-100"
+          class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
           <img
             v-if="movie?.poster_path || movie?.backdrop_path"
