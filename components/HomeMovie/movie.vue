@@ -74,7 +74,7 @@ const locale = useI18n();
 const responsiveOptions = ref([
   {
     breakpoint: "1400px",
-    numVisible: 2,
+    numVisible: 3,
     numScroll: 1,
   },
   {
@@ -84,7 +84,7 @@ const responsiveOptions = ref([
   },
   {
     breakpoint: "767px",
-    numVisible: 2,
+    numVisible: 3,
     numScroll: 1,
   },
   {
