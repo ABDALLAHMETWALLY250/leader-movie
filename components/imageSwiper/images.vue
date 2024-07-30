@@ -5,20 +5,15 @@
     :slides-per-view="1"
     :loop="true"
     :effect="'creative'"
-    :pagination="true"
+    :pagination="{
+      clickable: true,
+    }"
     :autoplay="{
       delay: 4000,
-      disableOnInteraction: true,
     }"
-    :creative-effect="{
-      prev: {
-        shadow: false,
-        translate: ['-20%', 0, -1],
-      },
-      next: {
-        translate: ['100%', 0, 0],
-      },
-    }"
+    :dir="locale == 'ar' ? 'rtl' : 'ltr'"
+    :key="locale"
+    :creative-effect="creativeEffect"
   >
     <SwiperSlide v-for="slide in allMoviesStore.movieSwiper" :key="slide.id">
       <figure
@@ -66,7 +61,7 @@
             <button
               class="border border-red-700 hover:bg-red-700 py-2 px-5 rounded-lg transition-all duration-300"
             >
-              {{ $t("Add_to_watch_Later") }}
+              {{ $t("Add_to_watch_Later") }} {{ locale }}
             </button>
           </div>
         </figcaption>
@@ -84,6 +79,31 @@ const { locale } = useI18n();
 const value = ref(3.5);
 // console.log(allMoviesStore.movieSwiper);
 
+// swiper
+const creativeEffect = computed(() => {
+  if (locale.value === "ar") {
+    return {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -200],
+      },
+      next: {
+        translate: ["-100%", 0, 0], // Reversed for RTL
+      },
+    };
+  } else {
+    return {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -200],
+      },
+      next: {
+        translate: ["100%", 0, 0],
+      },
+    };
+  }
+});
+// swiper
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";
   allMoviesStore.setMovieSwiper(locale.value);

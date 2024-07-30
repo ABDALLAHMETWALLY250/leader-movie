@@ -5,20 +5,21 @@
         <Image
           class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
           :src="`
-        https://image.tmdb.org/t/p/w400/${movie.data.poster_path}`"
-          :alt="movie.data.title || movie.data.name || movie.data.original_name"
+        https://image.tmdb.org/t/p/w400/${movie.poster_path}`"
+          :alt="movie.title || movie.name || movie.original_name"
           preview
         />
       </div>
       <div class="">
-        <nuxt-link :to="`/movie/${movie.data.id}`">
+        <nuxt-link
+          :to="`/movie/${movie.id}`"
+          :dir="locale == 'ar' ? 'rtl' : 'ltr'"
+        >
           <h5 class="mb-2 text-xl font-bold tracking-tight title">
-            {{
-              movie.data.title || movie.data.name || movie.data.original_name
-            }}
+            {{ movie.title || movie.name || movie.original_name }}
           </h5>
           <p class="mb-3 font-normal overview">
-            {{ movie.data.overview }}
+            {{ movie.overview }}
           </p>
         </nuxt-link>
       </div>
@@ -42,6 +43,8 @@
 </template>
 <script setup>
 defineProps(["movie"]);
+
+const { locale } = useI18n();
 </script>
 <style lang="">
 </style>
