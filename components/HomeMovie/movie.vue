@@ -52,8 +52,7 @@
       <div class="card">
         <Carousel
           :value="popularMovies.popularMovie"
-          :numVisible="4"
-          :numScroll="1"
+          
           :responsiveOptions="responsiveOptions"
         >
           <template #item="slotProps">
