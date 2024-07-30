@@ -1,65 +1,33 @@
-<template >
-  <div v-if="Actors.length > 0">
+<template>
+  <div v-if="allSearchs.length > 0">
     <ul>
       <p class="my-2 font-bold text-2xl text-center Movie">
-        {{ $t("Actors") }}
+        {{ $t("allSearchs") }}
       </p>
       <li
-        v-for="Actor in Actors"
-        :key="Actor.id"
+        v-for="item in allSearchs"
+        :key="item.id"
         class="mb-4 flex items-center"
       >
         <nuxt-link
-          :to="`/movie/${Actor.id}`"
+          :to="`/movie/${item.id}`"
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie relative"
         >
           <img
-            v-if="
-              Actor.known_for[0]?.backdrop_path ||
-              Actor.known_for[1]?.backdrop_path ||
-              Actor.known_for[2]?.backdrop_path
-            "
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`https://image.tmdb.org/t/p/w500/${
-              Actor.known_for[0]?.backdrop_path ||
-              Actor.known_for[1]?.backdrop_path ||
-              Actor.known_for[2]?.backdrop_path
+              item?.backdrop_path || item?.poster_path
             }`"
-            :alt="
-              Actor.known_for[0]?.name ||
-              Actor.known_for[1]?.name ||
-              Actor.known_for[2]?.name
-            "
+            :alt="item?.name || item?.title"
           />
-          <img
-            v-else
-            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
-            src="https://i.pravatar.cc/500"
-            :alt="
-              Actor.known_for[0]?.name ||
-              Actor.known_for[1]?.name ||
-              Actor.known_for[2]?.name
-            "
-          />
+
           <div class="flex flex-col justify-between px-4 leading-normal">
             <div class="">
               <h5 class="mb-2 text-2xl font-bold tracking-tight">
-                {{
-                  Actor?.title ||
-                  Actor?.name ||
-                  Actor?.original_name ||
-                  Actor.known_for[0]?.name ||
-                  Actor.known_for[1]?.name ||
-                  Actor.known_for[2]?.name
-                }}
+                {{ item?.title || item.name }}
               </h5>
               <p class="mb-3 font-normal overview">
-                {{
-                  Actor?.overview ||
-                  Actor.known_for[0]?.overview ||
-                  Actor.known_for[1]?.overview ||
-                  Actor.known_for[2]?.overview
-                }}
+                {{ item?.overview }}
               </p>
               <p class="flex items-center my-2">
                 <svg
@@ -81,9 +49,8 @@
                 </svg>
                 :
                 {{
-                  Actor?.release_date ||
-                  Actor?.first_air_date ||
-                  Actor?.known_for[0]?.release_date ||
+                  item?.release_date ||
+                  item?.first_air_date ||
                   new Date().getDate() +
                     "-" +
                     (new Date().getMonth() + 1) +
@@ -106,19 +73,13 @@
                   />
                 </svg>
                 :
-                {{
-                  (
-                    Actor.known_for[0]?.vote_average ||
-                    Actor.vote_average ||
-                    0 * 10
-                  ).toFixed(1)
-                }}
+                {{ (item.vote_average || 0 * 10).toFixed(1) }}
                 %
               </p>
               <span
                 class="px-2 py-1 ms-2 text-md text-center bg-gray-400 rounded-lg w-14"
               >
-                {{ Actor.media_type }}
+                {{ item.media_type }}
               </span>
             </div>
           </div>
@@ -143,12 +104,7 @@
   </div>
 </template>
   <script setup lang="ts">
-defineProps({
-  Actors: {
-    type: Object,
-    required: true,
-  },
-});
+defineProps(["allSearchs"]);
 </script>
   <style lang="">
 </style>

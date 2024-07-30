@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.3s;
+    // transition: all 0.3s;
 }
 
 html {
@@ -36,6 +36,11 @@ body {
 }
 
 .dark {
+    .card_border {
+        border: 1px solid rgb(255, 255, 255);
+        padding: 0.4rem;
+        border-radius: 10px;
+    }
     background-color: #111;
     color: #ffffffff;
     select {
@@ -54,6 +59,12 @@ body {
     height: calc(var(--line-height) * 2em);
     line-height: var(--line-height);
     --line-height: 1.5;
+}
+
+.card_border {
+    border: 1px solid rgb(134, 134, 134);
+    padding: 0.4rem;
+    border-radius: 10px;
 }
 
 .cards {
@@ -81,6 +92,14 @@ body {
         backdrop-filter: brightness(0.5);
     }
 }
+.p-image-toolbar {
+    backdrop-filter: blur(15rem) !important;
+    color: antiquewhite !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    margin: 1rem !important;
+    border-radius: 50px !important;
+}
+
 // auth styles
 @import url("./authStyles/_register.scss");
 
@@ -139,16 +158,3 @@ body {
 // TV
 @import url("./Tv/_tv.scss");
 // TV
-
-.card_border {
-    border: 1px solid rgb(134, 134, 134);
-    padding: 0.4rem;
-    border-radius: 10px;
-}
-.dark {
-    .card_border {
-        border: 1px solid rgb(255, 255, 255);
-        padding: 0.4rem;
-        border-radius: 10px;
-    }
-}
