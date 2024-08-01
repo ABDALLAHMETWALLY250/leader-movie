@@ -17,7 +17,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 defineProps(["path"]);
 </script>
 <style lang="">

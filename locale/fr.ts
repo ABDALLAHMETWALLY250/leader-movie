@@ -39,4 +39,5 @@ export default {
   Discover_a_curated_selection_of_the_best_TV_shows:
     "Découvrez une sélection des meilleures émissions de télévision dans différents genres. Que vous aimiez les drames palpitants, les comédies hilarantes, les mystères captivants ou les romances réconfortantes, notre collection a quelque chose pour tout le monde. Restez à jour avec les derniers épisodes, lisez les critiques et trouvez votre prochaine série digne d'une frénésie ici. Plongez dans le monde de la télévision et explorez des histoires qui vous divertiront pendant des heures.",
   Loading: "Chargement...",
+  noDataFound: "Aucune donnée trouvée",
 };

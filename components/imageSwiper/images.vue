@@ -37,7 +37,10 @@
           <div class="overlay"></div>
         </nuxt-link>
 
-        <videoModal class="absolute bottom-2/4 left-1/2 text-white" />
+        <videoModal
+          class="absolute bottom-2/4 left-1/2 text-white"
+          :movie_id="slide.id"
+        />
 
         <figcaption class="absolute px-4 text-white bottom-10">
           <h3 class="text-2xl font-bold">{{ slide?.title }}</h3>
