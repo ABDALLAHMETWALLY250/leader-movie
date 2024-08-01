@@ -15,7 +15,7 @@
         <label
           for="default-search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-          >Search</label
+          >{{ $t("search") }}</label
         >
         <div class="relative">
           <div
@@ -27,7 +27,7 @@
             type="search"
             id="default-search"
             class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search Mockups, Logos..."
+            :placeholder="$t('search')"
             required
             v-model="searchMovie.searchText"
           />
@@ -41,7 +41,7 @@
       </form>
     </Banner>
   </div>
-  <div class="p-8">
+  <div class="p-6">
     <CardsCardShow />
   </div>
 
@@ -70,6 +70,7 @@ const curentPage = ref(1);
 const searchClick = (i: number) => {
   searchMovie.setSearchMovie(searchMovie.searchText, locale.value, i);
   curentPage.value = i;
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 const fetchPageData = (i: number) => {

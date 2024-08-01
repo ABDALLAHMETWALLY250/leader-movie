@@ -38,4 +38,5 @@ export default {
   Discover_a_curated_selection_of_the_best_TV_shows:
     "Discover a curated selection of the best TV shows across various genres. Whether you're into thrilling dramas, hilarious comedies, captivating mysteries, or heartwarming romances, our collection has something for everyone. Stay updated with the latest episodes, read reviews, and find your next binge-worthy series right here. Dive into the world of television and explore stories that will keep you entertained for hours.",
   Loading: "Loading...",
+  noDataFound:"No Data Found",
 };

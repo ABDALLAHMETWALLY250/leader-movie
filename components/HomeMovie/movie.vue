@@ -42,8 +42,8 @@
         :dir="locale == 'ar' ? 'rtl' : 'ltr'"
         :key="locale"
       >
-        <swiper-slide v-for="movie in popularMovies.popularMovie" :key="movie">
-          <CardsDetails :movie="movie" />
+        <swiper-slide v-for="item in popularMovies.popularMovie" :key="item.id">
+          <CardsDetails :item="item" />
         </swiper-slide>
       </swiper>
 

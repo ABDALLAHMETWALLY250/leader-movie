@@ -4,6 +4,7 @@ type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {}, {}
 interface _GlobalComponents {
       'Banner': typeof import("../components/global/banner.vue")['default']
     'CardsCardShow': typeof import("../components/Cards/cardShow.vue")['default']
+    'CardsCardShowTvs': typeof import("../components/Cards/cardShowTvs.vue")['default']
     'HomeMovieCardsDetails': typeof import("../components/HomeMovie/CardsDetails.vue")['default']
     'HomeMovieTopHeader': typeof import("../components/HomeMovie/TopHeader.vue")['default']
     'HomeMovie': typeof import("../components/HomeMovie/movie.vue")['default']
@@ -11,6 +12,7 @@ interface _GlobalComponents {
     'ThemeChangeTheme': typeof import("../components/Theme/changeTheme.vue")['default']
     'ToastFaield': typeof import("../components/Toast/toastFaield.vue")['default']
     'ToastSuccess': typeof import("../components/Toast/toastSuccess.vue")['default']
+    'TvShowTvshow': typeof import("../components/TvShow/Tvshow.vue")['default']
     'AuthLogin': typeof import("../components/auth/Login.vue")['default']
     'AuthRegister': typeof import("../components/auth/Register.vue")['default']
     'Avatar': typeof import("../components/avatar/avatar.vue")['default']
@@ -148,6 +150,7 @@ interface _GlobalComponents {
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyBanner': typeof import("../components/global/banner.vue")['default']
     'LazyCardsCardShow': typeof import("../components/Cards/cardShow.vue")['default']
+    'LazyCardsCardShowTvs': typeof import("../components/Cards/cardShowTvs.vue")['default']
     'LazyHomeMovieCardsDetails': typeof import("../components/HomeMovie/CardsDetails.vue")['default']
     'LazyHomeMovieTopHeader': typeof import("../components/HomeMovie/TopHeader.vue")['default']
     'LazyHomeMovie': typeof import("../components/HomeMovie/movie.vue")['default']
@@ -155,6 +158,7 @@ interface _GlobalComponents {
     'LazyThemeChangeTheme': typeof import("../components/Theme/changeTheme.vue")['default']
     'LazyToastFaield': typeof import("../components/Toast/toastFaield.vue")['default']
     'LazyToastSuccess': typeof import("../components/Toast/toastSuccess.vue")['default']
+    'LazyTvShowTvshow': typeof import("../components/TvShow/Tvshow.vue")['default']
     'LazyAuthLogin': typeof import("../components/auth/Login.vue")['default']
     'LazyAuthRegister': typeof import("../components/auth/Register.vue")['default']
     'LazyAvatar': typeof import("../components/avatar/avatar.vue")['default']
@@ -306,6 +310,7 @@ declare module 'vue' {
 
 export const Banner: typeof import("../components/global/banner.vue")['default']
 export const CardsCardShow: typeof import("../components/Cards/cardShow.vue")['default']
+export const CardsCardShowTvs: typeof import("../components/Cards/cardShowTvs.vue")['default']
 export const HomeMovieCardsDetails: typeof import("../components/HomeMovie/CardsDetails.vue")['default']
 export const HomeMovieTopHeader: typeof import("../components/HomeMovie/TopHeader.vue")['default']
 export const HomeMovie: typeof import("../components/HomeMovie/movie.vue")['default']
@@ -313,6 +318,7 @@ export const SearchAllSearchs: typeof import("../components/Search/allSearchs.vu
 export const ThemeChangeTheme: typeof import("../components/Theme/changeTheme.vue")['default']
 export const ToastFaield: typeof import("../components/Toast/toastFaield.vue")['default']
 export const ToastSuccess: typeof import("../components/Toast/toastSuccess.vue")['default']
+export const TvShowTvshow: typeof import("../components/TvShow/Tvshow.vue")['default']
 export const AuthLogin: typeof import("../components/auth/Login.vue")['default']
 export const AuthRegister: typeof import("../components/auth/Register.vue")['default']
 export const Avatar: typeof import("../components/avatar/avatar.vue")['default']
@@ -450,6 +456,7 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyBanner: typeof import("../components/global/banner.vue")['default']
 export const LazyCardsCardShow: typeof import("../components/Cards/cardShow.vue")['default']
+export const LazyCardsCardShowTvs: typeof import("../components/Cards/cardShowTvs.vue")['default']
 export const LazyHomeMovieCardsDetails: typeof import("../components/HomeMovie/CardsDetails.vue")['default']
 export const LazyHomeMovieTopHeader: typeof import("../components/HomeMovie/TopHeader.vue")['default']
 export const LazyHomeMovie: typeof import("../components/HomeMovie/movie.vue")['default']
@@ -457,6 +464,7 @@ export const LazySearchAllSearchs: typeof import("../components/Search/allSearch
 export const LazyThemeChangeTheme: typeof import("../components/Theme/changeTheme.vue")['default']
 export const LazyToastFaield: typeof import("../components/Toast/toastFaield.vue")['default']
 export const LazyToastSuccess: typeof import("../components/Toast/toastSuccess.vue")['default']
+export const LazyTvShowTvshow: typeof import("../components/TvShow/Tvshow.vue")['default']
 export const LazyAuthLogin: typeof import("../components/auth/Login.vue")['default']
 export const LazyAuthRegister: typeof import("../components/auth/Register.vue")['default']
 export const LazyAvatar: typeof import("../components/avatar/avatar.vue")['default']

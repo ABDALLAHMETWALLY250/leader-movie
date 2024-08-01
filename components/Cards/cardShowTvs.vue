@@ -1,24 +1,24 @@
 
 <template>
-  <div class="container mx-auto" v-if="searchMovie.searchMovie.length > 0">
+  <div class="container mx-auto" v-if="searchTv.tvs.length > 0">
     <div class="grid grid-cols-12 gap-4">
       <div
         class="xl:col-span-6 lg:col-span-6 col-span-12"
-        v-for="movie in searchMovie.searchMovie"
+        v-for="movie in searchTv.tvs"
         :key="movie.id"
       >
         <nuxt-link
-          :to="`/movie/${movie.id}`"
+          :to="`/tv/${movie.id}`"
           class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
           <img
             v-if="movie?.poster_path || movie?.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`
-                https://image.tmdb.org/t/p/w500/${
-                  movie?.poster_path || movie?.backdrop_path
-                }
-              `"
+                  https://image.tmdb.org/t/p/w500/${
+                    movie?.poster_path || movie?.backdrop_path
+                  }
+                `"
             :alt="movie?.title || movie?.name || movie?.original_name"
           />
           <img
@@ -101,19 +101,22 @@
       </div>
     </div>
   </div>
-  <div class="" v-else-if="searchMovie.loading">
+  <div class="" v-else-if="searchTv.loading">
     <p class="text-center text-4xl font-bold">{{ $t("loading") }}</p>
   </div>
   <div class="" v-else>
-    <p class="text-center text-4xl font-bold">{{ $t("noDataFound") }}</p>
+    <p class="text-center text-4xl font-bold">{{
+      $t("noDataFound")}}</p>
   </div>
 </template>
+  
+  <script setup>
+import { searchTvStore } from "../../stores/searchTv/searchTv";
 
-<script setup>
-import { useSearchMovie } from "~/stores/searchMovie/searchMovie";
-const searchMovie = useSearchMovie();
+const searchTv = searchTvStore();
 
 const defaultOverView = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
 });
 </script>
+  
