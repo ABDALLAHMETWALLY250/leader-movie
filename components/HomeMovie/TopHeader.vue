@@ -2,9 +2,9 @@
   <div>
     <div class="flex items-center justify-between w-full">
       <div class="flex flex-col gap-3 title">
-        <h1 class="text-4xl font-medium capitalize">
+        <h3 class="text-3xl font-medium capitalize">
           <slot />
-        </h1>
+        </h3>
         <div class="border-top"></div>
       </div>
       <nuxt-link :to="`/${path}`">

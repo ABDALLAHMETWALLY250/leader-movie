@@ -102,11 +102,10 @@
     </div>
   </div>
   <div class="" v-else-if="searchTv.loading">
-    <p class="text-center text-4xl font-bold">{{ $t("loading") }}</p>
+    <p class="text-center text-4xl font-bold">{{ $t("Loading") }}</p>
   </div>
   <div class="" v-else>
-    <p class="text-center text-4xl font-bold">{{
-      $t("noDataFound")}}</p>
+    <p class="text-center text-4xl font-bold">{{ $t("noDataFound") }}</p>
   </div>
 </template>
   
