@@ -4,12 +4,12 @@
       <TopHeader :path="'movies'">
         {{ $t("Movies") }}
       </TopHeader>
-      <h1
+      <h4
         v-if="!popularMovies.loading"
         class="text-3xl font-bold text-center mt-6"
       >
-        Lodading...
-      </h1>
+        {{ $t("Loading") }}
+      </h4>
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay]"
@@ -46,22 +46,6 @@
           <CardsDetails :item="item" />
         </swiper-slide>
       </swiper>
-
-      <!-- <div class="card">
-        <Carousel
-          :value="popularMovies.popularMovie"
-          :numVisible="4"
-          :loop="true"
-          :numScroll="1"
-          :dir="locale == 'ar' ? 'rtl' : 'ltr'"
-          :key="locale"
-          :responsiveOptions="responsiveOptions"
-        >
-          <template #item="slotProps">
-            <CardsDetails :movie="slotProps" class="mx-1 mt-4" />
-          </template>
-        </Carousel>
-      </div> -->
     </div>
   </div>
 </template>
@@ -72,28 +56,6 @@ import CardsDetails from "./CardsDetails.vue";
 import TopHeader from "./TopHeader.vue";
 
 const locale = useI18n();
-// const responsiveOptions = ref([
-//   {
-//     breakpoint: "1400px",
-//     numVisible: 3,
-//     numScroll: 1,
-//   },
-//   {
-//     breakpoint: "1199px",
-//     numVisible: 3,
-//     numScroll: 1,
-//   },
-//   {
-//     breakpoint: "767px",
-//     numVisible: 3,
-//     numScroll: 1,
-//   },
-//   {
-//     breakpoint: "575px",
-//     numVisible: 1,
-//     numScroll: 1,
-//   },
-// ]);
 
 const popularMovies = usePopularMovieStore();
 

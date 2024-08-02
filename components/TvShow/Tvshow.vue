@@ -1,15 +1,15 @@
 <template >
   <div class="HomeMovie">
     <div class="container mx-auto xl:px-5">
-      <TopHeader :path="'movies'">
+      <TopHeader :path="'tv-show'">
         {{ $t("tv_shows") }}
       </TopHeader>
-      <h1
-        v-if="!popularTv.popTv.length > 0"
+      <h4
+        v-if="popularTv.popTv.length <= 0"
         class="text-3xl font-bold text-center mt-6"
       >
-        Lodading...
-      </h1>
+        {{ $t("Loading") }}
+      </h4>
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay]"
@@ -49,15 +49,13 @@
     </div>
   </div>
 </template>
-  
-  <script setup>
+
+<script setup  >
 import { usePopTv } from "../../stores/poppularTv/popTv";
 import CardsDetails from "../HomeMovie/CardsDetails.vue";
 import TopHeader from "../HomeMovie/TopHeader.vue";
-// import CardsDetails from "./CardsDetails.vue";
-// import TopHeader from "./TopHeader.vue";
 
-const { locale } = useI18n();
+const locale = useI18n();
 
 const popularTv = usePopTv();
 
@@ -66,6 +64,5 @@ onMounted(() => {
   popularTv.getPopTv(locale.value);
 });
 </script>
-  <style lang="">
+<style lang="">
 </style>
-  
