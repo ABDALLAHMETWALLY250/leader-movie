@@ -1,8 +1,8 @@
 
 <template>
   <div class="card flex justify-center">
-    <Button @click="playVideo">
-      <i class="pi pi-play text-4xl"></i>
+    <Button class="bg-white p-4 rounded-full" @click="playVideo">
+      <i class="pi pi-play text-4xl text-black"></i>
     </Button>
     <Dialog
       v-model:visible="visible"
