@@ -1,17 +1,29 @@
 
 <template>
   <div class="card flex justify-center">
-    <Button @click="playVideo"> aa </Button>
+    <Button @click="playVideo">
+      <i class="pi pi-play text-4xl"></i>
+    </Button>
     <Dialog
       v-model:visible="visible"
+      maximizable
       modal
-      header="Header"
-      :style="{ width: '50vw' }"
+      :style="{ width: '60rem', height: '100vh' }"
       :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
-      pt:mask:class="backdrop-blur-sm "
-      pt:root:class="!border-0 !bg-transparent "
     >
-      <p class="m-0">{{ locale }} - {{ props.movie_id }}</p>
+      <iframe
+        v-if="videoModal.movie_key"
+        :src="`https://www.youtube.com/embed/${videoModal.movie_key}`"
+        frameborder="0"
+        allowfullscreen
+        class="w-full h-screen"
+        pt:root:style="!border-0 !bg-transparent"
+        pt:mask:style="!border-0 !bg-transparent"
+        pt:header:style="!border-0 !bg-transparent"
+      ></iframe>
+      <h5 v-else>
+        {{ $t("No_video") }}
+      </h5>
     </Dialog>
   </div>
 </template>

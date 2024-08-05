@@ -24,15 +24,29 @@
     <transition name="fade">
       <div
         v-if="isMenuOpen"
-        class="absolute top-0 mx-12 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+        class="absolute top-0 mx-12 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
       >
         <div class="py-1">
-          
+          <nuxt-link
+            to="/watchlist"
+            class="w-full px-4 py-2 text-sm hover:text-red-700 hover:bg-gray-100 flex items-center justify-between"
+          >
+            <span>{{ $t("Add_to_watchlist") }}</span>
+            <i class="pi pi-heart mx-5"></i>
+          </nuxt-link>
+          <nuxt-link
+            to="/watchlater"
+            class="w-full px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between"
+          >
+            <span>{{ $t("Add_to_watch_Later") }}</span>
+            <i class="pi pi-clock mx-5"></i>
+          </nuxt-link>
           <button
             @click="logoutStore.logUserOut()"
-            class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            class="w-full text-red-500 px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between"
           >
-            {{ $t("logout") }}
+            <span>{{ $t("logout") }}</span>
+            <i class="pi pi-sign-out mx-5"></i>
           </button>
         </div>
       </div>

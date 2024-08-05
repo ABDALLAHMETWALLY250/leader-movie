@@ -2,6 +2,7 @@ export const videoMoviesStore = defineStore("videoMovies", {
   state: () => ({
     videoMovies: [],
     loading: false,
+    movie_key: null,
   }),
   actions: {
     async getVideoMovies(language: string, id: number) {
@@ -17,6 +18,10 @@ export const videoMoviesStore = defineStore("videoMovies", {
 
         this.videoMovies = data.results;
         this.loading = false;
+
+        this.movie_key = data.results[0].key;
+
+        console.log(this.movie_key, "key");
 
         console.log(this.videoMovies, "video");
       } catch (error) {
