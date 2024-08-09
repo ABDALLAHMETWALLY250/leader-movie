@@ -40,7 +40,7 @@
           </p>
         </nuxt-link>
 
-        <ButtonsCardButtons />
+        <ButtonsCardButtons :id="item.id" />
       </div>
     </div>
   </div>

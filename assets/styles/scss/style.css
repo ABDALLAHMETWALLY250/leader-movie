@@ -25,6 +25,16 @@ html {
 body {
   overflow-x: hidden;
 }
+body .btn_swiper_movie_card {
+  padding: 0.5rem;
+  transition: all 0.5s;
+}
+body .btn_swiper_movie_card:hover {
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
 body select {
   background-color: transparent;
 }
@@ -52,6 +62,16 @@ body .border_top {
 .dark {
   background-color: #111;
   color: white;
+}
+.dark .btn_swiper_movie_card {
+  padding: 0.5rem;
+}
+.dark .btn_swiper_movie_card:hover {
+  transition: all 0.5s;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid gold;
+  border-radius: 10px;
 }
 .dark .card_border {
   border: 2px solid rgb(255, 255, 255);
