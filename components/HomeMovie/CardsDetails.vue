@@ -2,6 +2,16 @@
   <div class="cards">
     <div class="card_border relative">
       <div>
+        <NuxtImg
+          class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
+          :src="`
+        https://image.tmdb.org/t/p/w400/${item.poster_path}`"
+          :alt="item.title || item.name || item.original_name"
+          width="500"
+          quality="80"
+          format="webp"
+        />
+        <!-- 
         <Image
           v-if="item.poster_path"
           class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
@@ -9,6 +19,9 @@
         https://image.tmdb.org/t/p/w400/${item.poster_path}`"
           :alt="item.title || item.name || item.original_name"
           preview
+          width="500"
+          quality="80"
+          format="webp"
         />
         <Image
           v-else
@@ -16,7 +29,7 @@
           src="https://i.pravatar.cc/300"
           :alt="item.title || item.name || item.original_name"
           preview
-        />
+        /> -->
       </div>
       <div class="">
         <nuxt-link
