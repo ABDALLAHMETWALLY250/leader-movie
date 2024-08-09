@@ -116,6 +116,12 @@
       "#i18n": [
         "../node_modules/@nuxtjs/i18n/dist/runtime/composables/index"
       ],
+      "#image": [
+        "../node_modules/@nuxt/image/dist/runtime"
+      ],
+      "#image/*": [
+        "../node_modules/@nuxt/image/dist/runtime/*"
+      ],
       "#vue-router": [
         "./vue-router-stub"
       ],
@@ -173,6 +179,7 @@
     "../node_modules/@pinia/nuxt/runtime",
     "../node_modules/@nuxtjs/i18n/runtime",
     "../node_modules/nuxt-swiper/runtime",
+    "../node_modules/@nuxt/image/runtime",
     "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
     ".."
@@ -186,6 +193,7 @@
     "../node_modules/@pinia/nuxt/runtime/server",
     "../node_modules/@nuxtjs/i18n/runtime/server",
     "../node_modules/nuxt-swiper/runtime/server",
+    "../node_modules/@nuxt/image/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "../.output"

@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/i18n",
     "nuxt-swiper",
+    "@nuxt/image"
   ],
 
   // plugins: [require("tailwindcss-primeui")],
