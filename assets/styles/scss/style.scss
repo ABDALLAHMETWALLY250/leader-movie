@@ -100,10 +100,13 @@ body {
 }
 .p-image-toolbar {
     backdrop-filter: blur(15rem) !important;
-    color: antiquewhite !important;
+    color: #fff !important;
     background: rgba(255, 255, 255, 0.1) !important;
     margin: 1rem !important;
     border-radius: 50px !important;
+}
+.p-image-preview {
+    border-radius: 4%;
 }
 
 // auth styles
