@@ -20,10 +20,6 @@ export const videoMoviesStore = defineStore("videoMovies", {
         this.loading = false;
 
         this.movie_key = data.results[0].key;
-
-        // console.log(this.movie_key, "key");
-
-        // console.log(this.videoMovies, "video");
       } catch (error) {
         console.error("Error fetching popular movies:", error);
         this.loading = false;

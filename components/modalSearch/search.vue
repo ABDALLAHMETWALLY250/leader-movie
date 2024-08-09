@@ -89,7 +89,6 @@ const searchForAllMovies = () => {
   searchForAll.searchForAll.filter((movie: any | null) => {
     if (movie?.media_type === "movie") {
       movies.value.push(movie);
-      // console.log(movie, "movie");
     }
   });
 };
@@ -98,7 +97,6 @@ const searchForallTvs = () => {
   searchForAll.searchForAll.filter((tv: any | null) => {
     if (tv?.media_type === "tv") {
       Tvs.value.push(tv);
-      // console.log(tv, "tv");
     }
   });
 };
@@ -107,7 +105,6 @@ const searchForPerson = () => {
   searchForAll.searchForAll.filter((person: any | null) => {
     if (person?.media_type === "person") {
       Actors.value.push(person);
-      // console.log(person, "person");
     }
   });
 };
@@ -117,14 +114,10 @@ watch(searchText, () => {
     searchForAllMovies();
     searchForallTvs();
     searchForPerson();
-    // console.log(movies.value);
-    // console.log(Persons.value);
   }
 });
 
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";
-
-  // searchForAll.fetchSearchForAll(locale.value, searchText.value);
 });
 </script>

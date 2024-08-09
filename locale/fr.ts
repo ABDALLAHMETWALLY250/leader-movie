@@ -41,4 +41,6 @@ export default {
   Loading: "Chargement...",
   noDataFound: "Aucune donnée trouvée",
   No_video: "Aucun vidéo",
+  popular_tv: "Séries populaires",
+  popular_movie: "Films populaires",
 };

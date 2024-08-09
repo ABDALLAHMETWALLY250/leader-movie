@@ -30,7 +30,7 @@
             class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             :placeholder="$t('search')"
             required
-            v-model="searchText"
+            v-model="searchTv.searchText"
           />
           <button
             type="submit"
@@ -46,7 +46,10 @@
     <CardShowTvs />
   </div>
 
-  <div class="flex w-full items-center gap-4 my-2 overflow-auto container">
+  <div
+    class="flex w-full items-center gap-4 my-2 overflow-auto container"
+    v-if="searchTv.tvs.length"
+  >
     <button
       :class="`${
         i == curentPage ? 'bg-sky-400 text-white' : ''
@@ -57,6 +60,10 @@
     >
       {{ i }}
     </button>
+  </div>
+
+  <div class="p-4" v-if="!searchTv.tvs.length">
+    <PopularTvShowPopularTv />
   </div>
 </template>
 <script setup >
@@ -77,6 +84,15 @@ const fetchPageData = (i) => {
   curentPage.value = i;
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+watch(
+  () => searchTv.searchText,
+  () => {
+    if (!searchTv.searchText) {
+      searchTv.tvs = [];
+    }
+  }
+);
 </script>
 <style lang="">
 </style>

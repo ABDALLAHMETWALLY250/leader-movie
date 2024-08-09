@@ -11,6 +11,16 @@ html {
 
 body {
     overflow-x: hidden;
+    .btn_swiper_movie_card {
+        padding: 0.5rem;
+        transition: all 0.5s;
+        &:hover {
+            padding: 0.5rem;
+            cursor: pointer;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+    }
     select {
         background-color: transparent;
     }
@@ -39,6 +49,17 @@ body {
 }
 
 .dark {
+    .btn_swiper_movie_card {
+        padding: 0.5rem;
+
+        &:hover {
+            transition: all 0.5s;
+            padding: 0.5rem;
+            cursor: pointer;
+            border: 1px solid gold;
+            border-radius: 10px;
+        }
+    }
     .card_border {
         border: 2px solid rgb(255, 255, 255);
         padding: 0.4rem;
@@ -167,3 +188,7 @@ body {
 // TV
 @import url("./Tv/_tv.scss");
 // TV
+
+// popular_movie
+@import url("./popularMovie/_popular_movie.scss");
+// popular_movie
