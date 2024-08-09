@@ -1,5 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
@@ -9,15 +7,14 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/i18n",
     "nuxt-swiper",
-    "@nuxt/image"
+    "@nuxt/image",
   ],
 
-  // plugins: [require("tailwindcss-primeui")],
-  // primevue: {
-  //   options: {
-  //     unstyled: false,
-  //   },
-  // },
+  image: {
+    cloudinary: {
+      baseURL: "https://res.cloudinary.com/nuxt/image/upload/",
+    },
+  },
 
   css: [
     "@/assets/styles/scss/style.css",
@@ -64,9 +61,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Leader Movie",
-      // htmlAttrs: {
-      //   lang: "en",
-      // },
+      htmlAttrs: {
+        lang: "en",
+      },
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       link: [
