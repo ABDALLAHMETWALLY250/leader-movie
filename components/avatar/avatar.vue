@@ -10,12 +10,12 @@
           alt="user avatar"
           class="w-12 h-12 border-2 border-gray-200 rounded-full object-cover"
         />
-        <img
+        <!-- <img
           v-else
           :src="defaultUserAvatar"
           alt="user avatar"
           class="w-12 h-12 border-2 border-gray-200 rounded-full object-cover"
-        />
+        /> -->
         <h5 class="font-medium text-base">
           {{ userName?.username?.substring(0, 6) }}
         </h5>
@@ -59,9 +59,9 @@ import { useAuthStore } from "../../stores/auth/login";
 
 const userAvatar = ref({});
 const userName = ref({});
-const defaultUserAvatar = ref(
-  "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-);
+// const defaultUserAvatar = ref(
+//   "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+// );
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {

@@ -1,4 +1,11 @@
 .mySwiper {
+    .btn_swiper_movie {
+        background-color: #fff;
+        color: #000;
+        padding: 1rem;
+        border-radius: 50px;
+        transform: translate(-50%, -50%);
+    }
     span.swiper-pagination-bullet.swiper-pagination-bullet-active {
         background-color: #706b6b;
         width: 2%;
@@ -39,6 +46,13 @@
 }
 
 .dark {
+    .btn_swiper_movie {
+        background-color: gold;
+        color: #000;
+        padding: 1rem;
+        border-radius: 50px;
+        transform: translate(-50%, -50%);
+    }
     .mySwiper {
         span.swiper-pagination-bullet.swiper-pagination-bullet-active {
             background-color: gold;

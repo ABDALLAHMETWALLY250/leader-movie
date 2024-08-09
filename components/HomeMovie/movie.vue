@@ -8,7 +8,7 @@
         v-if="!popularMovies.loading"
         class="text-3xl font-bold text-center mt-6"
       >
-        {{ $t("Loading") }}
+        <CardloadinHomeCardLoading />
       </h4>
       <swiper
         class="mySwiper my-3"

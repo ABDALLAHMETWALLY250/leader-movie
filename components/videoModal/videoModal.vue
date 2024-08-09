@@ -1,11 +1,12 @@
 
 <template>
   <div class="card flex justify-center">
-    <Button class="bg-white p-4 rounded-full" @click="playVideo">
-      <i class="pi pi-play text-4xl text-black"></i>
+    <Button class="btn_swiper_movie" @click="playVideo">
+      <i class="pi pi-play text-3xl"></i>
     </Button>
     <Dialog
       v-model:visible="visible"
+      dismissableMask
       maximizable
       modal
       :style="{ width: '60rem', height: '100vh' }"
@@ -20,7 +21,6 @@
         pt:mask:style="!border-0 !bg-transparent"
         pt:header:style="!border-0 !bg-transparent"
       ></iframe>
-    
     </Dialog>
   </div>
 </template>
@@ -39,7 +39,4 @@ const playVideo = () => {
 
   videoModal.getVideoMovies(locale.value, props.movie_id);
 };
-onMounted(() => {
-  console.log(props.movie_id, "movie_id");
-});
 </script>
