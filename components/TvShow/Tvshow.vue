@@ -4,12 +4,9 @@
       <TopHeader :path="'tv-show'">
         {{ $t("tv_shows") }}
       </TopHeader>
-      <h4
-        v-if="popularTv.popTv.length <= 0"
-        class="text-3xl font-bold text-center mt-6"
-      >
-        <CardloadinHomeCardLoading />
-      </h4>
+
+      <CardloadinHomeCardLoading v-if="popularTv.popTv.length <= 0" />
+
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay]"
@@ -61,7 +58,7 @@ const popularTv = usePopTv();
 
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";
-  popularTv.getPopTv(locale.value);
+  popularTv.getPopTv(locale.value, 1);
 });
 </script>
 <style lang="">

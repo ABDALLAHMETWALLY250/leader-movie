@@ -12,6 +12,7 @@
 @import url("./HomeMovie/_HomeMovie.scss");
 @import url("./movies/_movies.scss");
 @import url("./Tv/_tv.scss");
+@import url("./popularMovie/_popular_movie.scss");
 * {
   margin: 0;
   padding: 0;

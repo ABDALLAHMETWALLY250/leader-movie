@@ -1,12 +1,15 @@
 <template >
   <div class="HomeMovie">
     <div class="container mx-auto xl:px-5">
-      <TopHeader :path="'movies'">
-        {{ $t("Movies") }}
+      <TopHeader :path="'popular-tv'">
+        {{ $t("popular_tv") }}
       </TopHeader>
-
-      <CardloadinHomeCardLoading v-if="!popularMovies.loading" />
-
+      <h4
+        v-if="popularTv.popTv.length <= 0"
+        class="text-3xl font-bold text-center mt-6"
+      >
+        <CardloadinHomeCardLoading />
+      </h4>
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay]"
@@ -39,27 +42,26 @@
         :dir="locale == 'ar' ? 'rtl' : 'ltr'"
         :key="locale"
       >
-        <swiper-slide v-for="item in popularMovies.popularMovie" :key="item.id">
+        <swiper-slide v-for="item in popularTv.popTv" :key="item.id">
           <CardsDetails :item="item" />
         </swiper-slide>
       </swiper>
     </div>
   </div>
 </template>
+  
+  <script setup  lang="ts" >
+import { usePopTv } from "../../stores/poppularTv/popTv";
+import CardsDetails from "../HomeMovie/CardsDetails.vue";
+import TopHeader from "../HomeMovie/TopHeader.vue";
 
-<script setup  >
-import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
-import CardsDetails from "./CardsDetails.vue";
-import TopHeader from "./TopHeader.vue";
-
-const locale = useI18n();
-
-const popularMovies = usePopularMovieStore();
-
+const { locale } = useI18n();
+const popularTv = usePopTv();
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";
-  popularMovies.getPopularMovie(locale.value, 1);
+  popularTv.getPopTv(locale.value, 1);
 });
 </script>
-<style lang="">
+  <style lang="">
 </style>
+  

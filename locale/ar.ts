@@ -36,4 +36,6 @@ export default {
   Loading: "...جاري التحميل",
   noDataFound: "لا يوجد بيانات",
   No_video: "لا يوجد فيديو",
+  popular_tv: "البرامج التلفزيونية الشائرة",
+  popular_movie: "الافلام الشائرة",
 };

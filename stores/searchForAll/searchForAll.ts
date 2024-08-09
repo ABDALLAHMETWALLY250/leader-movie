@@ -15,7 +15,6 @@ export const searchForAllStore = defineStore("searchForAll", {
           res.json().then((data) => {
             this.searchForAll = data.results;
             this.totalPages = data.total_pages;
-            // console.log(data);
           });
         });
       } catch (error) {

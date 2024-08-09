@@ -9,7 +9,6 @@ export const useMovieSwiper = defineStore("movieSwiper", {
         `https://api.themoviedb.org/3/trending/movie/day?language=${language}&page=1&api_key=${api_key}`
       ).then((res) =>
         res.json().then((data) => {
-          // console.log(data.results, "moviesSwiper");
           this.movieSwiper = data.results;
         })
       );

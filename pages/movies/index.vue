@@ -45,7 +45,10 @@
     <CardsCardShow />
   </div>
 
-  <div class="flex w-full items-center gap-4 my-2 overflow-auto container">
+  <div
+    class="flex w-full items-center gap-4 my-2 overflow-auto container"
+    v-if="searchMovie.searchMovie.length"
+  >
     <button
       :class="`${
         i == curentPage ? 'bg-sky-400 text-white' : ''
@@ -56,6 +59,10 @@
     >
       {{ i }}
     </button>
+  </div>
+
+  <div class="p-4" v-if="searchMovie.searchMovie.length == 0">
+    <popularMovieShowPopularMovie />
   </div>
 </template>
 <script setup lang="ts">
@@ -76,6 +83,15 @@ const searchClick = (i: number) => {
 const fetchPageData = (i: number) => {
   searchClick(i);
 };
+
+watch(
+  () => searchMovie.searchText,
+  () => {
+    if (!searchMovie.searchText) {
+      searchMovie.searchMovie = [];
+    }
+  }
+);
 </script>
 <style >
 </style>

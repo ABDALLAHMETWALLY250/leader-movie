@@ -1,8 +1,8 @@
 <template >
   <div class="HomeMovie">
     <div class="container mx-auto xl:px-5">
-      <TopHeader :path="'movies'">
-        {{ $t("Movies") }}
+      <TopHeader :path="'popular-movie'">
+        {{ $t("popular_movie") }}
       </TopHeader>
 
       <CardloadinHomeCardLoading v-if="!popularMovies.loading" />
@@ -46,20 +46,19 @@
     </div>
   </div>
 </template>
-
-<script setup  >
+    
+    <script setup  lang="ts" >
 import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
-import CardsDetails from "./CardsDetails.vue";
-import TopHeader from "./TopHeader.vue";
+import CardsDetails from "../HomeMovie/CardsDetails.vue";
+import TopHeader from "../HomeMovie/TopHeader.vue";
 
-const locale = useI18n();
-
+const { locale } = useI18n();
 const popularMovies = usePopularMovieStore();
-
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";
   popularMovies.getPopularMovie(locale.value, 1);
 });
 </script>
-<style lang="">
+    <style lang="">
 </style>
+    

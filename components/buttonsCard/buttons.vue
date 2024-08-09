@@ -8,9 +8,12 @@
       <i class="pi pi-clock text-2xl"></i>
     </button>
 
-    <button @click.prevent="addWatchList" class="btn_swiper_movie_card">
+    <nuxt-link
+      :to="`${media_type == 'tv' ? '/tv' : '/movie'}/${id}`"
+      class="btn_swiper_movie_card"
+    >
       <i class="pi pi-eye text-2xl"></i>
-    </button>
+    </nuxt-link>
 
     <VideoModalForCardsVideoModal :movie_id="id" />
   </div>
@@ -24,7 +27,7 @@ const addWatchList = () => {
   console.log("addWatchList");
 };
 
-defineProps(["id"]);
+defineProps(["id", "media_type"]);
 </script>
 <style lang="">
 </style>

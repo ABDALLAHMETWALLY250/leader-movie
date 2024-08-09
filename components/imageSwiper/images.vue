@@ -1,5 +1,10 @@
 <template>
+  <div v-if="allMoviesStore.movieSwiper.length <= 0" class="px-4">
+    <Skeleton width="100%" height="350px"></Skeleton>
+  </div>
+
   <Swiper
+    v-else
     class="mySwiper"
     :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]"
     :slides-per-view="1"
@@ -80,7 +85,6 @@ import { useMovieSwiper } from "../../stores/MovieSwiper/MovieSwiper";
 const allMoviesStore = useMovieSwiper();
 const { locale } = useI18n();
 const value = ref(3.5);
-// console.log(allMoviesStore.movieSwiper);
 
 // swiper
 const creativeEffect = computed(() => {

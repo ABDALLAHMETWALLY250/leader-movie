@@ -40,7 +40,7 @@
           </p>
         </nuxt-link>
 
-        <ButtonsCardButtons :id="item.id" />
+        <ButtonsCardButtons :id="item.id" :media_type="item.media_type" />
       </div>
     </div>
   </div>

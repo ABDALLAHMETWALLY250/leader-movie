@@ -2,7 +2,6 @@ interface RegisterParams {
   username: string;
   password: string;
   email: string;
-  // phone: string;
   name: string;
   image: File | null;
 }
@@ -17,7 +16,6 @@ export const useRegisterStore = defineStore("register", {
       username,
       password,
       email,
-      // phone,
       name,
       image,
     }: RegisterParams) {
@@ -28,7 +26,6 @@ export const useRegisterStore = defineStore("register", {
         formData.append("username", username);
         formData.append("password", password);
         formData.append("email", email);
-        // formData.append("phone", phone);
         formData.append("name", name);
         if (image) {
           formData.append("image", image);
@@ -49,8 +46,6 @@ export const useRegisterStore = defineStore("register", {
         }
 
         if (data.value) {
-          console.log("Register done", data.value);
-          // alert("Register done");
           this.err = "Success";
           navigateTo("/auth/login");
         } else {
@@ -58,7 +53,6 @@ export const useRegisterStore = defineStore("register", {
         }
       } catch (err) {
         console.error("Registration error:", err);
-        // alert("Register failed");
       } finally {
         this.loading = false;
       }
