@@ -42,4 +42,6 @@ export default {
   No_video: "No video",
   popular_tv: "Popular TV",
   popular_movie: "Popular Movie",
+  Play_video: "Play video",
+  View_details: "View Details",
 };

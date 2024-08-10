@@ -43,4 +43,6 @@ export default {
   No_video: "Aucun vidéo",
   popular_tv: "Séries populaires",
   popular_movie: "Films populaires",
+  Play_video: "Jouer la videó",
+  View_details: "Voir les details",
 };

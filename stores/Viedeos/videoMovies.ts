@@ -2,7 +2,9 @@ export const videoMoviesStore = defineStore("videoMovies", {
   state: () => ({
     videoMovies: [],
     loading: false,
-    movie_key: null,
+    movie_keyOne: null,
+    movie_keyTwone: null,
+    movie_keyThree: null,
   }),
   actions: {
     async getVideoMovies(language: string, id: number) {
@@ -19,7 +21,9 @@ export const videoMoviesStore = defineStore("videoMovies", {
         this.videoMovies = data.results;
         this.loading = false;
 
-        this.movie_key = data.results[0].key;
+        this.movie_keyOne = data.results[0]?.key;
+        this.movie_keyTwone = data.results[1]?.key;
+        this.movie_keyThree = data.results[2]?.key;
       } catch (error) {
         console.error("Error fetching popular movies:", error);
         this.loading = false;
