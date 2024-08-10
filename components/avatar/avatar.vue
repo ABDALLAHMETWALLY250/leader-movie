@@ -10,12 +10,7 @@
           alt="user avatar"
           class="w-12 h-12 border-2 border-gray-200 rounded-full object-cover"
         />
-        <!-- <img
-          v-else
-          :src="defaultUserAvatar"
-          alt="user avatar"
-          class="w-12 h-12 border-2 border-gray-200 rounded-full object-cover"
-        /> -->
+
         <h5 class="font-medium text-base">
           {{ userName?.username?.substring(0, 6) }}
         </h5>
@@ -29,6 +24,7 @@
         <div class="py-1">
           <nuxt-link
             to="/watchlist"
+            active-class="bg-gray-100"
             class="w-full px-4 py-2 text-sm hover:text-red-700 hover:bg-gray-100 flex items-center justify-between"
           >
             <span>{{ $t("Add_to_watchlist") }}</span>
@@ -36,6 +32,7 @@
           </nuxt-link>
           <nuxt-link
             to="/watchlater"
+            active-class="bg-gray-100"
             class="w-full px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between"
           >
             <span>{{ $t("Add_to_watch_Later") }}</span>
