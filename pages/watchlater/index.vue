@@ -73,7 +73,9 @@
   <div class="container mx-auto px-4" v-else>
     <div class="grid grid-cols-12 gap-4">
       <div class="xl:col-span-6 lg:col-span-6 col-span-12">
-        <h4>{{ $t("no_data") }}</h4>
+        <div class="flex w-full h-screen items-center justify-center">
+          <h4 class="text-center text-2xl font-bold">{{ $t("no_data") }}</h4>
+        </div>
       </div>
     </div>
   </div>
