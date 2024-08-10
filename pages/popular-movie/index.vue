@@ -55,6 +55,7 @@
               <ButtonsCardButtons
                 :id="movie?.id"
                 :media_type="movie?.media_type"
+                :Data="route.path == '/popular-movie' ? movie : null"
               />
             </div>
           </div>
@@ -86,7 +87,7 @@
 <script setup lang="ts">
 import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
 import { useI18n } from "vue-i18n";
-
+const route = useRoute();
 const { locale } = useI18n();
 const popularMovies = usePopularMovieStore();
 const curentPage = ref(1);

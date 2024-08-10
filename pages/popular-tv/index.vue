@@ -6,55 +6,56 @@
     <div class="grid grid-cols-12 gap-4">
       <div
         class="xl:col-span-6 lg:col-span-6 col-span-12"
-        v-for="movie in popularTv.popTv"
-        :key="movie.id"
+        v-for="tv in popularTv.popTv"
+        :key="tv.id"
       >
         <nuxt-link
-          :to="`/tv/${movie.id}`"
+          :to="`/tv/${tv.id}`"
           class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
           <img
-            v-if="movie?.poster_path || movie?.backdrop_path"
+            v-if="tv?.poster_path || tv?.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`
                   https://image.tmdb.org/t/p/w500/${
-                    movie?.poster_path || movie?.backdrop_path
+                    tv?.poster_path || tv?.backdrop_path
                   }
                 `"
-            :alt="movie?.title || movie?.name || movie?.original_name"
+            :alt="tv?.title || tv?.name || tv?.original_name"
           />
           <img
             v-else
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"
-            :alt="movie?.title || movie?.name || movie?.original_name"
+            :alt="tv?.title || tv?.name || tv?.original_name"
           />
           <div class="flex flex-col justify-between px-4 leading-normal">
             <div>
               <h5 class="mb-2 text-2xl font-bold tracking-tight title">
-                {{ movie?.title || movie?.name || movie?.original_name }}
+                {{ tv?.title || tv?.name || tv?.original_name }}
               </h5>
               <p class="mb-3 font-normal overview">
-                {{ movie?.overview || defaultOverview }}
+                {{ tv?.overview || defaultOverview }}
               </p>
               <p class="flex items-center my-2">
                 <i class="pi pi-calendar mx-2"></i>
                 :
                 {{
-                  movie?.release_date
-                    ? new Date(movie.release_date).toLocaleDateString()
+                  tv?.release_date
+                    ? new Date(tv.release_date).toLocaleDateString()
                     : new Date().toLocaleDateString()
                 }}
               </p>
               <p class="flex items-center my-2">
                 <Rating v-model="value" readonly :stars="1" class="star" />
-                : {{ (movie?.vote_average * 10).toFixed(1) }} %
+                : {{ (tv?.vote_average * 10).toFixed(1) }} %
               </p>
             </div>
             <div class="py-2">
               <ButtonsCardButtons
-                :id="movie?.id"
-                :media_type="movie?.media_type"
+                :id="tv?.id"
+                :media_type="tv?.media_type"
+                :Data="route.path == '/popular-tv' ? tv : null"
               />
             </div>
           </div>
@@ -86,7 +87,7 @@
 <script setup lang="ts">
 import { usePopTv } from "../../stores/poppularTv/popTv";
 import { useI18n } from "vue-i18n";
-
+const route = useRoute();
 const { locale } = useI18n();
 const popularTv = usePopTv();
 

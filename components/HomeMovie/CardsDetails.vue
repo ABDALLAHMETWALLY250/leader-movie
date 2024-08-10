@@ -40,7 +40,11 @@
           </p>
         </nuxt-link>
 
-        <ButtonsCardButtons :id="item.id" :media_type="item.media_type" />
+        <ButtonsCardButtons
+          :id="item.id"
+          :media_type="item.media_type"
+          :Data="item"
+        />
       </div>
     </div>
   </div>
@@ -50,6 +54,7 @@ defineProps(["item"]);
 
 const { locale } = useI18n();
 
+const route = useRoute();
 const defaultOverView = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
 });

@@ -1,7 +1,7 @@
 <template >
   <div class="flex flex-wrap items-center gap-4 justify-between">
     <button
-      @click.prevent="addWasList"
+      @click="toggleWatchList(Data)"
       class="btn_swiper_movie_card"
       v-tooltip.bottom="{
         value: $t('Add_to_watchlist'),
@@ -19,7 +19,7 @@
     </button>
 
     <button
-      @click.prevent="addWatchList"
+      @click="addWatchList"
       class="btn_swiper_movie_card"
       v-tooltip.bottom="{
         value: $t('Add_to_watch_Later'),
@@ -58,15 +58,27 @@
   </div>
 </template>
 <script setup lang="ts">
-const addWasList = () => {
-  console.log("waaddWasList");
+const watchList = reactive<any[]>([]);
+
+const addWasList = (Data: any) => {};
+
+const toggleWatchList = (data: any) => {
+  const index = watchList.findIndex((item: any) => item.id === data.id);
+
+  if (index > -1) {
+    // Item exists, remove it
+    watchList.splice(index, 1);
+    console.log("Removed from Watchlist", data);
+  } else {
+    // Item doesn't exist, add it
+    watchList.push(data);
+    console.log("Added to Watchlist", data);
+  }
+
+  localStorage.setItem("watchList", JSON.stringify(watchList));
 };
 
-const addWatchList = () => {
-  console.log("addWatchList");
-};
-
-defineProps(["id", "media_type"]);
+defineProps(["id", "media_type", "Data"]);
 </script>
 <style lang="">
 </style>

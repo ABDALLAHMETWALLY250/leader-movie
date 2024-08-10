@@ -54,6 +54,7 @@
               <ButtonsCardButtons
                 :id="movie?.id"
                 :media_type="movie?.media_type"
+                :Data="route.path == '/movies' ? movie : null"
               />
             </div>
           </div>
@@ -70,7 +71,7 @@
 import { useSearchMovie } from "~/stores/searchMovie/searchMovie";
 const searchMovie = useSearchMovie();
 const value = ref(1);
-
+const route = useRoute();
 const defaultOverView = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
 });

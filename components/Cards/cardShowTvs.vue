@@ -54,6 +54,7 @@
               <ButtonsCardButtons
                 :id="tv?.id"
                 :media_type="tv?.media_type ? tv?.media_type : 'tv'"
+                :Data="route.path == '/tv-show' ? tv : null"
               />
             </div>
           </div>
@@ -71,7 +72,7 @@
   
   <script setup>
 import { searchTvStore } from "../../stores/searchTv/searchTv";
-
+const route = useRoute();
 const searchTv = searchTvStore();
 const value = ref(1);
 const defaultOverView = computed(() => {
