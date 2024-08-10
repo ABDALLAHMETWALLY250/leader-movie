@@ -1,7 +1,7 @@
 
 <template>
   <div class="card flex justify-center">
-    <Button class="btn_swiper_movie" @click="playVideo">
+    <Button class="btn_swiper_movie_card" @click="playVideo">
       <i class="pi pi-play text-3xl"></i>
     </Button>
     <Dialog
