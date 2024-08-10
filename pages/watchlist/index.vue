@@ -92,6 +92,7 @@ const clearAll = () => {
 
 onMounted(() => {
   washList = JSON.parse(localStorage.getItem("washList") || "[]");
+  addsuseWashList.list = JSON.parse(localStorage.getItem("washList") || "[]");
 });
 </script>
 <style lang="">
