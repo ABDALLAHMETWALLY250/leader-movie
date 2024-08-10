@@ -44,4 +44,5 @@ export default {
   popular_movie: "Popular Movie",
   Play_video: "Play video",
   View_details: "View Details",
+  no_data: "No Data",
 };

@@ -45,4 +45,5 @@ export default {
   popular_movie: "Films populaires",
   Play_video: "Jouer la videó",
   View_details: "Voir les details",
+  no_data: "Aucune donnée",
 };

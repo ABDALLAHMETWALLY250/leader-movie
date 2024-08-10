@@ -2,7 +2,9 @@
   <div class="flex flex-wrap items-center gap-4 justify-between">
     <button
       @click="toggleWatchList(Data)"
-      class="btn_swiper_movie_card"
+      :class="`btn_swiper_movie_card ${
+        route.path == '/watchlist' ? 'hidden' : ''
+      }`"
       v-tooltip.bottom="{
         value: $t('Add_to_watchlist'),
         pt: {
@@ -19,8 +21,10 @@
     </button>
 
     <button
-      @click="addWatchList"
-      class="btn_swiper_movie_card"
+      @click="addWatchList(Data)"
+      :class="`btn_swiper_movie_card ${
+        route.path == '/watchlater' ? 'hidden' : ''
+      }`"
       v-tooltip.bottom="{
         value: $t('Add_to_watch_Later'),
         pt: {
@@ -58,24 +62,17 @@
   </div>
 </template>
 <script setup lang="ts">
-const watchList = reactive<any[]>([]);
+import { useWashList } from "~/stores/addToWashList/washList";
+import { useWatchList } from "~/stores/addWatchList/watchList";
+const addWashList = useWashList();
+const addsWatchList = useWatchList();
+const route = useRoute();
+const toggleWatchList = (Data: Array<object>) => {
+  addWashList.addToList(Data);
+};
 
-const addWasList = (Data: any) => {};
-
-const toggleWatchList = (data: any) => {
-  const index = watchList.findIndex((item: any) => item.id === data.id);
-
-  if (index > -1) {
-    // Item exists, remove it
-    watchList.splice(index, 1);
-    console.log("Removed from Watchlist", data);
-  } else {
-    // Item doesn't exist, add it
-    watchList.push(data);
-    console.log("Added to Watchlist", data);
-  }
-
-  localStorage.setItem("watchList", JSON.stringify(watchList));
+const addWatchList = (Data: Array<object>) => {
+  addsWatchList.addToList(Data);
 };
 
 defineProps(["id", "media_type", "Data"]);

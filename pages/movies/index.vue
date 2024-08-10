@@ -61,7 +61,7 @@
     </button>
   </div>
 
-  <div class="p-4" v-if="searchMovie.searchMovie.length == 0">
+  <div v-if="searchMovie.searchMovie.length == 0">
     <popularMovieShowPopularMovie />
   </div>
 </template>
