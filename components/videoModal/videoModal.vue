@@ -22,10 +22,14 @@
         pt:mask:style="!border-0 !bg-transparent"
         pt:header:style="!border-0 !bg-transparent"
       ></iframe>
-      <h4
+      <div
+        class="w-full h-screen flex item-center justify-center"
         v-else
+        >
+        <h4
         class="w-full h-screen text-bold text-2xl text-center"
         > no video </h4>
+      </div>
     </Dialog>
   </div>
 </template>
