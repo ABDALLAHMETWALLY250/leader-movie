@@ -13,6 +13,7 @@
       :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
     >
       <iframe
+        v-if="videoModal.movie_key"
         :src="`https://www.youtube.com/embed/${videoModal.movie_key}`"
         frameborder="0"
         allowfullscreen
@@ -21,6 +22,7 @@
         pt:mask:style="!border-0 !bg-transparent"
         pt:header:style="!border-0 !bg-transparent"
       ></iframe>
+      <h4 v-else> no video </h4>
     </Dialog>
   </div>
 </template>
