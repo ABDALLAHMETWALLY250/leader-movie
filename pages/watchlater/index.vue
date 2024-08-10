@@ -91,6 +91,7 @@ const clearAll = () => {
 };
 onMounted(() => {
   watchlater = JSON.parse(localStorage.getItem("watchList") || "[]");
+  addsuseWatchList.list = JSON.parse(localStorage.getItem("watchList") || "[]");
 });
 const value = ref(1);
 </script>
