@@ -22,7 +22,10 @@
         pt:mask:style="!border-0 !bg-transparent"
         pt:header:style="!border-0 !bg-transparent"
       ></iframe>
-      <h4 v-else> no video </h4>
+      <h4
+        v-else
+        class="w-full h-screen"
+        > no video </h4>
     </Dialog>
   </div>
 </template>
