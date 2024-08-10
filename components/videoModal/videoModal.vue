@@ -24,7 +24,7 @@
       ></iframe>
       <h4
         v-else
-        class="w-full h-screen"
+        class="w-full h-screen text-bold text-2xl text-center"
         > no video </h4>
     </Dialog>
   </div>
