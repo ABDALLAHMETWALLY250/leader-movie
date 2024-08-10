@@ -9,8 +9,8 @@
         v-for="movie in popularMovies.popularMovie"
         :key="movie.id"
       >
-        <nuxt-link
-          :to="`/tv/${movie.id}`"
+        <div
+          :to="`/movie/${movie.id}`"
           class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
           <img
@@ -30,7 +30,7 @@
             :alt="movie?.title || movie?.name || movie?.original_name"
           />
           <div class="flex flex-col justify-between px-4 leading-normal">
-            <div>
+            <NuxtLink :to="`/movie/${movie.id}`">
               <h5 class="mb-2 text-2xl font-bold tracking-tight title">
                 {{ movie?.title || movie?.name || movie?.original_name }}
               </h5>
@@ -50,7 +50,7 @@
                 <Rating v-model="value" readonly :stars="1" class="star" />
                 : {{ (movie?.vote_average * 10).toFixed(1) }} %
               </p>
-            </div>
+            </NuxtLink>
             <div class="py-2">
               <ButtonsCardButtons
                 :id="movie?.id"
@@ -58,7 +58,7 @@
               />
             </div>
           </div>
-        </nuxt-link>
+        </div>
       </div>
     </div>
   </div>

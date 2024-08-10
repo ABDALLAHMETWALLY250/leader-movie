@@ -38,4 +38,6 @@ export default {
   No_video: "لا يوجد فيديو",
   popular_tv: "البرامج الشائرة",
   popular_movie: "الافلام الشائرة",
+  Play_video: "فيديو",
+  View_details: "عرض التفاصيل",
 };
