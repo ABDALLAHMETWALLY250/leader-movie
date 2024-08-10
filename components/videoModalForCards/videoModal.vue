@@ -1,8 +1,8 @@
 
 <template>
   <div class="card flex justify-center">
-    <Button class="btn_swiper_movie_card" @click="playVideo">
-      <i class="pi pi-play text-2xl"></i>
+    <Button class="btn_swiper_movie" @click="playVideo">
+      <i class="pi pi-play text-3xl"></i>
     </Button>
     <Dialog
       v-model:visible="visible"
@@ -13,6 +13,7 @@
       :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
     >
       <iframe
+        v-if="videoModal.movie_key"
         :src="`https://www.youtube.com/embed/${videoModal.movie_key}`"
         frameborder="0"
         allowfullscreen
@@ -21,11 +22,19 @@
         pt:mask:style="!border-0 !bg-transparent"
         pt:header:style="!border-0 !bg-transparent"
       ></iframe>
+      <div
+        class="w-full h-screen flex items-center justify-center"
+        v-else
+        >
+        <h4
+        class="font-bold text-2xl text-center"
+        > no video </h4>
+      </div>
     </Dialog>
   </div>
 </template>
-  
-  <script setup lang="ts">
+
+<script setup lang="ts">
 import { videoMoviesStore } from "../../stores/Viedeos/videoMovies";
 
 const videoModal = videoMoviesStore();
@@ -40,4 +49,3 @@ const playVideo = () => {
   videoModal.getVideoMovies(locale.value, props.movie_id);
 };
 </script>
-  
