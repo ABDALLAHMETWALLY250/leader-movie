@@ -23,11 +23,11 @@
         pt:header:style="!border-0 !bg-transparent"
       ></iframe>
       <div
-        class="w-full h-screen flex item-center justify-center"
+        class="w-full h-screen flex items-center justify-center"
         v-else
         >
         <h4
-        class="w-full h-screen text-bold text-2xl text-center"
+        class="font-bold text-2xl text-center"
         > no video </h4>
       </div>
     </Dialog>
