@@ -62,7 +62,7 @@
     </button>
   </div>
 
-  <div class="p-4" v-if="!searchTv.tvs.length">
+  <div class="" v-if="!searchTv.tvs.length">
     <PopularTvShowPopularTv />
   </div>
 </template>
