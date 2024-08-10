@@ -40,4 +40,5 @@ export default {
   popular_movie: "الافلام الشائرة",
   Play_video: "فيديو",
   View_details: "عرض التفاصيل",
+  no_data: "لا يوجد بيانات",
 };

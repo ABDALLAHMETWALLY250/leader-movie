@@ -9,8 +9,7 @@
         v-for="tv in popularTv.popTv"
         :key="tv.id"
       >
-        <nuxt-link
-          :to="`/tv/${tv.id}`"
+        <div
           class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
           <img
@@ -30,7 +29,7 @@
             :alt="tv?.title || tv?.name || tv?.original_name"
           />
           <div class="flex flex-col justify-between px-4 leading-normal">
-            <div>
+            <NuxtLink :to="`/tv/${tv.id}`">
               <h5 class="mb-2 text-2xl font-bold tracking-tight title">
                 {{ tv?.title || tv?.name || tv?.original_name }}
               </h5>
@@ -50,7 +49,7 @@
                 <Rating v-model="value" readonly :stars="1" class="star" />
                 : {{ (tv?.vote_average * 10).toFixed(1) }} %
               </p>
-            </div>
+            </NuxtLink>
             <div class="py-2">
               <ButtonsCardButtons
                 :id="tv?.id"
@@ -59,7 +58,7 @@
               />
             </div>
           </div>
-        </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
