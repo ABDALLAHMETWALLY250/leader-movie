@@ -9,11 +9,11 @@
         :key="item.id"
         class="mb-4 flex items-center"
       >
-        <nuxt-link
-          :to="`/movie/${item.id}`"
+        <div
           class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row card_Movie relative"
         >
           <img
+            v-if="item?.backdrop_path || item?.poster_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             :src="`https://image.tmdb.org/t/p/w500/${
               item?.backdrop_path || item?.poster_path
@@ -21,13 +21,20 @@
             :alt="item?.name || item?.title"
           />
 
+          <img
+            v-else
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
+            src="https://i.pravatar.cc/500"
+            :alt="item?.name || item?.title"
+          />
+          
           <div class="flex flex-col justify-between px-4 leading-normal">
-            <div class="">
+            <NuxtLink :to="`/movie/${item.id}`" class="">
               <h5 class="mb-2 text-2xl font-bold tracking-tight">
                 {{ item?.title || item.name }}
               </h5>
               <p class="mb-3 font-normal overview">
-                {{ item?.overview }}
+                {{ item?.overview || defaultOverView }}
               </p>
               <p class="flex items-center my-2">
                 <svg
@@ -81,29 +88,22 @@
               >
                 {{ item.media_type }}
               </span>
-            </div>
+            </NuxtLink>
+            <ButtonsCardButtons
+              :id="item?.id"
+              :media_type="item?.media_type"
+              :Data="item"
+            />
           </div>
-          <button class="absolute top-2 mx-2 p-1 bg-gray-700 rounded-lg">
-            <svg
-              class="w-6 h-6 hover:text-red-500 text-white hover:fill-red-500 cursor-pointer tranbsition-all duration-300"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"
-              />
-            </svg>
-          </button>
-        </nuxt-link>
+        </div>
       </li>
     </ul>
   </div>
 </template>
   <script setup lang="ts">
+const defaultOverView = computed(() => {
+  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
+});
 defineProps(["allSearchs"]);
 </script>
   <style lang="">
