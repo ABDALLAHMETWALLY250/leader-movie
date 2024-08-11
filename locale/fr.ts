@@ -47,4 +47,5 @@ export default {
   View_details: "Voir les details",
   no_data: "Aucune donnée",
   clearAll: "Tout supprimer",
+  allSearchs: "Toutes les recherches",
 };

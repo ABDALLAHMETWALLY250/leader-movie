@@ -25,7 +25,7 @@
           <nuxt-link
             to="/watchlist"
             active-class="bg-gray-100"
-            class="w-full px-4 py-2 text-sm hover:text-red-700 hover:bg-gray-100 flex items-center justify-between"
+            class="w-full px-4 py-2 text-sm hover:text-red-700 hover:bg-gray-100 flex items-center justify-between text-black"
           >
             <span>{{ $t("Add_to_watchlist") }}</span>
             <i class="pi pi-heart mx-5"></i>
@@ -33,7 +33,7 @@
           <nuxt-link
             to="/watchlater"
             active-class="bg-gray-100"
-            class="w-full px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between"
+            class="w-full px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between text-black"
           >
             <span>{{ $t("Add_to_watch_Later") }}</span>
             <i class="pi pi-clock mx-5"></i>
