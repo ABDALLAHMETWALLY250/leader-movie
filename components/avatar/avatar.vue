@@ -56,9 +56,7 @@ import { useAuthStore } from "../../stores/auth/login";
 
 const userAvatar = ref({});
 const userName = ref({});
-// const defaultUserAvatar = ref(
-//   "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-// );
+
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {

@@ -45,4 +45,5 @@ export default {
   Play_video: "Play video",
   View_details: "View Details",
   no_data: "No Data",
+  clearAll: "Clear All",
 };

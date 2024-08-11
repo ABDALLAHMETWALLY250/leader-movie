@@ -10,5 +10,5 @@ export default defineNuxtRouteMiddleware((to) => {
   ) {
     return navigateTo("/");
   }
-  // console.log(to.path, "to.path");
+
 });
