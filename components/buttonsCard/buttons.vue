@@ -1,5 +1,5 @@
 <template >
-  <div class="flex flex-wrap items-center gap-4 justify-between">
+  <div class="flex flex-wrap items-center justify-between">
     <button
       @click="toggleWatchList(Data)"
       :class="`btn_swiper_movie_card ${
