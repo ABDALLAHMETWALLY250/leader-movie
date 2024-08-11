@@ -1,8 +1,10 @@
 <template >
   <div class="container mx-auto px-4" v-if="addsuseWatchList.list.length > 0">
-    <div class="flex justify-center">
-      <!-- <p>{{ $t("watchlater") }}</p> -->
-      <button @click="clearAll">{{ $t("clear") }}</button>
+    <div class="flex justify-between items-center my-5 px-4">
+      <h4 class="text-3xl font-semibold">{{ $t("Add_to_watch_Later") }}</h4>
+      <button @click="clearAll" class="text-red-500 text-xl">
+        {{ $t("clearAll") }}
+      </button>
     </div>
     <div class="grid grid-cols-12 gap-4">
       <div
@@ -72,7 +74,7 @@
   </div>
   <div class="container mx-auto px-4" v-else>
     <div class="grid grid-cols-12 gap-4">
-      <div class="xl:col-span-6 lg:col-span-6 col-span-12">
+      <div class="col-span-12">
         <div class="flex w-full h-screen items-center justify-center">
           <h4 class="text-center text-2xl font-bold">{{ $t("no_data") }}</h4>
         </div>
@@ -80,7 +82,7 @@
     </div>
   </div>
 </template>
-  <script setup lang="ts">
+  <script setup>
 import { useWatchList } from "~/stores/addWatchList/watchList";
 
 const addsuseWatchList = useWatchList();
@@ -90,8 +92,10 @@ const clearAll = () => {
   addsuseWatchList.DeleteAll();
 };
 onMounted(() => {
-  watchlater = JSON.parse(localStorage.getItem("watchList") || "[]");
-  addsuseWatchList.list = JSON.parse(localStorage.getItem("watchList") || "[]");
+  watchlater = JSON.parse(localStorage.getItem("watchLater") || "[]");
+  addsuseWatchList.list = JSON.parse(
+    localStorage.getItem("watchLater") || "[]"
+  );
 });
 const value = ref(1);
 </script>

@@ -41,4 +41,5 @@ export default {
   Play_video: "فيديو",
   View_details: "عرض التفاصيل",
   no_data: "لا يوجد بيانات",
+  clearAll: "حذف الكل",
 };
