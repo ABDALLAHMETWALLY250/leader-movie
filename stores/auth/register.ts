@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 interface RegisterParams {
   username: string;
   password: string;
@@ -9,7 +11,6 @@ interface RegisterParams {
 export const useRegisterStore = defineStore("register", {
   state: () => ({
     loading: false,
-    err: "",
   }),
   actions: {
     async authenticateUserRegister({
@@ -46,10 +47,23 @@ export const useRegisterStore = defineStore("register", {
         }
 
         if (data.value) {
-          this.err = "Success";
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Registration Successful",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+
           navigateTo("/auth/login");
         } else {
-          this.err = "failure";
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            timer: 2000,
+            showConfirmButton: false,
+          });
         }
       } catch (err) {
         console.error("Registration error:", err);

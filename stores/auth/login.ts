@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 interface UserPayloadInterface {
   username: string;
   password: string;
@@ -7,12 +9,9 @@ export const useAuthStore = defineStore("auth", {
   state: () => ({
     authenticated: false,
     loading: false,
-    err: "",
   }),
   actions: {
     async authenticateUser({ username, password }: UserPayloadInterface) {
-      // useFetch from nuxt 3
-
       const { data, pending }: any = await useFetch(
         "https://tarmeezacademy.com/api/v1/login",
         {
@@ -34,18 +33,43 @@ export const useAuthStore = defineStore("auth", {
         localStorage.setItem("token", data?.value?.token);
         localStorage.setItem("user", JSON.stringify(data.value?.user));
         this.authenticated = true; // set authenticated  state value to true
-        this.err = "Success";
+
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Login Successful",
+          timer: 2000,
+          showConfirmButton: false,
+        });
         navigateTo("/");
       } else {
-        this.err = "failure";
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "username or password are incorrect",
+          timer: 2000,
+          showConfirmButton: false,
+        });
       }
     },
     logUserOut() {
-      const token = useCookie("token"); // useCookie new hook in nuxt 3
-      localStorage.clear();
-      this.authenticated = false; // set authenticated  state value to false
-      token.value = null; // clear the token cookie
-      navigateTo("/auth/login");
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const token = useCookie("token"); // useCookie new hook in nuxt 3
+          localStorage.clear();
+          this.authenticated = false; // set authenticated  state value to false
+          token.value = null; // clear the token cookie
+          navigateTo("/auth/login");
+        }
+      });
     },
   },
 });

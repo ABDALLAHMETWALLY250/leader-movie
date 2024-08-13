@@ -73,12 +73,6 @@
       >
     </p>
   </form>
-  <ToastSuccess v-if="loginStore.err == 'Success'">
-    {{ $t("Login_Success") }}
-  </ToastSuccess>
-  <ToastFaield v-else-if="loginStore.err == 'failure'">
-    {{ $t("username_or_password_are_incorrect") }}
-  </ToastFaield>
 </template>
 
 <script lang="ts" setup>
