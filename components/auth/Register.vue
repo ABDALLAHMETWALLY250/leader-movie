@@ -201,13 +201,6 @@
       >
     </p>
   </form>
-  <ToastSuccess v-if="registerStore.err == 'Success'">
-    {{ $t("Register_Success") }}
-  </ToastSuccess>
-
-  <ToastFaield v-else-if="registerStore.err == 'failure'">
-    {{ $t("Password_or_userName_are_exist_before") }}
-  </ToastFaield>
 </template>
 
 <script lang="ts" setup>

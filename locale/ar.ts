@@ -43,4 +43,5 @@ export default {
   no_data: "لا يوجد بيانات",
   clearAll: "حذف الكل",
   allSearchs: "جميع البحث",
+  Are_you_sure: "هل انت متاكد؟",
 };
