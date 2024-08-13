@@ -14,6 +14,10 @@ export default defineNuxtConfig({
     cloudinary: {
       baseURL: "https://res.cloudinary.com/nuxt/image/upload/",
     },
+
+    inject: true,
+    quality: 80,
+    format: ["webp"],
   },
 
   css: [
