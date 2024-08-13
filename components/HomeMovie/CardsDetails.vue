@@ -2,15 +2,7 @@
   <div class="cards">
     <div class="card_border relative">
       <div>
-        <!-- <NuxtImg
-          class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
-          src="/remote/nuxt-org/blog/going-full-static/main.png"
-          :alt="item.title || item.name || item.original_name"
-          width="500"
-          format="webp"
-        /> -->
-
-        <!-- <Image
+        <Image
           v-if="item.poster_path"
           class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
           :src="`
@@ -18,17 +10,7 @@
           :alt="item.title || item.name || item.original_name"
           preview
           format="webp"
-        /> -->
-
-        <NuxtImg
-          v-if="item.poster_path"
-          class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
-          :src="`
-        https://image.tmdb.org/t/p/w400/${item.poster_path}`"
-          :alt="item.title || item.name || item.original_name"
-          format="webp"
         />
-
         <Image
           v-else
           class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
