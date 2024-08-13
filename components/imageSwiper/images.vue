@@ -24,8 +24,8 @@
       <figure
         class="relative transition-all duration-300 cursor-pointer filter brightness-90"
       >
-        <nuxt-link to="/">
-          <img
+        <div>
+          <NuxtImg
             v-if="slide.backdrop_path"
             class="image_film relative"
             :src="`https://image.tmdb.org/t/p/w500/${
@@ -33,14 +33,16 @@
             }`"
             :alt="`${slide.title} image`"
           />
+
           <img
             v-else
             class="image_film relative"
             src="https://i.pravatar.cc/300"
             :alt="`${slide.title} image`"
           />
+
           <div class="overlay"></div>
-        </nuxt-link>
+        </div>
 
         <videoModal
           class="absolute bottom-2/4 left-1/2 text-white"
