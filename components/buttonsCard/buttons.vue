@@ -1,7 +1,7 @@
 <template >
   <div class="flex flex-wrap items-center justify-between">
     <button
-      @click="toggleWatchList(Data)"
+      @click="toggleWatchList(Data, $t('success_Add_to_watchlist'))"
       :class="`btn_swiper_movie_card ${
         route.path == '/watchlist' ? 'hidden' : ''
       }`"
@@ -21,7 +21,7 @@
     </button>
 
     <button
-      @click="addWatchList(Data)"
+      @click="addWatchList(Data, $t('success_Add_to_watchlater'))"
       :class="`btn_swiper_movie_card ${
         route.path == '/watchlater' ? 'hidden' : ''
       }`"
@@ -67,12 +67,12 @@ import { useWatchList } from "~/stores/addWatchList/watchList";
 const addWashList = useWashList();
 const addsWatchList = useWatchList();
 const route = useRoute();
-const toggleWatchList = (Data: Array<object>) => {
-  addWashList.addToList(Data);
+const toggleWatchList = (Data: Array<object>, message: string) => {
+  addWashList.addToList(Data, message);
 };
 
-const addWatchList = (Data: Array<object>) => {
-  addsWatchList.addToList(Data);
+const addWatchList = (Data: Array<object>, message: string) => {
+  addsWatchList.addToList(Data, message);
 };
 
 defineProps(["id", "media_type", "Data"]);

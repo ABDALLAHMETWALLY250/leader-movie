@@ -11,7 +11,11 @@ export const useAuthStore = defineStore("auth", {
     loading: false,
   }),
   actions: {
-    async authenticateUser({ username, password }: UserPayloadInterface) {
+    async authenticateUser(
+      { username, password }: UserPayloadInterface,
+      message_success: string,
+      message_fail: string
+    ) {
       const { data, pending }: any = await useFetch(
         "https://tarmeezacademy.com/api/v1/login",
         {
@@ -36,8 +40,8 @@ export const useAuthStore = defineStore("auth", {
 
         Swal.fire({
           icon: "success",
-          title: "Success",
-          text: "Login Successful",
+
+          title: message_success,
           timer: 2000,
           showConfirmButton: false,
         });
@@ -46,21 +50,21 @@ export const useAuthStore = defineStore("auth", {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "username or password are incorrect",
+          text: message_fail,
           timer: 2000,
           showConfirmButton: false,
         });
       }
     },
-    logUserOut() {
+    logUserOut(message: string,yes:string,no:string) {
       Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: message,
         icon: "warning",
         showCancelButton: true,
+        cancelButtonText: no,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes",
+        confirmButtonText: yes,
       }).then((result) => {
         if (result.isConfirmed) {
           const token = useCookie("token"); // useCookie new hook in nuxt 3

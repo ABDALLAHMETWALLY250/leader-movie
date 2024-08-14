@@ -2,7 +2,10 @@
   <div class="container mx-auto px-4" v-if="addsuseWashList.list.length > 0">
     <div class="flex justify-between items-center my-5 px-4">
       <h4 class="text-3xl font-semibold">{{ $t("Add_to_watchlist") }}</h4>
-      <button @click="clearAll" class="text-red-500 text-xl">
+      <button
+        @click="clearAll($t('All_items_removed_from_list'))"
+        class="text-red-500 text-xl"
+      >
         {{ $t("clearAll") }}
       </button>
     </div>
@@ -89,8 +92,8 @@ const addsuseWashList = useWashList();
 let washList = reactive([]);
 const route = useRoute();
 const value = ref(1);
-const clearAll = () => {
-  addsuseWashList.DeleteAll();
+const clearAll = (message) => {
+  addsuseWashList.DeleteAll(message);
 };
 
 onMounted(() => {

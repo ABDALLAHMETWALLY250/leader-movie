@@ -48,4 +48,11 @@ export default {
   no_data: "Aucune donnée",
   clearAll: "Tout supprimer",
   allSearchs: "Toutes les recherches",
+  Are_you_sure: "Etes-vous sur?",
+  yes: "Oui",
+  no: "Non",
+  success_Add_to_watchlist: "Success Add to watchlist",
+  success_Add_to_watch_Later: "Success Add to watch Later",
+  All_items_removed_from_list: "All items removed from list",
+  success_Add_to_watchlater: "Success Add to watch Later",
 };

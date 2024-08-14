@@ -1,6 +1,8 @@
 <template>
   <form
-    @submit.prevent="login"
+    @submit.prevent="
+      login($t('Login_Success'), $t('username_or_password_are_incorrect'))
+    "
     class="container mx-auto px-11 sm:mt-32 relative"
   >
     <div class="mb-6">
@@ -97,9 +99,9 @@ const validateInputs = () => {
   errors.password = userLogin.password ? "" : "Password is required.";
   return !Object.values(errors).some((error) => error !== "");
 };
-const login = () => {
+const login = (message_success: string, message_fail: string) => {
   if (validateInputs()) {
-    loginStore.authenticateUser(userLogin);
+    loginStore.authenticateUser(userLogin, message_success, message_fail);
   }
 };
 </script>
