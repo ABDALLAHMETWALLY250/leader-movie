@@ -63,8 +63,8 @@
       </div>
     </div>
   </div>
-  <div v-else-if="popularMovies.loading" class="text-center">
-    <p class="text-4xl font-bold">{{ $t("Loading") }}</p>
+  <div v-else-if="!popularMovies.loading" class="text-center w-full">
+    <h1 class="text-4xl font-bold">{{ $t("Loading") }}</h1>
   </div>
 
   <div

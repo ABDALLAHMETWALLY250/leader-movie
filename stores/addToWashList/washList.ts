@@ -5,7 +5,7 @@ export const useWashList = defineStore("washList", {
     list: [],
   }),
   actions: {
-    addToList(item: Array<object>) {
+    addToList(item: Array<object>, message: string) {
       let exist = false;
       for (let i = 0; i < this.list.length; i++) {
         if (this.list[i].id === item.id) {
@@ -19,10 +19,10 @@ export const useWashList = defineStore("washList", {
         localStorage.setItem("washList", JSON.stringify(this.list));
         Swal.fire({
           icon: "success",
-          title: "Success",
-          text: "Added to list",
+          title: message,
+
           timer: 2000,
-              showConfirmButton: false,
+          showConfirmButton: false,
         });
       } else {
         // remove this item from list
@@ -31,8 +31,8 @@ export const useWashList = defineStore("washList", {
             this.list.splice(i, 1);
             Swal.fire({
               icon: "success",
-              title: "Success",
-              text: "Removed from list",
+              title: "Success Removed from list",
+
               timer: 2000,
               showConfirmButton: false,
             });
@@ -42,15 +42,14 @@ export const useWashList = defineStore("washList", {
         localStorage.setItem("washList", JSON.stringify(this.list));
       }
     },
-    DeleteAll() {
+    DeleteAll(message: string) {
       this.list = [];
       localStorage.removeItem("washList");
       Swal.fire({
         icon: "success",
-        title: "Success",
-        text: "All items removed from list",
+        title: message,
         timer: 2000,
-              showConfirmButton: false,
+        showConfirmButton: false,
       });
     },
   },

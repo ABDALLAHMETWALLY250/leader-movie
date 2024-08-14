@@ -39,7 +39,9 @@
             <i class="pi pi-clock mx-5"></i>
           </nuxt-link>
           <button
-            @click="logoutStore.logUserOut()"
+            @click="
+              logoutStore.logUserOut($t('Are_you_sure'), $t('yes'), $t('no'))
+            "
             class="w-full text-red-500 px-4 py-2 text-sm hover:bg-gray-100 flex items-center justify-between"
           >
             <span>{{ $t("logout") }}</span>

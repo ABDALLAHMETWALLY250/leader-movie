@@ -5,7 +5,7 @@ export const useWatchList = defineStore("watchLater", {
     list: [],
   }),
   actions: {
-    addToList(item: Array<object>) {
+    addToList(item: Array<object>, message: string) {
       let exist = false;
       for (let i = 0; i < this.list.length; i++) {
         if (this.list[i].id === item.id) {
@@ -19,8 +19,8 @@ export const useWatchList = defineStore("watchLater", {
         localStorage.setItem("watchLater", JSON.stringify(this.list));
         Swal.fire({
           icon: "success",
-          title: "Success",
-          text: "Added to list",
+          title: message,
+
           timer: 2000,
           showConfirmButton: false,
         });
@@ -42,13 +42,13 @@ export const useWatchList = defineStore("watchLater", {
         localStorage.setItem("watchLater", JSON.stringify(this.list));
       }
     },
-    DeleteAll() {
+    DeleteAll(message: string) {
       this.list = [];
-      localStorage.removeItem("watchList");
+      localStorage.removeItem("watchLater");
       Swal.fire({
         icon: "success",
-        title: "Success",
-        text: "All items removed from list",
+
+        title: message,
         timer: 2000,
         showConfirmButton: false,
       });

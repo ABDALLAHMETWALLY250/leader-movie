@@ -44,4 +44,9 @@ export default {
   clearAll: "حذف الكل",
   allSearchs: "جميع البحث",
   Are_you_sure: "هل انت متاكد؟",
+  yes: "نعم",
+  no: "لا",
+  success_Add_to_watchlist: "تمت الاضافة للمفضلة بنجاح",
+  success_Add_to_watchlater: "تمت الاضافة للمشاهدة لاحقا بنجاح",
+  All_items_removed_from_list: "تم حذف جميع العناصر من القائمة بنجاح",
 };
