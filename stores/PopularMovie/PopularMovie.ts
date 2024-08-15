@@ -14,7 +14,7 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
         );
         const data = await response.json();
 
-        this.loading = !this.loading;
+        this.loading = true;
         this.popularMovie = data.results;
         this.totalPages = data.total_pages;
       } catch (error) {
