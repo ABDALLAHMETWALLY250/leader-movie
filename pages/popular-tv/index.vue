@@ -65,47 +65,40 @@
   <div v-else-if="popularTv.popTv.length == 0" class="text-center">
     <p class="text-4xl font-bold">{{ $t("Loading") }}</p>
   </div>
-
-  <div
-    class="flex w-full items-center gap-4 my-2 overflow-auto container"
-    v-if="popularTv.popTv.length"
-  >
-    <button
-      :class="`${
-        i == curentPage ? 'bg-sky-400 text-white' : ''
-      } px-3 py-1 rounded-md`"
-      @click="fetchPageData(i)"
-      v-for="i in popularTv.totalPages"
-      :key="i"
-    >
-      {{ i }}
-    </button>
-  </div>
 </template>
 
 <script setup lang="ts">
 import { usePopTv } from "../../stores/poppularTv/popTv";
-import { useI18n } from "vue-i18n";
 const route = useRoute();
 const { locale } = useI18n();
 const popularTv = usePopTv();
-
-const curentPage = ref(1);
+const curentPage = ref<number>(1);
+const value = ref<number>(1);
 
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";
-
   popularTv.getPopTv(locale.value, curentPage.value);
+  setupInfiniteScroll();
 });
 
-const fetchPageData = (i: number) => {
-  popularTv.getPopTv(locale.value, i);
-  curentPage.value = i;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+const setupInfiniteScroll = () => {
+  window.onscroll = () => {
+    let bottomOfWindow =
+      document.documentElement.scrollTop + window.innerHeight ===
+      document.documentElement.offsetHeight;
+    if (bottomOfWindow) {
+      popularTv.getPopTv(locale.value, curentPage.value + 1);
+    }
+  };
 };
 
-const value = ref(1);
+onUnmounted(() => {
+  window.onscroll = null;
+});
 
+onUpdated(() => {
+  setupInfiniteScroll();
+});
 const defaultOverview = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text since the 1500s.";
 });

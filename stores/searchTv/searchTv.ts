@@ -1,9 +1,9 @@
 export const searchTvStore = defineStore("searchTv", {
   state: () => ({
-    tvs: [],
-    totalPages: 0,
-    loading: false,
-    searchText: "",
+    tvs: [] as Array<object>,
+
+    loading: false as boolean,
+    searchText: "" as string,
   }),
 
   actions: {
@@ -12,18 +12,14 @@ export const searchTvStore = defineStore("searchTv", {
 
       try {
         const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
-
-        const response = await fetch(
+        fetch(
           `https://api.themoviedb.org/3/search/tv?include_adult=true&language=${language}&page=${page}&query=${this.searchText}&api_key=${api_key}`
-        );
-        const data = await response.json();
-
-        this.tvs = data.results;
-        this.totalPages = data.total_pages;
-
-
-
-        this.loading = false;
+        ).then((res) => {
+          res.json().then((data) => {
+            this.tvs.push(...data.results);
+            this.loading = false;
+          });
+        });
       } catch (error) {
         console.error("Error fetching popular movies:", error);
         this.loading = false;

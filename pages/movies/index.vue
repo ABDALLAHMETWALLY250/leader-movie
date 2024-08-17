@@ -45,22 +45,6 @@
     <CardsCardShow />
   </div>
 
-  <div
-    class="flex w-full items-center gap-4 my-2 overflow-auto container"
-    v-if="searchMovie.searchMovie.length"
-  >
-    <button
-      :class="`${
-        i == curentPage ? 'bg-sky-400 text-white' : ''
-      } px-3 py-1 rounded-md`"
-      @click="fetchPageData(i)"
-      v-for="i in searchMovie.totalPages"
-      :key="i"
-    >
-      {{ i }}
-    </button>
-  </div>
-
   <div v-if="searchMovie.searchMovie.length == 0">
     <popularMovieShowPopularMovie />
   </div>
@@ -77,21 +61,42 @@ const curentPage = ref(1);
 const searchClick = (i: number) => {
   searchMovie.setSearchMovie(searchMovie.searchText, locale.value, i);
   curentPage.value = i;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  setupInfiniteScroll();
 };
 
-const fetchPageData = (i: number) => {
-  searchClick(i);
+const setupInfiniteScroll = () => {
+  window.onscroll = () => {
+    let bottomOfWindow =
+      document.documentElement.scrollTop + window.innerHeight ===
+      document.documentElement.offsetHeight;
+    if (bottomOfWindow) {
+      searchClick(curentPage.value + 1);
+    }
+  };
 };
+
+onUpdated(() => {
+  if (!searchMovie.searchText) {
+    searchMovie.searchMovie = [];
+    window.onscroll = null;
+  } else {
+    setupInfiniteScroll();
+  }
+});
 
 watch(
   () => searchMovie.searchText,
   () => {
     if (!searchMovie.searchText) {
       searchMovie.searchMovie = [];
+      window.onscroll = null;
     }
   }
 );
+
+onUnmounted(() => {
+  window.onscroll = null;
+});
 </script>
 <style >
 </style>

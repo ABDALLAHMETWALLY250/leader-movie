@@ -1,9 +1,8 @@
 export const useSearchMovie = defineStore("searchMovie", {
   state: () => ({
-    searchMovie: [],
-    searchText: "",
-    totalPages: null,
-    loading: false,
+    searchMovie: [] as Array<object>,
+    searchText: "" as string,
+    loading: false as boolean,
   }),
   actions: {
     setSearchMovie(searchMovie: string, searchMovielang: string, page: number) {
@@ -15,8 +14,7 @@ export const useSearchMovie = defineStore("searchMovie", {
           `https://api.themoviedb.org/3/search/movie?query=${this.searchText}&include_adult=false&language=${searchMovielang}&page=${page}&api_key=${api_key}`
         ).then((res) =>
           res.json().then((data) => {
-            this.searchMovie = data.results;
-            this.totalPages = data.total_pages;
+            this.searchMovie.push(...data.results);
             this.loading = false;
           })
         );
