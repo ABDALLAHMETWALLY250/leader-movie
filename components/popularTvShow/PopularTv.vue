@@ -58,8 +58,10 @@ import TopHeader from "../HomeMovie/TopHeader.vue";
 const { locale } = useI18n();
 const popularTv = usePopTv();
 onMounted(() => {
-  locale.value = localStorage.getItem("locale") || "en";
-  popularTv.getPopTv(locale.value, 1);
+  if (popularTv.popTv.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularTv.getPopTv(locale.value, 1);
+  }
 });
 </script>
   <style lang="">

@@ -73,7 +73,7 @@ import { useMovieSwiper } from "../../stores/MovieSwiper/MovieSwiper";
 const route = useRoute();
 const allMoviesStore = useMovieSwiper();
 const { locale } = useI18n();
-const value = ref(3.5);
+const value = ref < number > 3.5;
 
 // swiper
 const creativeEffect = computed(() => {
@@ -101,7 +101,9 @@ const creativeEffect = computed(() => {
 });
 // swiper
 onMounted(() => {
-  locale.value = localStorage.getItem("locale") || "en";
-  allMoviesStore.setMovieSwiper(locale.value);
+  if (allMoviesStore.movieSwiper.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    allMoviesStore.setMovieSwiper(locale.value);
+  }
 });
 </script>

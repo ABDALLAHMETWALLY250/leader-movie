@@ -1,12 +1,12 @@
 <template>
   <div
     class="container mx-auto px-5 popular_movie"
-    v-if="popularTv.popTv.length > 0"
+    v-if="popularTv.popTvPage.length > 0"
   >
     <div class="grid grid-cols-12 gap-4">
       <div
         class="xl:col-span-6 lg:col-span-6 col-span-12"
-        v-for="tv in popularTv.popTv"
+        v-for="tv in popularTv.popTvPage"
         :key="tv.id"
       >
         <div
@@ -76,18 +76,21 @@ const curentPage = ref<number>(1);
 const value = ref<number>(1);
 
 onMounted(() => {
-  locale.value = localStorage.getItem("locale") || "en";
-  popularTv.getPopTv(locale.value, curentPage.value);
-  setupInfiniteScroll();
+  if (popularTv.popTvPage.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularTv.getPopTvPage(locale.value, curentPage.value);
+    setupInfiniteScroll();
+  }
 });
 
 const setupInfiniteScroll = () => {
   window.onscroll = () => {
-    let bottomOfWindow =
-      document.documentElement.scrollTop + window.innerHeight ===
-      document.documentElement.offsetHeight;
-    if (bottomOfWindow) {
-      popularTv.getPopTv(locale.value, curentPage.value + 1);
+    if (
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight
+    ) {
+      popularTv.getPopTvPage(locale.value, curentPage.value + 1);
+      curentPage.value++;
     }
   };
 };
