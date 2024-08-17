@@ -43,31 +43,14 @@
     </Banner>
   </div>
   <div class="p-6">
-    <CardShowTvs />
+    <CardsCardShowTvs />
   </div>
 
-  <div
-    class="flex w-full items-center gap-4 my-2 overflow-auto container"
-    v-if="searchTv.tvs.length"
-  >
-    <button
-      :class="`${
-        i == curentPage ? 'bg-sky-400 text-white' : ''
-      } px-3 py-1 rounded-md`"
-      @click="fetchPageData(i)"
-      v-for="i in searchTv.totalPages"
-      :key="i"
-    >
-      {{ i }}
-    </button>
-  </div>
-
-  <div class="" v-if="!searchTv.tvs.length">
+  <div class="" v-if="searchTv.tvs.length <= 0">
     <PopularTvShowPopularTv />
   </div>
 </template>
 <script setup >
-import CardShowTvs from "~/components/Cards/cardShowTvs.vue";
 import { searchTvStore } from "../../stores/searchTv/searchTv";
 
 const searchTv = searchTvStore();
@@ -77,19 +60,37 @@ const curentPage = ref(1);
 
 const searcTv = () => {
   searchTv.getSearchTv(locale.value, searchText.value, curentPage.value);
+  setupInfiniteScroll();
 };
 
-const fetchPageData = (i) => {
-  searchTv.getSearchTv(locale.value, searchText.value, i);
-  curentPage.value = i;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+const setupInfiniteScroll = () => {
+  window.onscroll = () => {
+    let bottomOfWindow =
+      document.documentElement.scrollTop + window.innerHeight ===
+      document.documentElement.offsetHeight;
+    if (bottomOfWindow) {
+      searchTv.getSearchTv(
+        locale.value,
+        searchText.value,
+        curentPage.value + 1
+      );
+    }
+  };
 };
 
+onUnmounted(() => {
+  window.onscroll = null;
+});
+
+onUpdated(() => {
+  setupInfiniteScroll();
+});
 watch(
   () => searchTv.searchText,
   () => {
     if (!searchTv.searchText) {
       searchTv.tvs = [];
+      window.onscroll = null;
     }
   }
 );

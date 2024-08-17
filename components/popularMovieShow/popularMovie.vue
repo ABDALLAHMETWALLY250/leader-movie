@@ -5,7 +5,7 @@
         {{ $t("popular_movie") }}
       </TopHeader>
 
-      <CardloadinHomeCardLoading v-if="!popularMovies.loading" />
+      <CardloadinHomeCardLoading v-if="popularMovies.loading" />
 
       <swiper
         class="mySwiper my-3"

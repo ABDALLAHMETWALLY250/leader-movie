@@ -92,7 +92,7 @@ const errors = reactive({
   password: "",
 });
 
-const toast = ref(false);
+const toast = ref<boolean>(false);
 const validateInputs = () => {
   errors.username = userLogin.username ? "" : "Valid username is required.";
 

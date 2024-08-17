@@ -27,7 +27,7 @@
             src="https://i.pravatar.cc/500"
             :alt="item?.name || item?.title"
           />
-          
+
           <div class="flex flex-col justify-between px-4 leading-normal">
             <NuxtLink :to="`/movie/${item.id}`" class="">
               <h5 class="mb-2 text-2xl font-bold tracking-tight">
