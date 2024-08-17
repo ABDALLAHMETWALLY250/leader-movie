@@ -57,8 +57,10 @@ const locale = useI18n();
 const popularMovies = usePopularMovieStore();
 
 onMounted(() => {
-  locale.value = localStorage.getItem("locale") || "en";
-  popularMovies.getPopularMovie(locale.value, 1);
+  if (popularMovies.popularMovie.length == 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularMovies.getPopularMovie(locale.value, 1);
+  }
 });
 </script>
 <style lang="">

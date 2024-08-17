@@ -1,11 +1,10 @@
 <template >
   <div class="HomeMovie">
-    <div class="container mx-auto xl:px-5">
+    <CardloadinHomeCardLoading v-if="popularMovies.loading" />
+    <div class="container mx-auto xl:px-5" v-else>
       <TopHeader :path="'popular-movie'">
         {{ $t("popular_movie") }}
       </TopHeader>
-
-      <CardloadinHomeCardLoading v-if="popularMovies.loading" />
 
       <swiper
         class="mySwiper my-3"
@@ -55,8 +54,10 @@ import TopHeader from "../HomeMovie/TopHeader.vue";
 const { locale } = useI18n();
 const popularMovies = usePopularMovieStore();
 onMounted(() => {
-  locale.value = localStorage.getItem("locale") || "en";
-  popularMovies.getPopularMovie(locale.value, 1);
+  if (popularMovies.popularMovie.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularMovies.getPopularMovie(locale.value, 1);
+  }
 });
 </script>
     <style lang="">

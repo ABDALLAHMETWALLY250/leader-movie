@@ -1,12 +1,12 @@
 <template>
   <div
     class="container mx-auto px-5 popular_movie"
-    v-if="popularMovies.popularMovie.length > 0 && !popularMovies.loading"
+    v-if="popularMovies.popularMoviePage.length > 0"
   >
     <div class="grid grid-cols-12 gap-4">
       <div
         class="xl:col-span-6 lg:col-span-6 col-span-12"
-        v-for="movie in popularMovies.popularMovie"
+        v-for="movie in popularMovies.popularMoviePage"
         :key="movie.id"
       >
         <div
@@ -60,6 +60,7 @@
       </div>
     </div>
   </div>
+
   <div v-else-if="popularMovies.loading" class="text-center w-full">
     <h1 class="text-4xl font-bold">{{ $t("Loading") }}</h1>
   </div>
@@ -73,12 +74,13 @@ const { locale } = useI18n();
 const popularMovies = usePopularMovieStore();
 const currentPage = ref<number>(1);
 const value = ref<number>(1);
-const scroll = ref<number>(1);
 
 onMounted(() => {
-  locale.value = localStorage.getItem("locale") || "en";
-  popularMovies.getPopularMovie(locale.value, currentPage.value);
-  setupInfiniteScroll();
+  if (popularMovies.popularMoviePage.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularMovies.getPopularMoviePage(locale.value, currentPage.value);
+    setupInfiniteScroll();
+  }
 });
 
 onUpdated(() => {
@@ -99,9 +101,8 @@ const setupInfiniteScroll = () => {
       window.innerHeight + window.scrollY >=
       document.documentElement.scrollHeight
     ) {
-      popularMovies.getPopularMovie(locale.value, currentPage.value + 1);
+      popularMovies.getPopularMoviePage(locale.value, currentPage.value + 1);
       currentPage.value++;
-      scroll.value = window.scrollY;
     }
   };
 };
