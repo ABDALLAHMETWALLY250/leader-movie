@@ -83,7 +83,12 @@ onUnmounted(() => {
 });
 
 onUpdated(() => {
-  setupInfiniteScroll();
+  if (!searchTv.searchText) {
+    searchTv.tvs = [];
+    window.onscroll = null;
+  } else {
+    setupInfiniteScroll();
+  }
 });
 watch(
   () => searchTv.searchText,
