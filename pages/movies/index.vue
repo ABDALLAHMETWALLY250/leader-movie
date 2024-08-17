@@ -76,13 +76,21 @@ const setupInfiniteScroll = () => {
 };
 
 
+onUpdated(() => {
+  if (!searchMovie.searchText) {
+    // searchMovie.searchMovie = [];
+    window.onscroll = null;
+  } else {
+    setupInfiniteScroll();
+  }
+})
 watch(
   () => searchMovie.searchText,
   () => {
     if (!searchMovie.searchText) {
       searchMovie.searchMovie = [];
       window.onscroll = null;
-    }else{
+    } else {
       setupInfiniteScroll();
     }
   }

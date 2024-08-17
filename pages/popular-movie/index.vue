@@ -1,7 +1,7 @@
 <template>
   <div
     class="container mx-auto px-5 popular_movie"
-    v-if="popularMovies.popularMovie.length > 0"
+    v-if="popularMovies.popularMovie.length > 0 && !popularMovies.loading"
   >
     <div class="grid grid-cols-12 gap-4">
       <div
@@ -60,7 +60,7 @@
       </div>
     </div>
   </div>
-  <div v-else-if="!popularMovies.loading" class="text-center w-full">
+  <div v-else-if="popularMovies.loading" class="text-center w-full">
     <h1 class="text-4xl font-bold">{{ $t("Loading") }}</h1>
   </div>
 </template>
