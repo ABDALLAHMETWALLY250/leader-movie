@@ -84,7 +84,7 @@ onUnmounted(() => {
 
 onUpdated(() => {
   if (!searchTv.searchText) {
-    searchTv.tvs = [];
+    
     window.onscroll = null;
   } else {
     setupInfiniteScroll();
