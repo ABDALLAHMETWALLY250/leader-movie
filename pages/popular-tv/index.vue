@@ -79,7 +79,6 @@ onMounted(() => {
   if (popularTv.popTvPage.length === 0) {
     locale.value = localStorage.getItem("locale") || "en";
     popularTv.getPopTvPage(locale.value, curentPage.value);
-    setupInfiniteScroll();
   }
 });
 
