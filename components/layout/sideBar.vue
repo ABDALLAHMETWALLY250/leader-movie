@@ -75,7 +75,7 @@
       <LangDropDown />
 
       <div class="flex items-center">
-        <ThemeChangeTheme />
+        <ThemeChangeTheme @changeTheme="changeTheme" />
       </div>
 
       <Avatar />
@@ -84,7 +84,10 @@
 </template>
 
 <script setup lang="ts">
-// import { defineEmits } from "vue";
+const emit = defineEmits(["changeTheme"]);
+const changeTheme = (newTheme: string) => {
+  emit("changeTheme", newTheme);
+};
 </script>
 
 <style lang="scss" scoped>

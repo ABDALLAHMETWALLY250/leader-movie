@@ -3,7 +3,7 @@
     class="xl:grid xl:grid-cols-12 lg:grid lg:grid-cols-12 md:grid md:grid-cols-12"
   >
     <div class="col-span-1 sm-none">
-      <LayoutSideBar />
+      <LayoutSideBar @changeTheme="changeTheme" />
     </div>
 
     <LayoutNavBar class="lb-none tb-none dk-none" />
@@ -16,9 +16,10 @@
   </div>
 </template>
     
-    <script lang="ts" setup>
+<script setup lang="ts" >
+const emit = defineEmits(["changeTheme"]);
+const changeTheme = (Theme: string) => {
+  emit("changeTheme", Theme);
+};
 </script>
-    
-    <style scoped lang="scss">
-</style>
     

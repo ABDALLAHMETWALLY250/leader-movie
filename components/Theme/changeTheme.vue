@@ -49,18 +49,18 @@
 </template>
 <script setup lang="ts">
 const theme = ref<string>("light");
+const emit = defineEmits(["changeTheme"]);
+
 const changeTheme = (newTheme: string) => {
   theme.value = newTheme;
-  localStorage.setItem("theme", newTheme);
+  localStorage.setItem("theme", theme.value);
+
+  emit("changeTheme", theme.value);
 
   if (theme.value == "dark") {
-    document.body.classList.add("dark");
-    document.getElementById("navbar")?.classList.add("dark");
-    document.getElementById("sidebar")?.classList.add("dark");
+    theme.value = "dark";
   } else if (theme.value == "light") {
-    document.body.classList.remove("dark");
-    document.getElementById("navbar")?.classList.remove("dark");
-    document.getElementById("sidebar")?.classList.remove("dark");
+    theme.value = "light";
   }
 };
 onMounted(() => {
