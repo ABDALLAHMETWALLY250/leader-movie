@@ -15,7 +15,7 @@
             <NuxtImg src="favicon.ico" alt="Logo" format="webp" />
           </div>
           <h4>{{ $t("Welcome_in_Leader_movie") }}</h4>
-          <span class="text-gray-500">{{
+          <span class="text-gray-500 xl:flex xl:w-8/12 ">{{
             $t(
               "Discover_the_latest_reviews_news_and_exclusive_content_on_Leader_Movie_your_go_to_source_for_all_things_cinema"
             )
@@ -28,7 +28,7 @@
           <NuxtImg src="favicon.ico" alt="Logo" format="webp" />
         </div>
         <h4>{{ $t("Welcome_in_Leader_movie") }}</h4>
-        <span class="text-gray-500">{{
+        <span class="text-gray-500 xl:flex lg:w-1/2 lg:flex">{{
           $t(
             "Discover_the_latest_reviews_news_and_exclusive_content_on_Leader_Movie_your_go_to_source_for_all_things_cinema"
           )
