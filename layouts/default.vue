@@ -6,7 +6,7 @@
       <LayoutSideBar @changeTheme="changeTheme" />
     </div>
 
-    <LayoutNavBar class="lb-none tb-none dk-none" />
+    <LayoutNavBar @changeTheme="changeTheme" class="lb-none tb-none dk-none" />
 
     <div class="col-span-11">
       <div class="content w-full">

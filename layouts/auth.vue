@@ -1,5 +1,7 @@
 <template>
   <LayoutAuthHeaderNav />
+
   <slot />
 </template>
         
+
