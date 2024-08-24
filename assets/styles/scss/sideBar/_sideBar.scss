@@ -1,14 +1,8 @@
 .sidebar {
-
     position: sticky;
     top: 0;
     z-index: 999;
 
-    .dark {
-        aside {
-            border-color: #fff;
-        }
-    }
     aside {
         border-color: rgb(75 85 99);
         display: flex;
@@ -41,20 +35,15 @@
     }
 }
 
-.dark {
+#dark {
     .sidebar {
-        // width: 5%;
         position: sticky;
         top: 0;
         z-index: 999;
-        // width: 6%;
-        .dark {
-            aside {
-                border-color: #ffffffff;
-            }
-        }
+
         aside {
-            border-color: rgb(75 85 99);
+            background-color: #111 !important;
+            border-right-color: #fff;
             display: flex;
             align-items: center;
             justify-content: space-evenly;

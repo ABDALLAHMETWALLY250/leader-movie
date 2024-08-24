@@ -36,8 +36,10 @@
         </svg>
       </button>
       <div
-        :class="{ hidden: !isMenuOpen, block: isMenuOpen }"
-        class="w-full md:block md:w-auto"
+        :class="[
+          'w-full md:block md:w-auto overflow-hidden transition-all duration-300 ease-in-out',
+          isMenuOpen ? 'max-h-screen' : 'max-h-0',
+        ]"
         id="navbar-default"
       >
         <ul
@@ -82,7 +84,7 @@
           </li>
 
           <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
-            <ThemeChangeTheme />
+            <ThemeChangeTheme @changeTheme="changeTheme" />
           </li>
 
           <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
@@ -93,17 +95,34 @@
     </div>
   </nav>
 </template>
-    
+
 <script lang="ts" setup>
 const isMenuOpen = ref(false);
+const theme = ref<string>("light");
+const emit = defineEmits(["changeTheme"]);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+const changeTheme = (newTheme: string) => {
+  theme.value = newTheme;
+  localStorage.setItem("theme", theme.value);
+
+  emit("changeTheme", theme.value);
+
+  if (theme.value == "dark") {
+    theme.value = "dark";
+  } else if (theme.value == "light") {
+    theme.value = "light";
+  }
+};
+onMounted(() => {
+  theme.value = localStorage.getItem("theme") || "light";
+});
 </script>
-    
+
 <style scoped lang="scss">
 .text-blue-700 {
   color: #1d4ed8;
 }
 </style>
-    

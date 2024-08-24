@@ -4,6 +4,7 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
     popularMoviePage: [] as Array<object>,
 
     loading: false as boolean,
+    page: 0 as number,
   }),
   actions: {
     async getPopularMovie(language: string, page: number) {
@@ -16,6 +17,7 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
           this.loading = true;
           res.json().then((data) => {
             this.popularMovie.push(...data.results);
+            this.page = data.page;
             this.loading = false;
           });
         });

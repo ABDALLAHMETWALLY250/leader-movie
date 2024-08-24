@@ -1,9 +1,20 @@
 <template>
-  <div :dir="$i18n.locale == 'ar' ? 'rtl' : 'ltr'">
+  <div :id="newTheme" :dir="$i18n.locale == 'ar' ? 'rtl' : 'ltr'">
     <NuxtRouteAnnouncer />
-    <NuxtLayout>
+    <NuxtLayout @changeTheme="changeTheme">
       <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
 
+
+<script setup lang="ts">
+const newTheme = ref<string>("");
+
+const changeTheme = (Theme: string) => {
+  newTheme.value = Theme;
+};
+onMounted(() => {
+  newTheme.value = localStorage.getItem("theme") || "light";
+});
+</script>

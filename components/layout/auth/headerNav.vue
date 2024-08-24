@@ -4,7 +4,6 @@
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-2"
     >
       <nuxt-link to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <!-- <img src="~/assets/images/logo.png" class="w-14" alt="Logo" /> -->
         <NuxtImg src="favicon.ico" class="w-14" alt="Logo" format="webp" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap"
           >Leader Movie</span
@@ -19,21 +18,7 @@
         aria-expanded="false"
       >
         <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
-        </svg>
+        <i class="pi pi-bars"></i>
       </button>
       <div
         :class="{ hidden: !isMenuOpen, block: isMenuOpen }"
@@ -63,12 +48,8 @@
             </nuxt-link>
           </li>
 
-          <!-- <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
-            <LangDropDown />
-          </li> -->
-
           <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
-            <ThemeChangeTheme />
+            <LangDropDown />
           </li>
         </ul>
       </div>
@@ -78,6 +59,7 @@
     
 <script lang="ts" setup>
 const isMenuOpen = ref(false);
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
