@@ -26,7 +26,7 @@
         id="navbar-default"
       >
         <ul
-          class="font-medium flex items-center justify-center flex-col px-1 py-3 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
+          class="font-medium flex justify-center flex-col px-1 py-3 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
         >
           <li class="my-3">
             <nuxt-link
