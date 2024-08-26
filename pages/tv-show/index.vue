@@ -72,25 +72,35 @@ const setupInfiniteScroll = () => {
     if (bottomOfWindow) {
       curentPage.value++;
       searchTv.page = curentPage.value;
-      searcTv();
+      searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
     }
   };
 };
-
-
 
 onUpdated(() => {
   if (!searchTv.searchText) {
     window.onscroll = null;
   } else {
+    console.log("setupInfiniteScroll Updated", searchTv.page);
     setupInfiniteScroll();
     curentPage.value = searchTv.page;
+    console.log("setupInfiniteScroll after Updated", searchTv.page);
   }
 });
 
 onUnmounted(() => {
   window.onscroll = null;
 });
+
+watch(
+  () => searchTv.searchText,
+  () => {
+    if (!searchTv.searchText) {
+      searchTv.tvs = [];
+      window.onscroll = null;
+    }
+  }
+);
 </script>
 <style lang="">
 </style>
