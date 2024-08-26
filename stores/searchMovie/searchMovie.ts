@@ -3,6 +3,7 @@ export const useSearchMovie = defineStore("searchMovie", {
     searchMovie: [] as Array<object>,
     searchText: "" as string,
     loading: false as boolean,
+    page: 1 as number,
   }),
   actions: {
     setSearchMovie(searchMovie: string, searchMovielang: string, page: number) {
@@ -15,6 +16,7 @@ export const useSearchMovie = defineStore("searchMovie", {
         ).then((res) =>
           res.json().then((data) => {
             this.searchMovie.push(...data.results);
+            this.page = data.page;
             this.loading = false;
           })
         );

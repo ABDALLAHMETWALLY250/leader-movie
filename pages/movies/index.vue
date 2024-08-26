@@ -59,9 +59,11 @@ const searchMovie = useSearchMovie();
 const curentPage = ref<number>(1);
 
 const searchClick = () => {
-  searchMovie.setSearchMovie(searchMovie.searchText, locale.value, curentPage.value);
-
-  setupInfiniteScroll();
+  searchMovie.setSearchMovie(
+    searchMovie.searchText,
+    locale.value,
+    searchMovie.page
+  );
 };
 
 const setupInfiniteScroll = () => {
@@ -71,6 +73,7 @@ const setupInfiniteScroll = () => {
       document.documentElement.offsetHeight;
     if (bottomOfWindow) {
       curentPage.value++;
+      searchMovie.page = curentPage.value;
       searchClick();
     }
   };
@@ -78,23 +81,12 @@ const setupInfiniteScroll = () => {
 
 onUpdated(() => {
   if (!searchMovie.searchText) {
-    searchMovie.searchMovie = [];
     window.onscroll = null;
   } else {
     setupInfiniteScroll();
+    curentPage.value = searchMovie.page;
   }
 });
-watch(
-  () => searchMovie.searchText,
-  () => {
-    if (!searchMovie.searchText) {
-      searchMovie.searchMovie = [];
-      window.onscroll = null;
-    } else {
-      setupInfiniteScroll();
-    }
-  }
-);
 
 onUnmounted(() => {
   window.onscroll = null;

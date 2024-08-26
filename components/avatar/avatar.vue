@@ -19,7 +19,7 @@
     <transition name="fade">
       <div
         v-if="isMenuOpen"
-        class="absolute top-0 mx-12 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+        class="absolute bottom-0 mx-12 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
       >
         <div class="py-1">
           <nuxt-link
