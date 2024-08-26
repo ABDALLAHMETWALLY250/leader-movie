@@ -4,7 +4,7 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
     popularMoviePage: [] as Array<object>,
 
     loading: false as boolean,
-    page: 0 as number,
+    page: 1 as number,
   }),
   actions: {
     async getPopularMovie(language: string, page: number) {

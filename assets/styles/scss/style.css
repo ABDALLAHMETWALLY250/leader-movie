@@ -64,6 +64,15 @@ body .border_top {
   background-color: #111;
   color: white;
 }
+#dark input {
+  color: #fff;
+}
+#dark input::-moz-placeholder {
+  color: #fff;
+}
+#dark input::placeholder {
+  color: #fff;
+}
 #dark .btn_swiper_movie_card {
   padding: 0.5rem;
 }

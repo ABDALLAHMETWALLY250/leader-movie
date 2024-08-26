@@ -9,7 +9,7 @@
       </div>
 
       <form
-        @submit.prevent="searchClick(curentPage)"
+        @submit.prevent="searchClick"
         class="lg:px-40 md:px-20 sm:px-14 px-6 mx-auto"
       >
         <label
@@ -56,11 +56,11 @@ const { locale } = useI18n();
 
 const searchMovie = useSearchMovie();
 
-const curentPage = ref(1);
+const curentPage = ref<number>(1);
 
-const searchClick = (i: number) => {
-  searchMovie.setSearchMovie(searchMovie.searchText, locale.value, i);
-  curentPage.value = i;
+const searchClick = () => {
+  searchMovie.setSearchMovie(searchMovie.searchText, locale.value, curentPage.value);
+
   setupInfiniteScroll();
 };
 
@@ -70,14 +70,15 @@ const setupInfiniteScroll = () => {
       document.documentElement.scrollTop + window.innerHeight ===
       document.documentElement.offsetHeight;
     if (bottomOfWindow) {
-      searchClick(curentPage.value + 1);
+      curentPage.value++;
+      searchClick();
     }
   };
 };
 
 onUpdated(() => {
   if (!searchMovie.searchText) {
-    // searchMovie.searchMovie = [];
+    searchMovie.searchMovie = [];
     window.onscroll = null;
   } else {
     setupInfiniteScroll();
