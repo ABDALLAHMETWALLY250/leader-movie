@@ -61,9 +61,9 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="" v-else-if="searchMovie.loading">
-    <p class="text-center text-4xl font-bold">{{ $t("Loading") }}</p>
+    <div class="text-center">
+      <p class="text-center text-4xl font-bold">{{ $t("Loading") }}</p>
+    </div>
   </div>
 </template>
 

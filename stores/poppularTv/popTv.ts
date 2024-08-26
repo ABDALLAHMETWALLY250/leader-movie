@@ -3,6 +3,7 @@ export const usePopTv = defineStore("popTv", {
     popTv: [] as Array<object>,
     popTvPage: [] as Array<object>,
     loading: false as boolean,
+    page: 1 as number,
   }),
 
   actions: {
@@ -15,7 +16,9 @@ export const usePopTv = defineStore("popTv", {
         ).then((res) => {
           res.json().then((data) => {
             this.popTv.push(...data.results);
+            this.page = data.page;
             this.loading = false;
+
           });
         });
       } catch (error) {

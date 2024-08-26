@@ -55,12 +55,13 @@ import { searchTvStore } from "../../stores/searchTv/searchTv";
 
 const searchTv = searchTvStore();
 const { locale } = useI18n();
+
 const searchText = ref("");
+
 const curentPage = ref(1);
 
 const searcTv = () => {
-  searchTv.getSearchTv(locale.value, searchText.value, curentPage.value);
-  setupInfiniteScroll();
+  searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
 };
 
 const setupInfiniteScroll = () => {
@@ -69,36 +70,27 @@ const setupInfiniteScroll = () => {
       document.documentElement.scrollTop + window.innerHeight ===
       document.documentElement.offsetHeight;
     if (bottomOfWindow) {
-      searchTv.getSearchTv(
-        locale.value,
-        searchText.value,
-        curentPage.value + 1
-      );
+      curentPage.value++;
+      searchTv.page = curentPage.value;
+      searcTv();
     }
   };
 };
 
-onUnmounted(() => {
-  window.onscroll = null;
-});
+
 
 onUpdated(() => {
   if (!searchTv.searchText) {
-    
     window.onscroll = null;
   } else {
     setupInfiniteScroll();
+    curentPage.value = searchTv.page;
   }
 });
-watch(
-  () => searchTv.searchText,
-  () => {
-    if (!searchTv.searchText) {
-      searchTv.tvs = [];
-      window.onscroll = null;
-    }
-  }
-);
+
+onUnmounted(() => {
+  window.onscroll = null;
+});
 </script>
 <style lang="">
 </style>

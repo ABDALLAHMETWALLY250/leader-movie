@@ -54,9 +54,10 @@
                 font-size: 0.9rem;
             }
         }
-        form {
-            margin-block: 3rem;
-        }
+        // form {
+        //     margin-block: 3rem;
+
+        // }
         .circle {
             border-radius: 50%;
             background-color: white;
@@ -65,8 +66,8 @@
             width: 16%;
         }
         .login_form {
-            // height: 75vh;
-            height: 73%;
+            height: 78vh;
+            // height: 73%;
         }
     }
     .content {
@@ -84,7 +85,7 @@
     }
 
     #dark {
-        height: 100vh;
+        // height: 100vh;
         .login .description h4 {
             color: #fff;
         }

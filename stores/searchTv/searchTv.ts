@@ -4,6 +4,7 @@ export const searchTvStore = defineStore("searchTv", {
 
     loading: false as boolean,
     searchText: "" as string,
+    page: 1 as number,
   }),
 
   actions: {
@@ -17,6 +18,7 @@ export const searchTvStore = defineStore("searchTv", {
         ).then((res) => {
           res.json().then((data) => {
             this.tvs.push(...data.results);
+            this.page = data.page;
             this.loading = false;
           });
         });

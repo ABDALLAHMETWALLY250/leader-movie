@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="register" class="container mx-auto px-8 py-3 relative">
+  <form @submit.prevent="register" class="container mx-auto px-8 relative py-28">
     <h5 class="xl:text-4xl md:text-4xl lg:text-4xl text-3xl font-bold mb-3">
       {{ $t("register") }}
     </h5>
@@ -103,9 +103,9 @@
           >{{ errors.email }}</span
         >
       </div>
-      <div class="relative z-0 w-full mb-5 group">
+      <div class="z-0 w-full mb-5 group relative">
         <input
-          type="password"
+          :type="showPassword ? 'text' : 'password'"
           name="floating_password"
           id="floating_password"
           v-model="userRegister.password"
@@ -126,6 +126,10 @@
           aria-live="polite"
           >{{ errors.password }}</span
         >
+        <span class="absolute top-3 right-5" @click="appearpass">
+          <i v-if="!showPassword" class="pi pi-eye"></i>
+          <i v-else class="pi pi-eye-slash"></i>
+        </span>
       </div>
     </div>
     <!-- email & password -->
@@ -185,14 +189,12 @@
 
     <button
       type="submit"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:border-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
+      class="text-white mb-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:border-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
     >
       {{ $t("register") }}
     </button>
 
-    <p
-      class="text-sm font-light text-gray-500 dark:text-gray-400 mt-4 text-center"
-    >
+    <p class="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
       {{ $t("already_have_account") }}
       <NuxtLink
         to="/auth/login"
@@ -216,12 +218,18 @@ const userRegister = ref({
   profile_image_url: "",
 });
 
+const showPassword = ref(false);
+
 const errors = reactive({
   username: "",
   password: "",
   email: "",
   name: "",
 });
+
+const appearpass = () => {
+  showPassword.value = !showPassword.value;
+};
 
 const toast = ref(false);
 

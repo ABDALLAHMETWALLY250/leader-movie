@@ -12,11 +12,12 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
 
       try {
         fetch(
-          `https://api.themoviedb.org/3/movie/popular?language=${language}&page=${page}&api_key=${api_key}`
+          `https://api.themoviedb.org/3/movie/popular?language=${language}&page=${this.page}&api_key=${api_key}`
         ).then((res) => {
           this.loading = true;
           res.json().then((data) => {
             this.popularMovie.push(...data.results);
+            // this.popularMovie += data.results;
             this.page = data.page;
             this.loading = false;
           });

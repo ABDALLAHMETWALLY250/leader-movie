@@ -38,7 +38,7 @@
     <!-- Password Input -->
     <div class="relative z-0 w-full mb-5 group">
       <input
-        type="password"
+        :type="showPassword ? 'text' : 'password'"
         name="floating_password"
         id="floating_password"
         v-model="userLogin.password"
@@ -54,6 +54,11 @@
       <span v-if="errors.password" class="text-red-500 text-sm">{{
         errors.password
       }}</span>
+
+      <span class="absolute top-3 right-5" @click="appearpass">
+        <i v-if="!showPassword" class="pi pi-eye"></i>
+        <i v-else class="pi pi-eye-slash"></i>
+      </span>
     </div>
 
     <button
@@ -86,6 +91,12 @@ const userLogin = reactive({
   username: "",
   password: "",
 });
+
+const showPassword = ref(false);
+
+const appearpass = () => {
+  showPassword.value = !showPassword.value;
+};
 
 const errors = reactive({
   username: "",
