@@ -74,7 +74,11 @@ const setupInfiniteScroll = () => {
     if (bottomOfWindow) {
       curentPage.value++;
       searchMovie.page = curentPage.value;
-      searchClick();
+      searchMovie.setSearchMovie(
+        searchMovie.searchText,
+        locale.value,
+        searchMovie.page
+      );
     }
   };
 };
@@ -83,14 +87,27 @@ onUpdated(() => {
   if (!searchMovie.searchText) {
     window.onscroll = null;
   } else {
+    console.log("setupInfiniteScroll Updated", searchMovie.page);
+
     setupInfiniteScroll();
     curentPage.value = searchMovie.page;
+    console.log("setupInfiniteScroll after Updated", searchMovie.page);
   }
 });
 
 onUnmounted(() => {
   window.onscroll = null;
 });
+
+watch(
+  () => searchMovie.searchText,
+  () => {
+    if (!searchMovie.searchText) {
+      searchMovie.searchMovie = [];
+      window.onscroll = null;
+    }
+  }
+);
 </script>
 <style >
 </style>
