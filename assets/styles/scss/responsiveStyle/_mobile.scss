@@ -3,7 +3,6 @@
         display: none;
     }
 
-  
     .sm-flex-col {
         display: flex;
         flex-direction: column;
@@ -14,7 +13,7 @@
             height: 8rem;
         }
         .description {
-            margin-block: -2rem;
+            // margin-block: -2rem;
             padding: 0 2rem;
             h4 {
                 color: black;
@@ -27,9 +26,7 @@
                 font-size: 0.9rem;
             }
         }
-        form {
-            margin-block: 3rem;
-        }
+
         .circle {
             border-radius: 50%;
             background-color: white;
@@ -43,7 +40,7 @@
             height: 8rem;
         }
         .description {
-            margin-block: -2rem;
+            // margin-block: -2rem;
 
             padding: 0 2rem;
             h4 {
@@ -68,7 +65,8 @@
             width: 16%;
         }
         .login_form {
-            height: 75vh;
+            // height: 75vh;
+            height: 73%;
         }
     }
     .content {
@@ -82,6 +80,17 @@
         }
         .satr {
             fill: gold;
+        }
+    }
+
+    #dark {
+        height: 100vh;
+        .login .description h4 {
+            color: #fff;
+        }
+
+        .register .description h4 {
+            color: #fff;
         }
     }
 }

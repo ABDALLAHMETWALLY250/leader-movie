@@ -36,7 +36,7 @@
       </div>
       <!-- image -->
 
-      <div class="flex items-center w-full login_form">
+      <div class="flex items-center w-full login_form xl:px-14">
         <AuthLogin />
       </div>
     </div>

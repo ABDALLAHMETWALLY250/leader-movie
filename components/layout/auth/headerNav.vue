@@ -51,6 +51,10 @@
           <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
             <LangDropDown />
           </li>
+
+          <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
+            <ThemeChangeTheme @changeTheme="changeTheme" />
+          </li>
         </ul>
       </div>
     </div>
@@ -58,10 +62,28 @@
 </template>
     
 <script lang="ts" setup>
+const emit = defineEmits(["changeTheme"]);
+const theme = ref<string>("light");
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+const changeTheme = (newTheme: string) => {
+  theme.value = newTheme;
+  localStorage.setItem("theme", theme.value);
+
+  emit("changeTheme", theme.value);
+
+  if (theme.value == "dark") {
+    theme.value = "dark";
+  } else if (theme.value == "light") {
+    theme.value = "light";
+  }
+};
+onMounted(() => {
+  theme.value = localStorage.getItem("theme") || "light";
+});
 </script>
     

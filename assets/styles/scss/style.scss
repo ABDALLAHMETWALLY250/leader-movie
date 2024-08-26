@@ -48,6 +48,12 @@ body {
 }
 
 #dark {
+    input {
+        color: #fff;
+        &::placeholder {
+            color: #fff;
+        }
+    }
     .btn_swiper_movie_card {
         padding: 0.5rem;
 
