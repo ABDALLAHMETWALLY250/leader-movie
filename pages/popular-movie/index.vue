@@ -78,6 +78,7 @@ onMounted(() => {
     locale.value = localStorage.getItem("locale") || "en";
     popularMovies.getPopularMoviePage(locale.value, popularMovies.page);
   }
+  setupInfiniteScroll();
 });
 
 onUpdated(() => {
@@ -98,11 +99,11 @@ const setupInfiniteScroll = () => {
   window.onscroll = () => {
     if (
       window.innerHeight + window.scrollY >=
-      document.documentElement.scrollHeight
+      document.body.scrollHeight- 50
     ) {
       currentPage.value++;
-      popularMovies.getPopularMoviePage(locale.value, currentPage.value);
       popularMovies.page = currentPage.value;
+      popularMovies.getPopularMoviePage(locale.value, popularMovies.page);
     }
   };
 };
