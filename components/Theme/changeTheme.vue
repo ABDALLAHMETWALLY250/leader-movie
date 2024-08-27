@@ -5,11 +5,7 @@
         <i class="pi pi-moon"></i>
       </button>
 
-      <button
-        @click="changeTheme('light')"
-        v-else-if="theme == 'dark'"
-        class="flex items-center justify-center"
-      >
+      <button @click="changeTheme('light')" v-else-if="theme == 'dark'">
         <i class="pi pi-sun"></i>
       </button>
     </div>
