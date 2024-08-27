@@ -66,10 +66,10 @@ const searcTv = () => {
 
 const setupInfiniteScroll = () => {
   window.onscroll = () => {
-    let bottomOfWindow =
-      document.documentElement.scrollTop + window.innerHeight ===
-      document.documentElement.offsetHeight;
-    if (bottomOfWindow) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 40
+    ) {
       curentPage.value++;
       searchTv.page = curentPage.value;
       searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
@@ -102,5 +102,3 @@ watch(
   }
 );
 </script>
-<style lang="">
-</style>

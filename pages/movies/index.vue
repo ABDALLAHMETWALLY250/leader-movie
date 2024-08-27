@@ -68,10 +68,10 @@ const searchClick = () => {
 
 const setupInfiniteScroll = () => {
   window.onscroll = () => {
-    let bottomOfWindow =
-      document.documentElement.scrollTop + window.innerHeight ===
-      document.documentElement.offsetHeight;
-    if (bottomOfWindow) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 40
+    ) {
       curentPage.value++;
       searchMovie.page = curentPage.value;
       searchMovie.setSearchMovie(
@@ -109,5 +109,3 @@ watch(
   }
 );
 </script>
-<style >
-</style>
