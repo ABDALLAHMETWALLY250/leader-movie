@@ -34,28 +34,39 @@
             @keyup="searchForAll.fetchSearchForAll(locale, searchText)"
           />
 
-          <div class="" v-if="searchForAll.searchForAll.length > 0">
-            <ul v-if="movies.length > 0">
-              <p>{{ $tc("Movies") }}</p>
+          <div v-if="searchForAll.searchForAll.length > 0">
+            <!-- Tailwind Grid for responsiveness -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div
+                v-for="movie in movies"
+                :key="movie"
+                class="bg-gray-100 p-4 rounded shadow-md"
+              >
+                <p>{{ movie }}-m</p>
+              </div>
 
-              <li v-for="movie in movies" :key="movie">{{ movie }}-m</li>
-            </ul>
+              <div
+                v-for="tv in Tvs"
+                :key="tv"
+                class="bg-gray-100 p-4 rounded shadow-md"
+              >
+                <p>{{ tv }}-ff</p>
+              </div>
 
-            <ul v-if="Tvs.length > 0">
-              <p>{{ $tc("tv_shows") }}</p>
-
-              <li v-for="tv in Tvs" :key="tv">{{ tv }}-ff</li>
-            </ul>
-            <ul v-if="Actors.length > 0">
-              <p>{{ $tc("Actors") }}</p>
-
-              <li v-for="Actor in Actors" :key="Actor">{{ Actor }}-p</li>
-            </ul>
+              <div
+                v-for="actor in Actors"
+                :key="actor"
+                class="bg-gray-100 p-4 rounded shadow-md"
+              >
+                <p>{{ actor }}-p</p>
+              </div>
+            </div>
           </div>
 
           <h5 v-else class="my-40 text-center font-medium capitalize text-base">
             {{ $t("No_search_result") }}
           </h5>
+
           <button
             @click="showModal = false"
             class="bg-sky-800 text-white p-2 rounded mt-10"

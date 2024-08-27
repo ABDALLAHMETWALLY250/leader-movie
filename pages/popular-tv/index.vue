@@ -61,9 +61,9 @@
         </div>
       </div>
     </div>
-  </div>
-  <div v-else-if="popularTv.popTv.length == 0" class="text-center">
-    <p class="text-4xl font-bold">{{ $t("Loading") }}</p>
+    <div class="text-center">
+      <p class="text-4xl font-bold">{{ $t("Loading") }}</p>
+    </div>
   </div>
 </template>
 
@@ -72,13 +72,13 @@ import { usePopTv } from "../../stores/poppularTv/popTv";
 const route = useRoute();
 const { locale } = useI18n();
 const popularTv = usePopTv();
-const curentPage = ref<number>(1);
+const currentPage = ref<number>(1);
 const value = ref<number>(1);
 
 onMounted(() => {
   if (popularTv.popTvPage.length === 0) {
     locale.value = localStorage.getItem("locale") || "en";
-    popularTv.getPopTvPage(locale.value, curentPage.value);
+    popularTv.getPopTvPage(locale.value, popularTv.page);
   }
 });
 
@@ -86,10 +86,11 @@ const setupInfiniteScroll = () => {
   window.onscroll = () => {
     if (
       window.innerHeight + window.scrollY >=
-      document.documentElement.scrollHeight
+      document.body.scrollHeight - 40
     ) {
-      popularTv.getPopTvPage(locale.value, curentPage.value + 1);
-      curentPage.value++;
+      currentPage.value++;
+      popularTv.page = currentPage.value;
+      popularTv.getPopTvPage(locale.value, popularTv.page);
     }
   };
 };
@@ -100,7 +101,9 @@ onUnmounted(() => {
 
 onUpdated(() => {
   setupInfiniteScroll();
+  currentPage.value = popularTv.page;
 });
+
 const defaultOverview = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text since the 1500s.";
 });
