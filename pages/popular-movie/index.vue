@@ -98,7 +98,7 @@ const setupInfiniteScroll = () => {
   window.onscroll = () => {
     if (
       window.innerHeight + window.scrollY >=
-      document.body.scrollHeight - 40
+      document.body.scrollHeight
     ) {
       currentPage.value++;
       popularMovies.page = currentPage.value;
