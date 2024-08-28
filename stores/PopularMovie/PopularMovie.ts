@@ -16,7 +16,7 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
         ).then((res) => {
           this.loading = true;
           res.json().then((data) => {
-            this.popularMovie.push(...data.results);
+            this.popularMovie =data.results;
             // this.popularMovie += data.results;
             this.page = data.page;
             this.loading = false;
