@@ -11,12 +11,12 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
       const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
 
       try {
-      await fetch(
+        await fetch(
           `https://api.themoviedb.org/3/movie/popular?language=${language}&page=${this.page}&api_key=${api_key}`
         ).then((res) => {
           this.loading = true;
           res.json().then((data) => {
-            this.popularMovie =data.results;
+            this.popularMovie = data.results;
             // this.popularMovie += data.results;
             this.page = data.page;
             this.loading = false;

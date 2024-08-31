@@ -5,7 +5,7 @@ export const searchForAllStore = defineStore("searchForAll", {
     totalPages: null,
   }),
   actions: {
-    async fetchSearchForAll(lang: any, searchText: any, page: any) {
+    async fetchSearchForAll(lang: string, searchText: string, page: number) {
       try {
         const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
 

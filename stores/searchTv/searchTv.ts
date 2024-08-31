@@ -13,7 +13,7 @@ export const searchTvStore = defineStore("searchTv", {
 
       try {
         const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
-        fetch(
+        await fetch(
           `https://api.themoviedb.org/3/search/tv?include_adult=true&language=${language}&page=${page}&query=${this.searchText}&api_key=${api_key}`
         ).then((res) => {
           res.json().then((data) => {
