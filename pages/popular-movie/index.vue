@@ -101,7 +101,10 @@ const defaultOverview = computed(() => {
 
 const setupInfiniteScroll = () => {
   window.onscroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 40
+    ) {
       currentPage.value++;
       popularMovies.page = currentPage.value;
       popularMovies.getPopularMoviePage(locale.value, popularMovies.page);
