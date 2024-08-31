@@ -6,12 +6,16 @@ export const useSearchMovie = defineStore("searchMovie", {
     page: 1 as number,
   }),
   actions: {
-    setSearchMovie(searchMovie: string, searchMovielang: string, page: number) {
+    async setSearchMovie(
+      searchMovie: string,
+      searchMovielang: string,
+      page: number
+    ) {
       this.loading = true;
       try {
         this.loading = true;
         const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
-        fetch(
+        await fetch(
           `https://api.themoviedb.org/3/search/movie?query=${this.searchText}&include_adult=false&language=${searchMovielang}&page=${page}&api_key=${api_key}`
         ).then((res) =>
           res.json().then((data) => {

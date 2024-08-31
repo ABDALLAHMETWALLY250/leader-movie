@@ -5,16 +5,16 @@
   >
     <div class="grid grid-cols-12 gap-4">
       <div
-        class="xl:col-span-6 lg:col-span-6 col-span-12"
+        class="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12"
         v-for="tv in popularTv.popTvPage"
         :key="tv.id"
       >
         <div
-          class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
+          class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow cards"
         >
           <img
             v-if="tv?.poster_path || tv?.backdrop_path"
-            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg"
             :src="`
                   https://image.tmdb.org/t/p/w500/${
                     tv?.poster_path || tv?.backdrop_path
@@ -24,7 +24,7 @@
           />
           <img
             v-else
-            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"
             :alt="tv?.title || tv?.name || tv?.original_name"
           />
@@ -75,11 +75,15 @@ const popularTv = usePopTv();
 const currentPage = ref<number>(1);
 const value = ref<number>(1);
 
-onMounted(() => {
+const fetchTvs = () => {
   if (popularTv.popTvPage.length === 0) {
     locale.value = localStorage.getItem("locale") || "en";
     popularTv.getPopTvPage(locale.value, popularTv.page);
   }
+};
+
+onMounted(() => {
+  fetchTvs();
 });
 
 const setupInfiniteScroll = () => {

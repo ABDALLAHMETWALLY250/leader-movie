@@ -5,16 +5,16 @@
   >
     <div class="grid grid-cols-12 gap-4">
       <div
-        class="xl:col-span-6 lg:col-span-6 col-span-12"
+        class="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12"
         v-for="movie in popularMovies.popularMoviePage"
         :key="movie.id"
       >
         <div
-          class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
+          class="flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow cards"
         >
           <img
             v-if="movie?.poster_path || movie?.backdrop_path"
-            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg"
             :src="`https://image.tmdb.org/t/p/w500/${
               movie?.poster_path || movie?.backdrop_path
             }`"
@@ -22,7 +22,7 @@
           />
           <img
             v-else
-            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"
             :alt="movie?.title || movie?.name || movie?.original_name"
           />
@@ -74,11 +74,16 @@ const popularMovies = usePopularMovieStore();
 const value = ref<number>(1);
 const currentPage = ref<number>(1);
 
-onMounted(() => {
+const fetchMOvies = () => {
   if (popularMovies.popularMoviePage.length === 0) {
     locale.value = localStorage.getItem("locale") || "en";
     popularMovies.getPopularMoviePage(locale.value, popularMovies.page);
   }
+};
+
+onMounted(() => {
+  fetchMOvies();
+  setupInfiniteScroll();
 });
 
 onUpdated(() => {
@@ -96,10 +101,7 @@ const defaultOverview = computed(() => {
 
 const setupInfiniteScroll = () => {
   window.onscroll = () => {
-    if (
-      window.innerHeight + window.scrollY >=
-      document.body.scrollHeight
-    ) {
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
       currentPage.value++;
       popularMovies.page = currentPage.value;
       popularMovies.getPopularMoviePage(locale.value, popularMovies.page);

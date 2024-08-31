@@ -11,14 +11,13 @@ export const usePopTv = defineStore("popTv", {
       const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
       this.loading = true;
       try {
-        fetch(
+        await fetch(
           `https://api.themoviedb.org/3/trending/tv/day?language=${language}&page=${page}&api_key=${api_key}`
         ).then((res) => {
           res.json().then((data) => {
             this.popTv.push(...data.results);
             this.page = data.page;
             this.loading = false;
-
           });
         });
       } catch (error) {
@@ -31,7 +30,7 @@ export const usePopTv = defineStore("popTv", {
       const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
       this.loading = true;
       try {
-        fetch(
+        await fetch(
           `https://api.themoviedb.org/3/trending/tv/day?language=${language}&page=${page}&api_key=${api_key}`
         ).then((res) => {
           res.json().then((data) => {
