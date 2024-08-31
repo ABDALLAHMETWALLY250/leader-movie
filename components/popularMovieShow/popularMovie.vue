@@ -2,9 +2,9 @@
   <div class="HomeMovie">
     <CardloadinHomeCardLoading v-if="popularMovies.loading" />
     <div class="container mx-auto xl:px-5" v-else>
-      <TopHeader :path="'popular-movie'">
+      <HomeMovieTopHeader :path="'popular-movie'">
         {{ $t("popular_movie") }}
-      </TopHeader>
+      </HomeMovieTopHeader>
 
       <swiper
         class="mySwiper my-3"
@@ -39,7 +39,7 @@
         :key="locale"
       >
         <swiper-slide v-for="item in popularMovies.popularMovie" :key="item.id">
-          <CardsDetails :item="item" />
+          <HomeMovieCardsDetails :item="item" />
         </swiper-slide>
       </swiper>
     </div>
@@ -48,8 +48,7 @@
     
     <script setup  lang="ts" >
 import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
-import CardsDetails from "../HomeMovie/CardsDetails.vue";
-import TopHeader from "../HomeMovie/TopHeader.vue";
+
 
 const { locale } = useI18n();
 const popularMovies = usePopularMovieStore();
