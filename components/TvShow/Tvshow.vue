@@ -1,9 +1,9 @@
 <template >
   <div class="HomeMovie">
     <div class="container mx-auto xl:px-5">
-      <TopHeader :path="'tv-show'">
+      <HomeMovieTopHeader :path="'tv-show'">
         {{ $t("tv_shows") }}
-      </TopHeader>
+      </HomeMovieTopHeader>
 
       <CardloadinHomeCardLoading v-if="popularTv.popTv.length <= 0" />
 
@@ -40,7 +40,7 @@
         :key="locale"
       >
         <swiper-slide v-for="item in popularTv.popTv" :key="item.id">
-          <CardsDetails :item="item" />
+          <HomeMovieCardsDetails :item="item" />
         </swiper-slide>
       </swiper>
     </div>
@@ -49,8 +49,6 @@
 
 <script setup  >
 import { usePopTv } from "../../stores/poppularTv/popTv";
-import CardsDetails from "../HomeMovie/CardsDetails.vue";
-import TopHeader from "../HomeMovie/TopHeader.vue";
 
 const locale = useI18n();
 
