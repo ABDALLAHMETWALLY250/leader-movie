@@ -31,7 +31,7 @@
         <ul
           class="font-medium flex flex-col px-1 py-3 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
         >
-          <li>
+          <li @click="isMenuOpen = false">
             <nuxt-link
               to="/"
               activeClass="active"
@@ -41,7 +41,7 @@
               {{ $t("home") }}
             </nuxt-link>
           </li>
-          <li class="my-3">
+          <li class="my-3" @click="isMenuOpen = false">
             <nuxt-link
               activeClass="active"
               to="/movies"
@@ -51,7 +51,7 @@
             </nuxt-link>
           </li>
 
-          <li class="my-3">
+          <li class="my-3" @click="isMenuOpen = false">
             <nuxt-link
               activeClass="active"
               to="/tv-show"
@@ -65,7 +65,7 @@
             <LangDropDown />
           </li>
 
-          <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3">
+          <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3" @click="isMenuOpen = false">
             <ModalSearch />
           </li>
 
