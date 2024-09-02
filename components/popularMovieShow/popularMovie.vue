@@ -27,10 +27,14 @@
           },
           // when window width is >= 640px
           640: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1200: {
             slidesPerView: 4,
             spaceBetween: 20,
           },
@@ -48,7 +52,6 @@
     
     <script setup  lang="ts" >
 import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
-
 
 const { locale } = useI18n();
 const popularMovies = usePopularMovieStore();

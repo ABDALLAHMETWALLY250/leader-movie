@@ -1,22 +1,21 @@
 <template >
   <div class="cards">
     <div class="card_border relative">
-      <div>
-        <Image
+      <div class="overflow-hidden">
+        <img
           v-if="item.poster_path"
-          class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
+          class="rounded-lg h-96 w-full object-cover text-white hover:backdrop-brightness-50 hover:scale-105 transition-all duration-300 cursor-pointer"
           :src="`
         https://image.tmdb.org/t/p/w400/${item.poster_path}`"
           :alt="item.title || item.name || item.original_name"
-          preview
           format="webp"
+          preview
         />
-        <Image
+        <img
           v-else
-          class="rounded-lg w-full object-cover text-white hover:backdrop-brightness-50"
+          class="rounded-lg h-96 w-full object-cover text-white hover:backdrop-brightness-50"
           src="https://i.pravatar.cc/300"
           :alt="item.title || item.name || item.original_name"
-          preview
         />
       </div>
       <div class="">

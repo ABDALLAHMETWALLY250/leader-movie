@@ -14,7 +14,7 @@
         :spaceBetween="10"
         :loop="true"
         :autoplay="{
-          delay: 4000,
+          delay: 5000,
         }"
         :breakpoints="{
           320: {
@@ -28,10 +28,14 @@
           },
           // when window width is >= 640px
           640: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1200: {
             slidesPerView: 4,
             spaceBetween: 20,
           },
