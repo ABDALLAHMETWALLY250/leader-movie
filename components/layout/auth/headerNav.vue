@@ -28,7 +28,7 @@
         <ul
           class="font-medium flex justify-center flex-col px-1 py-3 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
         >
-          <li class="my-3" style="margin: 1rem 0.8rem">
+          <li class="my-3" style="margin: 1rem 0.8rem" @click="isMenuOpen = false">
             <nuxt-link
               to="/auth/login"
               activeClass="active"
@@ -38,7 +38,7 @@
               {{ $t("login") }}
             </nuxt-link>
           </li>
-          <li class="my-3" style="margin: 1rem 0.8rem">
+          <li class="my-3" style="margin: 1rem 0.8rem" @click="isMenuOpen = false">
             <nuxt-link
               activeClass="active"
               to="/auth/register"
