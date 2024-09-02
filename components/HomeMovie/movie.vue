@@ -1,9 +1,9 @@
 <template >
   <div class="HomeMovie">
     <div class="container mx-auto xl:px-5">
-      <TopHeader :path="'movies'">
+      <HomeMovieTopHeader :path="'movies'">
         {{ $t("Movies") }}
-      </TopHeader>
+      </HomeMovieTopHeader>
 
       <CardloadinHomeCardLoading v-if="popularMovies.loading" />
 
@@ -16,7 +16,7 @@
         :autoplay="{
           delay: 4000,
         }"
-        :breakpoints="{
+         :breakpoints="{
           320: {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -28,10 +28,14 @@
           },
           // when window width is >= 640px
           640: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1200: {
             slidesPerView: 4,
             spaceBetween: 20,
           },
@@ -40,7 +44,7 @@
         :key="locale"
       >
         <swiper-slide v-for="item in popularMovies.popularMovie" :key="item.id">
-          <CardsDetails :item="item" />
+          <HomeMovieCardsDetails :item="item" />
         </swiper-slide>
       </swiper>
     </div>
@@ -49,8 +53,6 @@
 
 <script setup  >
 import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
-import CardsDetails from "./CardsDetails.vue";
-import TopHeader from "./TopHeader.vue";
 
 const locale = useI18n();
 

@@ -10,11 +10,11 @@
         :key="movie.id"
       >
         <div
-          class="flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow cards"
+          class="flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow cards overflow-hidden cursor-pointer"
         >
           <img
             v-if="movie?.poster_path || movie?.backdrop_path"
-            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg hover:scale-105 transition duration-300 ease-in-out"
             :src="`https://image.tmdb.org/t/p/w500/${
               movie?.poster_path || movie?.backdrop_path
             }`"
@@ -22,11 +22,11 @@
           />
           <img
             v-else
-            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg hover:scale-105 transition duration-300 ease-in-out"
             src="https://i.pravatar.cc/500"
             :alt="movie?.title || movie?.name || movie?.original_name"
           />
-          <div class="flex flex-col justify-between px-4 leading-normal">
+          <div class="flex flex-col justify-between px-4 my-3 leading-normal">
             <NuxtLink :to="`/movie/${movie.id}`">
               <h5 class="mb-2 text-2xl font-bold tracking-tight title">
                 {{ movie?.title || movie?.name || movie?.original_name }}

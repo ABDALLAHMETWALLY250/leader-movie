@@ -1,4 +1,9 @@
 .SearchPage {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
     .all {
         border-top: 1px solid rgb(3, 3, 3);
         border-bottom: 1px solid rgb(0, 0, 0);
