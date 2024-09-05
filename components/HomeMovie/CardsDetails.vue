@@ -23,9 +23,9 @@
           :to="`/${item.media_type == 'tv' ? 'tv' : 'movie'}/${item.id}`"
           :dir="locale == 'ar' ? 'rtl' : 'ltr'"
         >
-          <h5 class="mb-2 text-xl font-bold tracking-tight title">
+          <h2 class="mb-2 text-xl font-bold tracking-tight title">
             {{ item.title || item.name || item.original_name }}
-          </h5>
+          </h2>
           <p class="mb-3 font-normal overview">
             {{ item.overview || defaultOverView }}
           </p>
