@@ -22,7 +22,7 @@
   >
     <SwiperSlide v-for="slide in allMoviesStore.movieSwiper" :key="slide.id">
       <figure
-        class="relative transition-all duration-300 cursor-pointer filter"
+        class="relative cursor-pointer"
         :style="{
           'background-image': `url(https://image.tmdb.org/t/p/w500/${
             slide.backdrop_path ||
