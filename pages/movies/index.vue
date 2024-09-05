@@ -2,12 +2,12 @@
   <div class="movies">
     <div class="relative w-full h-full">
       <video
-        src="assets/videos/videoplayback.webm"
+        src="assets/videos/video-movies.webm"
         autoplay
         loop
         muted
         playsinline
-        class="w-full h-full object-cover filter brightness-75	"
+        class="w-full h-full object-cover filter brightness-75"
       ></video>
       <Banner
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
@@ -53,7 +53,7 @@
       </Banner>
     </div>
   </div>
-  <div class="p-6">
+  <div>
     <CardsCardShow />
   </div>
 
