@@ -68,6 +68,7 @@
           </h5>
 
           <button
+            name="close"
             @click="showModal = false"
             class="bg-sky-800 text-white p-2 rounded mt-10"
           >

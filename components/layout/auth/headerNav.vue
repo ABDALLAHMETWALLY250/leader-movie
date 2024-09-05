@@ -10,6 +10,7 @@
         >
       </nuxt-link>
       <button
+        name="navbar"
         @click="toggleMenu"
         data-collapse-toggle="navbar-default"
         type="button"

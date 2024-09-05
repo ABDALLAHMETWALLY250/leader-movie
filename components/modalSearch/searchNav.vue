@@ -1,6 +1,6 @@
 <template>
   <div class="search_modal">
-    <button class="w-full" @click="showModal = true">
+    <button name="search" class="w-full" @click="showModal = true">
       <form class="mx-auto">
         <label for="default-search" class="mb-2 text-sm font-medium sr-only">{{
           $t("search")
@@ -69,6 +69,7 @@
             {{ $t("No_search_result") }}
           </h5>
           <button
+            name="close"
             @click="showModal = false"
             class="bg-sky-800 text-white p-2 rounded mt-10"
           >

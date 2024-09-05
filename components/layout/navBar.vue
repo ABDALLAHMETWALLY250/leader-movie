@@ -11,6 +11,7 @@
         >
       </nuxt-link>
       <button
+        name="navbar"
         @click="toggleMenu"
         data-collapse-toggle="navbar-default"
         type="button"
@@ -65,7 +66,10 @@
             <LangDropDown />
           </li>
 
-          <li class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3" @click="isMenuOpen = false">
+          <li
+            class="my-3 xl:py-0 lg:py-0 md:py-0 xl:px-0 lg:px-0 md:px-0 px-3"
+            @click="isMenuOpen = false"
+          >
             <ModalSearch />
           </li>
 
