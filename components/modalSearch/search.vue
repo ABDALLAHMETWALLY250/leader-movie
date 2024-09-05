@@ -19,7 +19,7 @@
       <i class="pi pi-search text-xl font-bold"></i>
     </nuxt-link>
 
-    <transition name="modal">
+    <transition aria-label="modal">
       <div
         v-if="showModal"
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-filter backdrop-blur-sm z-10"
@@ -68,7 +68,7 @@
           </h5>
 
           <button
-            name="close"
+            aria-label="close"
             @click="showModal = false"
             class="bg-sky-800 text-white p-2 rounded mt-10"
           >

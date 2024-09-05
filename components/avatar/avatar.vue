@@ -1,6 +1,6 @@
 <template>
   <div class="relative inline-block text-left">
-    <button @click="toggleMenu" name="avatar">
+    <button @click="toggleMenu" aria-label="avatar">
       <div
         class="flex items-center gap-2 xl:flex xl:items-center xl:gap-1 xl:flex-col lg:flex lg:items-center lg:gap-1 lg:flex-col md:flex md:items-center md:gap-1 md:flex-col"
       >
@@ -16,7 +16,7 @@
         </h5>
       </div>
     </button>
-    <transition name="fade">
+    <transition aria-label="fade">
       <div
         v-if="isMenuOpen"
         class="absolute bottom-0 mx-12 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
@@ -39,7 +39,7 @@
             <i class="pi pi-clock mx-5"></i>
           </nuxt-link>
           <button
-            name="logout"
+            aria-label="logout"
             @click="
               logoutStore.logUserOut($t('Are_you_sure'), $t('yes'), $t('no'))
             "

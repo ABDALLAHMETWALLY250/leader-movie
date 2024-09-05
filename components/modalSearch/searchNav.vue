@@ -1,6 +1,6 @@
 <template>
   <div class="search_modal">
-    <button name="search" class="w-full" @click="showModal = true">
+    <button aria-label="search" class="w-full" @click="showModal = true">
       <form class="mx-auto">
         <label for="default-search" class="mb-2 text-sm font-medium sr-only">{{
           $t("search")
@@ -36,7 +36,7 @@
       </form>
     </button>
 
-    <transition name="modal">
+    <transition aria-label="modal">
       <div
         v-if="showModal"
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-filter backdrop-blur-sm z-10"
@@ -69,7 +69,7 @@
             {{ $t("No_search_result") }}
           </h5>
           <button
-            name="close"
+            aria-label="close"
             @click="showModal = false"
             class="bg-sky-800 text-white p-2 rounded mt-10"
           >

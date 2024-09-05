@@ -2,7 +2,7 @@
 <template>
   <div class="card flex justify-center">
     <Button
-      name="video"
+      aria-label="video"
       class="btn_swiper_movie_card"
       @click="playVideo"
       v-tooltip.bottom="{

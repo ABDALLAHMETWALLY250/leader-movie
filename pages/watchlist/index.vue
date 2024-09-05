@@ -6,7 +6,7 @@
     <div class="flex justify-between items-center my-5 px-4">
       <h4 class="text-3xl font-semibold">{{ $t("Add_to_watchlist") }}</h4>
       <button
-        name="clearAll"
+        aria-label="clearAll"
         @click="clearAll($t('All_items_removed_from_list'))"
         class="text-red-500 text-xl"
       >
