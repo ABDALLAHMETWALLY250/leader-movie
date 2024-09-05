@@ -29,6 +29,9 @@
               slide.poster_path ||
               'https://i.pravatar.cc/300'
             })`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }"
         >
           <img

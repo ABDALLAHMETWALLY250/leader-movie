@@ -96,9 +96,10 @@
     }
 
     .mySwiper img.image_film {
-        height: 60vh !important;
+        height: 600px !important;
         width: 100% !important;
         object-fit: cover !important;
         object-position: center !important;
+        backdrop-filter: unset !important;
     }
 }

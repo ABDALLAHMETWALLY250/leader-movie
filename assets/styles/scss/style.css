@@ -329,12 +329,14 @@ svg.p-icon.p-rating-icon.p-rating-cancel {
     color: #fff;
   }
   .mySwiper img.image_film {
-    height: 60vh !important;
+    height: 600px !important;
     width: 100% !important;
     -o-object-fit: cover !important;
        object-fit: cover !important;
     -o-object-position: center !important;
        object-position: center !important;
+    -webkit-backdrop-filter: unset !important;
+            backdrop-filter: unset !important;
   }
 }
 @media screen and (min-width: 767px) and (max-width: 991px) {
