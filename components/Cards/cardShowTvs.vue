@@ -30,9 +30,9 @@
 
           <div class="flex flex-col justify-between px-4 leading-normal">
             <NuxtLink :to="`/tv/${tv?.id}`">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight title">
+              <h2 class="mb-2 text-2xl font-bold tracking-tight title">
                 {{ tv?.title || tv?.name || tv?.original_name }}
-              </h5>
+              </h2>
               <p class="mb-3 font-normal overview">
                 {{ tv?.overview || defaultOverView }}
               </p>
