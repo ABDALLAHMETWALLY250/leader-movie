@@ -16,8 +16,12 @@
         :autoplay="{
           delay: 4000,
         }"
-         :breakpoints="{
+        :breakpoints="{
           320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          500: {
             slidesPerView: 1,
             spaceBetween: 20,
           },
