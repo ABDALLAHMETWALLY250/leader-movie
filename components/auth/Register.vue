@@ -27,7 +27,7 @@
         class="rounded-full trasg_btn"
         title="Delete Image"
       >
-        <i class="pi pi-trash text-red-600"></i>
+        <i class="pi pi-times text-red-600"></i>
       </button>
     </div>
 
