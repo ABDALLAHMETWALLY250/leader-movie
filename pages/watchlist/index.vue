@@ -1,5 +1,5 @@
 <template >
-  <div class="container mx-auto px-5 h-screen py-5" v-if="addsuseWashList.list.length > 0">
+  <div class="container mx-auto px-4  py-5" v-if="addsuseWashList.list.length > 0">
     <div class="flex justify-between items-center my-5 px-4">
       <h4 class="text-3xl font-semibold">{{ $t("Add_to_watchlist") }}</h4>
       <button
