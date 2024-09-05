@@ -3,7 +3,7 @@
   <div class="card flex justify-center">
     <Button
       aria-label="video"
-      class="btn_swiper_movie_card"
+      class="btn_swiper_movie_card pi pi-play text-2xl"
       @click="playVideo"
       v-tooltip.bottom="{
         value: $t('Play_video'),
@@ -18,7 +18,6 @@
         },
       }"
     >
-      <i class="pi pi-play text-2xl"></i>
     </Button>
     <Dialog
       v-model:visible="visible"
