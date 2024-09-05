@@ -1,7 +1,12 @@
 <template>
   <div class="locale-changer">
     <label for="language-selector"></label>
-    <select @change="changeLanguage" v-model="locale" id="language-selector">
+    <select
+      @change="changeLanguage"
+      aria-label="Choose a language"
+      v-model="locale"
+      id="language-selector"
+    >
       <option
         v-for="locale in $i18n.availableLocales"
         :key="`locale-${locale}`"
