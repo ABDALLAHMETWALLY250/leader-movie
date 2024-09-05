@@ -2,6 +2,7 @@
   <div class="sidebar">
     <aside class="h-screen border-2 px-3 bg-gray-100" id="sidebar">
       <nuxt-link
+        aria-label="Go to homepage"
         v-tooltip.left="{
           value: $t('home'),
           pt: {
@@ -13,7 +14,6 @@
             text: '!bg-primary !text-primary-contrast !font-medium !text-sm !px-2 !py-1 !rounded',
           },
         }"
-        class="has-tooltip"
         to="/"
         active-class="active"
       >
@@ -21,6 +21,7 @@
       </nuxt-link>
 
       <nuxt-link
+        aria-label="tv_shows"
         v-tooltip.left="{
           value: $t('tv_shows'),
           pt: {
@@ -32,7 +33,6 @@
             text: '!bg-primary !text-primary-contrast !font-medium !text-sm !px-2 !py-1 !rounded',
           },
         }"
-        class="has-tooltip"
         to="/tv-show"
         active-class="active"
       >
@@ -52,6 +52,7 @@
       </nuxt-link>
 
       <nuxt-link
+        aria-label="Movies"
         v-tooltip.left="{
           value: $t('Movies'),
           pt: {
@@ -63,7 +64,6 @@
             text: '!bg-primary !text-primary-contrast !font-medium !text-sm !px-2 !py-1 !rounded',
           },
         }"
-        class="has-tooltip"
         to="/movies"
         active-class="active"
       >

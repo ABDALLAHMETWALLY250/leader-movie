@@ -13,8 +13,8 @@
         },
       }"
       to="/search"
-      class="has-tooltip"
       activeClass="active"
+      aria-label="search"
     >
       <i class="pi pi-search text-xl font-bold"></i>
     </nuxt-link>
