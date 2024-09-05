@@ -42,6 +42,21 @@
         v-if="searchForAll.searchForAll.length > 0"
         class="all"
       />
+      <div
+        class="flex w-full items-center gap-4 my-2 overflow-auto container pagination"
+        v-if="searchForAll.searchForAll.length > 0"
+      >
+        <button
+          :class="`${
+            i == curentPage ? 'bg-sky-400 text-white' : ''
+          } px-3 py-1 rounded-md`"
+          @click="fetchPageData(i)"
+          v-for="i in searchForAll.totalPages"
+          :key="i"
+        >
+          {{ i }}
+        </button>
+      </div>
     </div>
 
     <span v-if="searchForAll.loading" class="text-3xl font-bold">
@@ -53,22 +68,6 @@
     >
       {{ $t("No_search_result") }}
     </h2>
-
-    <div
-      class="flex w-full items-center gap-4 my-2 overflow-auto container"
-      v-if="searchForAll.searchForAll.length > 0"
-    >
-      <button
-        :class="`${
-          i == curentPage ? 'bg-sky-400 text-white' : ''
-        } px-3 py-1 rounded-md`"
-        @click="fetchPageData(i)"
-        v-for="i in searchForAll.totalPages"
-        :key="i"
-      >
-        {{ i }}
-      </button>
-    </div>
   </div>
 </template>
 
@@ -77,7 +76,7 @@ import { searchForAllStore } from "../../stores/searchForAll/searchForAll";
 const { locale } = useI18n();
 const searchForAll = searchForAllStore();
 const searchText = ref<string>("");
-// const allSearchs = ref<any[]>([]);
+
 const curentPage = ref<number>(1);
 
 const search = () => {
