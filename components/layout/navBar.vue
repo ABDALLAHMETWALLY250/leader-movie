@@ -11,7 +11,7 @@
         >
       </nuxt-link>
       <button
-        name="navbar"
+        aria-label="navbar"
         @click="toggleMenu"
         data-collapse-toggle="navbar-default"
         type="button"

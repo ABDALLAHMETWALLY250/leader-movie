@@ -22,7 +22,7 @@
       />
 
       <button
-        name="delete"
+        aria-label="delete"
         @click="deleteImage"
         class="rounded-full trasg_btn"
         title="Delete Image"
@@ -70,7 +70,7 @@
       <div class="relative z-0 w-full mb-5 group">
         <input
           type="email"
-          name="floating_email"
+          aria-label="floating_email"
           id="floating_email"
           v-model="userRegister.email"
           @blur="validateEmail"
@@ -94,7 +94,7 @@
       <div class="z-0 w-full mb-5 group relative">
         <input
           :type="showPassword ? 'text' : 'password'"
-          name="floating_password"
+          aria-label="floating_password"
           id="floating_password"
           v-model="userRegister.password"
           @blur="validatePassword"
@@ -127,7 +127,7 @@
       <div class="relative z-0 w-full mb-5 group">
         <input
           type="text"
-          name="floating_username"
+          aria-label="floating_username"
           id="floating_username"
           v-model="userRegister.username"
           @blur="validateUsername"
@@ -151,7 +151,7 @@
       <div class="relative z-0 w-full mb-5 group">
         <input
           type="text"
-          name="floating_name"
+          aria-label="floating_name"
           id="floating_name"
           v-model="userRegister.name"
           @blur="validateName"
@@ -176,7 +176,7 @@
     <!-- username & name -->
 
     <button
-      name="register"
+      aria-label="register"
       type="submit"
       class="text-white mb-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:border-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
     >

@@ -1,14 +1,14 @@
 <template >
   <div class="theme">
     <div class="flex items-center">
-      <button @click="changeTheme('dark')" v-if="theme == 'light'" name="theme">
+      <button @click="changeTheme('dark')" v-if="theme == 'light'" aria-label="theme">
         <i class="pi pi-moon"></i>
       </button>
 
       <button
         @click="changeTheme('light')"
         v-else-if="theme == 'dark'"
-        name="theme"
+        aria-label="theme"
       >
         <i class="pi pi-sun"></i>
       </button>

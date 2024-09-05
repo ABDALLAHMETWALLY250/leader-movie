@@ -1,7 +1,7 @@
 
 <template>
   <div class="">
-    <Button class="btn_swiper_movie" @click="playVideo" name="play">
+    <Button class="btn_swiper_movie" @click="playVideo" aria-label="play">
       <i class="pi pi-play text-3xl"></i>
     </Button>
     <Dialog
