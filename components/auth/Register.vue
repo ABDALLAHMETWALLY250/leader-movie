@@ -37,21 +37,7 @@
         class="flex flex-col items-center justify-center px-12 py-6 border-2 border-gray-300 border-dashed rounded-full cursor-pointer bg-gray-5000 dark:hover:bg-bray-800 dark:border-gray-600 dark:hover:border-white 0 dark:bg-slate-600"
       >
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
-          <svg
-            class="w-6 h-6"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M7.5 4.586A2 2 0 0 1 8.914 4h6.172a2 2 0 0 1 1.414.586L17.914 6H19a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1.086L7.5 4.586ZM10 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"
-              clip-rule="evenodd"
-            />
-          </svg>
+          <i class="pi pi-camera"></i>
         </div>
         <input
           id="dropzone-file"
@@ -70,7 +56,7 @@
       <div class="relative z-0 w-full mb-5 group">
         <input
           type="email"
-          aria-label="floating_email"
+          name="floating_email"
           id="floating_email"
           v-model="userRegister.email"
           @blur="validateEmail"
@@ -94,7 +80,7 @@
       <div class="z-0 w-full mb-5 group relative">
         <input
           :type="showPassword ? 'text' : 'password'"
-          aria-label="floating_password"
+          name="floating_password"
           id="floating_password"
           v-model="userRegister.password"
           @blur="validatePassword"
@@ -127,7 +113,7 @@
       <div class="relative z-0 w-full mb-5 group">
         <input
           type="text"
-          aria-label="floating_username"
+          name="floating_username"
           id="floating_username"
           v-model="userRegister.username"
           @blur="validateUsername"
@@ -151,7 +137,7 @@
       <div class="relative z-0 w-full mb-5 group">
         <input
           type="text"
-          aria-label="floating_name"
+          name="floating_name"
           id="floating_name"
           v-model="userRegister.name"
           @blur="validateName"
@@ -176,8 +162,9 @@
     <!-- username & name -->
 
     <button
-      aria-label="register"
+      name="register"
       type="submit"
+      aria-label="Register"
       class="text-white mb-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:border-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
     >
       {{ $t("register") }}
