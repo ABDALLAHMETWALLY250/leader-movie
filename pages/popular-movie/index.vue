@@ -28,9 +28,9 @@
           />
           <div class="flex flex-col justify-between px-4 my-3 leading-normal">
             <NuxtLink :to="`/movie/${movie.id}`">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight title">
+              <h2 class="mb-2 text-2xl font-bold tracking-tight title">
                 {{ movie?.title || movie?.name || movie?.original_name }}
-              </h5>
+              </h2>
               <p class="mb-3 font-normal overview">
                 {{ movie?.overview || defaultOverview }}
               </p>
