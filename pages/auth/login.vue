@@ -8,14 +8,19 @@
         <img
           src="https://tse1.mm.bing.net/th?id=OIG1.6yegaAA1pehQF3sDAPs1&pid=ImgGn"
           alt="image Login"
+          loading="lazy"
         />
         <div class="description sm-none">
           <div class="circle">
-            <!-- <img src="~/assets/images/logo.png" alt="Logo" /> -->
-            <NuxtImg src="favicon.ico" alt="Logo" format="webp" />
+            <NuxtImg
+              src="favicon.ico"
+              alt="Logo"
+              format="webp"
+              loading="lazy"
+            />
           </div>
           <h4>{{ $t("Welcome_in_Leader_movie") }}</h4>
-          <span class="text-gray-500 xl:flex xl:w-8/12 ">{{
+          <span class="text-gray-500 xl:flex xl:w-8/12">{{
             $t(
               "Discover_the_latest_reviews_news_and_exclusive_content_on_Leader_Movie_your_go_to_source_for_all_things_cinema"
             )
@@ -24,8 +29,7 @@
       </div>
       <div class="description lb-none dk-none tb-none">
         <div class="circle">
-          <!-- <img src="~/assets/images/logo.png" alt="Logo" /> -->
-          <NuxtImg src="favicon.ico" alt="Logo" format="webp" />
+          <NuxtImg src="favicon.ico" alt="Logo" format="webp" loading="lazy" />
         </div>
         <h4>{{ $t("Welcome_in_Leader_movie") }}</h4>
         <span class="text-gray-500 xl:flex lg:w-1/2 lg:flex">{{

@@ -19,6 +19,7 @@
         :src="userRegister.profile_image_url"
         alt="Uploaded Image"
         class="w-32 h-32 rounded-full object-cover"
+        loading="lazy"
       />
 
       <button

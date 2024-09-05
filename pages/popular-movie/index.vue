@@ -19,12 +19,14 @@
               movie?.poster_path || movie?.backdrop_path
             }`"
             :alt="movie?.title || movie?.name || movie?.original_name"
+            loading="lazy"
           />
           <img
             v-else
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg hover:scale-105 transition duration-300 ease-in-out"
             src="https://i.pravatar.cc/500"
             :alt="movie?.title || movie?.name || movie?.original_name"
+            loading="lazy"
           />
           <div class="flex flex-col justify-between px-4 my-3 leading-normal">
             <NuxtLink :to="`/movie/${movie.id}`">

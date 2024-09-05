@@ -14,13 +14,16 @@
         :src="`https://image.tmdb.org/t/p/w500/${
           item?.backdrop_path || item?.poster_path
         }`"
+        
         :alt="item?.name || item?.title"
+        loading="lazy"
       />
       <img
         v-else
         class="object-cover w-full rounded-t-lg h-96 md:h-72"
         src="https://i.pravatar.cc/500"
         :alt="item?.name || item?.title"
+        loading="lazy"
       />
       <div class="flex flex-col justify-between p-4 leading-normal">
         <NuxtLink :to="`/movie/${item.id}`">

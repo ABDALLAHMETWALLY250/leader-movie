@@ -1,12 +1,19 @@
 <template >
-  <div class="container mx-auto px-4  py-5" v-if="addsuseWatchList.list.length > 0">
+  <div
+    class="container mx-auto px-4 py-5"
+    v-if="addsuseWatchList.list.length > 0"
+  >
     <div class="flex justify-between items-center my-5 px-4">
       <h4 class="text-3xl font-semibold">{{ $t("Add_to_watch_Later") }}</h4>
-      <button @click="clearAll($t('clearAll'))" class="text-red-500 text-xl" aria-label="clear">
+      <button
+        @click="clearAll($t('clearAll'))"
+        class="text-red-500 text-xl"
+        aria-label="clear"
+      >
         {{ $t("clearAll") }}
       </button>
     </div>
-    <div class="grid grid-cols-12 gap-4 py-5	">
+    <div class="grid grid-cols-12 gap-4 py-5">
       <div
         class="xl:col-span-6 lg:col-span-6 col-span-12"
         v-for="item in addsuseWatchList.list"
@@ -24,12 +31,14 @@
                     }
                   `"
             :alt="item?.title || item?.name || item?.original_name"
+            loading="lazy"
           />
           <img
             v-else
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"
             :alt="item?.title || item?.name || item?.original_name"
+            loading="lazy"
           />
 
           <div class="flex flex-col justify-between px-4 leading-normal">
