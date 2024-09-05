@@ -1,6 +1,6 @@
 <template>
   <div class="relative inline-block text-left">
-    <button @click="toggleMenu">
+    <button @click="toggleMenu" name="avatar">
       <div
         class="flex items-center gap-2 xl:flex xl:items-center xl:gap-1 xl:flex-col lg:flex lg:items-center lg:gap-1 lg:flex-col md:flex md:items-center md:gap-1 md:flex-col"
       >
@@ -39,6 +39,7 @@
             <i class="pi pi-clock mx-5"></i>
           </nuxt-link>
           <button
+            name="logout"
             @click="
               logoutStore.logUserOut($t('Are_you_sure'), $t('yes'), $t('no'))
             "

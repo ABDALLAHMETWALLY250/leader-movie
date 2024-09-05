@@ -1,6 +1,7 @@
 <template >
   <div class="flex flex-wrap items-center justify-between">
     <button
+      name="watchlist"
       @click="toggleWatchList(Data, $t('success_Add_to_watchlist'))"
       :class="`btn_swiper_movie_card ${
         route.path == '/watchlist' ? 'hidden' : ''
@@ -21,6 +22,7 @@
     </button>
 
     <button
+      name="watchlater"
       @click="addWatchList(Data, $t('success_Add_to_watchlater'))"
       :class="`btn_swiper_movie_card ${
         route.path == '/watchlater' ? 'hidden' : ''
@@ -41,6 +43,7 @@
     </button>
 
     <nuxt-link
+      name="Details"
       :to="`${media_type == 'tv' ? '/tv' : '/movie'}/${id}`"
       class="btn_swiper_movie_card"
       v-tooltip.bottom="{

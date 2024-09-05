@@ -1,15 +1,19 @@
 <template >
-  <div class="container mx-auto px-4  py-5" v-if="addsuseWashList.list.length > 0">
+  <div
+    class="container mx-auto px-4 py-5"
+    v-if="addsuseWashList.list.length > 0"
+  >
     <div class="flex justify-between items-center my-5 px-4">
       <h4 class="text-3xl font-semibold">{{ $t("Add_to_watchlist") }}</h4>
       <button
+        name="clearAll"
         @click="clearAll($t('All_items_removed_from_list'))"
         class="text-red-500 text-xl"
       >
         {{ $t("clearAll") }}
       </button>
     </div>
-    <div class="grid grid-cols-12 gap-4 py-5	">
+    <div class="grid grid-cols-12 gap-4 py-5">
       <div
         class="xl:col-span-6 lg:col-span-6 col-span-12"
         v-for="item in addsuseWashList.list"
