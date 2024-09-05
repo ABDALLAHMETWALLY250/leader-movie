@@ -16,30 +16,26 @@
     :autoplay="{
       delay: 4000,
     }"
-    :dir="locale === 'ar' ? 'rtl' : 'ltr'"
+    :dir="locale == 'ar' ? 'rtl' : 'ltr'"
     :key="locale"
     :creative-effect="creativeEffect"
   >
     <SwiperSlide v-for="slide in allMoviesStore.movieSwiper" :key="slide.id">
-      <figure
-        class="relative cursor-pointer"
-        :style="{
-          'background-image': `url(https://image.tmdb.org/t/p/w500/${
-            slide.backdrop_path ||
-            slide.poster_path ||
-            'https://i.pravatar.cc/300'
-          })`,
-          'background-size': 'cover',
-          'background-position': 'center',
-          'background-repeat': 'no-repeat',
-        }"
-      >
-        <div>
+      <figure class="relative cursor-pointer">
+        <div
+          :style="{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
+              slide.backdrop_path ||
+              slide.poster_path ||
+              'https://i.pravatar.cc/300'
+            })`,
+          }"
+        >
           <img
-            v-if="slide.backdrop_path || slide.poster_path"
+            v-if="slide.backdrop_path"
             class="image_film relative"
             :src="`https://image.tmdb.org/t/p/w500/${
-              slide.backdrop_path || slide.poster_path
+              slide.backdrop_path ? slide.backdrop_path : slide.poster_path
             }`"
             :alt="`${slide.title} image`"
           />
@@ -76,6 +72,7 @@
     </SwiperSlide>
   </Swiper>
 </template>
+  
 
 <script setup>
 import { useMovieSwiper } from "../../stores/MovieSwiper/MovieSwiper";
@@ -86,27 +83,28 @@ const value = ref(3.5);
 
 // swiper
 const creativeEffect = computed(() => {
-  return locale.value === "ar"
-    ? {
-        prev: {
-          shadow: true,
-          translate: [0, 0, -200],
-        },
-        next: {
-          translate: ["-100%", 0, 0], // Reversed for RTL
-        },
-      }
-    : {
-        prev: {
-          shadow: true,
-          translate: [0, 0, -200],
-        },
-        next: {
-          translate: ["100%", 0, 0],
-        },
-      };
+  if (locale.value === "ar") {
+    return {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -200],
+      },
+      next: {
+        translate: ["-100%", 0, 0], // Reversed for RTL
+      },
+    };
+  } else {
+    return {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -200],
+      },
+      next: {
+        translate: ["100%", 0, 0],
+      },
+    };
+  }
 });
-
 // swiper
 onMounted(() => {
   if (allMoviesStore.movieSwiper.length === 0) {
