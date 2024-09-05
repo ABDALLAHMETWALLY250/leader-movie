@@ -1,6 +1,6 @@
 
 <template>
-  <div class="card flex justify-center">
+  <div class="">
     <Button class="btn_swiper_movie" @click="playVideo">
       <i class="pi pi-play text-3xl"></i>
     </Button>
@@ -9,7 +9,7 @@
       dismissableMask
       maximizable
       modal
-      :style="{ width: '60rem', height: '100vh' }"
+      :style="{ width: '90rem', height: '100vh' }"
       :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
     >
       <iframe
