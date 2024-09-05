@@ -42,7 +42,7 @@
       </form>
     </Banner>
   </div>
-  <div class="p-6">
+  <div>
     <CardsCardShowTvs />
   </div>
 
