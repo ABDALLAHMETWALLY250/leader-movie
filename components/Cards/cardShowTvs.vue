@@ -20,12 +20,14 @@
                   }
                 `"
             :alt="tv?.title || tv?.name || tv?.original_name"
+            loading="lazy"
           />
           <img
             v-else
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"
             :alt="tv?.title || tv?.name || tv?.original_name"
+            loading="lazy"
           />
 
           <div class="flex flex-col justify-between px-4 leading-normal">

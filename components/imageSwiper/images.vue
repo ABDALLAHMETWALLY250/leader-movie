@@ -41,12 +41,16 @@
               slide.backdrop_path ? slide.backdrop_path : slide.poster_path
             }`"
             :alt="`${slide.title} image`"
+            rel="preload"
+            loading="lazy"
           />
           <img
             v-else
             class="image_film relative"
             src="https://i.pravatar.cc/300"
             :alt="`${slide.title} image`"
+            rel="preload"
+            loading="lazy"
           />
           <div class="overlay"></div>
         </div>

@@ -58,6 +58,7 @@
                   :src="`https://image.tmdb.org/t/p/w400//${
                     item.backdrop_path ? item.backdrop_path : item.poster_path
                   }`"
+                  loading="lazy"
                   class="w-16 h-24 rounded-md object-cover"
                 />
 

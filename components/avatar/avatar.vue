@@ -9,6 +9,7 @@
           :src="userAvatar.profile_image"
           alt="user avatar"
           class="w-12 h-12 border-2 border-gray-200 rounded-full object-cover"
+          loading="lazy"
         />
 
         <h5 class="font-medium text-base">

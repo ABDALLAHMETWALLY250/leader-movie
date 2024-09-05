@@ -10,12 +10,14 @@
           :alt="item.title || item.name || item.original_name"
           format="webp"
           preview
+          loading="lazy"
         />
         <img
           v-else
           class="rounded-lg h-96 w-full object-cover text-white hover:backdrop-brightness-50"
           src="https://i.pravatar.cc/300"
           :alt="item.title || item.name || item.original_name"
+          loading="lazy"
         />
       </div>
       <div class="">
