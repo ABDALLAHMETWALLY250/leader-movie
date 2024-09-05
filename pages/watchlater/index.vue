@@ -6,7 +6,7 @@
         {{ $t("clearAll") }}
       </button>
     </div>
-    <div class="grid grid-cols-12 gap-4 py-4	">
+    <div class="grid grid-cols-12 gap-4 py-5	">
       <div
         class="xl:col-span-6 lg:col-span-6 col-span-12"
         v-for="item in addsuseWatchList.list"
