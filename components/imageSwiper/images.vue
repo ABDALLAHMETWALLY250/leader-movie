@@ -22,7 +22,16 @@
   >
     <SwiperSlide v-for="slide in allMoviesStore.movieSwiper" :key="slide.id">
       <figure
-        class="relative transition-all duration-300 cursor-pointer filter brightness-90"
+        class="relative cursor-pointer filter"
+        :style="{
+          'background-image': `url(https://image.tmdb.org/t/p/w500/${
+            slide.backdrop_path ? slide.backdrop_path : slide.poster_path
+          })`,
+          'background-size': 'cover',
+          'background-position': 'center',
+          'background-repeat': 'no-repeat',
+          'backdrop-filter': 'blur(5564px)',
+        }"
       >
         <div>
           <img
@@ -32,6 +41,7 @@
               slide.backdrop_path ? slide.backdrop_path : slide.poster_path
             }`"
             :alt="`${slide.title} image`"
+         
           />
           <img
             v-else
@@ -43,7 +53,7 @@
         </div>
 
         <videoModal
-          class="absolute bottom-2/4 left-1/2 text-white"
+          class="absolute top-1/2 left-1/2 text-white"
           :movie_id="slide.id"
         />
 
