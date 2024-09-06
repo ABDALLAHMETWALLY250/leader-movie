@@ -5,22 +5,22 @@
       style="z-index: 5"
       @submit.prevent="search"
     >
-      <label
-        for="default-search"
-        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-      >
-        {{ $t("search") }}
-      </label>
       <div class="relative">
         <div
           class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
         >
           <i class="pi pi-search text-xl font-bold"></i>
         </div>
+        <label
+          for="default-search"
+          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+        >
+          {{ $t("search") }}
+        </label>
         <input
           type="search"
           id="default-search"
-          class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100"
+          class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-blue-500 focus:border-blue-500"
           :placeholder="$t('search')"
           v-model="searchText"
         />
@@ -48,7 +48,7 @@
         v-if="searchForAll.searchForAll.length > 0"
       >
         <button
-        aria-label="pagination"
+          aria-label="pagination"
           :class="`${
             i == curentPage ? 'bg-sky-400 text-white' : ''
           } px-3 py-1 rounded-md`"
@@ -66,7 +66,7 @@
     </span>
     <h2
       v-if="searchForAll.searchForAll.length == 0"
-      class="my-40 text-center font-medium capitalize text-2xl flex items-center justify-center mt-60"
+      class="py-80 text-center font-medium capitalize text-2xl flex items-center justify-center flex items-center justify-center"
     >
       {{ $t("No_search_result") }}
     </h2>
