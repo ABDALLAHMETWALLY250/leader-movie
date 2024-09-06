@@ -4,7 +4,7 @@
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-2"
     >
       <nuxt-link to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <NuxtImg src="favicon.ico" class="w-14" alt="Logo" format="webp" />
+        <nuxt-img class="w-14" src="/favicon.ico" alt="Logo" loading="lazy" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap"
           >Leader Movie</span
         >
@@ -29,7 +29,11 @@
         <ul
           class="font-medium flex justify-center flex-col px-1 py-3 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
         >
-          <li class="my-3" style="margin: 1rem 0.8rem" @click="isMenuOpen = false">
+          <li
+            class="my-3"
+            style="margin: 1rem 0.8rem"
+            @click="isMenuOpen = false"
+          >
             <nuxt-link
               to="/auth/login"
               activeClass="active"
@@ -39,7 +43,11 @@
               {{ $t("login") }}
             </nuxt-link>
           </li>
-          <li class="my-3" style="margin: 1rem 0.8rem" @click="isMenuOpen = false">
+          <li
+            class="my-3"
+            style="margin: 1rem 0.8rem"
+            @click="isMenuOpen = false"
+          >
             <nuxt-link
               activeClass="active"
               to="/auth/register"
