@@ -141,6 +141,10 @@ svg.p-icon.p-rating-icon.p-rating-cancel {
     color: gold;
 }
 
+span.p-button-label {
+    display: none;
+}
+
 // auth styles
 @import url("./authStyles/_register.scss");
 
