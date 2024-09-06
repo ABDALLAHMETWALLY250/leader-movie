@@ -4,7 +4,7 @@
     }
 
     .mySwiper img.image_film {
-        height: 33vh !important;
+        height: 50vh !important;
         width: 100% !important;
         object-fit: cover !important;
         object-position: center !important;
@@ -19,6 +19,9 @@
                 }
             }
         }
+    }
+    .movies {
+        height: unset !important;
     }
     .login {
         .image {
