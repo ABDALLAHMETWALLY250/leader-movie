@@ -18,11 +18,9 @@
   </div>
 </template>
 
-<script setup>
-import { useI18n } from "vue-i18n";
-
+<script setup lang="ts">
 const { locale } = useI18n();
-const changeLanguage = (event) => {
+const changeLanguage = (event: any) => {
   window.location.reload();
   const selectedLocale = event.target.value || "en";
   locale.value = selectedLocale;

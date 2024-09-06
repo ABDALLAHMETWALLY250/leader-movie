@@ -2,7 +2,7 @@
   <div class="search_modal">
     <button aria-label="search" class="w-full" @click="showModal = true">
       <form class="mx-auto">
-        <label for="default-search" class="mb-2 text-sm font-medium sr-only">{{
+        <label for="search-page" class="mb-2 text-sm font-medium sr-only">{{
           $t("search")
         }}</label>
         <div class="relative">
@@ -27,7 +27,7 @@
           </div>
           <input
             type="search"
-            id="default-search"
+            id="search-page"
             class="block px-3 w-full py-2 ps-10 text-sm border border-gray-300 rounded-lg"
             placeholder="Search Mockups, Logos..."
             required

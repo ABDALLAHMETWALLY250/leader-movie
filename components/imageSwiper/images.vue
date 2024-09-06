@@ -60,7 +60,7 @@
           :movie_id="slide.id"
         />
 
-        <figcaption class="absolute px-4 text-white bottom-10">
+        <figcaption class="absolute px-28 text-white bottom-10 ">
           <h2 class="text-2xl font-bold">{{ slide?.title }}</h2>
           <p class="mt-3 xl:w-3/5 lg:w-3/5 slide_text">{{ slide?.overview }}</p>
           <div class="flex items-center gap-3">
