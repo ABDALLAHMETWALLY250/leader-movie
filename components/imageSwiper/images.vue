@@ -5,11 +5,10 @@
 
   <Swiper
     v-else
-    class="mySwiper"
+    class="mySwiper container mx-auto"
     :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]"
     :slides-per-view="1"
     :loop="true"
-    :effect="'creative'"
     :pagination="{
       clickable: true,
     }"
@@ -36,7 +35,7 @@
         >
           <img
             v-if="slide.backdrop_path"
-            class="image_film relative"
+            class="image_film relative transition duration-300 ease-in-out"
             :src="`https://image.tmdb.org/t/p/w500/${
               slide.backdrop_path ? slide.backdrop_path : slide.poster_path
             }`"
@@ -60,7 +59,9 @@
           :movie_id="slide.id"
         />
 
-        <figcaption class="absolute xl:px-28 px-8 xl:w-3/4 lg:w-3/4 w-full text-white bottom-10">
+        <figcaption
+          class="absolute xl:px-28 px-8 xl:w-3/4 lg:w-3/4 w-full text-white bottom-10"
+        >
           <h2 class="text-2xl font-bold">{{ slide?.title }}</h2>
           <p class="mt-3 xl:w-3/5 lg:w-3/5 slide_text">{{ slide?.overview }}</p>
           <div class="flex items-center gap-3">
