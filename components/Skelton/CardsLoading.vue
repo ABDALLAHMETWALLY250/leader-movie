@@ -3,7 +3,7 @@
     <swiper
       class="mySwiper my-3"
       :modules="[SwiperAutoplay]"
-      :slidesPerView="3"
+    
       :spaceBetween="30"
       :loop="true"
       :autoplay="{

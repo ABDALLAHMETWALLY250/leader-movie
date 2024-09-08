@@ -8,19 +8,20 @@
 
       <swiper
         class="mySwiper my-3"
-        :modules="[SwiperAutoplay]"
-        :slidesPerView="1"
+        :modules="[SwiperAutoplay, SwiperNavigation]"
+        
         :spaceBetween="10"
+        :navigation="true"
         :loop="true"
         :autoplay="{
-          delay: 5000,
+          delay: 4000,
         }"
         :breakpoints="{
           320: {
             slidesPerView: 1,
             spaceBetween: 20,
           },
-           500: {
+          500: {
             slidesPerView: 1,
             spaceBetween: 20,
           },

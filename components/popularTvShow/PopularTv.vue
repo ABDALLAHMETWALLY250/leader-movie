@@ -9,12 +9,12 @@
       </div>
       <swiper
         class="mySwiper my-3"
-        :modules="[SwiperAutoplay]"
-        :slidesPerView="3"
+        :modules="[SwiperAutoplay, SwiperNavigation]"
         :spaceBetween="10"
+        :navigation="true"
         :loop="true"
         :autoplay="{
-          delay: 3000,
+          delay: 5000,
         }"
         :breakpoints="{
           320: {
