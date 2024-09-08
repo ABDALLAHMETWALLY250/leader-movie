@@ -63,8 +63,8 @@
         </div>
       </div>
     </div>
-    <div class="text-center">
-      <p class="text-4xl font-bold">{{ $t("Loading") }}</p>
+    <div class="text-center w-full">
+      <SkeltonCardPageLoading />
     </div>
   </div>
 </template>
