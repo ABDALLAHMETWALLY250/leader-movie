@@ -10,7 +10,7 @@
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay, SwiperNavigation]"
-        :slidesPerView="4"
+      
         :spaceBetween="10"
         :navigation="true"
         :loop="true"
