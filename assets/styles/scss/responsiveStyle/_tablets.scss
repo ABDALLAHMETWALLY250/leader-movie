@@ -3,13 +3,13 @@
         display: none;
     }
 
-    // .mySwiper img.image_film {
-    //     height: 50vh !important;
-    //     width: 100% !important;
-    //     object-fit: cover !important;
-    //     object-position: center !important;
-    //     backdrop-filter: unset !important;
-    // }
+    .mySwiper img.image_film {
+        // height: 50vh !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        backdrop-filter: unset !important;
+    }
 
     .register {
         .image {
