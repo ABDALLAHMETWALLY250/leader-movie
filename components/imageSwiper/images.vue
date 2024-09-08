@@ -6,7 +6,7 @@
   <Swiper
     v-else
     class="mySwiper xl:container xl:mx-auto lg:container lg:mx-auto"
-    :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]"
+    :modules="[SwiperAutoplay, SwiperPagination]"
     :slides-per-view="1"
     :loop="true"
     :pagination="{
