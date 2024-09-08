@@ -1,4 +1,61 @@
 .HomeMovie {
+    .swiper {
+        padding-bottom: 5rem !important;
+        margin-top: 1rem;
+        margin-bottom: 0;
+        &:lang(en) {
+            .swiper-button-next {
+                top: 37rem;
+                right: 1rem;
+                &::after {
+                    font-size: 1rem;
+                    color: #000;
+                    padding: 0.8rem;
+                    border: 1px solid #000;
+                    border-radius: 50px;
+                }
+            }
+            .swiper-button-prev {
+                top: 37rem;
+                left: unset;
+                right: 4rem;
+
+                &::after {
+                    font-size: 1rem;
+                    color: #000;
+                    padding: 0.8rem;
+                    border: 1px solid #000;
+                    border-radius: 50px;
+                }
+            }
+        }
+        &:lang(ar) {
+            .swiper-button-next {
+                top: 37rem;
+                left: 1rem;
+                &::after {
+                    font-size: 1rem;
+                    color: #000;
+                    padding: 0.8rem;
+                    border: 1px solid #000;
+                    border-radius: 50px;
+                }
+            }
+            .swiper-button-prev {
+                top: 37rem;
+                left: 4rem;
+                right: unset;
+                &::after {
+                    font-size: 1rem;
+                    color: #000;
+                    padding: 0.8rem;
+                    border: 1px solid #000;
+                    border-radius: 50px;
+                }
+            }
+        }
+    }
+
     // margin: 2rem 0;
     padding: 2rem 1.5rem;
 
@@ -24,6 +81,62 @@
 
 #dark {
     .HomeMovie {
+        .swiper {
+            padding-bottom: 5rem !important;
+            margin-top: 1rem;
+            margin-bottom: 0;
+            &:lang(en) {
+                .swiper-button-next {
+                    top: 37rem;
+                    right: 1rem;
+                    &::after {
+                        font-size: 1rem;
+                        color: #706b6b;
+                        padding: 0.8rem;
+                        border: 1px solid #fff;
+                        border-radius: 50px;
+                    }
+                }
+                .swiper-button-prev {
+                    top: 37rem;
+                    left: unset;
+                    right: 4rem;
+
+                    &::after {
+                        font-size: 1rem;
+                        color: #706b6b;
+                        padding: 0.8rem;
+                        border: 1px solid #fff;
+                        border-radius: 50px;
+                    }
+                }
+            }
+            &:lang(ar) {
+                .swiper-button-next {
+                    top: 37rem;
+                    left: 1rem;
+                    &::after {
+                        font-size: 1rem;
+                        color: #706b6b;
+                        padding: 0.8rem;
+                        border: 1px solid #fff;
+                        border-radius: 50px;
+                    }
+                }
+                .swiper-button-prev {
+                    top: 37rem;
+                    left: 4rem;
+                    right: unset;
+                    &::after {
+                        font-size: 1rem;
+                        color: #706b6b;
+                        padding: 0.8rem;
+                        border: 1px solid #fff;
+                        border-radius: 50px;
+                    }
+                }
+            }
+        }
         // margin: 2rem 0;
         padding: 2rem 1.5rem;
         .border-top {
