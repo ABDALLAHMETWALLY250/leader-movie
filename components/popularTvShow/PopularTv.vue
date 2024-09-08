@@ -4,16 +4,13 @@
       <HomeMovieTopHeader :path="'popular-tv'">
         {{ $t("popular_tv") }}
       </HomeMovieTopHeader>
-      <h4
-        v-if="popularTv.popTv.length <= 0"
-        class="text-3xl font-bold text-center mt-6"
-      >
-        <CardloadinHomeCardLoading />
-      </h4>
+      <div v-if="popularTv.popTv.length <= 0" class="mt-6">
+        <SkeltonCardsLoading />
+      </div>
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay]"
-        :slidesPerView="1"
+        :slidesPerView="3"
         :spaceBetween="10"
         :loop="true"
         :autoplay="{
@@ -24,7 +21,7 @@
             slidesPerView: 1,
             spaceBetween: 20,
           },
-           500: {
+          500: {
             slidesPerView: 1,
             spaceBetween: 20,
           },
@@ -50,7 +47,7 @@
         :dir="locale == 'ar' ? 'rtl' : 'ltr'"
         :key="locale"
       >
-        <swiper-slide v-for="item in popularTv.popTv" :key="item.id">
+        <swiper-slide v-for="item in popularTv.popTv" :key="item">
           <HomeMovieCardsDetails :item="item" />
         </swiper-slide>
       </swiper>

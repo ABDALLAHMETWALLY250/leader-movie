@@ -1,6 +1,6 @@
 <template >
   <div class="HomeMovie">
-    <CardloadinHomeCardLoading v-if="popularMovies.loading" />
+    <SkeltonCardsLoading v-if="popularMovies.loading" />
     <div class="container mx-auto xl:px-5" v-else>
       <HomeMovieTopHeader :path="'popular-movie'">
         {{ $t("popular_movie") }}
