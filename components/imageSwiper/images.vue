@@ -1,11 +1,11 @@
 <template>
   <div v-if="allMoviesStore.movieSwiper.length <= 0" class="px-4">
-    <Skeleton width="100%" height="350px"></Skeleton>
+    <SkeltonImageSwiper />
   </div>
 
   <Swiper
     v-else
-    class="mySwiper xl:container xl:mx-auto  lg:container lg:mx-auto"
+    class="mySwiper xl:container xl:mx-auto lg:container lg:mx-auto"
     :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]"
     :slides-per-view="1"
     :loop="true"
@@ -82,8 +82,8 @@
 </template>
   
 
-<script setup>
-import { useMovieSwiper } from "../../stores/MovieSwiper/MovieSwiper";
+<script setup lang="ts">
+import { useMovieSwiper } from "@/stores/MovieSwiper/MovieSwiper";
 const route = useRoute();
 const allMoviesStore = useMovieSwiper();
 const { locale } = useI18n();
