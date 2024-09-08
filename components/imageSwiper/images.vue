@@ -5,7 +5,7 @@
 
   <Swiper
     v-else
-    class="mySwiper container mx-auto"
+    class="mySwiper xl:container xl:mx-auto  lg:container lg:mx-auto"
     :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]"
     :slides-per-view="1"
     :loop="true"
