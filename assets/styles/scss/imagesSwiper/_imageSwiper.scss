@@ -1,4 +1,7 @@
 .mySwiper {
+    * {
+        transition: all 0.5s;
+    }
     .btn_swiper_movie {
         background-color: #fff;
         color: #000;
