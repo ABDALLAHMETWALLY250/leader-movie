@@ -9,12 +9,13 @@
 
       <swiper
         class="mySwiper my-3"
-        :modules="[SwiperAutoplay]"
-        :slidesPerView="1"
+        :modules="[SwiperAutoplay, SwiperNavigation]"
+        :slidesPerView="4"
         :spaceBetween="10"
+        :navigation="true"
         :loop="true"
         :autoplay="{
-          delay: 4000,
+          delay: 6000,
         }"
         :breakpoints="{
           320: {

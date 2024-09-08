@@ -10,7 +10,7 @@
           clickable: true,
         }"
         :autoplay="{
-          delay: 4000,
+          delay: 7000,
         }"
       >
         <SwiperSlide v-for="slide in 6" :key="slide">

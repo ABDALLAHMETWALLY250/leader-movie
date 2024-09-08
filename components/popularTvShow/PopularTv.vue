@@ -14,7 +14,7 @@
         :spaceBetween="10"
         :loop="true"
         :autoplay="{
-          delay: 4000,
+          delay: 3000,
         }"
         :breakpoints="{
           320: {
