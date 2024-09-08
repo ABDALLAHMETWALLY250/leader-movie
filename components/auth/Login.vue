@@ -1,3 +1,39 @@
+<script lang="ts" setup>
+import { useAuthStore } from "../../stores/auth/login";
+
+const loginStore = useAuthStore();
+
+const userLogin = reactive({
+  username: "",
+  password: "",
+});
+
+const showPassword = ref(false);
+
+const appearpass = () => {
+  showPassword.value = !showPassword.value;
+};
+
+const errors = reactive({
+  username: "",
+  password: "",
+});
+
+const toast = ref<boolean>(false);
+const validateInputs = () => {
+  errors.username = userLogin.username ? "" : "Valid username is required.";
+
+  errors.password = userLogin.password ? "" : "Password is required.";
+  return !Object.values(errors).some((error) => error !== "");
+};
+const login = (message_success: string, message_fail: string) => {
+  if (validateInputs()) {
+    loginStore.authenticateUser(userLogin, message_success, message_fail);
+  }
+};
+</script>
+
+
 <template>
   <form
     @submit.prevent="
@@ -83,37 +119,3 @@
   </form>
 </template>
 
-<script lang="ts" setup>
-import { useAuthStore } from "../../stores/auth/login";
-
-const loginStore = useAuthStore();
-
-const userLogin = reactive({
-  username: "",
-  password: "",
-});
-
-const showPassword = ref(false);
-
-const appearpass = () => {
-  showPassword.value = !showPassword.value;
-};
-
-const errors = reactive({
-  username: "",
-  password: "",
-});
-
-const toast = ref<boolean>(false);
-const validateInputs = () => {
-  errors.username = userLogin.username ? "" : "Valid username is required.";
-
-  errors.password = userLogin.password ? "" : "Password is required.";
-  return !Object.values(errors).some((error) => error !== "");
-};
-const login = (message_success: string, message_fail: string) => {
-  if (validateInputs()) {
-    loginStore.authenticateUser(userLogin, message_success, message_fail);
-  }
-};
-</script>

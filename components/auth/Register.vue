@@ -1,3 +1,102 @@
+<script lang="ts" setup>
+import { useRegisterStore } from "../../stores/auth/register";
+const registerStore = useRegisterStore();
+const userRegister = ref({
+  username: "",
+  password: "",
+  email: "",
+
+  name: "",
+  image: null as File | null,
+  profile_image_url: "",
+});
+
+const showPassword = ref(false);
+
+const errors = reactive({
+  username: "",
+  password: "",
+  email: "",
+  name: "",
+});
+
+const appearpass = () => {
+  showPassword.value = !showPassword.value;
+};
+
+const toast = ref(false);
+
+const validateInputs = () => {
+  return (
+    validateUsername() &&
+    validatePassword() &&
+    validateEmail() &&
+    validateName()
+  );
+};
+
+const validateUsername = () => {
+  errors.username = userRegister.value.username ? "" : "Username is required.";
+  return !errors.username;
+};
+
+const validatePassword = () => {
+  errors.password = userRegister.value.password ? "" : "Password is required.";
+  return !errors.password;
+};
+
+const validateEmail = () => {
+  errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userRegister.value.email)
+    ? ""
+    : "Valid email is required.";
+  return !errors.email;
+};
+
+const validateName = () => {
+  errors.name = userRegister.value.name ? "" : "Name is required.";
+  return !errors.name;
+};
+
+const onFileChange = (event?: any) => {
+  const file = event.target.files[0];
+  if (file) {
+    userRegister.value.image = file;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      if (typeof e.target?.result === "string") {
+        userRegister.value.profile_image_url = e.target.result;
+      }
+    };
+    reader.readAsDataURL(file);
+  }
+};
+
+const deleteImage = () => {
+  userRegister.value.image = null;
+  userRegister.value.profile_image_url = "";
+};
+
+const register = async () => {
+  if (validateInputs()) {
+    await registerStore
+      .authenticateUserRegister({
+        username: userRegister.value.username,
+        password: userRegister.value.password,
+        email: userRegister.value.email,
+        name: userRegister.value.name,
+        image: userRegister.value.image,
+      })
+      .then(() => {
+        toast.value = true;
+        setTimeout(() => {
+          toast.value = false;
+        }, 3000);
+      });
+  }
+};
+</script>
+  
+
 <template>
   <form
     @submit.prevent="register"
@@ -182,101 +281,3 @@
   </form>
 </template>
 
-<script lang="ts" setup>
-import { useRegisterStore } from "../../stores/auth/register";
-const registerStore = useRegisterStore();
-const userRegister = ref({
-  username: "",
-  password: "",
-  email: "",
-
-  name: "",
-  image: null as File | null,
-  profile_image_url: "",
-});
-
-const showPassword = ref(false);
-
-const errors = reactive({
-  username: "",
-  password: "",
-  email: "",
-  name: "",
-});
-
-const appearpass = () => {
-  showPassword.value = !showPassword.value;
-};
-
-const toast = ref(false);
-
-const validateInputs = () => {
-  return (
-    validateUsername() &&
-    validatePassword() &&
-    validateEmail() &&
-    validateName()
-  );
-};
-
-const validateUsername = () => {
-  errors.username = userRegister.value.username ? "" : "Username is required.";
-  return !errors.username;
-};
-
-const validatePassword = () => {
-  errors.password = userRegister.value.password ? "" : "Password is required.";
-  return !errors.password;
-};
-
-const validateEmail = () => {
-  errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userRegister.value.email)
-    ? ""
-    : "Valid email is required.";
-  return !errors.email;
-};
-
-const validateName = () => {
-  errors.name = userRegister.value.name ? "" : "Name is required.";
-  return !errors.name;
-};
-
-const onFileChange = (event?: any) => {
-  const file = event.target.files[0];
-  if (file) {
-    userRegister.value.image = file;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      if (typeof e.target?.result === "string") {
-        userRegister.value.profile_image_url = e.target.result;
-      }
-    };
-    reader.readAsDataURL(file);
-  }
-};
-
-const deleteImage = () => {
-  userRegister.value.image = null;
-  userRegister.value.profile_image_url = "";
-};
-
-const register = async () => {
-  if (validateInputs()) {
-    await registerStore
-      .authenticateUserRegister({
-        username: userRegister.value.username,
-        password: userRegister.value.password,
-        email: userRegister.value.email,
-        name: userRegister.value.name,
-        image: userRegister.value.image,
-      })
-      .then(() => {
-        toast.value = true;
-        setTimeout(() => {
-          toast.value = false;
-        }, 3000);
-      });
-  }
-};
-</script>
-  
