@@ -1,3 +1,24 @@
+<script setup lang="ts">
+import { useAuthStore } from "../../stores/auth/login";
+
+const userAvatar = ref({});
+const userName = ref({});
+
+const isMenuOpen = ref(false);
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
+onMounted(() => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  userAvatar.value = user || {};
+  userName.value = user || {};
+});
+
+const logoutStore = useAuthStore();
+</script>
+
 <template>
   <div class="relative inline-block text-left">
     <button @click="toggleMenu" aria-label="avatar">
@@ -55,26 +76,7 @@
   </div>
 </template>
 
-<script setup>
-import { useAuthStore } from "../../stores/auth/login";
 
-const userAvatar = ref({});
-const userName = ref({});
-
-const isMenuOpen = ref(false);
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
-
-onMounted(() => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  userAvatar.value = user || {};
-  userName.value = user || {};
-});
-
-const logoutStore = useAuthStore();
-</script>
 
 <style scoped lang="scss">
 .fade-enter-active,
