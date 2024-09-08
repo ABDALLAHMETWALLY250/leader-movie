@@ -5,7 +5,7 @@
         {{ $t("tv_shows") }}
       </HomeMovieTopHeader>
 
-      <CardloadinHomeCardLoading v-if="popularTv.popTv.length <= 0" />
+      <SkeltonCardsLoading v-if="popularTv.popTv.length <= 0" />
 
       <swiper
         class="mySwiper my-3"
@@ -55,10 +55,10 @@
   </div>
 </template>
 
-<script setup  >
+<script setup  lang="ts" >
 import { usePopTv } from "../../stores/poppularTv/popTv";
 
-const locale = useI18n();
+const { locale } = useI18n();
 
 const popularTv = usePopTv();
 

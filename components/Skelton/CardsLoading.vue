@@ -3,8 +3,8 @@
     <swiper
       class="mySwiper my-3"
       :modules="[SwiperAutoplay]"
-      :slidesPerView="1"
-      :spaceBetween="10"
+      :slidesPerView="3"
+      :spaceBetween="30"
       :loop="true"
       :autoplay="{
         delay: 4000,
@@ -47,8 +47,4 @@
     </swiper>
   </div>
 </template>
-<script>
-export default {};
-</script>
-<style lang="">
-</style>
+  

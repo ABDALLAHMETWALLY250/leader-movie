@@ -5,7 +5,7 @@
         {{ $t("Movies") }}
       </HomeMovieTopHeader>
 
-      <CardloadinHomeCardLoading v-if="popularMovies.loading" />
+      <SkeltonCardsLoading v-if="popularMovies.loading" />
 
       <swiper
         class="mySwiper my-3"
@@ -55,10 +55,10 @@
   </div>
 </template>
 
-<script setup  >
+<script setup lang="ts" >
 import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
 
-const locale = useI18n();
+const { locale } = useI18n();
 
 const popularMovies = usePopularMovieStore();
 
