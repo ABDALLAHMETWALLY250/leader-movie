@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+definePageMeta({
+  layout: "auth",
+});
+</script>
+
 <template >
   <div class="login">
     <div
@@ -47,8 +53,3 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-definePageMeta({
-  layout: "auth",
-});
-</script>
