@@ -7,17 +7,15 @@
         :key="tv.id"
       >
         <div
-          :to="/tv/${tv.id}"
+          :to="`/tv/${tv.id}`"
           class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
           <img
             v-if="tv?.poster_path || tv?.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
-            :src="
-                  https://image.tmdb.org/t/p/w500/${
-                    tv?.poster_path || tv?.backdrop_path
-                  }
-                "
+            :src="` https://image.tmdb.org/t/p/w500/${
+              tv?.poster_path || tv?.backdrop_path
+            }`"
             :alt="tv?.title || tv?.name || tv?.original_name"
             loading="lazy"
           />
@@ -30,7 +28,7 @@
           />
 
           <div class="flex flex-col justify-between px-4 leading-normal">
-            <NuxtLink :to="/tv/${tv?.id}">
+            <NuxtLink :to="`/tv/${tv?.id}`">
               <h2 class="mb-2 text-2xl font-bold tracking-tight title">
                 {{ tv?.title || tv?.name || tv?.original_name }}
               </h2>
@@ -71,11 +69,14 @@
   </div> -->
 </template>
   
-  <script setup>
+  <script setup lang="ts">
 import { searchTvStore } from "../../stores/searchTv/searchTv";
 const route = useRoute();
+
 const searchTv = searchTvStore();
-const value = ref(1);
+
+const value = ref<number>(1);
+
 const defaultOverView = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
 });
