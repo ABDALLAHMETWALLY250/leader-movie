@@ -15,7 +15,7 @@
 </template>
 <script setup lang="ts">
 
-  const loading = ref(false)
+  const loading = ref(true)
 
 
 onMounted(() => {
