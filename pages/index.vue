@@ -9,6 +9,9 @@
   </div>
   <TvShowTvshow />
  </div>
+  <div class="w-full h-screen flex items-center justify-center text-3xl font-bold" v-else>
+        Loading ....
+      </div>
 </template>
 <script setup lang="ts">
 
