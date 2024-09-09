@@ -1,4 +1,3 @@
-
 <template>
   <div class="container mx-auto" v-if="searchTv.tvs.length > 0">
     <div class="grid grid-cols-12 gap-4">
@@ -11,23 +10,21 @@
           :to="`/tv/${tv.id}`"
           class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
-          <img
+          <NuxtImg
             v-if="tv?.poster_path || tv?.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
-            :src="`
-                  https://image.tmdb.org/t/p/w500/${
-                    tv?.poster_path || tv?.backdrop_path
-                  }
-                `"
+            :src="`/tmdb${tv?.poster_path || tv?.backdrop_path}`"
             :alt="tv?.title || tv?.name || tv?.original_name"
-            loading="lazy"
+            width="500"
+            height="750"
           />
-          <img
+          <NuxtImg
             v-else
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"
             :alt="tv?.title || tv?.name || tv?.original_name"
-            loading="lazy"
+            width="500"
+            height="750"
           />
 
           <div class="flex flex-col justify-between px-4 leading-normal">
@@ -40,8 +37,7 @@
               </p>
               <p class="flex items-center my-2">
                 <i class="pi pi-calendar mx-2"></i>
-                :
-                {{
+                : {{
                   tv?.release_date
                     ? new Date(tv.release_date).toLocaleDateString()
                     : new Date().toLocaleDateString()
@@ -67,12 +63,9 @@
       <p class="text-center text-4xl font-bold">{{ $t("Loading") }}</p>
     </div>
   </div>
-  <!-- <div class="" v-else>
-    <p class="text-center text-4xl font-bold">{{ $t("noDataFound") }}</p>
-  </div> -->
 </template>
-  
-  <script setup>
+
+<script setup>
 import { searchTvStore } from "../../stores/searchTv/searchTv";
 const route = useRoute();
 const searchTv = searchTvStore();
@@ -81,4 +74,3 @@ const defaultOverView = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
 });
 </script>
-  
