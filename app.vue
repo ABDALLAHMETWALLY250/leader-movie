@@ -1,8 +1,8 @@
 <template>
-  <div :id="newTheme" :dir="$i18n.locale == 'ar' ? 'rtl' : 'ltr'">
+  <div :id="newTheme" :dir="$i18n.locale == 'ar' ? 'rtl' : 'ltr'" v-if="!loading">
     <NuxtRouteAnnouncer />
     <NuxtLayout @changeTheme="changeTheme">
-      <div v-if="!loading">
+      <div >
         <NuxtPage />
       </div>
       <div class="w-full h-screen flex items-center justify-center text-3xl font-bold" v-else>
