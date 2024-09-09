@@ -5,7 +5,7 @@
       <div v-if="!loading">
         <NuxtPage />
       </div>
-      <div class="w-full h-screen flex items-center justify-center text-3xl font-bold">
+      <div class="w-full h-screen flex items-center justify-center text-3xl font-bold" v-else>
       Loading ....
       </div>
     </NuxtLayout>
