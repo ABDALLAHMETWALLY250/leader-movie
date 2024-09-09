@@ -22,7 +22,7 @@ const changeTheme = (Theme: string) => {
 };
 onMounted(() => {
   newTheme.value = localStorage.getItem("theme") || "light";
-
+  console.log("loading");
    setTimeout(loading.value = false, 5000);
 });
 </script>
