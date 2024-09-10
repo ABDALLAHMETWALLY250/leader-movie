@@ -21,7 +21,7 @@ const loading = ref(true);
 onMounted(() => {
   setTimeout(() => {
     loading.value = false;
-  }, 500);
+  }, 1500);
 });
 </script>
 
