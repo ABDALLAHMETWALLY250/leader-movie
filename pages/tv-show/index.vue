@@ -51,6 +51,10 @@
     <PopularTvShowPopularTv />
   </div>
 
+  <div class="px-10 pb-6">
+    <div class="border_top w-full"></div>
+  </div>
+
   <UpComming />
 </template>
 <script setup  lang="ts">
