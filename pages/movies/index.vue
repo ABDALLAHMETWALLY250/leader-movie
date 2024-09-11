@@ -61,6 +61,12 @@
   <div v-if="searchMovie.searchMovie.length == 0">
     <popularMovieShowPopularMovie />
   </div>
+
+  <div class="px-10 pb-6">
+    <div class="border_top w-full"></div>
+  </div>
+
+  <UpComming />
 </template>
 <script setup lang="ts">
 import { useSearchMovie } from "~/stores/searchMovie/searchMovie";

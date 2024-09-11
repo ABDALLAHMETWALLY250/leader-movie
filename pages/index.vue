@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading == false">
+  <div>
     <ImageSwiperImages />
 
     <HomeMovie />
@@ -8,20 +8,5 @@
     </div>
     <TvShowTvshow />
   </div>
-  <div
-    class="w-full h-screen flex items-center justify-center text-3xl font-bold"
-    v-else
-  >
-    Loading ....
-  </div>
 </template>
-<script setup >
-const loading = ref(true);
-
-onMounted(() => {
-  setTimeout(() => {
-    loading.value = false;
-  }, 1500);
-});
-</script>
 
