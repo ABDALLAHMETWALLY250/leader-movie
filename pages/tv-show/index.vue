@@ -50,16 +50,18 @@
   <div class="" v-if="searchTv.tvs.length <= 0">
     <PopularTvShowPopularTv />
   </div>
+
+  <UpComming />
 </template>
-<script setup >
+<script setup  lang="ts">
 import { searchTvStore } from "../../stores/searchTv/searchTv";
 
 const searchTv = searchTvStore();
 const { locale } = useI18n();
 
-const searchText = ref("");
+const searchText = ref<string>("");
 
-const curentPage = ref(1);
+const curentPage = ref<number>(1);
 
 const searcTv = () => {
   searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
