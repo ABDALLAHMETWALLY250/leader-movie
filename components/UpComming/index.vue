@@ -23,7 +23,7 @@
       }"
       :loop="true"
       :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperAutoplay]"
-      class="mySwiper h-96 my-8"
+      class="mySwiper h-96 mt-8"
     >
       <SwiperSlide class="swiper-slide">
         <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
