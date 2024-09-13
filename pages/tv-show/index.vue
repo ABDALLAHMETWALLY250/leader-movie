@@ -55,7 +55,7 @@
     <div class="border_top w-full"></div>
   </div>
 
-  <UpComming />
+  <UpComming class="py-5" v-if="searchTv.tvs.length <= 0" />
 </template>
 <script setup  lang="ts">
 import { searchTvStore } from "../../stores/searchTv/searchTv";
@@ -79,7 +79,8 @@ const setupInfiniteScroll = () => {
     ) {
       curentPage.value++;
       searchTv.page = curentPage.value;
-      searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
+      // searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
+      searcTv();
     }
   };
 };
@@ -88,10 +89,10 @@ onUpdated(() => {
   if (!searchTv.searchText) {
     window.onscroll = null;
   } else {
-    console.log("setupInfiniteScroll Updated", searchTv.page);
+    // console.log("setupInfiniteScroll Updated", searchTv.page);
     setupInfiniteScroll();
     curentPage.value = searchTv.page;
-    console.log("setupInfiniteScroll after Updated", searchTv.page);
+    // console.log("setupInfiniteScroll after Updated", searchTv.page);
   }
 });
 

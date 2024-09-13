@@ -1,4 +1,16 @@
+<script setup lang="ts">
+const route = useRoute();
+</script>
+
 <template>
+  <div class="HomeMovie">
+    <HomeMovieTopHeader
+      :path="route.path == '/movies' ? 'up-comming-movies' : 'up-comming-tv'"
+    >
+      {{ $t("up_coming") }}
+    </HomeMovieTopHeader>
+  </div>
+
   <div>
     <Swiper
       :effect="'coverflow'"
@@ -23,35 +35,33 @@
       }"
       :loop="true"
       :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperAutoplay]"
-      class="mySwiper h-96 mt-8"
+      class="mySwiper h-96 mt-3"
     >
       <SwiperSlide class="swiper-slide">
         <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
- 
       </SwiperSlide>
       <SwiperSlide class="swiper-slide">
         <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
       </SwiperSlide>
       <SwiperSlide class="swiper-slide">
         <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-
       </SwiperSlide>
       <SwiperSlide class="swiper-slide">
         <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-
       </SwiperSlide>
       <SwiperSlide class="swiper-slide">
         <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-
       </SwiperSlide>
       <SwiperSlide class="swiper-slide">
         <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-
       </SwiperSlide>
     </Swiper>
   </div>
 </template>
   
+
+
+
 
 <style scoped lang="scss">
 .swiper-slide {
@@ -71,7 +81,6 @@ img {
     filter: brightness(0.8);
   }
 }
-
 </style>
 
   
