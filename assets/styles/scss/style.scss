@@ -80,6 +80,23 @@ body {
     .border_top {
         border-top: 1px solid gold;
     }
+    .top-header {
+        .border-top {
+            border-top: 8px solid gold;
+            width: 54%;
+            border-radius: 50px;
+            transition: all 0.5s;
+        }
+        .title {
+            &:hover {
+                cursor: pointer;
+                .border-top {
+                    width: 100%;
+                    transition: all 0.5s;
+                }
+            }
+        }
+    }
 }
 
 .top-header {
@@ -96,25 +113,6 @@ body {
             .border-top {
                 width: 100%;
                 transition: all 0.5s;
-            }
-        }
-    }
-}
-#dark {
-    .top-header {
-        .border-top {
-            border-top: 8px solid gold;
-            width: 54%;
-            border-radius: 50px;
-            transition: all 0.5s;
-        }
-        .title {
-            &:hover {
-                cursor: pointer;
-                .border-top {
-                    width: 100%;
-                    transition: all 0.5s;
-                }
             }
         }
     }
