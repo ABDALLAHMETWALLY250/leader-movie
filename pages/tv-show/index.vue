@@ -55,7 +55,7 @@
     <div class="border_top w-full"></div>
   </div>
 
-  <UpComming class="py-5" v-if="searchTv.tvs.length <= 0" />
+  <UpComming v-if="searchTv.tvs.length <= 0" />
 </template>
 <script setup  lang="ts">
 import { searchTvStore } from "../../stores/searchTv/searchTv";

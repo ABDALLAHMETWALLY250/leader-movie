@@ -1,6 +1,6 @@
 <template >
-  <div>
-    <div class="flex items-center justify-between w-full">
+  <div class="">
+    <div class="flex items-center justify-between w-full top-header">
       <div class="flex flex-col gap-3 title">
         <h3 class="text-3xl font-medium capitalize">
           <slot />

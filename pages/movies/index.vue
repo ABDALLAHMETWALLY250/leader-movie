@@ -1,4 +1,66 @@
-<template >
+<script setup lang="ts">
+import { useSearchMovie } from "~/stores/searchMovie/searchMovie";
+
+const { locale } = useI18n();
+
+const searchMovie = useSearchMovie();
+
+const curentPage = ref<number>(1);
+
+const searchClick = () => {
+  searchMovie.setSearchMovie(
+    searchMovie.searchText,
+    locale.value,
+    searchMovie.page
+  );
+};
+
+const setupInfiniteScroll = () => {
+  window.onscroll = () => {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 40
+    ) {
+      curentPage.value++;
+      searchMovie.page = curentPage.value;
+      searchMovie.setSearchMovie(
+        searchMovie.searchText,
+        locale.value,
+        searchMovie.page
+      );
+    }
+  };
+};
+
+onUpdated(() => {
+  if (!searchMovie.searchText) {
+    window.onscroll = null;
+  } else {
+    // console.log("setupInfiniteScroll Updated", searchMovie.page);
+
+    setupInfiniteScroll();
+    curentPage.value = searchMovie.page;
+    // console.log("setupInfiniteScroll after Updated", searchMovie.page);
+  }
+});
+
+onUnmounted(() => {
+  window.onscroll = null;
+});
+
+watch(
+  () => searchMovie.searchText,
+  () => {
+    if (!searchMovie.searchText) {
+      searchMovie.searchMovie = [];
+      window.onscroll = null;
+    }
+  }
+);
+</script>
+
+
+<template>
   <div class="movies">
     <div class="relative w-full h-full">
       <video
@@ -65,66 +127,5 @@
   <div class="px-10 pb-6">
     <div class="border_top w-full"></div>
   </div>
-  <UpComming class="py-5" />
-  
+  <UpComming v-if="searchMovie.searchMovie.length == 0" />
 </template>
-<script setup lang="ts">
-import { useSearchMovie } from "~/stores/searchMovie/searchMovie";
-
-const { locale } = useI18n();
-
-const searchMovie = useSearchMovie();
-
-const curentPage = ref<number>(1);
-
-const searchClick = () => {
-  searchMovie.setSearchMovie(
-    searchMovie.searchText,
-    locale.value,
-    searchMovie.page
-  );
-};
-
-const setupInfiniteScroll = () => {
-  window.onscroll = () => {
-    if (
-      window.innerHeight + window.scrollY >=
-      document.body.scrollHeight - 40
-    ) {
-      curentPage.value++;
-      searchMovie.page = curentPage.value;
-      searchMovie.setSearchMovie(
-        searchMovie.searchText,
-        locale.value,
-        searchMovie.page
-      );
-    }
-  };
-};
-
-onUpdated(() => {
-  if (!searchMovie.searchText) {
-    window.onscroll = null;
-  } else {
-    console.log("setupInfiniteScroll Updated", searchMovie.page);
-
-    setupInfiniteScroll();
-    curentPage.value = searchMovie.page;
-    console.log("setupInfiniteScroll after Updated", searchMovie.page);
-  }
-});
-
-onUnmounted(() => {
-  window.onscroll = null;
-});
-
-watch(
-  () => searchMovie.searchText,
-  () => {
-    if (!searchMovie.searchText) {
-      searchMovie.searchMovie = [];
-      window.onscroll = null;
-    }
-  }
-);
-</script>

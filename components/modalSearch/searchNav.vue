@@ -1,3 +1,32 @@
+<script setup lang="ts">
+const showModal = ref(false);
+
+import { searchForAllStore } from "../../stores/searchForAll/searchForAll";
+
+const { locale } = useI18n();
+
+const searchForAll = searchForAllStore();
+
+const searchText = ref<string>("");
+
+const handleEscapeKey = (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    showModal.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("keydown", handleEscapeKey);
+  locale.value = localStorage.getItem("locale") || "en";
+  // searchForAll.fetchSearchForAll(locale.value, searchText.value);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleEscapeKey);
+});
+</script>
+
+
 <template>
   <div class="search_modal">
     <button aria-label="search" class="w-full" @click="showModal = true">
@@ -82,30 +111,3 @@
   </div>
 </template>
   
-<script setup lang="ts">
-const showModal = ref(false);
-
-import { searchForAllStore } from "../../stores/searchForAll/searchForAll";
-
-const { locale } = useI18n();
-
-const searchForAll = searchForAllStore();
-
-const searchText = ref<string>("");
-
-const handleEscapeKey = (event: KeyboardEvent) => {
-  if (event.key === "Escape") {
-    showModal.value = false;
-  }
-};
-
-onMounted(() => {
-  window.addEventListener("keydown", handleEscapeKey);
-  locale.value = localStorage.getItem("locale") || "en";
-  // searchForAll.fetchSearchForAll(locale.value, searchText.value);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("keydown", handleEscapeKey);
-});
-</script>

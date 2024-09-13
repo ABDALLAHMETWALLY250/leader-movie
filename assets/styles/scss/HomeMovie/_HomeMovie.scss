@@ -29,6 +29,32 @@
                 }
             }
         }
+        &:lang(fr) {
+            .swiper-button-next {
+                top: 37rem;
+                right: 1rem;
+                &::after {
+                    font-size: 1rem;
+                    color: #000;
+                    padding: 0.8rem;
+                    border: 1px solid #000;
+                    border-radius: 50px;
+                }
+            }
+            .swiper-button-prev {
+                top: 37rem;
+                left: unset;
+                right: 4rem;
+
+                &::after {
+                    font-size: 1rem;
+                    color: #000;
+                    padding: 0.8rem;
+                    border: 1px solid #000;
+                    border-radius: 50px;
+                }
+            }
+        }
         &:lang(ar) {
             .swiper-button-next {
                 top: 37rem;
@@ -56,24 +82,8 @@
         }
     }
 
-    // margin: 2rem 0;
     padding: 1rem 1.5rem;
 
-    .border-top {
-        border-top: 8px solid #0284c7;
-        width: 54%;
-        border-radius: 50px;
-        transition: all 0.5s;
-    }
-    .title {
-        &:hover {
-            cursor: pointer;
-            .border-top {
-                width: 100%;
-                transition: all 0.5s;
-            }
-        }
-    }
     .p-carousel-indicators.p-reset {
         display: none !important;
     }
@@ -86,6 +96,32 @@
             margin-top: 1rem;
             margin-bottom: 0;
             &:lang(en) {
+                .swiper-button-next {
+                    top: 37rem;
+                    right: 1rem;
+                    &::after {
+                        font-size: 1rem;
+                        color: #706b6b;
+                        padding: 0.8rem;
+                        border: 1px solid #fff;
+                        border-radius: 50px;
+                    }
+                }
+                .swiper-button-prev {
+                    top: 37rem;
+                    left: unset;
+                    right: 4rem;
+
+                    &::after {
+                        font-size: 1rem;
+                        color: #706b6b;
+                        padding: 0.8rem;
+                        border: 1px solid #fff;
+                        border-radius: 50px;
+                    }
+                }
+            }
+            &:lang(fr) {
                 .swiper-button-next {
                     top: 37rem;
                     right: 1rem;
@@ -137,22 +173,6 @@
                 }
             }
         }
-        // margin: 2rem 0;
         padding: 1rem 1.5rem;
-        .border-top {
-            border-top: 8px solid gold;
-            width: 54%;
-            border-radius: 50px;
-            transition: all 0.5s;
-        }
-        .title {
-            &:hover {
-                cursor: pointer;
-                .border-top {
-                    width: 100%;
-                    transition: all 0.5s;
-                }
-            }
-        }
     }
 }

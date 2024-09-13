@@ -58,10 +58,7 @@ body::-webkit-scrollbar-thumb {
 body .border_top {
   border-top: 2px solid rgb(134, 134, 134);
 }
-#light {
-    background-color: #fafaff;
-  color: #274c5e;
-}
+
 #dark {
   background-color: #292828;
   color: white;
@@ -98,6 +95,37 @@ body .border_top {
 }
 #dark .border_top {
   border-top: 1px solid gold;
+}
+
+.top-header {
+  padding: 1rem 1.5rem;
+}
+.top-header .border-top {
+  border-top: 8px solid #0284c7;
+  width: 54%;
+  border-radius: 50px;
+  transition: all 0.5s;
+}
+.top-header .title:hover {
+  cursor: pointer;
+}
+.top-header .title:hover .border-top {
+  width: 100%;
+  transition: all 0.5s;
+}
+
+#dark .top-header .border-top {
+  border-top: 8px solid gold;
+  width: 54%;
+  border-radius: 50px;
+  transition: all 0.5s;
+}
+#dark .top-header .title:hover {
+  cursor: pointer;
+}
+#dark .top-header .title:hover .border-top {
+  width: 100%;
+  transition: all 0.5s;
 }
 
 .overview {

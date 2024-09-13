@@ -84,7 +84,6 @@
 
 <script setup lang="ts">
 import { useMovieSwiper } from "@/stores/MovieSwiper/MovieSwiper";
-const route = useRoute();
 const allMoviesStore = useMovieSwiper();
 const { locale } = useI18n();
 const value = ref(3.5);

@@ -2,9 +2,9 @@
   <div class="HomeMovie">
     <SkeltonCardsLoading v-if="popularMovies.loading" />
     <div class="container mx-auto xl:px-5" v-else>
-      <HomeMovieTopHeader :path="'popular-movie'">
+      <TopHeader :path="'popular-movie'">
         {{ $t("popular_movie") }}
-      </HomeMovieTopHeader>
+      </TopHeader>
 
       <swiper
         class="mySwiper my-3"
