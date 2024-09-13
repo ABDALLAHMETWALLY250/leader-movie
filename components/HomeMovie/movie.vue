@@ -17,17 +17,16 @@ onMounted(() => {
 
 <template>
   <div class="HomeMovie">
-    <div class="container mx-auto xl:px-5">
+    <SkeltonCardsLoading v-if="popularMovies.popularMovie.length <= 0" />
+
+    <div class="container mx-auto xl:px-5" v-else>
       <TopHeader :path="'movies'">
         {{ $t("Movies") }}
       </TopHeader>
 
-      <SkeltonCardsLoading v-if="popularMovies.loading" />
-
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay, SwiperNavigation]"
-      
         :spaceBetween="10"
         :navigation="true"
         :loop="true"

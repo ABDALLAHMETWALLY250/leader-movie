@@ -4,8 +4,8 @@ const { locale } = useI18n();
 </script>
 
 <template>
-  <div class="py-5">
-    <div class="HomeMovie">
+  <div class="p-4">
+    <div class="">
       <TopHeader
         :path="route.path == '/movies' ? 'up-comming-movies' : 'up-comming-tv'"
       >

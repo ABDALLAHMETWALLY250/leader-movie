@@ -1,4 +1,59 @@
-<template >
+<script setup  lang="ts">
+import { searchTvStore } from "../../stores/searchTv/searchTv";
+
+const searchTv = searchTvStore();
+const { locale } = useI18n();
+
+const searchText = ref<string>("");
+
+const curentPage = ref<number>(1);
+
+const searcTv = () => {
+  searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
+};
+
+const setupInfiniteScroll = () => {
+  window.onscroll = () => {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 40
+    ) {
+      curentPage.value++;
+      searchTv.page = curentPage.value;
+      // searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
+      searcTv();
+    }
+  };
+};
+
+onUpdated(() => {
+  if (!searchTv.searchText) {
+    window.onscroll = null;
+  } else {
+    // console.log("setupInfiniteScroll Updated", searchTv.page);
+    setupInfiniteScroll();
+    curentPage.value = searchTv.page;
+    // console.log("setupInfiniteScroll after Updated", searchTv.page);
+  }
+});
+
+onUnmounted(() => {
+  window.onscroll = null;
+});
+
+watch(
+  () => searchTv.searchText,
+  () => {
+    if (!searchTv.searchText) {
+      searchTv.tvs = [];
+      window.onscroll = null;
+    }
+  }
+);
+</script>
+
+
+<template>
   <div class="tv_show">
     <Banner>
       <div class="title xl:px-80 lg:px-40 md:px-20 px-5">
@@ -57,56 +112,3 @@
 
   <UpComming v-if="searchTv.tvs.length <= 0" />
 </template>
-<script setup  lang="ts">
-import { searchTvStore } from "../../stores/searchTv/searchTv";
-
-const searchTv = searchTvStore();
-const { locale } = useI18n();
-
-const searchText = ref<string>("");
-
-const curentPage = ref<number>(1);
-
-const searcTv = () => {
-  searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
-};
-
-const setupInfiniteScroll = () => {
-  window.onscroll = () => {
-    if (
-      window.innerHeight + window.scrollY >=
-      document.body.scrollHeight - 40
-    ) {
-      curentPage.value++;
-      searchTv.page = curentPage.value;
-      // searchTv.getSearchTv(locale.value, searchText.value, searchTv.page);
-      searcTv();
-    }
-  };
-};
-
-onUpdated(() => {
-  if (!searchTv.searchText) {
-    window.onscroll = null;
-  } else {
-    // console.log("setupInfiniteScroll Updated", searchTv.page);
-    setupInfiniteScroll();
-    curentPage.value = searchTv.page;
-    // console.log("setupInfiniteScroll after Updated", searchTv.page);
-  }
-});
-
-onUnmounted(() => {
-  window.onscroll = null;
-});
-
-watch(
-  () => searchTv.searchText,
-  () => {
-    if (!searchTv.searchText) {
-      searchTv.tvs = [];
-      window.onscroll = null;
-    }
-  }
-);
-</script>
