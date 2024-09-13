@@ -1,6 +1,21 @@
-<template >
+    
+<script setup  lang="ts" >
+import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
+
+const { locale } = useI18n();
+const popularMovies = usePopularMovieStore();
+onMounted(() => {
+  if (popularMovies.popularMovie.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularMovies.getPopularMovie(locale.value, 1);
+  }
+});
+</script>
+    
+
+<template>
   <div class="HomeMovie">
-    <SkeltonCardsLoading v-if="popularMovies.loading" />
+    <SkeltonCardsLoading v-if="popularMovies.popularMovie.length <= 0" />
     <div class="container mx-auto xl:px-5" v-else>
       <TopHeader :path="'popular-movie'">
         {{ $t("popular_movie") }}
@@ -9,7 +24,6 @@
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay, SwiperNavigation]"
-        
         :spaceBetween="10"
         :navigation="true"
         :loop="true"
@@ -54,19 +68,3 @@
     </div>
   </div>
 </template>
-    
-    <script setup  lang="ts" >
-import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
-
-const { locale } = useI18n();
-const popularMovies = usePopularMovieStore();
-onMounted(() => {
-  if (popularMovies.popularMovie.length === 0) {
-    locale.value = localStorage.getItem("locale") || "en";
-    popularMovies.getPopularMovie(locale.value, 1);
-  }
-});
-</script>
-    <style lang="">
-</style>
-    
