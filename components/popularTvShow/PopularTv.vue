@@ -1,12 +1,25 @@
-<template >
+<script setup  lang="ts" >
+import { usePopTv } from "../../stores/poppularTv/popTv";
+
+const { locale } = useI18n();
+const popularTv = usePopTv();
+onMounted(() => {
+  if (popularTv.popTv.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularTv.getPopTv(locale.value, 1);
+  }
+});
+</script>
+
+<template>
   <div class="HomeMovie">
-    <div class="container mx-auto xl:px-5">
+    <div v-if="popularTv.popTv.length <= 0" class="mt-6">
+      <SkeltonCardsLoading />
+    </div>
+    <div class="container mx-auto xl:px-5" v-else>
       <TopHeader :path="'popular-tv'">
         {{ $t("popular_tv") }}
       </TopHeader>
-      <div v-if="popularTv.popTv.length <= 0" class="mt-6">
-        <SkeltonCardsLoading />
-      </div>
       <swiper
         class="mySwiper my-3"
         :modules="[SwiperAutoplay, SwiperNavigation]"
@@ -55,18 +68,6 @@
   </div>
 </template>
   
-  <script setup  lang="ts" >
-import { usePopTv } from "../../stores/poppularTv/popTv";
 
-const { locale } = useI18n();
-const popularTv = usePopTv();
-onMounted(() => {
-  if (popularTv.popTv.length === 0) {
-    locale.value = localStorage.getItem("locale") || "en";
-    popularTv.getPopTv(locale.value, 1);
-  }
-});
-</script>
-  <style lang="">
-</style>
+
   
