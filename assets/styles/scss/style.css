@@ -96,9 +96,22 @@ body .border_top {
 #dark .border_top {
   border-top: 1px solid gold;
 }
+#dark .top-header .border-top {
+  border-top: 8px solid gold;
+  width: 54%;
+  border-radius: 50px;
+  transition: all 0.5s;
+}
+#dark .top-header .title:hover {
+  cursor: pointer;
+}
+#dark .top-header .title:hover .border-top {
+  width: 100%;
+  transition: all 0.5s;
+}
 
 .top-header {
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
 }
 .top-header .border-top {
   border-top: 8px solid #0284c7;
@@ -110,20 +123,6 @@ body .border_top {
   cursor: pointer;
 }
 .top-header .title:hover .border-top {
-  width: 100%;
-  transition: all 0.5s;
-}
-
-#dark .top-header .border-top {
-  border-top: 8px solid gold;
-  width: 54%;
-  border-radius: 50px;
-  transition: all 0.5s;
-}
-#dark .top-header .title:hover {
-  cursor: pointer;
-}
-#dark .top-header .title:hover .border-top {
   width: 100%;
   transition: all 0.5s;
 }
