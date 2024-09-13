@@ -1,4 +1,14 @@
 
+<script setup lang="ts">
+import { useSearchMovie } from "~/stores/searchMovie/searchMovie";
+const searchMovie = useSearchMovie();
+const value = ref(1);
+const route = useRoute();
+const defaultOverView = computed(() => {
+  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
+});
+</script>
+
 <template>
   <div class="container mx-auto" v-if="searchMovie.searchMovie.length > 0">
     <div class="grid grid-cols-12 gap-4">
@@ -7,7 +17,7 @@
         v-for="movie in searchMovie.searchMovie"
         :key="movie.id"
       >
-        <div
+        <NuxtLink
           :to="`/movie/${movie.id}`"
           class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
@@ -60,7 +70,7 @@
               />
             </div>
           </div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
     <div class="text-center">
@@ -69,12 +79,4 @@
   </div>
 </template>
 
-<script setup>
-import { useSearchMovie } from "~/stores/searchMovie/searchMovie";
-const searchMovie = useSearchMovie();
-const value = ref(1);
-const route = useRoute();
-const defaultOverView = computed(() => {
-  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
-});
-</script>
+

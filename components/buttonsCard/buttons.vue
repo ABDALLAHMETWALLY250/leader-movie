@@ -1,4 +1,22 @@
-<template >
+<script setup lang="ts">
+import { useWashList } from "~/stores/addToWashList/washList";
+import { useWatchList } from "~/stores/addWatchList/watchList";
+const addWashList = useWashList();
+const addsWatchList = useWatchList();
+const route = useRoute();
+const toggleWatchList = (Data: Array<object>, message: string) => {
+  addWashList.addToList(Data, message);
+};
+
+const addWatchList = (Data: Array<object>, message: string) => {
+  addsWatchList.addToList(Data, message);
+};
+
+defineProps(["id", "media_type", "Data"]);
+</script>
+
+
+<template>
   <div class="flex flex-wrap items-center justify-between">
     <button
       aria-label="watchlist"
@@ -64,21 +82,3 @@
     <VideoModalForCardsVideoModal :movie_id="id" />
   </div>
 </template>
-<script setup lang="ts">
-import { useWashList } from "~/stores/addToWashList/washList";
-import { useWatchList } from "~/stores/addWatchList/watchList";
-const addWashList = useWashList();
-const addsWatchList = useWatchList();
-const route = useRoute();
-const toggleWatchList = (Data: Array<object>, message: string) => {
-  addWashList.addToList(Data, message);
-};
-
-const addWatchList = (Data: Array<object>, message: string) => {
-  addsWatchList.addToList(Data, message);
-};
-
-defineProps(["id", "media_type", "Data"]);
-</script>
-<style lang="">
-</style>
