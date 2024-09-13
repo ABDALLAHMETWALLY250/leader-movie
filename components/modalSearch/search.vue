@@ -1,3 +1,58 @@
+<script setup lang="ts">
+const showModal = ref(false);
+
+import { searchForAllStore } from "../../stores/searchForAll/searchForAll";
+
+const { locale } = useI18n();
+
+const searchForAll = searchForAllStore();
+
+const searchText = ref("");
+
+const movies = ref([]);
+
+const Tvs = ref([]);
+
+const Actors = ref([]);
+
+const searchForAllMovies = () => {
+  searchForAll.searchForAll.filter((movie: any | null) => {
+    if (movie?.media_type === "movie") {
+      movies.value.push(movie);
+    }
+  });
+};
+
+const searchForallTvs = () => {
+  searchForAll.searchForAll.filter((tv: any | null) => {
+    if (tv?.media_type === "tv") {
+      Tvs.value.push(tv);
+    }
+  });
+};
+
+const searchForPerson = () => {
+  searchForAll.searchForAll.filter((person: any | null) => {
+    if (person?.media_type === "person") {
+      Actors.value.push(person);
+    }
+  });
+};
+
+watch(searchText, () => {
+  if (searchText.value) {
+    searchForAllMovies();
+    searchForallTvs();
+    searchForPerson();
+  }
+});
+
+onMounted(() => {
+  locale.value = localStorage.getItem("locale") || "en";
+});
+</script>
+
+
 <template>
   <div class="search_modal">
     <nuxt-link
@@ -80,56 +135,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const showModal = ref(false);
-
-import { searchForAllStore } from "../../stores/searchForAll/searchForAll";
-
-const { locale } = useI18n();
-
-const searchForAll = searchForAllStore();
-
-const searchText = ref("");
-
-const movies = ref([]);
-
-const Tvs = ref([]);
-
-const Actors = ref([]);
-
-const searchForAllMovies = () => {
-  searchForAll.searchForAll.filter((movie: any | null) => {
-    if (movie?.media_type === "movie") {
-      movies.value.push(movie);
-    }
-  });
-};
-
-const searchForallTvs = () => {
-  searchForAll.searchForAll.filter((tv: any | null) => {
-    if (tv?.media_type === "tv") {
-      Tvs.value.push(tv);
-    }
-  });
-};
-
-const searchForPerson = () => {
-  searchForAll.searchForAll.filter((person: any | null) => {
-    if (person?.media_type === "person") {
-      Actors.value.push(person);
-    }
-  });
-};
-
-watch(searchText, () => {
-  if (searchText.value) {
-    searchForAllMovies();
-    searchForallTvs();
-    searchForPerson();
-  }
-});
-
-onMounted(() => {
-  locale.value = localStorage.getItem("locale") || "en";
-});
-</script>

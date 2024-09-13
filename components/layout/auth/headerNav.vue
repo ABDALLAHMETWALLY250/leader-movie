@@ -1,3 +1,31 @@
+<script lang="ts" setup>
+const emit = defineEmits(["changeTheme"]);
+const theme = ref<string>("light");
+const isMenuOpen = ref(false);
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
+const changeTheme = (newTheme: string) => {
+  theme.value = newTheme;
+  localStorage.setItem("theme", theme.value);
+
+  emit("changeTheme", theme.value);
+
+  if (theme.value == "dark") {
+    theme.value = "dark";
+  } else if (theme.value == "light") {
+    theme.value = "light";
+  }
+};
+onMounted(() => {
+  theme.value = localStorage.getItem("theme") || "light";
+});
+</script>
+    
+
+
 <template>
   <nav class="fixed top-0 w-full z-10 bg-white navbar" id="navbar">
     <div
@@ -75,30 +103,4 @@
     </div>
   </nav>
 </template>
-    
-<script lang="ts" setup>
-const emit = defineEmits(["changeTheme"]);
-const theme = ref<string>("light");
-const isMenuOpen = ref(false);
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
-
-const changeTheme = (newTheme: string) => {
-  theme.value = newTheme;
-  localStorage.setItem("theme", theme.value);
-
-  emit("changeTheme", theme.value);
-
-  if (theme.value == "dark") {
-    theme.value = "dark";
-  } else if (theme.value == "light") {
-    theme.value = "light";
-  }
-};
-onMounted(() => {
-  theme.value = localStorage.getItem("theme") || "light";
-});
-</script>
     

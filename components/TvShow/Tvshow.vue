@@ -1,9 +1,9 @@
 <template >
   <div class="HomeMovie">
     <div class="container mx-auto xl:px-5">
-      <HomeMovieTopHeader :path="'tv-show'">
+      <TopHeader :path="'tv-show'">
         {{ $t("tv_shows") }}
-      </HomeMovieTopHeader>
+      </TopHeader>
 
       <SkeltonCardsLoading v-if="popularTv.popTv.length <= 0" />
 

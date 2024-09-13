@@ -47,10 +47,7 @@ defineProps(["item"]);
 
 const { locale } = useI18n();
 
-const route = useRoute();
 const defaultOverView = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
 });
 </script>
-<style lang="">
-</style>

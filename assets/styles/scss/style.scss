@@ -82,6 +82,44 @@ body {
     }
 }
 
+.top-header {
+    padding: 1rem 1.5rem;
+    .border-top {
+        border-top: 8px solid #0284c7;
+        width: 54%;
+        border-radius: 50px;
+        transition: all 0.5s;
+    }
+    .title {
+        &:hover {
+            cursor: pointer;
+            .border-top {
+                width: 100%;
+                transition: all 0.5s;
+            }
+        }
+    }
+}
+#dark {
+    .top-header {
+        .border-top {
+            border-top: 8px solid gold;
+            width: 54%;
+            border-radius: 50px;
+            transition: all 0.5s;
+        }
+        .title {
+            &:hover {
+                cursor: pointer;
+                .border-top {
+                    width: 100%;
+                    transition: all 0.5s;
+                }
+            }
+        }
+    }
+}
+
 .overview {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

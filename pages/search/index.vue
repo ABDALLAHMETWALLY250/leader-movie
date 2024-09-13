@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import { searchForAllStore } from "../../stores/searchForAll/searchForAll";
+const { locale } = useI18n();
+const searchForAll = searchForAllStore();
+const searchText = ref<string>("");
+
+const curentPage = ref<number>(1);
+
+const search = () => {
+  searchForAll.fetchSearchForAll(
+    locale.value,
+    searchText.value,
+    curentPage.value
+  );
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+const fetchPageData = (i: number) => {
+  searchForAll.fetchSearchForAll(locale.value, searchText.value, i);
+  curentPage.value = i;
+};
+
+onMounted(() => {
+  locale.value = localStorage.getItem("locale") || "en";
+});
+</script>
+
+
 <template>
   <div class="SearchPage">
     <form
@@ -66,36 +94,10 @@
     </span>
     <h2
       v-if="searchForAll.searchForAll.length == 0"
-      class="py-80 text-center font-medium capitalize text-2xl flex items-center justify-center flex items-center justify-center"
+      class="py-80 text-center font-medium capitalize text-2xl flex items-center justify-center"
     >
       {{ $t("No_search_result") }}
     </h2>
   </div>
 </template>
 
-<script setup lang="ts">
-import { searchForAllStore } from "../../stores/searchForAll/searchForAll";
-const { locale } = useI18n();
-const searchForAll = searchForAllStore();
-const searchText = ref<string>("");
-
-const curentPage = ref<number>(1);
-
-const search = () => {
-  searchForAll.fetchSearchForAll(
-    locale.value,
-    searchText.value,
-    curentPage.value
-  );
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-const fetchPageData = (i: number) => {
-  searchForAll.fetchSearchForAll(locale.value, searchText.value, i);
-  curentPage.value = i;
-};
-
-onMounted(() => {
-  locale.value = localStorage.getItem("locale") || "en";
-});
-</script>
