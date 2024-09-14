@@ -1,4 +1,15 @@
-<template >
+<script setup lang="ts">
+defineProps(["item"]);
+
+const { locale } = useI18n();
+
+const defaultOverView = computed(() => {
+  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
+});
+</script>
+
+
+<template>
   <div class="cards">
     <div class="card_border relative">
       <div class="overflow-hidden">
@@ -42,12 +53,3 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-defineProps(["item"]);
-
-const { locale } = useI18n();
-
-const defaultOverView = computed(() => {
-  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
-});
-</script>

@@ -1,3 +1,34 @@
+<script setup lang="ts">
+import { videoMoviesStore } from "../../stores/Viedeos/videoMovies";
+import { videoTvStore } from "../../stores/Viedeos/videoTv";
+
+const videoModal = videoMoviesStore();
+const videoTvModal = videoTvStore();
+const { locale } = useI18n();
+const visible = ref<boolean>(false);
+
+const props = defineProps(["video_id", "media_type"]);
+
+const playVideo = () => {
+  if (props.media_type == "tv") {
+    videoTvModal.videoTv = [];
+    videoTvModal.tv_keyOne = null;
+    videoTvModal.tv_keyTwone = null;
+    videoTvModal.tv_keyThree = null;
+    videoTvModal.getVideoTv(locale.value, props.video_id);
+    console.log(videoTvModal.videoTv, "videoTvModal.videoTv", props.video_id);
+
+    visible.value = true;
+  } else {
+    videoModal.videoMovies = [];
+    videoModal.movie_keyOne = null;
+    videoModal.movie_keyTwone = null;
+    videoModal.movie_keyThree = null;
+    videoModal.getVideoMovies(locale.value, props.video_id);
+    visible.value = true;
+  }
+};
+</script>
 
 <template>
   <div class="card flex justify-center">
@@ -28,15 +59,9 @@
       :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
     >
       <iframe
-        v-if="
-          videoModal.movie_keyOne ||
-          videoModal.movie_keyTwone ||
-          videoModal.movie_keyThree
-        "
+        v-if="videoModal.movie_keyOne || videoTvModal.tv_keyOne"
         :src="`https://www.youtube.com/embed/${
-          videoModal.movie_keyOne ||
-          videoModal.movie_keyTwone ||
-          videoModal.movie_keyThree
+          media_type == 'tv' ? videoTvModal.tv_keyOne : videoModal.movie_keyOne
         }`"
         frameborder="0"
         allowfullscreen
@@ -54,21 +79,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { videoMoviesStore } from "../../stores/Viedeos/videoMovies";
 
-const videoModal = videoMoviesStore();
-const { locale } = useI18n();
-const visible = ref(false);
-
-const props = defineProps(["movie_id"]);
-
-const playVideo = () => {
-  videoModal.videoMovies = [];
-  videoModal.movie_keyOne = null;
-  videoModal.movie_keyTwone = null;
-  videoModal.movie_keyThree = null;
-  videoModal.getVideoMovies(locale.value, props.movie_id);
-  visible.value = true;
-};
-</script>

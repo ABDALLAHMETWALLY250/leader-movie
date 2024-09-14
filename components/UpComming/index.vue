@@ -25,12 +25,12 @@ const { locale } = useI18n();
             spaceBetween: 20,
           },
           500: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           // when window width is >= 480px
           480: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 30,
           },
           // when window width is >= 640px
@@ -43,7 +43,7 @@ const { locale } = useI18n();
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
         }"
