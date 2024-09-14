@@ -7,7 +7,7 @@ export const usePopularMovieStore = defineStore("PopularMovie", {
     page: 1 as number,
   }),
   actions: {
-    async getPopularMovie(language: string, page: number) {
+    async getPopularMovie(language: string) {
       const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
 
       try {
