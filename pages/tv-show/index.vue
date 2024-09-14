@@ -105,10 +105,4 @@ watch(
   <div class="" v-if="searchTv.tvs.length <= 0">
     <PopularTvShowPopularTv />
   </div>
-
-  <div class="px-10 pb-6">
-    <div class="border_top w-full"></div>
-  </div>
-
-  <UpComming v-if="searchTv.tvs.length <= 0" />
 </template>
