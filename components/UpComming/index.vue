@@ -1,10 +1,21 @@
 <script setup lang="ts">
 const route = useRoute();
+
 const { locale } = useI18n();
+
+import { useUpComing } from "~/stores/UpComming/UpComming";
+
+const upComing = useUpComing();
+onMounted(() => {
+  if (upComing.upComming.length <= 0) {
+    upComing.getUpComing(locale.value);
+  }
+});
 </script>
 
 <template>
-  <div class="p-4">
+  <SkeltonCardsLoading v-if="upComing.upComming.length <= 0" />
+  <div class="p-4 upcomming" v-else>
     <div class="">
       <TopHeader
         :path="route.path == '/movies' ? 'up-comming-movies' : 'up-comming-tv'"
@@ -69,23 +80,12 @@ const { locale } = useI18n();
         :key="locale"
         :dir="locale == 'ar' ? 'rtl' : 'ltr'"
       >
-        <SwiperSlide class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        <SwiperSlide
+          class="swiper-slide"
+          v-for="item in upComing.upComming"
+          :key="item"
+        >
+          <UpCommingCards :items="item" class="h-full" />
         </SwiperSlide>
       </Swiper>
     </div>
@@ -95,27 +95,3 @@ const { locale } = useI18n();
 
 
 
-
-<style scoped lang="scss">
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-  width: 60%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  &:hover {
-    filter: brightness(0.8);
-  }
-}
-</style>
-
-  
-  
-  

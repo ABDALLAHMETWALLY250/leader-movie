@@ -7,9 +7,8 @@ const { locale } = useI18n();
 const popularMovies = usePopularMovieStore();
 
 onMounted(() => {
-  if (popularMovies.popularMovie.length == 0) {
-    locale.value = localStorage.getItem("locale") || "en";
-    popularMovies.getPopularMovie(locale.value, 1);
+  if (popularMovies.popularMovie.length <= 0) {
+    popularMovies.getPopularMovie(locale.value);
   }
 });
 </script>
@@ -64,9 +63,9 @@ onMounted(() => {
         :dir="locale == 'ar' ? 'rtl' : 'ltr'"
         :key="locale"
       >
-        <swiper-slide v-for="item in popularMovies.popularMovie" :key="item.id">
+        <SwiperSlide v-for="item in popularMovies.popularMovie" :key="item">
           <HomeMovieCardsDetails :item="item" />
-        </swiper-slide>
+        </SwiperSlide>
       </swiper>
     </div>
   </div>
