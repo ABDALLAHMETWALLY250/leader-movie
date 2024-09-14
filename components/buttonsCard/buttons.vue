@@ -79,6 +79,6 @@ defineProps(["id", "media_type", "Data"]);
       <i class="pi pi-eye text-2xl"></i>
     </nuxt-link>
 
-    <VideoModalForCardsVideoModal :movie_id="id" />
+    <VideoModalForCardsVideoModal :media_type="media_type" :video_id="id" />
   </div>
 </template>
