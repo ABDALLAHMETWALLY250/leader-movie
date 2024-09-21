@@ -12,11 +12,7 @@ const value = ref<number>(1);
 const route = useRoute();
 </script>
 <template>
-  <div
-    class=" "
-    v-for="item in items"
-    :key="item.id"
-  >
+  <div class=" " v-for="item in items" :key="item.id">
     <div
       class="flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow cards overflow-hidden cursor-pointer"
     >
@@ -46,11 +42,7 @@ const route = useRoute();
           </p>
           <p class="flex items-center my-2">
             <i class="pi pi-calendar mx-2"></i>:
-            {{
-              item?.release_date
-                ? new Date(item.release_date).toLocaleDateString()
-                : new Date().toLocaleDateString()
-            }}
+            {{ item?.release_date }}
           </p>
           <p class="flex items-center my-2">
             <Rating v-model="value" readonly :stars="1" class="star" />

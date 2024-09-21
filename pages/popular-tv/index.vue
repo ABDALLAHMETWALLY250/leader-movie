@@ -21,7 +21,7 @@ const setupInfiniteScroll = () => {
   window.onscroll = () => {
     if (
       window.innerHeight + window.scrollY >=
-      document.body.scrollHeight - 40
+      document.body.scrollHeight - 200
     ) {
       currentPage.value++;
       popularTv.page = currentPage.value;
@@ -91,11 +91,7 @@ useHead({
               <p class="flex items-center my-2">
                 <i class="pi pi-calendar mx-2"></i>
                 :
-                {{
-                  tv?.release_date
-                    ? new Date(tv.release_date).toLocaleDateString()
-                    : new Date().toLocaleDateString()
-                }}
+                {{ tv?.release_date }}
               </p>
               <p class="flex items-center my-2">
                 <Rating v-model="value" readonly :stars="1" class="star" />

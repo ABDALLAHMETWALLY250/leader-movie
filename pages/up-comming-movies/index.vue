@@ -31,7 +31,7 @@ const setupInfiniteScroll = () => {
   window.onscroll = () => {
     if (
       window.innerHeight + window.scrollY >=
-      document.body.scrollHeight - 40
+      document.body.scrollHeight - 200
     ) {
       currentPage.value++;
       useupcoming.page = currentPage.value;
