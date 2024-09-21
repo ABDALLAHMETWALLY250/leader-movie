@@ -6,7 +6,7 @@ const useupcoming = useUpComing();
 
 const currentPage = ref<number>(1);
 
-const fetchMOvies = () => {
+const fetchMovies = () => {
   if (useupcoming.upComming.length === 0) {
     locale.value = localStorage.getItem("locale") || "en";
     useupcoming.getUpComing(locale.value, useupcoming.page);
@@ -14,7 +14,7 @@ const fetchMOvies = () => {
 };
 
 onMounted(() => {
-  fetchMOvies();
+  fetchMovies();
   setupInfiniteScroll();
 });
 
