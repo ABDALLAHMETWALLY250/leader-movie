@@ -1,7 +1,5 @@
 <template >
-  <div>
-    <h1>up-comming-tv</h1>
-  </div>
+  <div>asdfasdfs</div>
 </template>
 <script>
 export default {};

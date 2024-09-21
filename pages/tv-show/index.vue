@@ -50,6 +50,11 @@ watch(
     }
   }
 );
+
+useHead({
+  title: "Tv-show",
+  meta: [{ name: "description", content: "Tv-show" }],
+});
 </script>
 
 
