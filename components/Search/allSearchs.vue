@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const value = ref(3);
+const value = ref<number>(3);
 const defaultOverView = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
 });

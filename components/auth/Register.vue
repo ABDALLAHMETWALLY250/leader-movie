@@ -11,7 +11,7 @@ const userRegister = ref({
   profile_image_url: "",
 });
 
-const showPassword = ref(false);
+const showPassword = ref<boolean>(false);
 
 const errors = reactive({
   username: "",
@@ -23,8 +23,6 @@ const errors = reactive({
 const appearpass = () => {
   showPassword.value = !showPassword.value;
 };
-
-const toast = ref(false);
 
 const validateInputs = () => {
   return (
@@ -78,20 +76,13 @@ const deleteImage = () => {
 
 const register = async () => {
   if (validateInputs()) {
-    await registerStore
-      .authenticateUserRegister({
-        username: userRegister.value.username,
-        password: userRegister.value.password,
-        email: userRegister.value.email,
-        name: userRegister.value.name,
-        image: userRegister.value.image,
-      })
-      .then(() => {
-        toast.value = true;
-        setTimeout(() => {
-          toast.value = false;
-        }, 3000);
-      });
+    await registerStore.authenticateUserRegister({
+      username: userRegister.value.username,
+      password: userRegister.value.password,
+      email: userRegister.value.email,
+      name: userRegister.value.name,
+      image: userRegister.value.image,
+    });
   }
 };
 </script>

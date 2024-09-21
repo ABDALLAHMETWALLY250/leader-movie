@@ -1,4 +1,25 @@
 
+
+<script setup lang="ts">
+import { videoMoviesStore } from "../../stores/Viedeos/videoMovies";
+
+const videoModal = videoMoviesStore();
+const { locale } = useI18n();
+const visible = ref(false);
+
+const props = defineProps(["movie_id"]);
+
+const playVideo = () => {
+  videoModal.videoMovies = [];
+  videoModal.movie_keyOne = null;
+  videoModal.movie_keyTwone = null;
+  videoModal.movie_keyThree = null;
+  videoModal.getVideoMovies(locale.value, props.movie_id);
+  visible.value = true;
+};
+</script>
+
+
 <template>
   <div class="">
     <Button class="btn_swiper_movie" @click="playVideo" aria-label="play">
@@ -38,22 +59,3 @@
     </Dialog>
   </div>
 </template>
-
-<script setup lang="ts">
-import { videoMoviesStore } from "../../stores/Viedeos/videoMovies";
-
-const videoModal = videoMoviesStore();
-const { locale } = useI18n();
-const visible = ref(false);
-
-const props = defineProps(["movie_id"]);
-
-const playVideo = () => {
-  videoModal.videoMovies = [];
-  videoModal.movie_keyOne = null;
-  videoModal.movie_keyTwone = null;
-  videoModal.movie_keyThree = null;
-  videoModal.getVideoMovies(locale.value, props.movie_id);
-  visible.value = true;
-};
-</script>

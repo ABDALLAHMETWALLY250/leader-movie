@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import { useWashList } from "~/stores/addToWashList/washList";
+
+const addsuseWashList = useWashList();
+let washList = reactive([]);
+const route = useRoute();
+const value = ref(1);
+const clearAll = (message: string) => {
+  addsuseWashList.DeleteAll(message);
+};
+
+onMounted(() => {
+  washList = JSON.parse(localStorage.getItem("washList") || "[]");
+  addsuseWashList.list = JSON.parse(localStorage.getItem("washList") || "[]");
+});
+</script>
+
+
+
 <template >
   <div
     class="container mx-auto px-4 py-5"
@@ -91,21 +110,3 @@
     </div>
   </div>
 </template>
-<script setup>
-import { useWashList } from "~/stores/addToWashList/washList";
-
-const addsuseWashList = useWashList();
-let washList = reactive([]);
-const route = useRoute();
-const value = ref(1);
-const clearAll = (message) => {
-  addsuseWashList.DeleteAll(message);
-};
-
-onMounted(() => {
-  washList = JSON.parse(localStorage.getItem("washList") || "[]");
-  addsuseWashList.list = JSON.parse(localStorage.getItem("washList") || "[]");
-});
-</script>
-<style lang="">
-</style>
