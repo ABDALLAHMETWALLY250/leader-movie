@@ -8,7 +8,7 @@ import { useUpComing } from "~/stores/UpComming/UpComming";
 const upComing = useUpComing();
 onMounted(() => {
   if (upComing.upComming.length <= 0) {
-    upComing.getUpComing(locale.value);
+    upComing.getUpComing(locale.value, 1);
   }
 });
 </script>
