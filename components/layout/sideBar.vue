@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { useMovieSwiper } from "@/stores/MovieSwiper/MovieSwiper";
-
-const allMoviesStore = useMovieSwiper();
-
 const emit = defineEmits(["changeTheme"]);
 const changeTheme = (newTheme: string) => {
   emit("changeTheme", newTheme);
@@ -11,7 +7,7 @@ const changeTheme = (newTheme: string) => {
 
 
 <template>
-  <div class="sidebar" v-if="allMoviesStore.movieSwiper.length > 0">
+  <div class="sidebar">
     <aside class="h-screen border-2 px-3 bg-gray-100" id="sidebar">
       <nuxt-link
         aria-label="Go to homepage"

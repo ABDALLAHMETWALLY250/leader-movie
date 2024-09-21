@@ -1,6 +1,7 @@
 
 <script setup lang="ts">
 import { useMovieSwiper } from "@/stores/MovieSwiper/MovieSwiper";
+
 const allMoviesStore = useMovieSwiper();
 const { locale } = useI18n();
 const value = ref<number>(3.5);
