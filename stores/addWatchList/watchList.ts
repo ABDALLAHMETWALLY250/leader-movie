@@ -2,12 +2,12 @@ import Swal from "sweetalert2";
 
 export const useWatchList = defineStore("watchLater", {
   state: () => ({
-    list: [],
+    list: [] as Array<any>,
   }),
   actions: {
     addToList(item: Array<object>, message: string) {
-      let exist = false;
-      for (let i = 0; i < this.list.length; i++) {
+      let exist: boolean = false;
+      for (let i: number = 0; i < this.list.length; i++) {
         if (this.list[i].id === item.id) {
           exist = true;
           break;
@@ -26,7 +26,7 @@ export const useWatchList = defineStore("watchLater", {
         });
       } else {
         // remove this item from list
-        for (let i = 0; i < this.list.length; i++) {
+        for (let i: number = 0; i < this.list.length; i++) {
           if (this.list[i]?.id === item?.id) {
             this.list.splice(i, 1);
             Swal.fire({

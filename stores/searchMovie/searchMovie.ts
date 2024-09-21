@@ -1,6 +1,6 @@
 export const useSearchMovie = defineStore("searchMovie", {
   state: () => ({
-    searchMovie: [] as Array<object>,
+    searchMovie: [] as Array<any>,
     searchText: "" as string,
     loading: false as boolean,
     page: 1 as number,

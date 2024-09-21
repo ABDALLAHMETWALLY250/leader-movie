@@ -1,6 +1,6 @@
 export const useAllMoviesStore = defineStore("allMovies", {
   state: () => ({
-    allMovies: [],
+    allMovies: [] as Array<any>,
   }),
   actions: {
     async setAllMovies(language: string) {

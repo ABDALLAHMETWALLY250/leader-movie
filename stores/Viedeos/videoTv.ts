@@ -1,10 +1,10 @@
 export const videoTvStore = defineStore("videoTv", {
   state: () => ({
-    videoTv: [],
-    loading: false,
-    tv_keyOne: null,
-    tv_keyTwone: null,
-    tv_keyThree: null,
+    videoTv: [] as Array<any>,
+    loading: false as boolean,
+    tv_keyOne: null as string | null,
+    tv_keyTwone: null as string | null,
+    tv_keyThree: null as string | null,
   }),
   actions: {
     async getVideoTv(language: string, id: number) {
