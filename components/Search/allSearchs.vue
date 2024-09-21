@@ -11,29 +11,31 @@ defineProps(["allSearchs"]);
 <template>
   <div
     v-if="allSearchs.length > 0"
-    class="grid gap-4 my-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1"
+    class="grid gap-4 my-8 lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1"
   >
     <div
       v-for="item in allSearchs"
       :key="item.id"
-      class="bg-white border border-gray-200 rounded-lg shadow card_Movie relative flex flex-col"
+      class="bg-white border border-gray-600 rounded-lg shadow card_Movie relative flex flex-col"
     >
-      <img
-        v-if="item?.backdrop_path || item?.poster_path"
-        class="object-cover w-full rounded-t-lg h-96 md:h-72"
-        :src="`https://image.tmdb.org/t/p/w500/${
-          item?.backdrop_path || item?.poster_path
-        }`"
-        :alt="item?.name || item?.title"
-        loading="lazy"
-      />
-      <img
-        v-else
-        class="object-cover w-full rounded-t-lg h-96 md:h-72"
-        src="https://i.pravatar.cc/500"
-        :alt="item?.name || item?.title"
-        loading="lazy"
-      />
+      <div class="overflow-hidden">
+        <img
+          v-if="item?.backdrop_path || item?.poster_path"
+          class="object-cover w-full rounded-t-lg h-96 md:h-72 hover:scale-105 transition duration-300 ease-in-out"
+          :src="`https://image.tmdb.org/t/p/w500/${
+            item?.backdrop_path || item?.poster_path
+          }`"
+          :alt="item?.name || item?.title"
+          loading="lazy"
+        />
+        <img
+          v-else
+          class="object-cover w-full rounded-t-lg h-96 md:h-72 hover:scale-105 transition duration-300 ease-in-out"
+          src="https://i.pravatar.cc/500"
+          :alt="item?.name || item?.title"
+          loading="lazy"
+        />
+      </div>
       <div class="flex flex-col justify-between p-4 leading-normal">
         <NuxtLink :to="`/movie/${item.id}`">
           <h2 class="mb-2 text-2xl font-bold tracking-tight">
@@ -68,6 +70,7 @@ defineProps(["allSearchs"]);
           :id="item?.id"
           :media_type="item?.media_type"
           :Data="item"
+          class="py-2"
         />
       </div>
     </div>
