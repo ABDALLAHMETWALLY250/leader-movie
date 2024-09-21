@@ -1,3 +1,43 @@
+
+<script setup lang="ts">
+import { useMovieSwiper } from "@/stores/MovieSwiper/MovieSwiper";
+const allMoviesStore = useMovieSwiper();
+const { locale } = useI18n();
+const value = ref(3.5);
+
+// swiper
+const creativeEffect = computed(() => {
+  if (locale.value === "ar") {
+    return {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -200],
+      },
+      next: {
+        translate: ["-100%", 0, 0], // Reversed for RTL
+      },
+    };
+  } else {
+    return {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -200],
+      },
+      next: {
+        translate: ["100%", 0, 0],
+      },
+    };
+  }
+});
+// swiper
+onMounted(() => {
+  if (allMoviesStore.movieSwiper.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    allMoviesStore.setMovieSwiper(locale.value);
+  }
+});
+</script>
+
 <template>
   <div v-if="allMoviesStore.movieSwiper.length <= 0" class="px-4">
     <SkeltonImageSwiper />
@@ -81,42 +121,3 @@
   </Swiper>
 </template>
   
-
-<script setup lang="ts">
-import { useMovieSwiper } from "@/stores/MovieSwiper/MovieSwiper";
-const allMoviesStore = useMovieSwiper();
-const { locale } = useI18n();
-const value = ref(3.5);
-
-// swiper
-const creativeEffect = computed(() => {
-  if (locale.value === "ar") {
-    return {
-      prev: {
-        shadow: true,
-        translate: [0, 0, -200],
-      },
-      next: {
-        translate: ["-100%", 0, 0], // Reversed for RTL
-      },
-    };
-  } else {
-    return {
-      prev: {
-        shadow: true,
-        translate: [0, 0, -200],
-      },
-      next: {
-        translate: ["100%", 0, 0],
-      },
-    };
-  }
-});
-// swiper
-onMounted(() => {
-  if (allMoviesStore.movieSwiper.length === 0) {
-    locale.value = localStorage.getItem("locale") || "en";
-    allMoviesStore.setMovieSwiper(locale.value);
-  }
-});
-</script>

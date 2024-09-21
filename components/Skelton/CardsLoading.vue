@@ -1,5 +1,5 @@
 <template >
-  <div>
+  <div class="container mx-auto">
     <swiper
       class="mySwiper my-3"
       :modules="[SwiperAutoplay]"

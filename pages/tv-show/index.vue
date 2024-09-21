@@ -55,7 +55,7 @@ watch(
 
 <template>
   <div class="tv_show">
-    <Banner>
+    <Banner class="container mx-auto">
       <div class="title xl:px-80 lg:px-40 md:px-20 px-5">
         <h3>{{ $t("tv_shows") }}</h3>
         <p class="description my-5">

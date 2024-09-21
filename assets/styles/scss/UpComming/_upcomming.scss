@@ -22,4 +22,16 @@
         opacity: 1;
         transition: all 0.5s;
     }
+
+    .upcomming-buttons {
+        background-color: #ffffff;
+    }
+}
+
+#dark {
+    .upcomming {
+        .upcomming-buttons {
+            background-color: #111;
+        }
+    }
 }

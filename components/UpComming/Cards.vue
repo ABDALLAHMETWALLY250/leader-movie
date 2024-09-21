@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const prosp = defineProps(["items"]);
+defineProps(["items"]);
 </script>
 
 <template>
@@ -27,7 +27,7 @@ const prosp = defineProps(["items"]);
         </div>
       </div>
 
-      <div class="absolute bottom-0 w-full bg-white">
+      <div class="absolute bottom-0 w-full upcomming-buttons">
         <ButtonsCardButtons
           :id="items.id"
           :media_type="items.media_type"
