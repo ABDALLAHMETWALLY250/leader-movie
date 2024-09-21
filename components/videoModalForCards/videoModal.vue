@@ -16,7 +16,7 @@ const playVideo = () => {
     videoTvModal.tv_keyTwone = null;
     videoTvModal.tv_keyThree = null;
     videoTvModal.getVideoTv(locale.value, props.video_id);
-    console.log(videoTvModal.videoTv, "videoTvModal.videoTv", props.video_id);
+    // console.log(videoTvModal.videoTv, "videoTvModal.videoTv", props.video_id);
 
     visible.value = true;
   } else {
