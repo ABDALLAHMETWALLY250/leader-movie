@@ -20,7 +20,7 @@ export const videoTvStore = defineStore("videoTv", {
 
         this.videoTv = data.results;
         this.loading = false;
-        console.log(id, "fff");
+        // console.log(id, "fff");
 
         this.tv_keyOne = data.results[0]?.key;
       } catch (error) {
