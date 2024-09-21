@@ -14,6 +14,9 @@ onMounted(() => {
   addsuseWashList.list = JSON.parse(localStorage.getItem("washList") || "[]");
 });
 
+const defaultOverView = computed(() => {
+  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
+});
 useHead({
   title: "Watchlist",
   meta: [{ name: "description", content: "Watchlist" }],

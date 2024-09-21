@@ -1,9 +1,9 @@
 export const useUpComing = defineStore("upComing", {
   state: () => {
     return {
-      upComming: [],
-      page: 1,
-      loading: false,
+      upComming: [] as Array<any>,
+      page: 1 as number,
+      loading: false as boolean,
     };
   },
   actions: {

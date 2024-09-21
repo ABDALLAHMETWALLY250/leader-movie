@@ -1,6 +1,6 @@
 export const searchTvStore = defineStore("searchTv", {
   state: () => ({
-    tvs: [] as Array<object>,
+    tvs: [] as Array<any>,
 
     loading: false as boolean,
     searchText: "" as string,

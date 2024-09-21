@@ -1,10 +1,10 @@
 export const videoMoviesStore = defineStore("videoMovies", {
   state: () => ({
-    videoMovies: [],
-    loading: false,
-    movie_keyOne: null,
-    movie_keyTwone: null,
-    movie_keyThree: null,
+    videoMovies: [] as Array<any>,
+    loading: false as boolean,
+    movie_keyOne: null as string | null,
+    movie_keyTwone: null as string | null,
+    movie_keyThree: null as string | null,
   }),
   actions: {
     async getVideoMovies(language: string, id: number) {

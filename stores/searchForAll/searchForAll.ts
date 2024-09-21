@@ -1,8 +1,8 @@
 export const searchForAllStore = defineStore("searchForAll", {
   state: () => ({
-    searchForAll: [],
-    loading: false,
-    totalPages: null,
+    searchForAll: [] as Array<any>,
+    loading: false as boolean,
+    totalPages: null as number | null,
   }),
   actions: {
     async fetchSearchForAll(lang: string, searchText: string, page: number) {

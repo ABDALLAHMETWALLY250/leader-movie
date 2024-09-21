@@ -1,7 +1,7 @@
 export const usePopularMovieStore = defineStore("PopularMovie", {
   state: () => ({
-    popularMovie: [] as Array<object>,
-    popularMoviePage: [] as Array<object>,
+    popularMovie: [] as Array<any>,
+    popularMoviePage: [] as Array<any>,
 
     loading: false as boolean,
     page: 1 as number,

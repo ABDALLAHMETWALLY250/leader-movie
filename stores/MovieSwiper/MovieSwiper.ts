@@ -1,6 +1,6 @@
 export const useMovieSwiper = defineStore("movieSwiper", {
   state: () => ({
-    movieSwiper: [],
+    movieSwiper: [] as Array<any>,
   }),
   actions: {
     async setMovieSwiper(language: string) {
@@ -11,6 +11,7 @@ export const useMovieSwiper = defineStore("movieSwiper", {
         ).then((res) =>
           res.json().then((data) => {
             this.movieSwiper = data.results;
+            console.log(this.movieSwiper, "movieSwiper");
           })
         );
       } catch (error) {

@@ -70,12 +70,8 @@ onMounted(() => {
           delay: 3000,
           disableOnInteraction: false,
         }"
-        :pagination="{
-          clickable: true,
-          dynamicBullets: true,
-        }"
         :loop="true"
-        :modules="[SwiperEffectCoverflow, SwiperPagination, SwiperAutoplay]"
+        :modules="[SwiperEffectCoverflow, SwiperAutoplay]"
         class="mySwiper h-96 mt-3"
         :key="locale"
         :dir="locale == 'ar' ? 'rtl' : 'ltr'"

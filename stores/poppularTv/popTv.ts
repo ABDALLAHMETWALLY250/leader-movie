@@ -1,6 +1,6 @@
 export const usePopTv = defineStore("popTv", {
   state: () => ({
-    popTv: [] as Array<object>,
+    popTv: [] as Array<any>,
     popTvPage: [] as Array<object>,
     loading: false as boolean,
     page: 1 as number,
