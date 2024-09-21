@@ -15,7 +15,7 @@ onMounted(() => {
 
 <template>
   <SkeltonCardsLoading v-if="upComing.upComming.length <= 0" />
-  <div class="p-4 upcomming" v-else>
+  <div class="p-4 upcomming container mx-auto" v-else>
     <div class="">
       <TopHeader
         :path="route.path == '/movies' ? 'up-comming-movies' : 'up-comming-tv'"

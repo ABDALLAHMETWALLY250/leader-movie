@@ -72,7 +72,7 @@ watch(
         class="w-full h-full object-cover filter brightness-75"
       ></video>
       <Banner
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full container mx-auto"
       >
         <div class="title xl:px-80 lg:px-40 md:px-20 px-5">
           <h3>{{ $t("Movies") }}</h3>
