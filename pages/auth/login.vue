@@ -2,6 +2,10 @@
 definePageMeta({
   layout: "auth",
 });
+useHead({
+  title: "Login",
+  meta: [{ name: "description", content: "Login" }],
+});
 </script>
 
 <template >

@@ -13,7 +13,12 @@ onMounted(() => {
     localStorage.getItem("watchLater") || "[]"
   );
 });
-const value = ref(1);
+const value = ref<number>(1);
+
+useHead({
+  title: "Watchlater",
+  meta: [{ name: "description", content: "Watchlater" }],
+});
 </script>
  
 

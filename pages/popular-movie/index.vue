@@ -1,3 +1,57 @@
+
+<script setup lang="ts">
+import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
+
+const route = useRoute();
+const { locale } = useI18n();
+const popularMovies = usePopularMovieStore();
+const value = ref<number>(1);
+const currentPage = ref<number>(1);
+
+const fetchMOvies = () => {
+  if (popularMovies.popularMoviePage.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularMovies.getPopularMoviePage(locale.value, popularMovies.page);
+  }
+};
+
+onMounted(() => {
+  fetchMOvies();
+  setupInfiniteScroll();
+});
+
+onUpdated(() => {
+  setupInfiniteScroll();
+  currentPage.value = popularMovies.page;
+});
+
+onUnmounted(() => {
+  window.onscroll = null;
+});
+
+const defaultOverview = computed(() => {
+  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text since the 1500s.";
+});
+
+const setupInfiniteScroll = () => {
+  window.onscroll = () => {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 40
+    ) {
+      currentPage.value++;
+      popularMovies.page = currentPage.value;
+      popularMovies.getPopularMoviePage(locale.value, popularMovies.page);
+    }
+  };
+};
+
+useHead({
+  title: "Popular-movie",
+  meta: [{ name: "description", content: "Popular-movie" }],
+});
+</script>
+
 <template>
   <div
     class="container mx-auto px-5 popular_movie"
@@ -67,50 +121,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { usePopularMovieStore } from "../../stores/PopularMovie/PopularMovie";
-
-const route = useRoute();
-const { locale } = useI18n();
-const popularMovies = usePopularMovieStore();
-const value = ref<number>(1);
-const currentPage = ref<number>(1);
-
-const fetchMOvies = () => {
-  if (popularMovies.popularMoviePage.length === 0) {
-    locale.value = localStorage.getItem("locale") || "en";
-    popularMovies.getPopularMoviePage(locale.value, popularMovies.page);
-  }
-};
-
-onMounted(() => {
-  fetchMOvies();
-  setupInfiniteScroll();
-});
-
-onUpdated(() => {
-  setupInfiniteScroll();
-  currentPage.value = popularMovies.page;
-});
-
-onUnmounted(() => {
-  window.onscroll = null;
-});
-
-const defaultOverview = computed(() => {
-  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text since the 1500s.";
-});
-
-const setupInfiniteScroll = () => {
-  window.onscroll = () => {
-    if (
-      window.innerHeight + window.scrollY >=
-      document.body.scrollHeight - 40
-    ) {
-      currentPage.value++;
-      popularMovies.page = currentPage.value;
-      popularMovies.getPopularMoviePage(locale.value, popularMovies.page);
-    }
-  };
-};
-</script>

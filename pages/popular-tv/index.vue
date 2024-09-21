@@ -1,3 +1,53 @@
+<script setup lang="ts">
+import { usePopTv } from "../../stores/poppularTv/popTv";
+const route = useRoute();
+const { locale } = useI18n();
+const popularTv = usePopTv();
+const currentPage = ref<number>(1);
+const value = ref<number>(1);
+
+const fetchTvs = () => {
+  if (popularTv.popTvPage.length === 0) {
+    locale.value = localStorage.getItem("locale") || "en";
+    popularTv.getPopTvPage(locale.value, popularTv.page);
+  }
+};
+
+onMounted(() => {
+  fetchTvs();
+});
+
+const setupInfiniteScroll = () => {
+  window.onscroll = () => {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.scrollHeight - 40
+    ) {
+      currentPage.value++;
+      popularTv.page = currentPage.value;
+      popularTv.getPopTvPage(locale.value, popularTv.page);
+    }
+  };
+};
+
+onUnmounted(() => {
+  window.onscroll = null;
+});
+
+onUpdated(() => {
+  setupInfiniteScroll();
+  currentPage.value = popularTv.page;
+});
+
+const defaultOverview = computed(() => {
+  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text since the 1500s.";
+});
+useHead({
+  title: "Popular-tv",
+  meta: [{ name: "description", content: "Popular-tv" }],
+});
+</script>
+
 <template>
   <div
     class="container mx-auto px-5 popular_movie"
@@ -69,48 +119,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { usePopTv } from "../../stores/poppularTv/popTv";
-const route = useRoute();
-const { locale } = useI18n();
-const popularTv = usePopTv();
-const currentPage = ref<number>(1);
-const value = ref<number>(1);
-
-const fetchTvs = () => {
-  if (popularTv.popTvPage.length === 0) {
-    locale.value = localStorage.getItem("locale") || "en";
-    popularTv.getPopTvPage(locale.value, popularTv.page);
-  }
-};
-
-onMounted(() => {
-  fetchTvs();
-});
-
-const setupInfiniteScroll = () => {
-  window.onscroll = () => {
-    if (
-      window.innerHeight + window.scrollY >=
-      document.body.scrollHeight - 40
-    ) {
-      currentPage.value++;
-      popularTv.page = currentPage.value;
-      popularTv.getPopTvPage(locale.value, popularTv.page);
-    }
-  };
-};
-
-onUnmounted(() => {
-  window.onscroll = null;
-});
-
-onUpdated(() => {
-  setupInfiniteScroll();
-  currentPage.value = popularTv.page;
-});
-
-const defaultOverview = computed(() => {
-  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text since the 1500s.";
-});
-</script>

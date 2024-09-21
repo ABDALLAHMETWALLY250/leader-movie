@@ -23,6 +23,10 @@ const fetchPageData = (i: number) => {
 onMounted(() => {
   locale.value = localStorage.getItem("locale") || "en";
 });
+useHead({
+  title: "Search",
+  meta: [{ name: "description", content: "Search" }],
+});
 </script>
 
 

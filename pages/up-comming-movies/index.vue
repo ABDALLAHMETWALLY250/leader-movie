@@ -1,13 +1,10 @@
 <template >
-    <div>
-            <h1>up-comming-movies</h1>
-    </div>
+  <div>
+    <h1>up-comming-movies</h1>
+  </div>
 </template>
 <script>
-export default {
-    
-}
+export default {};
 </script>
 <style lang="">
-    
 </style>

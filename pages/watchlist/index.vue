@@ -13,6 +13,11 @@ onMounted(() => {
   washList = JSON.parse(localStorage.getItem("washList") || "[]");
   addsuseWashList.list = JSON.parse(localStorage.getItem("washList") || "[]");
 });
+
+useHead({
+  title: "Watchlist",
+  meta: [{ name: "description", content: "Watchlist" }],
+});
 </script>
 
 

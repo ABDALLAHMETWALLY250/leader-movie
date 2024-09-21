@@ -57,6 +57,11 @@ watch(
     }
   }
 );
+
+useHead({
+  title: "Movies",
+  meta: [{ name: "description", content: "Movies" }],
+});
 </script>
 
 
