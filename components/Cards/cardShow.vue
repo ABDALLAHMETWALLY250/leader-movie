@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { useSearchMovie } from "~/stores/searchMovie/searchMovie";
 const searchMovie = useSearchMovie();
-const value = ref(1);
+const value = ref<number>(1);
 const route = useRoute();
 const defaultOverView = computed(() => {
   return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";

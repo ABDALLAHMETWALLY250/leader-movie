@@ -4,7 +4,7 @@ import { useAuthStore } from "../../stores/auth/login";
 const userAvatar = ref({});
 const userName = ref({});
 
-const isMenuOpen = ref(false);
+const isMenuOpen = ref<boolean>(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;

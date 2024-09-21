@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const emit = defineEmits(["changeTheme"]);
 const theme = ref<string>("light");
-const isMenuOpen = ref(false);
+const isMenuOpen = ref<boolean>(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;

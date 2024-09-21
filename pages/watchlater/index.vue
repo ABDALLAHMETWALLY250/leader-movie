@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import { useWatchList } from "~/stores/addWatchList/watchList";
+
+const addsuseWatchList = useWatchList();
+let watchlater = reactive([]);
+const route = useRoute();
+const clearAll = (message: string) => {
+  addsuseWatchList.DeleteAll(message);
+};
+onMounted(() => {
+  watchlater = JSON.parse(localStorage.getItem("watchLater") || "[]");
+  addsuseWatchList.list = JSON.parse(
+    localStorage.getItem("watchLater") || "[]"
+  );
+});
+const value = ref(1);
+</script>
+ 
+
 <template >
   <div
     class="container mx-auto px-4 py-5"
@@ -91,22 +110,3 @@
     </div>
   </div>
 </template>
-  <script setup>
-import { useWatchList } from "~/stores/addWatchList/watchList";
-
-const addsuseWatchList = useWatchList();
-let watchlater = reactive([]);
-const route = useRoute();
-const clearAll = (message) => {
-  addsuseWatchList.DeleteAll(message);
-};
-onMounted(() => {
-  watchlater = JSON.parse(localStorage.getItem("watchLater") || "[]");
-  addsuseWatchList.list = JSON.parse(
-    localStorage.getItem("watchLater") || "[]"
-  );
-});
-const value = ref(1);
-</script>
-  <style lang="">
-</style>

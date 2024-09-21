@@ -3,7 +3,7 @@
 import { useMovieSwiper } from "@/stores/MovieSwiper/MovieSwiper";
 const allMoviesStore = useMovieSwiper();
 const { locale } = useI18n();
-const value = ref(3.5);
+const value = ref<number>(3.5);
 
 // swiper
 const creativeEffect = computed(() => {

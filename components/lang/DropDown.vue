@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { locale } = useI18n();
-const uniqueId = ref(
+const uniqueId = ref<string>(
   `language-selector-${Math.random().toString(36).substring(2, 9)}`
 );
 

@@ -8,7 +8,7 @@ const userLogin = reactive({
   password: "",
 });
 
-const showPassword = ref(false);
+const showPassword = ref<boolean>(false);
 
 const appearpass = () => {
   showPassword.value = !showPassword.value;
