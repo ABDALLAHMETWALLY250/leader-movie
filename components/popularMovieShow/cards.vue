@@ -48,11 +48,7 @@ const defaultOverview = computed(() => {
             </p>
             <p class="flex items-center my-2">
               <i class="pi pi-calendar mx-2"></i>:
-              {{
-                movie?.release_date
-                  ? new Date(movie.release_date).toLocaleDateString()
-                  : new Date().toLocaleDateString()
-              }}
+              {{ movie?.release_date }}
             </p>
             <p class="flex items-center my-2">
               <Rating v-model="value" readonly :stars="1" class="star" />

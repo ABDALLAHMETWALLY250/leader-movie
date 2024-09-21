@@ -78,11 +78,7 @@ useHead({
               <p class="flex items-center my-2">
                 <i class="pi pi-calendar mx-2"></i>
                 :
-                {{
-                  item?.release_date
-                    ? new Date(item.release_date).toLocaleDateString()
-                    : new Date().toLocaleDateString()
-                }}
+                {{ item?.release_date }}
               </p>
               <p class="flex items-center my-2">
                 <Rating v-model="value" readonly :stars="1" class="star" />
