@@ -21,9 +21,9 @@ defineProps(["items"]);
           class="flex justify-center items-center h-full"
           style="background-color: rgba(0, 0, 0, 0.3)"
         >
-          <h3 class="text-2xl text-center font-bold text-white mb-3">
+          <h2 class="text-2xl text-center font-bold text-white mb-3">
             {{ items?.title || items?.name || items?.original_name }}
-          </h3>
+          </h2>
         </div>
       </div>
 
