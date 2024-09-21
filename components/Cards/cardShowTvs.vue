@@ -1,3 +1,16 @@
+
+<script setup lang="ts">
+import { searchTvStore } from "~/stores/searchTv/searchTv";
+const route = useRoute();
+
+const searchTv = searchTvStore();
+
+const value = ref<number>(1);
+
+const defaultOverView = computed(() => {
+  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
+});
+</script>
 <template>
   <div class="container mx-auto" v-if="searchTv.tvs.length > 0">
     <div class="grid grid-cols-12 gap-4">
@@ -60,20 +73,6 @@
       <p class="text-center text-4xl font-bold">{{ $t("Loading") }}</p>
     </div>
   </div>
-  <!-- <div class="" v-else>
-    <p class="text-center text-4xl font-bold">{{ $t("noDataFound") }}</p>
-  </div> -->
 </template>
   
-  <script setup lang="ts">
-import { searchTvStore } from "../../stores/searchTv/searchTv";
-const route = useRoute();
 
-const searchTv = searchTvStore();
-
-const value = ref<number>(1);
-
-const defaultOverView = computed(() => {
-  return "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy";
-});
-</script>
