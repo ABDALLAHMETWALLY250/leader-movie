@@ -16,7 +16,7 @@ export const useUpComing = defineStore("upComing", {
         ).then((res) =>
           res.json().then((data) => {
             this.upComming.push(...data.results);
-            console.log(this.upComming);
+
             this.page = data.page;
             this.loading = false;
           })
