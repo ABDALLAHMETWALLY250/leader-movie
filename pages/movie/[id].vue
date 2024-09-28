@@ -61,7 +61,7 @@ watch(
         <b>.</b>
         <p>{{ formattedRuntime }}</p>
       </div>
-      <p>
+      <p class="overview">
         {{ item?.overview }}
       </p>
       <ButtonsCardButtons
