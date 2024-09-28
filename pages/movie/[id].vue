@@ -25,8 +25,8 @@ const formattedRuntime = computed(() => {
   return `${hours}h ${minutes}m`;
 });
 
-onMounted(() => {
-  fetchMovieDetails();
+onMounted(async () => {
+  await fetchMovieDetails();
 });
 
 watch(
@@ -114,7 +114,8 @@ watch(
           </a>
         </div>
       </template>
-      
     </DetailsFirstSection>
   </div>
+
+  <DetailsOptionSection :id="+route.params.id" :media_type="'movie'" />
 </template>

@@ -6,3 +6,20 @@
         }
     }
 }
+.p-tabview-nav {
+    background-color: #292828;
+    border-bottom: 1px solid #fff;
+    .p-tabview-nav-link {
+        background-color: #292828;
+        padding-bottom: 0.8rem;
+
+        .p-tabview-title {
+            color: #fff !important;
+            margin-inline: 1rem;
+            background-color: #292828;
+        }
+    }
+}
+.p-tabview-panel {
+    background-color: #292828 !important;
+}
