@@ -826,4 +826,10 @@ span.p-button-label {
 
 #dark .upcomming .upcomming-buttons {
   background-color: #111;
+}
+
+.details .p-image img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=style.css.map */

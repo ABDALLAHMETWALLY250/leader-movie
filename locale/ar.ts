@@ -50,4 +50,12 @@ export default {
   success_Add_to_watchlater: "تمت الاضافة للمشاهدة لاحقا بنجاح",
   All_items_removed_from_list: "تم حذف جميع العناصر من القائمة بنجاح",
   up_coming: "الاحدث",
+  Reviews: "المراجعات",
+  Storyline: "قصة",
+  Released: "التاريخ",
+  Runtime: " الوقت",
+  Budget: "الميزانية",
+  Revenue: "الايرادات",
+  Status : "الحالة",
+  Language: "اللغة",
 };

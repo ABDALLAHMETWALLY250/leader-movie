@@ -11,7 +11,7 @@ export const useMovieSwiper = defineStore("movieSwiper", {
         ).then((res) =>
           res.json().then((data) => {
             this.movieSwiper = data.results;
-            console.log(this.movieSwiper, "movieSwiper");
+            // console.log(this.movieSwiper, "movieSwiper");
           })
         );
       } catch (error) {

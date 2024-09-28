@@ -56,4 +56,12 @@ export default {
   All_items_removed_from_list: "All items removed from list",
   success_Add_to_watchlater: "Success Add to watch Later",
   up_coming: "Aujourd'hui",
+  Reviews: "Critiques",
+  Storyline: "Histoire",
+  Released: "Sorti",
+  Runtime: "Duree",
+  Budget: "Budget",
+  Revenue: "Recette",
+  Status : "Statut",
+  Language: "Langue",
 };
