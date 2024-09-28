@@ -54,5 +54,13 @@ export default {
   success_Add_to_watch_Later: "Success Add to watch Later",
   All_items_removed_from_list: "All items removed from list",
   success_Add_to_watchlater: "Success Add to watch Later",
-  up_coming:"Up Coming"
+  up_coming: "Up Coming",
+  Reviews: "Reviews",
+  Storyline: "Storyline",
+  Released: "Released",
+  Runtime: "Runtime",
+  Budget: "Budget",
+  Revenue: "Revenue",
+  Status : "Status",
+  Language: "Language",
 };

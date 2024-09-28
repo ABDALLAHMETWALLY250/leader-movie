@@ -17,7 +17,7 @@ defineProps(["id", "media_type", "Data"]);
 
 
 <template>
-  <div class="flex flex-wrap items-center justify-between">
+  <div class="flex flex-wrap items-center justify-between gap-8">
     <button
       aria-label="watchlist"
       @click="toggleWatchList(Data, $t('success_Add_to_watchlist'))"

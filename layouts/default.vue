@@ -9,7 +9,7 @@
     <LayoutNavBar @changeTheme="changeTheme" class="lb-none tb-none dk-none" />
 
     <div class="col-span-11">
-      <div class="content w-full">
+      <div class="content">
         <slot />
       </div>
     </div>
