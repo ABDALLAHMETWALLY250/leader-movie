@@ -56,6 +56,7 @@ export default {
   Runtime: " الوقت",
   Budget: "الميزانية",
   Revenue: "الايرادات",
-  Status : "الحالة",
+  Status: "الحالة",
   Language: "اللغة",
+  Recommendation: "التوصيات",
 };

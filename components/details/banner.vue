@@ -10,7 +10,7 @@
           class="flex flex-col gap-3 justify-center h-full"
           style="background-color: rgba(0, 0, 0, 0.3)"
         >
-          <div class="container mx-auto xl:px-28 px-4">
+          <div class="container mx-auto xl:px-28 px-4 text-white">
             <slot name="contentBanner" />
           </div>
         </div>

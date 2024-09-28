@@ -94,4 +94,11 @@
             color: #fff;
         }
     }
+    .p-image {
+        width: 100% !important;
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
 }

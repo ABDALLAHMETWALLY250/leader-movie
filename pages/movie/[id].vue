@@ -13,7 +13,7 @@ const route = useRoute();
 const item = ref<MovieDetailsInterface>({} as MovieDetailsInterface);
 
 const fetchMovieDetails = async () => {
-  await movieDetails.getMovieDetails(route.params.id, locale.value);
+  await movieDetails.getMovieDetails(+route.params.id, locale.value);
 
   item.value = movieDetails.movieDetails;
 };
@@ -117,5 +117,7 @@ watch(
     </DetailsFirstSection>
   </div>
 
-  <DetailsOptionSection :id="+route.params.id" :media_type="'movie'" />
+  <DetailsOptionSection :id="+route.params.id" :media_type="'movie'" :data="item" />
+
+  <DetailsRecommendation />
 </template>
