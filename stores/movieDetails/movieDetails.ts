@@ -24,7 +24,7 @@ export const useMovieDetails = defineStore("movieDetails", {
   }),
 
   actions: {
-    async getMovieDetails(id: string | number | string[], language: string) {
+    async getMovieDetails(id: number, language: string) {
       const api_key = "e62b5c7ac206f4ba1f5625e1433cef42";
       try {
         await fetch(

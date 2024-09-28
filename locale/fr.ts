@@ -62,6 +62,7 @@ export default {
   Runtime: "Duree",
   Budget: "Budget",
   Revenue: "Recette",
-  Status : "Statut",
+  Status: "Statut",
   Language: "Langue",
+  Recommendation: "Recommendation",
 };

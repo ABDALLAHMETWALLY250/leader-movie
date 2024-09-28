@@ -63,4 +63,5 @@ export default {
   Revenue: "Revenue",
   Status : "Status",
   Language: "Language",
+  Recommendation: "Recommendation",
 };

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { videoMoviesStore } from "~/stores/Viedeos/videoMovies";
+import { useImagesForMovie } from "~/stores/movieDetails/imagesForMovie";
 
 const videoModal = videoMoviesStore();
+const imagesForMovie = useImagesForMovie();
 
 const { locale } = useI18n();
 
@@ -14,61 +16,93 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  data: {
+    type: Object,
+    required: true,
+  },
 });
 
 const fetcVideo = () => {
   videoModal.getVideoMovies(locale.value, props.id);
-  console.log("444");
 };
 
-onMounted(() => {
+const fetcImages = () => {
+  imagesForMovie.getImages(props.id, locale.value);
+};
+
+const handleTabs = () => {
   fetcVideo();
-});
+  fetcImages();
+};
+
+watch(
+  () => props.id,
+  () => {
+    fetcVideo();
+    fetcImages();
+  }
+);
 </script>
 
 <template>
-  <div class="my-6">
-    <TabView>
-      <TabPanel header="Header II">
-        <p class="m-0">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit,
-          sed quia non numquam eius modi.
-        </p>
-      </TabPanel>
-
-      <TabPanel header="videos" @tab-click="fetcVideo">
-        <div
-          class="container mx-auto xl:px-32 lg:px-32 md:px-20 sm:px-10 my-6 h-96 overflow-auto"
+  <div class="my-6 container mx-auto xl:px-32 md:px-20 sm:px-10 px-4">
+    <TabView @tab-change="handleTabs">
+      <TabPanel header="production companies">
+        <ul
+          class="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 col-span-12 my-4 gap-8"
         >
-          <ul
+          <li
+            v-for="company in data.production_companies"
+            :key="company.id"
+            class="w-full"
+          >
+            <img
+              :src="`https://image.tmdb.org/t/p/w500/${company.logo_path}`"
+              :alt="company.name"
+              class="w-full h-48"
+              v-if="company.logo_path"
+            />
+
+            <img
+              src="https://via.placeholder.com/300x450"
+              :alt="company.name"
+              class="w-full h-48 object-cover"
+              v-else
+            />
+            <p class="text-center text-white mt-6">{{ company.name }}</p>
+          </li>
+        </ul>
+      </TabPanel>
+      <TabPanel header="Posters">
+        <div
+          v-if="imagesForMovie.images.length == 0"
+          class="container mx-auto xl:px-32 lg:px-32 md:px-20 sm:px-10 my-6"
+        >
+          <div
             class="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 col-span-12 gap-4 my-4"
           >
-            <li v-for="i in videoModal.videoMovies" :key="i" class="w-full">
-              <iframe
-                :src="`https://www.youtube.com/embed/${i.key}`"
-                frameborder="0"
-                allowfullscreen
-                class="w-full h-96"
-              ></iframe>
-            </li>
-          </ul>
+            <div class="w-full" v-for="i in 20" :key="i">
+              <Skeleton height="10rem"></Skeleton>
+            </div>
+          </div>
         </div>
+        <DetailsImages v-else :imagesForMovie="imagesForMovie.images" />
       </TabPanel>
-      <TabPanel header="Header III">
-        <p class="m-0">
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
-          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-          cumque nihil impedit quo minus.
-        </p>
+
+      <TabPanel header="Videos">
+        <div
+          v-if="videoModal.videoMovies.length == 0"
+          class="container mx-auto xl:px-32 lg:px-32 md:px-20 sm:px-10 my-6"
+        >
+          <div
+            class="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 col-span-12 gap-4 my-4"
+          >
+            <div class="w-full" v-for="i in 20" :key="i">
+              <Skeleton height="10rem"></Skeleton>
+            </div>
+          </div>
+        </div>
+        <DetailsVedios v-else :videoMovies="videoModal.videoMovies" />
       </TabPanel>
     </TabView>
   </div>

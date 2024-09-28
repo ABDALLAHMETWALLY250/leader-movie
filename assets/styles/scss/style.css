@@ -366,6 +366,14 @@ span.p-button-label {
   #dark .register .description h4 {
     color: #fff;
   }
+  .p-image {
+    width: 100% !important;
+  }
+  .p-image img {
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }
 @media screen and (min-width: 767px) and (max-width: 991px) {
   .tb-none {
@@ -828,7 +836,10 @@ span.p-button-label {
   background-color: #111;
 }
 
-.details .p-image img {
+.p-image {
+  width: 80%;
+}
+.p-image img {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -850,4 +861,15 @@ span.p-button-label {
 
 .p-tabview-panel {
   background-color: #292828 !important;
+}
+
+.vedios::-webkit-scrollbar, .posters::-webkit-scrollbar {
+  width: 3px !important;
+}
+.vedios::-webkit-scrollbar-track, .posters::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.vedios::-webkit-scrollbar-thumb, .posters::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }/*# sourceMappingURL=style.css.map */
