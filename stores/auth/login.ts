@@ -17,7 +17,7 @@ export const useAuthStore = defineStore("auth", {
       message_fail: string
     ) {
       const { data, pending }: any = await useFetch(
-        "http://tarmeezacademy.com/api/v1/login",
+        "https://tarmeezacademy.com/api/v1/login",
         {
           method: "post",
           headers: {
