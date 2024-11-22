@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   image: {
     quality: 80,
     format: ["webp"],
+    domains: ["image.tmdb.org"],
   },
 
   css: [

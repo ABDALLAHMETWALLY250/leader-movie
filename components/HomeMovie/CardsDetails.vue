@@ -13,11 +13,10 @@ const defaultOverView = computed(() => {
   <div class="cards">
     <div class="card_border relative">
       <div class="overflow-hidden">
-        <img
+        <NuxtImg
           v-if="item.poster_path"
           class="rounded-lg h-96 w-full object-cover text-white hover:backdrop-brightness-50 hover:scale-105 transition-all duration-300 cursor-pointer"
-          :src="`
-        https://image.tmdb.org/t/p/w400/${item.poster_path}`"
+          :src="`https://image.tmdb.org/t/p/w400/${item.poster_path}`"
           :alt="item.title || item.name || item.original_name"
           format="webp"
           preview
