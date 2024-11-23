@@ -41,7 +41,7 @@ watch(
 <template >
   <DetailsBanner>
     <template #imageBanner>
-      <img
+      <NuxtImg
         :src="`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`"
         class="w-full h-full filter brightness-50"
         :alt="item?.title"
@@ -117,7 +117,11 @@ watch(
     </DetailsFirstSection>
   </div>
 
-  <DetailsOptionSection :id="+route.params.id" :media_type="'movie'" :data="item" />
+  <DetailsOptionSection
+    :id="+route.params.id"
+    :media_type="'movie'"
+    :data="item"
+  />
 
   <DetailsRecommendation />
 </template>

@@ -4,7 +4,7 @@ defineProps(["items"]);
 
 <template>
   <div class="upcomming-card">
-    <img
+    <NuxtImg
       :src="`https://image.tmdb.org/t/p/w500/${
         items?.backdrop_path || items?.poster_path
       }`"

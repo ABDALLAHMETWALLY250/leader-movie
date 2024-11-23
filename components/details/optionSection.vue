@@ -56,14 +56,14 @@ watch(
             :key="company.id"
             class="w-full"
           >
-            <img
+            <NuxtImg
               :src="`https://image.tmdb.org/t/p/w500/${company.logo_path}`"
               :alt="company.name"
               class="w-full h-48"
               v-if="company.logo_path"
             />
 
-            <img
+            <NuxtImg
               src="https://via.placeholder.com/300x450"
               :alt="company.name"
               class="w-full h-48 object-cover"
