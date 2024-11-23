@@ -105,7 +105,7 @@ const register = async () => {
       class="relative flex items-center justify-center my-5"
       v-if="userRegister.profile_image_url"
     >
-      <img
+      <NuxtImg
         :src="userRegister.profile_image_url"
         alt="Uploaded Image"
         class="w-32 h-32 rounded-full object-cover"

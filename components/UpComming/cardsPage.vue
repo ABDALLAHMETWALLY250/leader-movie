@@ -11,7 +11,7 @@ const route = useRoute();
     <div
       class="flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow cards overflow-hidden cursor-pointer"
     >
-      <img
+      <NuxtImg
         v-if="item?.poster_path || item?.backdrop_path"
         class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg hover:scale-105 transition duration-300 ease-in-out"
         :src="`https://image.tmdb.org/t/p/w500/${
@@ -20,7 +20,7 @@ const route = useRoute();
         :alt="item?.title || item?.name || item?.original_name"
         loading="lazy"
       />
-      <img
+      <NuxtImg
         v-else
         class="object-cover w-full rounded-t-lg h-96 md:h-72 md:rounded-none md:rounded-s-lg hover:scale-105 transition duration-300 ease-in-out"
         src="https://i.pravatar.cc/500"

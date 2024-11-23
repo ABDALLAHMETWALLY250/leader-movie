@@ -46,18 +46,17 @@ useHead({
         <div
           class="relative flex flex-col items-center my-3 border border-gray-200 rounded-lg shadow md:flex-row cards"
         >
-          <img
+        <NuxtImg
             v-if="item?.poster_path || item?.backdrop_path"
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
-            :src="`
-                    https://image.tmdb.org/t/p/w500/${
+            :src="`https://image.tmdb.org/t/p/w500/${
                       item?.poster_path || item?.backdrop_path
                     }
                   `"
             :alt="item?.title || item?.name || item?.original_name"
             loading="lazy"
           />
-          <img
+          <NuxtImg
             v-else
             class="object-cover w-full rounded-t-lg h-96 md:h-72 md:w-48 md:rounded-none md:rounded-s-lg"
             src="https://i.pravatar.cc/500"

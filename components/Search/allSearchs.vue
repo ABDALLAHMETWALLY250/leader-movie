@@ -19,7 +19,7 @@ defineProps(["allSearchs"]);
       class="bg-white border border-gray-600 rounded-lg shadow card_Movie relative flex flex-col"
     >
       <div class="overflow-hidden">
-        <img
+        <NuxtImg
           v-if="item?.backdrop_path || item?.poster_path"
           class="object-cover w-full rounded-t-lg h-96 md:h-72 hover:scale-105 transition duration-300 ease-in-out"
           :src="`https://image.tmdb.org/t/p/w500/${
@@ -28,7 +28,7 @@ defineProps(["allSearchs"]);
           :alt="item?.name || item?.title"
           loading="lazy"
         />
-        <img
+        <NuxtImg
           v-else
           class="object-cover w-full rounded-t-lg h-96 md:h-72 hover:scale-105 transition duration-300 ease-in-out"
           src="https://i.pravatar.cc/500"

@@ -22,7 +22,7 @@ const defaultOverView = computed(() => {
           preview
           loading="lazy"
         />
-        <img
+        <NuxtImg
           v-else
           class="rounded-lg h-96 w-full object-cover text-white hover:backdrop-brightness-50"
           src="https://i.pravatar.cc/300"

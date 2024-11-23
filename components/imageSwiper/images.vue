@@ -74,7 +74,7 @@ onMounted(() => {
             backgroundRepeat: 'no-repeat',
           }"
         >
-          <img
+          <NuxtImg
             v-if="slide.backdrop_path"
             class="image_film relative transition duration-300 ease-in-out"
             :src="`https://image.tmdb.org/t/p/w500/${
@@ -84,7 +84,7 @@ onMounted(() => {
             rel="preload"
             loading="eager"
           />
-          <img
+          <NuxtImg
             v-else
             class="image_film relative"
             src="https://i.pravatar.cc/300"

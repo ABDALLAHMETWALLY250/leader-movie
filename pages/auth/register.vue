@@ -16,7 +16,7 @@ useHead({
     >
       <!-- image -->
       <div class="image">
-        <img
+        <NuxtImg
           src="https://tse3.mm.bing.net/th?id=OIG2.7V5eJMq00fx1VreZjxJP&pid=ImgGn"
           alt="image register"
           loading="lazy"
